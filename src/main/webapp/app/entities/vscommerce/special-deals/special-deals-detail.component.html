@@ -59,7 +59,7 @@
                 <dt><span jhiTranslate="gatewayApp.vscommerceSpecialDeals.customer">Customer</span></dt>
                 <dd>
                     <div *ngIf="specialDeals.customerId">
-                        <a [routerLink]="['/customers', specialDeals.customerId, 'view']">{{ specialDeals.customerId }}</a>
+                        <a [routerLink]="['/customers', specialDeals.customerId, 'view']">{{ specialDeals.customerName }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceSpecialDeals.productCategory">Product Category</span></dt>

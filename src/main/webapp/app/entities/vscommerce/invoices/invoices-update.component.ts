@@ -6,9 +6,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
+import { JhiDataUtils, JhiFileLoadError, JhiEventManager, JhiEventWithContent } from 'ng-jhipster';
 
 import { IInvoices, Invoices } from 'app/shared/model/vscommerce/invoices.model';
 import { InvoicesService } from './invoices.service';
+import { AlertError } from 'app/shared/alert/alert-error.model';
 import { IPeople } from 'app/shared/model/vscommerce/people.model';
 import { PeopleService } from 'app/entities/vscommerce/people/people.service';
 import { ICustomers } from 'app/shared/model/vscommerce/customers.model';
@@ -17,10 +19,12 @@ import { IDeliveryMethods } from 'app/shared/model/vscommerce/delivery-methods.m
 import { DeliveryMethodsService } from 'app/entities/vscommerce/delivery-methods/delivery-methods.service';
 import { IOrders } from 'app/shared/model/vscommerce/orders.model';
 import { OrdersService } from 'app/entities/vscommerce/orders/orders.service';
+import { IOrderPackages } from 'app/shared/model/vscommerce/order-packages.model';
+import { OrderPackagesService } from 'app/entities/vscommerce/order-packages/order-packages.service';
 import { IPaymentMethods } from 'app/shared/model/vscommerce/payment-methods.model';
 import { PaymentMethodsService } from 'app/entities/vscommerce/payment-methods/payment-methods.service';
 
-type SelectableEntity = IPeople | ICustomers | IDeliveryMethods | IOrders | IPaymentMethods;
+type SelectableEntity = IPeople | ICustomers | IDeliveryMethods | IOrders | IOrderPackages | IPaymentMethods;
 
 @Component({
   selector: 'jhi-invoices-update',
@@ -32,6 +36,7 @@ export class InvoicesUpdateComponent implements OnInit {
   customers: ICustomers[] = [];
   deliverymethods: IDeliveryMethods[] = [];
   orders: IOrders[] = [];
+  orderpackages: IOrderPackages[] = [];
   paymentmethods: IPaymentMethods[] = [];
 
   editForm = this.fb.group({
@@ -54,22 +59,26 @@ export class InvoicesUpdateComponent implements OnInit {
     lastEditedBy: [null, [Validators.required]],
     lastEditedWhen: [null, [Validators.required]],
     contactPersonId: [],
-    salespersonPersonId: [],
+    salesPersonId: [],
     packedByPersonId: [],
     accountsPersonId: [],
     customerId: [],
     billToCustomerId: [],
     deliveryMethodId: [],
     orderId: [],
+    orderPackageId: [],
     paymentMethodId: [],
   });
 
   constructor(
+    protected dataUtils: JhiDataUtils,
+    protected eventManager: JhiEventManager,
     protected invoicesService: InvoicesService,
     protected peopleService: PeopleService,
     protected customersService: CustomersService,
     protected deliveryMethodsService: DeliveryMethodsService,
     protected ordersService: OrdersService,
+    protected orderPackagesService: OrderPackagesService,
     protected paymentMethodsService: PaymentMethodsService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -93,6 +102,8 @@ export class InvoicesUpdateComponent implements OnInit {
       this.deliveryMethodsService.query().subscribe((res: HttpResponse<IDeliveryMethods[]>) => (this.deliverymethods = res.body || []));
 
       this.ordersService.query().subscribe((res: HttpResponse<IOrders[]>) => (this.orders = res.body || []));
+
+      this.orderPackagesService.query().subscribe((res: HttpResponse<IOrderPackages[]>) => (this.orderpackages = res.body || []));
 
       this.paymentMethodsService.query().subscribe((res: HttpResponse<IPaymentMethods[]>) => (this.paymentmethods = res.body || []));
     });
@@ -119,14 +130,31 @@ export class InvoicesUpdateComponent implements OnInit {
       lastEditedBy: invoices.lastEditedBy,
       lastEditedWhen: invoices.lastEditedWhen ? invoices.lastEditedWhen.format(DATE_TIME_FORMAT) : null,
       contactPersonId: invoices.contactPersonId,
-      salespersonPersonId: invoices.salespersonPersonId,
+      salesPersonId: invoices.salesPersonId,
       packedByPersonId: invoices.packedByPersonId,
       accountsPersonId: invoices.accountsPersonId,
       customerId: invoices.customerId,
       billToCustomerId: invoices.billToCustomerId,
       deliveryMethodId: invoices.deliveryMethodId,
       orderId: invoices.orderId,
+      orderPackageId: invoices.orderPackageId,
       paymentMethodId: invoices.paymentMethodId,
+    });
+  }
+
+  byteSize(base64String: string): string {
+    return this.dataUtils.byteSize(base64String);
+  }
+
+  openFile(contentType: string, base64String: string): void {
+    this.dataUtils.openFile(contentType, base64String);
+  }
+
+  setFileData(event: Event, field: string, isImage: boolean): void {
+    this.dataUtils.loadFileToForm(event, this.editForm, field, isImage).subscribe(null, (err: JhiFileLoadError) => {
+      this.eventManager.broadcast(
+        new JhiEventWithContent<AlertError>('gatewayApp.error', { ...err, key: 'error.file.' + err.key })
+      );
     });
   }
 
@@ -172,13 +200,14 @@ export class InvoicesUpdateComponent implements OnInit {
         ? moment(this.editForm.get(['lastEditedWhen'])!.value, DATE_TIME_FORMAT)
         : undefined,
       contactPersonId: this.editForm.get(['contactPersonId'])!.value,
-      salespersonPersonId: this.editForm.get(['salespersonPersonId'])!.value,
+      salesPersonId: this.editForm.get(['salesPersonId'])!.value,
       packedByPersonId: this.editForm.get(['packedByPersonId'])!.value,
       accountsPersonId: this.editForm.get(['accountsPersonId'])!.value,
       customerId: this.editForm.get(['customerId'])!.value,
       billToCustomerId: this.editForm.get(['billToCustomerId'])!.value,
       deliveryMethodId: this.editForm.get(['deliveryMethodId'])!.value,
       orderId: this.editForm.get(['orderId'])!.value,
+      orderPackageId: this.editForm.get(['orderPackageId'])!.value,
       paymentMethodId: this.editForm.get(['paymentMethodId'])!.value,
     };
   }

@@ -24,7 +24,9 @@
       "currency": "Currency",
       "currencyRate": "Currency Rate",
       "customerPaymentCreditCard": "Customer Payment Credit Card",
-      "customerPaymentVoucher": "Customer Payment Voucher"
+      "customerPaymentVoucher": "Customer Payment Voucher",
+      "customerPaymentBankTransfer": "Customer Payment Bank Transfer",
+      "customerPaymentPaypal": "Customer Payment Paypal"
     }
   },
   "vscommerceApp": {

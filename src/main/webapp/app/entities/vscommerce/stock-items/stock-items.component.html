@@ -28,9 +28,20 @@
                     <th scope="col"  jhiSortBy="vendorSKU"><span jhiTranslate="gatewayApp.vscommerceStockItems.vendorSKU">Vendor SKU</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="generatedSKU"><span jhiTranslate="gatewayApp.vscommerceStockItems.generatedSKU">Generated SKU</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="barcode"><span jhiTranslate="gatewayApp.vscommerceStockItems.barcode">Barcode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="taxRate"><span jhiTranslate="gatewayApp.vscommerceStockItems.taxRate">Tax Rate</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="unitPrice"><span jhiTranslate="gatewayApp.vscommerceStockItems.unitPrice">Unit Price</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="recommendedRetailPrice"><span jhiTranslate="gatewayApp.vscommerceStockItems.recommendedRetailPrice">Recommended Retail Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typicalWeightPerUnit"><span jhiTranslate="gatewayApp.vscommerceStockItems.typicalWeightPerUnit">Typical Weight Per Unit</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="quantityOnHand"><span jhiTranslate="gatewayApp.vscommerceStockItems.quantityOnHand">Quantity On Hand</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shelf"><span jhiTranslate="gatewayApp.vscommerceStockItems.shelf">Shelf</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="bin"><span jhiTranslate="gatewayApp.vscommerceStockItems.bin">Bin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastStockTakeQuantity"><span jhiTranslate="gatewayApp.vscommerceStockItems.lastStockTakeQuantity">Last Stock Take Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastCostPrice"><span jhiTranslate="gatewayApp.vscommerceStockItems.lastCostPrice">Last Cost Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reorderLevel"><span jhiTranslate="gatewayApp.vscommerceStockItems.reorderLevel">Reorder Level</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="targetStockLevel"><span jhiTranslate="gatewayApp.vscommerceStockItems.targetStockLevel">Target Stock Level</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="leadTimeDays"><span jhiTranslate="gatewayApp.vscommerceStockItems.leadTimeDays">Lead Time Days</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantityPerOuter"><span jhiTranslate="gatewayApp.vscommerceStockItems.quantityPerOuter">Quantity Per Outer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isChillerStock"><span jhiTranslate="gatewayApp.vscommerceStockItems.isChillerStock">Is Chiller Stock</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="itemLength"><span jhiTranslate="gatewayApp.vscommerceStockItems.itemLength">Item Length</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="itemWidth"><span jhiTranslate="gatewayApp.vscommerceStockItems.itemWidth">Item Width</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="itemHeight"><span jhiTranslate="gatewayApp.vscommerceStockItems.itemHeight">Item Height</span> <fa-icon icon="sort"></fa-icon></th>
@@ -47,12 +58,15 @@
                     <th scope="col"  jhiSortBy="sellStartDate"><span jhiTranslate="gatewayApp.vscommerceStockItems.sellStartDate">Sell Start Date</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="sellEndDate"><span jhiTranslate="gatewayApp.vscommerceStockItems.sellEndDate">Sell End Date</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="sellCount"><span jhiTranslate="gatewayApp.vscommerceStockItems.sellCount">Sell Count</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tags"><span jhiTranslate="gatewayApp.vscommerceStockItems.tags">Tags</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="searchDetails"><span jhiTranslate="gatewayApp.vscommerceStockItems.searchDetails">Search Details</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="customFields"><span jhiTranslate="gatewayApp.vscommerceStockItems.customFields">Custom Fields</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="thumbnailUrl"><span jhiTranslate="gatewayApp.vscommerceStockItems.thumbnailUrl">Thumbnail Url</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="activeInd"><span jhiTranslate="gatewayApp.vscommerceStockItems.activeInd">Active Ind</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="liveInd"><span jhiTranslate="gatewayApp.vscommerceStockItems.liveInd">Live Ind</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cashOnDeliveryInd"><span jhiTranslate="gatewayApp.vscommerceStockItems.cashOnDeliveryInd">Cash On Delivery Ind</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="lastEditedBy"><span jhiTranslate="gatewayApp.vscommerceStockItems.lastEditedBy">Last Edited By</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="lastEditedWhen"><span jhiTranslate="gatewayApp.vscommerceStockItems.lastEditedWhen">Last Edited When</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="reviewLineId"><span jhiTranslate="gatewayApp.vscommerceStockItems.reviewLine">Review Line</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="itemLengthUnitCode"><span jhiTranslate="gatewayApp.vscommerceStockItems.itemLengthUnit">Item Length Unit</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="itemWidthUnitCode"><span jhiTranslate="gatewayApp.vscommerceStockItems.itemWidthUnit">Item Width Unit</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="itemHeightUnitCode"><span jhiTranslate="gatewayApp.vscommerceStockItems.itemHeightUnit">Item Height Unit</span> <fa-icon icon="sort"></fa-icon></th>
@@ -77,9 +91,20 @@
                     <td>{{ stockItems.vendorSKU }}</td>
                     <td>{{ stockItems.generatedSKU }}</td>
                     <td>{{ stockItems.barcode }}</td>
+                    <td>{{ stockItems.taxRate }}</td>
                     <td>{{ stockItems.unitPrice }}</td>
                     <td>{{ stockItems.recommendedRetailPrice }}</td>
+                    <td>{{ stockItems.typicalWeightPerUnit }}</td>
                     <td>{{ stockItems.quantityOnHand }}</td>
+                    <td>{{ stockItems.shelf }}</td>
+                    <td>{{ stockItems.bin }}</td>
+                    <td>{{ stockItems.lastStockTakeQuantity }}</td>
+                    <td>{{ stockItems.lastCostPrice }}</td>
+                    <td>{{ stockItems.reorderLevel }}</td>
+                    <td>{{ stockItems.targetStockLevel }}</td>
+                    <td>{{ stockItems.leadTimeDays }}</td>
+                    <td>{{ stockItems.quantityPerOuter }}</td>
+                    <td>{{ stockItems.isChillerStock }}</td>
                     <td>{{ stockItems.itemLength }}</td>
                     <td>{{ stockItems.itemWidth }}</td>
                     <td>{{ stockItems.itemHeight }}</td>
@@ -96,16 +121,15 @@
                     <td>{{ stockItems.sellStartDate | date:'medium' }}</td>
                     <td>{{ stockItems.sellEndDate | date:'medium' }}</td>
                     <td>{{ stockItems.sellCount }}</td>
+                    <td>{{ stockItems.tags }}</td>
+                    <td>{{ stockItems.searchDetails }}</td>
                     <td>{{ stockItems.customFields }}</td>
                     <td>{{ stockItems.thumbnailUrl }}</td>
                     <td>{{ stockItems.activeInd }}</td>
+                    <td>{{ stockItems.liveInd }}</td>
+                    <td>{{ stockItems.cashOnDeliveryInd }}</td>
                     <td>{{ stockItems.lastEditedBy }}</td>
                     <td>{{ stockItems.lastEditedWhen | date:'medium' }}</td>
-                    <td>
-                        <div *ngIf="stockItems.reviewLineId">
-                            <a [routerLink]="['/review-lines', stockItems.reviewLineId , 'view']" >{{ stockItems.reviewLineId }}</a>
-                        </div>
-                    </td>
                     <td>
                         <div *ngIf="stockItems.itemLengthUnitId">
                             <a [routerLink]="['/unit-measure', stockItems.itemLengthUnitId , 'view']" >{{ stockItems.itemLengthUnitCode }}</a>

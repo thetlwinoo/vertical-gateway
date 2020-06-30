@@ -13,17 +13,21 @@
       "detail": {
         "title": "Discount Details"
       },
+      "name": "Name",
       "amount": "Amount",
       "isPercentage": "Is Percentage",
       "isAllowCombinationDiscount": "Is Allow Combination Discount",
       "isFinalBillDiscount": "Is Final Bill Discount",
-      "name": "Name",
       "startCount": "Start Count",
       "endCount": "End Count",
       "multiplyCount": "Multiply Count",
+      "minAmount": "Min Amount",
+      "maxAmount": "Max Amount",
+      "minVolumeWeight": "Min Volume Weight",
+      "maxVolumeWeight": "Max Volume Weight",
       "modifiedDate": "Modified Date",
       "discount": "Discount",
-      "product": "Product",
+      "stockItem": "Stock Item",
       "productCategory": "Product Category"
     }
   },

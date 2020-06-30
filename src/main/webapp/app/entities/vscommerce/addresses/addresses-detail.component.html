@@ -44,10 +44,10 @@
                 <dd>
                     <span>{{ addresses.activeInd }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceAddresses.stateProvince">State Province</span></dt>
+                <dt><span jhiTranslate="gatewayApp.vscommerceAddresses.zone">Zone</span></dt>
                 <dd>
-                    <div *ngIf="addresses.stateProvinceId">
-                        <a [routerLink]="['/state-provinces', addresses.stateProvinceId, 'view']">{{ addresses.stateProvinceName }}</a>
+                    <div *ngIf="addresses.zoneId">
+                        <a [routerLink]="['/zone', addresses.zoneId, 'view']">{{ addresses.zoneCode }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceAddresses.addressType">Address Type</span></dt>

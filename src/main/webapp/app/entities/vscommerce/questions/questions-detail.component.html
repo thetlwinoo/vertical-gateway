@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="questions">
+            <h2><span jhiTranslate="gatewayApp.vscommerceQuestions.detail.title">Questions</span> {{ questions.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceQuestions.customerQuestion">Customer Question</span></dt>
+                <dd>
+                    <span>{{ questions.customerQuestion }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceQuestions.customerQuestionOn">Customer Question On</span></dt>
+                <dd>
+                    <span>{{ questions.customerQuestionOn }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceQuestions.supplierAnswer">Supplier Answer</span></dt>
+                <dd>
+                    <span>{{ questions.supplierAnswer }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceQuestions.supplierAnswerOn">Supplier Answer On</span></dt>
+                <dd>
+                    <span>{{ questions.supplierAnswerOn }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceQuestions.activeInd">Active Ind</span></dt>
+                <dd>
+                    <span>{{ questions.activeInd }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceQuestions.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="questions.supplierId">
+                        <a [routerLink]="['/suppliers', questions.supplierId, 'view']">{{ questions.supplierName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceQuestions.person">Person</span></dt>
+                <dd>
+                    <div *ngIf="questions.personId">
+                        <a [routerLink]="['/people', questions.personId, 'view']">{{ questions.personFullName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceQuestions.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="questions.productId">
+                        <a [routerLink]="['/products', questions.productId, 'view']">{{ questions.productName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/questions', questions.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

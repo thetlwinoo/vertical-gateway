@@ -15,7 +15,10 @@
       },
       "name": "Name",
       "description": "Description",
-      "modifiedDate": "Modified Date"
+      "validFrom": "Valid From",
+      "validTo": "Valid To",
+      "supplier": "Supplier",
+      "discountType": "Discount Type"
     }
   },
   "vscommerceApp": {

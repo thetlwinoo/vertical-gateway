@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-questions-heading" jhiTranslate="gatewayApp.vscommerceQuestions.home.createOrEditLabel">Create or edit a Questions</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceQuestions.customerQuestion" for="field_customerQuestion">Customer Question</label>
+                    <textarea class="form-control" name="customerQuestion" id="field_customerQuestion"
+                              formControlName="customerQuestion"></textarea>
+                    <div *ngIf="editForm.get('customerQuestion')!.invalid && (editForm.get('customerQuestion')!.dirty || editForm.get('customerQuestion')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('customerQuestion')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceQuestions.customerQuestionOn" for="field_customerQuestionOn">Customer Question On</label>
+                    <div class="d-flex">
+                        <input id="field_customerQuestionOn" type="datetime-local" class="form-control" name="customerQuestionOn" formControlName="customerQuestionOn" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('customerQuestionOn')!.invalid && (editForm.get('customerQuestionOn')!.dirty || editForm.get('customerQuestionOn')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('customerQuestionOn')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('customerQuestionOn')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceQuestions.supplierAnswer" for="field_supplierAnswer">Supplier Answer</label>
+                    <textarea class="form-control" name="supplierAnswer" id="field_supplierAnswer"
+                              formControlName="supplierAnswer"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceQuestions.supplierAnswerOn" for="field_supplierAnswerOn">Supplier Answer On</label>
+                    <div class="d-flex">
+                        <input id="field_supplierAnswerOn" type="datetime-local" class="form-control" name="supplierAnswerOn" formControlName="supplierAnswerOn" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceQuestions.activeInd" for="field_activeInd">Active Ind</label>
+                    <input type="checkbox" class="form-control" name="activeInd" id="field_activeInd"
+                           formControlName="activeInd"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceQuestions.supplier" for="field_supplier">Supplier</label>
+                    <select class="form-control" id="field_supplier" name="supplier" formControlName="supplierId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="suppliersOption.id" *ngFor="let suppliersOption of suppliers; trackBy: trackById">{{ suppliersOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceQuestions.person" for="field_person">Person</label>
+                    <select class="form-control" id="field_person" name="person" formControlName="personId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="peopleOption.id" *ngFor="let peopleOption of people; trackBy: trackById">{{ peopleOption.fullName }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceQuestions.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="productId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productsOption.id" *ngFor="let productsOption of products; trackBy: trackById">{{ productsOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

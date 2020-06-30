@@ -27,10 +27,13 @@
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceBankAccounts.branch">Branch</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceBankAccounts.code">Code</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceBankAccounts.number">Number</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceBankAccounts.type">Type</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceBankAccounts.bank">Bank</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceBankAccounts.internationalCode">International Code</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceBankAccounts.lastEditedBy">Last Edited By</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceBankAccounts.validForm">Valid Form</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceBankAccounts.validTo">Valid To</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceBankAccounts.logo">Logo</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -41,10 +44,17 @@
                     <td>{{ bankAccounts.branch }}</td>
                     <td>{{ bankAccounts.code }}</td>
                     <td>{{ bankAccounts.number }}</td>
+                    <td>{{ bankAccounts.type }}</td>
+                    <td>{{ bankAccounts.bank }}</td>
                     <td>{{ bankAccounts.internationalCode }}</td>
                     <td>{{ bankAccounts.lastEditedBy }}</td>
                     <td>{{ bankAccounts.validForm | date:'medium' }}</td>
                     <td>{{ bankAccounts.validTo | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="bankAccounts.logoId">
+                            <a [routerLink]="['/photos', bankAccounts.logoId , 'view']" >{{ bankAccounts.logoThumbnailUrl }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

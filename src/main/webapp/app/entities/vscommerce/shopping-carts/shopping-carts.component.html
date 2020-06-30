@@ -24,8 +24,14 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.totalPrice">Total Price</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.totalCargoPrice">Total Cargo Price</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.subTotalPrice">Sub Total Price</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.totalShippingFee">Total Shipping Fee</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.totalShippingFeeDiscount">Total Shipping Fee Discount</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.promotionTotal">Promotion Total</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.voucherTotal">Voucher Total</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.packageDetails">Package Details</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.cartString">Cart String</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.dealString">Deal String</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.lastEditedBy">Last Edited By</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.lastEditedWhen">Last Edited When</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.cartUser">Cart User</span></th>
@@ -38,18 +44,24 @@
                 <tr *ngFor="let shoppingCarts of shoppingCarts ;trackBy: trackId">
                     <td><a [routerLink]="['/shopping-carts', shoppingCarts.id, 'view']">{{ shoppingCarts.id }}</a></td>
                     <td>{{ shoppingCarts.totalPrice }}</td>
-                    <td>{{ shoppingCarts.totalCargoPrice }}</td>
+                    <td>{{ shoppingCarts.subTotalPrice }}</td>
+                    <td>{{ shoppingCarts.totalShippingFee }}</td>
+                    <td>{{ shoppingCarts.totalShippingFeeDiscount }}</td>
+                    <td>{{ shoppingCarts.promotionTotal }}</td>
+                    <td>{{ shoppingCarts.voucherTotal }}</td>
+                    <td>{{ shoppingCarts.packageDetails }}</td>
                     <td>{{ shoppingCarts.cartString }}</td>
+                    <td>{{ shoppingCarts.dealString }}</td>
                     <td>{{ shoppingCarts.lastEditedBy }}</td>
                     <td>{{ shoppingCarts.lastEditedWhen | date:'medium' }}</td>
                     <td>
                         <div *ngIf="shoppingCarts.cartUserId">
-                            <a [routerLink]="['/people', shoppingCarts.cartUserId , 'view']" >{{ shoppingCarts.cartUserId }}</a>
+                            <a [routerLink]="['/people', shoppingCarts.cartUserId , 'view']" >{{ shoppingCarts.cartUserFullName }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="shoppingCarts.customerId">
-                            <a [routerLink]="['/customers', shoppingCarts.customerId , 'view']" >{{ shoppingCarts.customerId }}</a>
+                            <a [routerLink]="['/customers', shoppingCarts.customerId , 'view']" >{{ shoppingCarts.customerName }}</a>
                         </div>
                     </td>
                     <td>

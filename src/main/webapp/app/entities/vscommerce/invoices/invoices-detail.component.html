@@ -82,10 +82,10 @@
                         <a [routerLink]="['/people', invoices.contactPersonId, 'view']">{{ invoices.contactPersonFullName }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceInvoices.salespersonPerson">Salesperson Person</span></dt>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoices.salesPerson">Sales Person</span></dt>
                 <dd>
-                    <div *ngIf="invoices.salespersonPersonId">
-                        <a [routerLink]="['/people', invoices.salespersonPersonId, 'view']">{{ invoices.salespersonPersonFullName }}</a>
+                    <div *ngIf="invoices.salesPersonId">
+                        <a [routerLink]="['/people', invoices.salesPersonId, 'view']">{{ invoices.salesPersonFullName }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceInvoices.packedByPerson">Packed By Person</span></dt>
@@ -103,13 +103,13 @@
                 <dt><span jhiTranslate="gatewayApp.vscommerceInvoices.customer">Customer</span></dt>
                 <dd>
                     <div *ngIf="invoices.customerId">
-                        <a [routerLink]="['/customers', invoices.customerId, 'view']">{{ invoices.customerId }}</a>
+                        <a [routerLink]="['/customers', invoices.customerId, 'view']">{{ invoices.customerName }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceInvoices.billToCustomer">Bill To Customer</span></dt>
                 <dd>
                     <div *ngIf="invoices.billToCustomerId">
-                        <a [routerLink]="['/customers', invoices.billToCustomerId, 'view']">{{ invoices.billToCustomerId }}</a>
+                        <a [routerLink]="['/customers', invoices.billToCustomerId, 'view']">{{ invoices.billToCustomerName }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceInvoices.deliveryMethod">Delivery Method</span></dt>
@@ -122,6 +122,12 @@
                 <dd>
                     <div *ngIf="invoices.orderId">
                         <a [routerLink]="['/orders', invoices.orderId, 'view']">{{ invoices.orderId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoices.orderPackage">Order Package</span></dt>
+                <dd>
+                    <div *ngIf="invoices.orderPackageId">
+                        <a [routerLink]="['/order-packages', invoices.orderPackageId, 'view']">{{ invoices.orderPackageId }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceInvoices.paymentMethod">Payment Method</span></dt>

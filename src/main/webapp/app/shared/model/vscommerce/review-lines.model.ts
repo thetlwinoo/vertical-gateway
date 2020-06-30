@@ -4,7 +4,6 @@ export interface IReviewLines {
   id?: number;
   stockItemRating?: number;
   stockItemReview?: any;
-  attachedUrl?: string;
   lastEditedBy?: string;
   lastEditedWhen?: Moment;
   reviewImageThumbnailUrl?: string;
@@ -19,7 +18,6 @@ export class ReviewLines implements IReviewLines {
     public id?: number,
     public stockItemRating?: number,
     public stockItemReview?: any,
-    public attachedUrl?: string,
     public lastEditedBy?: string,
     public lastEditedWhen?: Moment,
     public reviewImageThumbnailUrl?: string,

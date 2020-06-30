@@ -23,17 +23,21 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.name">Name</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.amount">Amount</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.isPercentage">Is Percentage</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.isAllowCombinationDiscount">Is Allow Combination Discount</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.isFinalBillDiscount">Is Final Bill Discount</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.name">Name</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.startCount">Start Count</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.endCount">End Count</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.multiplyCount">Multiply Count</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.minAmount">Min Amount</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.maxAmount">Max Amount</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.minVolumeWeight">Min Volume Weight</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.maxVolumeWeight">Max Volume Weight</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.modifiedDate">Modified Date</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.discount">Discount</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.product">Product</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.stockItem">Stock Item</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.productCategory">Product Category</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -41,14 +45,18 @@
             <tbody>
                 <tr *ngFor="let discountDetails of discountDetails ;trackBy: trackId">
                     <td><a [routerLink]="['/discount-details', discountDetails.id, 'view']">{{ discountDetails.id }}</a></td>
+                    <td>{{ discountDetails.name }}</td>
                     <td>{{ discountDetails.amount }}</td>
                     <td>{{ discountDetails.isPercentage }}</td>
                     <td>{{ discountDetails.isAllowCombinationDiscount }}</td>
                     <td>{{ discountDetails.isFinalBillDiscount }}</td>
-                    <td>{{ discountDetails.name }}</td>
                     <td>{{ discountDetails.startCount }}</td>
                     <td>{{ discountDetails.endCount }}</td>
                     <td>{{ discountDetails.multiplyCount }}</td>
+                    <td>{{ discountDetails.minAmount }}</td>
+                    <td>{{ discountDetails.maxAmount }}</td>
+                    <td>{{ discountDetails.minVolumeWeight }}</td>
+                    <td>{{ discountDetails.maxVolumeWeight }}</td>
                     <td>{{ discountDetails.modifiedDate | date:'medium' }}</td>
                     <td>
                         <div *ngIf="discountDetails.discountId">
@@ -56,8 +64,8 @@
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="discountDetails.productId">
-                            <a [routerLink]="['/products', discountDetails.productId , 'view']" >{{ discountDetails.productName }}</a>
+                        <div *ngIf="discountDetails.stockItemId">
+                            <a [routerLink]="['/stock-items', discountDetails.stockItemId , 'view']" >{{ discountDetails.stockItemName }}</a>
                         </div>
                     </td>
                     <td>

@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 
 import { IAddresses, Addresses } from 'app/shared/model/vscommerce/addresses.model';
 import { AddressesService } from './addresses.service';
-import { IStateProvinces } from 'app/shared/model/vscommerce/state-provinces.model';
-import { StateProvincesService } from 'app/entities/vscommerce/state-provinces/state-provinces.service';
+import { IZone } from 'app/shared/model/vscommerce/zone.model';
+import { ZoneService } from 'app/entities/vscommerce/zone/zone.service';
 import { IAddressTypes } from 'app/shared/model/vscommerce/address-types.model';
 import { AddressTypesService } from 'app/entities/vscommerce/address-types/address-types.service';
 import { IPeople } from 'app/shared/model/vscommerce/people.model';
 import { PeopleService } from 'app/entities/vscommerce/people/people.service';
 
-type SelectableEntity = IStateProvinces | IAddressTypes | IPeople;
+type SelectableEntity = IZone | IAddressTypes | IPeople;
 
 @Component({
   selector: 'jhi-addresses-update',
@@ -22,7 +22,7 @@ type SelectableEntity = IStateProvinces | IAddressTypes | IPeople;
 })
 export class AddressesUpdateComponent implements OnInit {
   isSaving = false;
-  stateprovinces: IStateProvinces[] = [];
+  zones: IZone[] = [];
   addresstypes: IAddressTypes[] = [];
   people: IPeople[] = [];
 
@@ -37,14 +37,14 @@ export class AddressesUpdateComponent implements OnInit {
     postalCode: [],
     defaultInd: [],
     activeInd: [],
-    stateProvinceId: [],
+    zoneId: [],
     addressTypeId: [],
     personId: [],
   });
 
   constructor(
     protected addressesService: AddressesService,
-    protected stateProvincesService: StateProvincesService,
+    protected zoneService: ZoneService,
     protected addressTypesService: AddressTypesService,
     protected peopleService: PeopleService,
     protected activatedRoute: ActivatedRoute,
@@ -55,7 +55,7 @@ export class AddressesUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ addresses }) => {
       this.updateForm(addresses);
 
-      this.stateProvincesService.query().subscribe((res: HttpResponse<IStateProvinces[]>) => (this.stateprovinces = res.body || []));
+      this.zoneService.query().subscribe((res: HttpResponse<IZone[]>) => (this.zones = res.body || []));
 
       this.addressTypesService.query().subscribe((res: HttpResponse<IAddressTypes[]>) => (this.addresstypes = res.body || []));
 
@@ -75,7 +75,7 @@ export class AddressesUpdateComponent implements OnInit {
       postalCode: addresses.postalCode,
       defaultInd: addresses.defaultInd,
       activeInd: addresses.activeInd,
-      stateProvinceId: addresses.stateProvinceId,
+      zoneId: addresses.zoneId,
       addressTypeId: addresses.addressTypeId,
       personId: addresses.personId,
     });
@@ -108,7 +108,7 @@ export class AddressesUpdateComponent implements OnInit {
       postalCode: this.editForm.get(['postalCode'])!.value,
       defaultInd: this.editForm.get(['defaultInd'])!.value,
       activeInd: this.editForm.get(['activeInd'])!.value,
-      stateProvinceId: this.editForm.get(['stateProvinceId'])!.value,
+      zoneId: this.editForm.get(['zoneId'])!.value,
       addressTypeId: this.editForm.get(['addressTypeId'])!.value,
       personId: this.editForm.get(['personId'])!.value,
     };

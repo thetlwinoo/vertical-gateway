@@ -9,6 +9,8 @@ import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 
 import { IBankAccounts, BankAccounts } from 'app/shared/model/vscommerce/bank-accounts.model';
 import { BankAccountsService } from './bank-accounts.service';
+import { IPhotos } from 'app/shared/model/vscommerce/photos.model';
+import { PhotosService } from 'app/entities/vscommerce/photos/photos.service';
 
 @Component({
   selector: 'jhi-bank-accounts-update',
@@ -16,6 +18,7 @@ import { BankAccountsService } from './bank-accounts.service';
 })
 export class BankAccountsUpdateComponent implements OnInit {
   isSaving = false;
+  photos: IPhotos[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -23,13 +26,21 @@ export class BankAccountsUpdateComponent implements OnInit {
     branch: [],
     code: [],
     number: [],
+    type: [],
+    bank: [],
     internationalCode: [],
     lastEditedBy: [null, [Validators.required]],
     validForm: [null, [Validators.required]],
     validTo: [null, [Validators.required]],
+    logoId: [],
   });
 
-  constructor(protected bankAccountsService: BankAccountsService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected bankAccountsService: BankAccountsService,
+    protected photosService: PhotosService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ bankAccounts }) => {
@@ -40,6 +51,8 @@ export class BankAccountsUpdateComponent implements OnInit {
       }
 
       this.updateForm(bankAccounts);
+
+      this.photosService.query().subscribe((res: HttpResponse<IPhotos[]>) => (this.photos = res.body || []));
     });
   }
 
@@ -50,10 +63,13 @@ export class BankAccountsUpdateComponent implements OnInit {
       branch: bankAccounts.branch,
       code: bankAccounts.code,
       number: bankAccounts.number,
+      type: bankAccounts.type,
+      bank: bankAccounts.bank,
       internationalCode: bankAccounts.internationalCode,
       lastEditedBy: bankAccounts.lastEditedBy,
       validForm: bankAccounts.validForm ? bankAccounts.validForm.format(DATE_TIME_FORMAT) : null,
       validTo: bankAccounts.validTo ? bankAccounts.validTo.format(DATE_TIME_FORMAT) : null,
+      logoId: bankAccounts.logoId,
     });
   }
 
@@ -79,10 +95,13 @@ export class BankAccountsUpdateComponent implements OnInit {
       branch: this.editForm.get(['branch'])!.value,
       code: this.editForm.get(['code'])!.value,
       number: this.editForm.get(['number'])!.value,
+      type: this.editForm.get(['type'])!.value,
+      bank: this.editForm.get(['bank'])!.value,
       internationalCode: this.editForm.get(['internationalCode'])!.value,
       lastEditedBy: this.editForm.get(['lastEditedBy'])!.value,
       validForm: this.editForm.get(['validForm'])!.value ? moment(this.editForm.get(['validForm'])!.value, DATE_TIME_FORMAT) : undefined,
       validTo: this.editForm.get(['validTo'])!.value ? moment(this.editForm.get(['validTo'])!.value, DATE_TIME_FORMAT) : undefined,
+      logoId: this.editForm.get(['logoId'])!.value,
     };
   }
 
@@ -100,5 +119,9 @@ export class BankAccountsUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IPhotos): any {
+    return item.id;
   }
 }

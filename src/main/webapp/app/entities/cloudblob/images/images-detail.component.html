@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="images">
+            <h2><span jhiTranslate="gatewayApp.cloudblobImages.detail.title">Images</span> {{ images.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.cloudblobImages.thumbnail">Thumbnail</span></dt>
+                <dd>
+                    <div *ngIf="images.thumbnail">
+                        <a (click)="openFile(images.thumbnailContentType, images.thumbnail)">
+                            <img [src]="'data:' + images.thumbnailContentType + ';base64,' + images.thumbnail" style="max-width: 100%;" alt="images image"/>
+                        </a>
+                        {{ images.thumbnailContentType }}, {{ byteSize(images.thumbnail) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.cloudblobImages.original">Original</span></dt>
+                <dd>
+                    <div *ngIf="images.original">
+                        <a (click)="openFile(images.originalContentType, images.original)">
+                            <img [src]="'data:' + images.originalContentType + ';base64,' + images.original" style="max-width: 100%;" alt="images image"/>
+                        </a>
+                        {{ images.originalContentType }}, {{ byteSize(images.original) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.cloudblobImages.bannerTall">Banner Tall</span></dt>
+                <dd>
+                    <div *ngIf="images.bannerTall">
+                        <a (click)="openFile(images.bannerTallContentType, images.bannerTall)">
+                            <img [src]="'data:' + images.bannerTallContentType + ';base64,' + images.bannerTall" style="max-width: 100%;" alt="images image"/>
+                        </a>
+                        {{ images.bannerTallContentType }}, {{ byteSize(images.bannerTall) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.cloudblobImages.bannerWide">Banner Wide</span></dt>
+                <dd>
+                    <div *ngIf="images.bannerWide">
+                        <a (click)="openFile(images.bannerWideContentType, images.bannerWide)">
+                            <img [src]="'data:' + images.bannerWideContentType + ';base64,' + images.bannerWide" style="max-width: 100%;" alt="images image"/>
+                        </a>
+                        {{ images.bannerWideContentType }}, {{ byteSize(images.bannerWide) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.cloudblobImages.circle">Circle</span></dt>
+                <dd>
+                    <div *ngIf="images.circle">
+                        <a (click)="openFile(images.circleContentType, images.circle)">
+                            <img [src]="'data:' + images.circleContentType + ';base64,' + images.circle" style="max-width: 100%;" alt="images image"/>
+                        </a>
+                        {{ images.circleContentType }}, {{ byteSize(images.circle) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.cloudblobImages.sharpened">Sharpened</span></dt>
+                <dd>
+                    <div *ngIf="images.sharpened">
+                        <a (click)="openFile(images.sharpenedContentType, images.sharpened)">
+                            <img [src]="'data:' + images.sharpenedContentType + ';base64,' + images.sharpened" style="max-width: 100%;" alt="images image"/>
+                        </a>
+                        {{ images.sharpenedContentType }}, {{ byteSize(images.sharpened) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.cloudblobImages.square">Square</span></dt>
+                <dd>
+                    <div *ngIf="images.square">
+                        <a (click)="openFile(images.squareContentType, images.square)">
+                            <img [src]="'data:' + images.squareContentType + ';base64,' + images.square" style="max-width: 100%;" alt="images image"/>
+                        </a>
+                        {{ images.squareContentType }}, {{ byteSize(images.square) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.cloudblobImages.watermark">Watermark</span></dt>
+                <dd>
+                    <div *ngIf="images.watermark">
+                        <a (click)="openFile(images.watermarkContentType, images.watermark)">
+                            <img [src]="'data:' + images.watermarkContentType + ';base64,' + images.watermark" style="max-width: 100%;" alt="images image"/>
+                        </a>
+                        {{ images.watermarkContentType }}, {{ byteSize(images.watermark) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.cloudblobImages.refId">Ref Id</span></dt>
+                <dd>
+                    <span>{{ images.refId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/images', images.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

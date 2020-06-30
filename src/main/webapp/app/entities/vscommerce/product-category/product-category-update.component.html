@@ -42,6 +42,24 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductCategory.justForYouInd" for="field_justForYouInd">Just For You Ind</label>
+                    <input type="checkbox" class="form-control" name="justForYouInd" id="field_justForYouInd"
+                           formControlName="justForYouInd"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductCategory.showInNavInd" for="field_showInNavInd">Show In Nav Ind</label>
+                    <input type="checkbox" class="form-control" name="showInNavInd" id="field_showInNavInd"
+                           formControlName="showInNavInd"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductCategory.activeInd" for="field_activeInd">Active Ind</label>
+                    <input type="checkbox" class="form-control" name="activeInd" id="field_activeInd"
+                           formControlName="activeInd"/>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductCategory.parent" for="field_parent">Parent</label>
                     <select class="form-control" id="field_parent" name="parent" formControlName="parentId">
                         <option [ngValue]="null"></option>

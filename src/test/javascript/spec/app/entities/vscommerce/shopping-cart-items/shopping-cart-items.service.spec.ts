@@ -24,7 +24,7 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new ShoppingCartItems(0, 0, 'AAAAAAA', currentDate);
+      elemDefault = new ShoppingCartItems(0, 0, false, 'AAAAAAA', currentDate);
     });
 
     describe('Service methods', () => {
@@ -70,6 +70,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             quantity: 1,
+            selectOrder: true,
             lastEditedBy: 'BBBBBB',
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },
@@ -94,6 +95,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             quantity: 1,
+            selectOrder: true,
             lastEditedBy: 'BBBBBB',
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },

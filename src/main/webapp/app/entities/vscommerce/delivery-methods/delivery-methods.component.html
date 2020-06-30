@@ -24,6 +24,12 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDeliveryMethods.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDeliveryMethods.thirdPartyName">Third Party Name</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDeliveryMethods.expectedMinArrivalDays">Expected Min Arrival Days</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDeliveryMethods.expectedMaxArrivalDays">Expected Max Arrival Days</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDeliveryMethods.activeInd">Active Ind</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDeliveryMethods.defaultInd">Default Ind</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDeliveryMethods.deliveryNote">Delivery Note</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDeliveryMethods.validFrom">Valid From</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDeliveryMethods.validTo">Valid To</span></th>
                     <th scope="col"></th>
@@ -33,6 +39,12 @@
                 <tr *ngFor="let deliveryMethods of deliveryMethods ;trackBy: trackId">
                     <td><a [routerLink]="['/delivery-methods', deliveryMethods.id, 'view']">{{ deliveryMethods.id }}</a></td>
                     <td>{{ deliveryMethods.name }}</td>
+                    <td>{{ deliveryMethods.thirdPartyName }}</td>
+                    <td>{{ deliveryMethods.expectedMinArrivalDays }}</td>
+                    <td>{{ deliveryMethods.expectedMaxArrivalDays }}</td>
+                    <td>{{ deliveryMethods.activeInd }}</td>
+                    <td>{{ deliveryMethods.defaultInd }}</td>
+                    <td>{{ deliveryMethods.deliveryNote }}</td>
                     <td>{{ deliveryMethods.validFrom | date:'medium' }}</td>
                     <td>{{ deliveryMethods.validTo | date:'medium' }}</td>
                     <td class="text-right">

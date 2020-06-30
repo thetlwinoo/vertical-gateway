@@ -7,8 +7,6 @@ import { Observable } from 'rxjs';
 
 import { IPhotos, Photos } from 'app/shared/model/vscommerce/photos.model';
 import { PhotosService } from './photos.service';
-import { IStockItems } from 'app/shared/model/vscommerce/stock-items.model';
-import { StockItemsService } from 'app/entities/vscommerce/stock-items/stock-items.service';
 
 @Component({
   selector: 'jhi-photos-update',
@@ -16,7 +14,6 @@ import { StockItemsService } from 'app/entities/vscommerce/stock-items/stock-ite
 })
 export class PhotosUpdateComponent implements OnInit {
   isSaving = false;
-  stockitems: IStockItems[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -31,21 +28,13 @@ export class PhotosUpdateComponent implements OnInit {
     watermarkUrl: [],
     priority: [],
     defaultInd: [null, [Validators.required]],
-    stockItemId: [],
   });
 
-  constructor(
-    protected photosService: PhotosService,
-    protected stockItemsService: StockItemsService,
-    protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
-  ) {}
+  constructor(protected photosService: PhotosService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ photos }) => {
       this.updateForm(photos);
-
-      this.stockItemsService.query().subscribe((res: HttpResponse<IStockItems[]>) => (this.stockitems = res.body || []));
     });
   }
 
@@ -63,7 +52,6 @@ export class PhotosUpdateComponent implements OnInit {
       watermarkUrl: photos.watermarkUrl,
       priority: photos.priority,
       defaultInd: photos.defaultInd,
-      stockItemId: photos.stockItemId,
     });
   }
 
@@ -96,7 +84,6 @@ export class PhotosUpdateComponent implements OnInit {
       watermarkUrl: this.editForm.get(['watermarkUrl'])!.value,
       priority: this.editForm.get(['priority'])!.value,
       defaultInd: this.editForm.get(['defaultInd'])!.value,
-      stockItemId: this.editForm.get(['stockItemId'])!.value,
     };
   }
 
@@ -114,9 +101,5 @@ export class PhotosUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
-  }
-
-  trackById(index: number, item: IStockItems): any {
-    return item.id;
   }
 }

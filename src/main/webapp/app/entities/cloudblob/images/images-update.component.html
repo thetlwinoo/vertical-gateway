@@ -1,0 +1,188 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-images-heading" jhiTranslate="gatewayApp.cloudblobImages.home.createOrEditLabel">Create or edit a Images</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.cloudblobImages.thumbnail" for="field_thumbnail">Thumbnail</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('thumbnailContentType')!.value + ';base64,' + editForm.get('thumbnail')!.value" style="max-height: 100px;" *ngIf="editForm.get('thumbnail')!.value" alt="images image"/>
+                        <div *ngIf="editForm.get('thumbnail')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('thumbnailContentType')!.value }}, {{ byteSize(editForm.get('thumbnail')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('thumbnail', 'thumbnailContentType', 'file_thumbnail')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_thumbnail" (change)="setFileData($event, 'thumbnail', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="thumbnail" id="field_thumbnail"
+                           formControlName="thumbnail"/>
+                    <input type="hidden" class="form-control" name="thumbnailContentType" id="field_thumbnailContentType"
+                           formControlName="thumbnailContentType" />
+                    <div *ngIf="editForm.get('thumbnail')!.invalid && (editForm.get('thumbnail')!.dirty || editForm.get('thumbnail')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('thumbnail')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.cloudblobImages.original" for="field_original">Original</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('originalContentType')!.value + ';base64,' + editForm.get('original')!.value" style="max-height: 100px;" *ngIf="editForm.get('original')!.value" alt="images image"/>
+                        <div *ngIf="editForm.get('original')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('originalContentType')!.value }}, {{ byteSize(editForm.get('original')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('original', 'originalContentType', 'file_original')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_original" (change)="setFileData($event, 'original', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="original" id="field_original"
+                           formControlName="original"/>
+                    <input type="hidden" class="form-control" name="originalContentType" id="field_originalContentType"
+                           formControlName="originalContentType" />
+                    <div *ngIf="editForm.get('original')!.invalid && (editForm.get('original')!.dirty || editForm.get('original')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('original')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.cloudblobImages.bannerTall" for="field_bannerTall">Banner Tall</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('bannerTallContentType')!.value + ';base64,' + editForm.get('bannerTall')!.value" style="max-height: 100px;" *ngIf="editForm.get('bannerTall')!.value" alt="images image"/>
+                        <div *ngIf="editForm.get('bannerTall')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('bannerTallContentType')!.value }}, {{ byteSize(editForm.get('bannerTall')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('bannerTall', 'bannerTallContentType', 'file_bannerTall')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_bannerTall" (change)="setFileData($event, 'bannerTall', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="bannerTall" id="field_bannerTall"
+                           formControlName="bannerTall"/>
+                    <input type="hidden" class="form-control" name="bannerTallContentType" id="field_bannerTallContentType"
+                           formControlName="bannerTallContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.cloudblobImages.bannerWide" for="field_bannerWide">Banner Wide</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('bannerWideContentType')!.value + ';base64,' + editForm.get('bannerWide')!.value" style="max-height: 100px;" *ngIf="editForm.get('bannerWide')!.value" alt="images image"/>
+                        <div *ngIf="editForm.get('bannerWide')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('bannerWideContentType')!.value }}, {{ byteSize(editForm.get('bannerWide')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('bannerWide', 'bannerWideContentType', 'file_bannerWide')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_bannerWide" (change)="setFileData($event, 'bannerWide', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="bannerWide" id="field_bannerWide"
+                           formControlName="bannerWide"/>
+                    <input type="hidden" class="form-control" name="bannerWideContentType" id="field_bannerWideContentType"
+                           formControlName="bannerWideContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.cloudblobImages.circle" for="field_circle">Circle</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('circleContentType')!.value + ';base64,' + editForm.get('circle')!.value" style="max-height: 100px;" *ngIf="editForm.get('circle')!.value" alt="images image"/>
+                        <div *ngIf="editForm.get('circle')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('circleContentType')!.value }}, {{ byteSize(editForm.get('circle')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('circle', 'circleContentType', 'file_circle')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_circle" (change)="setFileData($event, 'circle', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="circle" id="field_circle"
+                           formControlName="circle"/>
+                    <input type="hidden" class="form-control" name="circleContentType" id="field_circleContentType"
+                           formControlName="circleContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.cloudblobImages.sharpened" for="field_sharpened">Sharpened</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('sharpenedContentType')!.value + ';base64,' + editForm.get('sharpened')!.value" style="max-height: 100px;" *ngIf="editForm.get('sharpened')!.value" alt="images image"/>
+                        <div *ngIf="editForm.get('sharpened')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('sharpenedContentType')!.value }}, {{ byteSize(editForm.get('sharpened')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('sharpened', 'sharpenedContentType', 'file_sharpened')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_sharpened" (change)="setFileData($event, 'sharpened', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="sharpened" id="field_sharpened"
+                           formControlName="sharpened"/>
+                    <input type="hidden" class="form-control" name="sharpenedContentType" id="field_sharpenedContentType"
+                           formControlName="sharpenedContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.cloudblobImages.square" for="field_square">Square</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('squareContentType')!.value + ';base64,' + editForm.get('square')!.value" style="max-height: 100px;" *ngIf="editForm.get('square')!.value" alt="images image"/>
+                        <div *ngIf="editForm.get('square')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('squareContentType')!.value }}, {{ byteSize(editForm.get('square')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('square', 'squareContentType', 'file_square')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_square" (change)="setFileData($event, 'square', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="square" id="field_square"
+                           formControlName="square"/>
+                    <input type="hidden" class="form-control" name="squareContentType" id="field_squareContentType"
+                           formControlName="squareContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.cloudblobImages.watermark" for="field_watermark">Watermark</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('watermarkContentType')!.value + ';base64,' + editForm.get('watermark')!.value" style="max-height: 100px;" *ngIf="editForm.get('watermark')!.value" alt="images image"/>
+                        <div *ngIf="editForm.get('watermark')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('watermarkContentType')!.value }}, {{ byteSize(editForm.get('watermark')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('watermark', 'watermarkContentType', 'file_watermark')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_watermark" (change)="setFileData($event, 'watermark', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="watermark" id="field_watermark"
+                           formControlName="watermark"/>
+                    <input type="hidden" class="form-control" name="watermarkContentType" id="field_watermarkContentType"
+                           formControlName="watermarkContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.cloudblobImages.refId" for="field_refId">Ref Id</label>
+                    <input type="number" class="form-control" name="refId" id="field_refId"
+                           formControlName="refId"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

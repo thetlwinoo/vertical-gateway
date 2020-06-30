@@ -13,10 +13,14 @@ import { OrderPackagesService } from './order-packages.service';
 import { AlertError } from 'app/shared/alert/alert-error.model';
 import { ISuppliers } from 'app/shared/model/vscommerce/suppliers.model';
 import { SuppliersService } from 'app/entities/vscommerce/suppliers/suppliers.service';
+import { IDeliveryMethods } from 'app/shared/model/vscommerce/delivery-methods.model';
+import { DeliveryMethodsService } from 'app/entities/vscommerce/delivery-methods/delivery-methods.service';
+import { ISpecialDeals } from 'app/shared/model/vscommerce/special-deals.model';
+import { SpecialDealsService } from 'app/entities/vscommerce/special-deals/special-deals.service';
 import { IOrders } from 'app/shared/model/vscommerce/orders.model';
 import { OrdersService } from 'app/entities/vscommerce/orders/orders.service';
 
-type SelectableEntity = ISuppliers | IOrders;
+type SelectableEntity = ISuppliers | IDeliveryMethods | ISpecialDeals | IOrders;
 
 @Component({
   selector: 'jhi-order-packages-update',
@@ -25,6 +29,8 @@ type SelectableEntity = ISuppliers | IOrders;
 export class OrderPackagesUpdateComponent implements OnInit {
   isSaving = false;
   suppliers: ISuppliers[] = [];
+  deliverymethods: IDeliveryMethods[] = [];
+  specialdeals: ISpecialDeals[] = [];
   orders: IOrders[] = [];
 
   editForm = this.fb.group({
@@ -33,7 +39,14 @@ export class OrderPackagesUpdateComponent implements OnInit {
     comments: [],
     deliveryInstructions: [],
     internalComments: [],
-    customerPurchaseOrderNumber: [],
+    packageShippingFee: [],
+    packageShippingFeeDiscount: [],
+    packagePrice: [],
+    packageSubTotal: [],
+    packageTaxAmount: [],
+    packageVoucherDiscount: [],
+    packagePromotionDiscount: [],
+    pickingCompletedWhen: [],
     customerReviewedOn: [],
     sellerRating: [],
     sellerReview: [],
@@ -45,6 +58,8 @@ export class OrderPackagesUpdateComponent implements OnInit {
     lastEditedBy: [null, [Validators.required]],
     lastEditedWhen: [null, [Validators.required]],
     supplierId: [],
+    deliveryMethodId: [],
+    specialDealsId: [],
     orderId: [],
   });
 
@@ -53,6 +68,8 @@ export class OrderPackagesUpdateComponent implements OnInit {
     protected eventManager: JhiEventManager,
     protected orderPackagesService: OrderPackagesService,
     protected suppliersService: SuppliersService,
+    protected deliveryMethodsService: DeliveryMethodsService,
+    protected specialDealsService: SpecialDealsService,
     protected ordersService: OrdersService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -63,6 +80,7 @@ export class OrderPackagesUpdateComponent implements OnInit {
       if (!orderPackages.id) {
         const today = moment().startOf('day');
         orderPackages.expectedDeliveryDate = today;
+        orderPackages.pickingCompletedWhen = today;
         orderPackages.customerReviewedOn = today;
         orderPackages.lastEditedWhen = today;
       }
@@ -70,6 +88,10 @@ export class OrderPackagesUpdateComponent implements OnInit {
       this.updateForm(orderPackages);
 
       this.suppliersService.query().subscribe((res: HttpResponse<ISuppliers[]>) => (this.suppliers = res.body || []));
+
+      this.deliveryMethodsService.query().subscribe((res: HttpResponse<IDeliveryMethods[]>) => (this.deliverymethods = res.body || []));
+
+      this.specialDealsService.query().subscribe((res: HttpResponse<ISpecialDeals[]>) => (this.specialdeals = res.body || []));
 
       this.ordersService.query().subscribe((res: HttpResponse<IOrders[]>) => (this.orders = res.body || []));
     });
@@ -82,7 +104,14 @@ export class OrderPackagesUpdateComponent implements OnInit {
       comments: orderPackages.comments,
       deliveryInstructions: orderPackages.deliveryInstructions,
       internalComments: orderPackages.internalComments,
-      customerPurchaseOrderNumber: orderPackages.customerPurchaseOrderNumber,
+      packageShippingFee: orderPackages.packageShippingFee,
+      packageShippingFeeDiscount: orderPackages.packageShippingFeeDiscount,
+      packagePrice: orderPackages.packagePrice,
+      packageSubTotal: orderPackages.packageSubTotal,
+      packageTaxAmount: orderPackages.packageTaxAmount,
+      packageVoucherDiscount: orderPackages.packageVoucherDiscount,
+      packagePromotionDiscount: orderPackages.packagePromotionDiscount,
+      pickingCompletedWhen: orderPackages.pickingCompletedWhen ? orderPackages.pickingCompletedWhen.format(DATE_TIME_FORMAT) : null,
       customerReviewedOn: orderPackages.customerReviewedOn ? orderPackages.customerReviewedOn.format(DATE_TIME_FORMAT) : null,
       sellerRating: orderPackages.sellerRating,
       sellerReview: orderPackages.sellerReview,
@@ -94,6 +123,8 @@ export class OrderPackagesUpdateComponent implements OnInit {
       lastEditedBy: orderPackages.lastEditedBy,
       lastEditedWhen: orderPackages.lastEditedWhen ? orderPackages.lastEditedWhen.format(DATE_TIME_FORMAT) : null,
       supplierId: orderPackages.supplierId,
+      deliveryMethodId: orderPackages.deliveryMethodId,
+      specialDealsId: orderPackages.specialDealsId,
       orderId: orderPackages.orderId,
     });
   }
@@ -138,7 +169,16 @@ export class OrderPackagesUpdateComponent implements OnInit {
       comments: this.editForm.get(['comments'])!.value,
       deliveryInstructions: this.editForm.get(['deliveryInstructions'])!.value,
       internalComments: this.editForm.get(['internalComments'])!.value,
-      customerPurchaseOrderNumber: this.editForm.get(['customerPurchaseOrderNumber'])!.value,
+      packageShippingFee: this.editForm.get(['packageShippingFee'])!.value,
+      packageShippingFeeDiscount: this.editForm.get(['packageShippingFeeDiscount'])!.value,
+      packagePrice: this.editForm.get(['packagePrice'])!.value,
+      packageSubTotal: this.editForm.get(['packageSubTotal'])!.value,
+      packageTaxAmount: this.editForm.get(['packageTaxAmount'])!.value,
+      packageVoucherDiscount: this.editForm.get(['packageVoucherDiscount'])!.value,
+      packagePromotionDiscount: this.editForm.get(['packagePromotionDiscount'])!.value,
+      pickingCompletedWhen: this.editForm.get(['pickingCompletedWhen'])!.value
+        ? moment(this.editForm.get(['pickingCompletedWhen'])!.value, DATE_TIME_FORMAT)
+        : undefined,
       customerReviewedOn: this.editForm.get(['customerReviewedOn'])!.value
         ? moment(this.editForm.get(['customerReviewedOn'])!.value, DATE_TIME_FORMAT)
         : undefined,
@@ -154,6 +194,8 @@ export class OrderPackagesUpdateComponent implements OnInit {
         ? moment(this.editForm.get(['lastEditedWhen'])!.value, DATE_TIME_FORMAT)
         : undefined,
       supplierId: this.editForm.get(['supplierId'])!.value,
+      deliveryMethodId: this.editForm.get(['deliveryMethodId'])!.value,
+      specialDealsId: this.editForm.get(['specialDealsId'])!.value,
       orderId: this.editForm.get(['orderId'])!.value,
     };
   }

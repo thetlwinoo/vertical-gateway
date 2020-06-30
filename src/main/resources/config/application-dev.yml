@@ -43,9 +43,9 @@ spring:
       port: 8500
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/gateway
-    username: gateway
-    password:
+    url: jdbc:postgresql://localhost:5432/vertical_gateway
+    username: postgres
+    password: Passw0rd
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -54,7 +54,7 @@ spring:
     show-sql: true
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
-    contexts: dev, faker
+    contexts: dev
   mail:
     host: localhost
     port: 25

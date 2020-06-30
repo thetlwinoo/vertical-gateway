@@ -42,6 +42,7 @@ describe('Service Tests', () => {
         0,
         false,
         'AAAAAAA',
+        false,
         currentDate,
         currentDate
       );
@@ -108,6 +109,7 @@ describe('Service Tests', () => {
             creditRating: 1,
             activeFlag: true,
             thumbnailUrl: 'BBBBBB',
+            pickupSameAsHeadOffice: true,
             validFrom: currentDate.format(DATE_TIME_FORMAT),
             validTo: currentDate.format(DATE_TIME_FORMAT),
           },
@@ -148,6 +150,7 @@ describe('Service Tests', () => {
             creditRating: 1,
             activeFlag: true,
             thumbnailUrl: 'BBBBBB',
+            pickupSameAsHeadOffice: true,
             validFrom: currentDate.format(DATE_TIME_FORMAT),
             validTo: currentDate.format(DATE_TIME_FORMAT),
           },

@@ -1,0 +1,34 @@
+{
+  "gatewayApp": {
+    "cloudblobImages": {
+      "home": {
+        "title": "Images",
+        "createLabel": "Create a new Images",
+        "createOrEditLabel": "Create or edit a Images",
+        "notFound": "No Images found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Images {{ id }}?"
+      },
+      "detail": {
+        "title": "Images"
+      },
+      "thumbnail": "Thumbnail",
+      "original": "Original",
+      "bannerTall": "Banner Tall",
+      "bannerWide": "Banner Wide",
+      "circle": "Circle",
+      "sharpened": "Sharpened",
+      "square": "Square",
+      "watermark": "Watermark",
+      "refId": "Ref Id"
+    }
+  },
+  "cloudblobApp": {
+    "cloudblobImages": {
+      "created": "A new Images is created with identifier {{ param }}",
+      "updated": "A Images is updated with identifier {{ param }}",
+      "deleted": "A Images is deleted with identifier {{ param }}"
+    }
+  }
+}

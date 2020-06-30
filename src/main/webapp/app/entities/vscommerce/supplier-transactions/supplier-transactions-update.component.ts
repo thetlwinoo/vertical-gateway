@@ -15,8 +15,14 @@ import { ITransactionTypes } from 'app/shared/model/vscommerce/transaction-types
 import { TransactionTypesService } from 'app/entities/vscommerce/transaction-types/transaction-types.service';
 import { IPurchaseOrders } from 'app/shared/model/vscommerce/purchase-orders.model';
 import { PurchaseOrdersService } from 'app/entities/vscommerce/purchase-orders/purchase-orders.service';
+import { IOrders } from 'app/shared/model/vscommerce/orders.model';
+import { OrdersService } from 'app/entities/vscommerce/orders/orders.service';
+import { IInvoices } from 'app/shared/model/vscommerce/invoices.model';
+import { InvoicesService } from 'app/entities/vscommerce/invoices/invoices.service';
+import { ISupplierTransactionStatus } from 'app/shared/model/vscommerce/supplier-transaction-status.model';
+import { SupplierTransactionStatusService } from 'app/entities/vscommerce/supplier-transaction-status/supplier-transaction-status.service';
 
-type SelectableEntity = ISuppliers | ITransactionTypes | IPurchaseOrders;
+type SelectableEntity = ISuppliers | ITransactionTypes | IPurchaseOrders | IOrders | IInvoices | ISupplierTransactionStatus;
 
 @Component({
   selector: 'jhi-supplier-transactions-update',
@@ -27,6 +33,9 @@ export class SupplierTransactionsUpdateComponent implements OnInit {
   suppliers: ISuppliers[] = [];
   transactiontypes: ITransactionTypes[] = [];
   purchaseorders: IPurchaseOrders[] = [];
+  orders: IOrders[] = [];
+  invoices: IInvoices[] = [];
+  suppliertransactionstatuses: ISupplierTransactionStatus[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -43,6 +52,9 @@ export class SupplierTransactionsUpdateComponent implements OnInit {
     supplierId: [],
     transactionTypeId: [],
     purchaseOrderId: [],
+    orderId: [],
+    invoiceId: [],
+    statusId: [],
   });
 
   constructor(
@@ -50,6 +62,9 @@ export class SupplierTransactionsUpdateComponent implements OnInit {
     protected suppliersService: SuppliersService,
     protected transactionTypesService: TransactionTypesService,
     protected purchaseOrdersService: PurchaseOrdersService,
+    protected ordersService: OrdersService,
+    protected invoicesService: InvoicesService,
+    protected supplierTransactionStatusService: SupplierTransactionStatusService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -70,6 +85,14 @@ export class SupplierTransactionsUpdateComponent implements OnInit {
       this.transactionTypesService.query().subscribe((res: HttpResponse<ITransactionTypes[]>) => (this.transactiontypes = res.body || []));
 
       this.purchaseOrdersService.query().subscribe((res: HttpResponse<IPurchaseOrders[]>) => (this.purchaseorders = res.body || []));
+
+      this.ordersService.query().subscribe((res: HttpResponse<IOrders[]>) => (this.orders = res.body || []));
+
+      this.invoicesService.query().subscribe((res: HttpResponse<IInvoices[]>) => (this.invoices = res.body || []));
+
+      this.supplierTransactionStatusService
+        .query()
+        .subscribe((res: HttpResponse<ISupplierTransactionStatus[]>) => (this.suppliertransactionstatuses = res.body || []));
     });
   }
 
@@ -89,6 +112,9 @@ export class SupplierTransactionsUpdateComponent implements OnInit {
       supplierId: supplierTransactions.supplierId,
       transactionTypeId: supplierTransactions.transactionTypeId,
       purchaseOrderId: supplierTransactions.purchaseOrderId,
+      orderId: supplierTransactions.orderId,
+      invoiceId: supplierTransactions.invoiceId,
+      statusId: supplierTransactions.statusId,
     });
   }
 
@@ -129,6 +155,9 @@ export class SupplierTransactionsUpdateComponent implements OnInit {
       supplierId: this.editForm.get(['supplierId'])!.value,
       transactionTypeId: this.editForm.get(['transactionTypeId'])!.value,
       purchaseOrderId: this.editForm.get(['purchaseOrderId'])!.value,
+      orderId: this.editForm.get(['orderId'])!.value,
+      invoiceId: this.editForm.get(['invoiceId'])!.value,
+      statusId: this.editForm.get(['statusId'])!.value,
     };
   }
 

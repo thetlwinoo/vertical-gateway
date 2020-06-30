@@ -2,6 +2,7 @@ import { Moment } from 'moment';
 
 export interface ICustomers {
   id?: number;
+  name?: string;
   accountNumber?: string;
   accountOpenedDate?: Moment;
   standardDiscountPercentage?: number;
@@ -10,6 +11,8 @@ export interface ICustomers {
   paymentDays?: number;
   deliveryRun?: string;
   runPosition?: string;
+  thumbnailUrl?: string;
+  billToAddressSameAsDeliveryAddress?: boolean;
   lastEditedBy?: string;
   validFrom?: Moment;
   validTo?: Moment;
@@ -18,11 +21,13 @@ export interface ICustomers {
   deliveryMethodName?: string;
   deliveryMethodId?: number;
   deliveryAddressId?: number;
+  billToAddressId?: number;
 }
 
 export class Customers implements ICustomers {
   constructor(
     public id?: number,
+    public name?: string,
     public accountNumber?: string,
     public accountOpenedDate?: Moment,
     public standardDiscountPercentage?: number,
@@ -31,6 +36,8 @@ export class Customers implements ICustomers {
     public paymentDays?: number,
     public deliveryRun?: string,
     public runPosition?: string,
+    public thumbnailUrl?: string,
+    public billToAddressSameAsDeliveryAddress?: boolean,
     public lastEditedBy?: string,
     public validFrom?: Moment,
     public validTo?: Moment,
@@ -38,9 +45,11 @@ export class Customers implements ICustomers {
     public peopleId?: number,
     public deliveryMethodName?: string,
     public deliveryMethodId?: number,
-    public deliveryAddressId?: number
+    public deliveryAddressId?: number,
+    public billToAddressId?: number
   ) {
     this.isStatementSent = this.isStatementSent || false;
     this.isOnCreditHold = this.isOnCreditHold || false;
+    this.billToAddressSameAsDeliveryAddress = this.billToAddressSameAsDeliveryAddress || false;
   }
 }

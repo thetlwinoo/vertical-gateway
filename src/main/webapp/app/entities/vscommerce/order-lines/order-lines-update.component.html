@@ -12,6 +12,12 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.quantity" for="field_quantity">Quantity</label>
                     <input type="number" class="form-control" name="quantity" id="field_quantity"
                            formControlName="quantity"/>
@@ -28,9 +34,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.description" for="field_description">Description</label>
-                    <input type="text" class="form-control" name="description" id="field_description"
-                           formControlName="description"/>
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.taxRate" for="field_taxRate">Tax Rate</label>
+                    <input type="number" class="form-control" name="taxRate" id="field_taxRate"
+                           formControlName="taxRate"/>
                 </div>
 
                 <div class="form-group">
@@ -43,18 +49,6 @@
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.unitPriceDiscount" for="field_unitPriceDiscount">Unit Price Discount</label>
                     <input type="number" class="form-control" name="unitPriceDiscount" id="field_unitPriceDiscount"
                            formControlName="unitPriceDiscount"/>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.lineTotal" for="field_lineTotal">Line Total</label>
-                    <input type="number" class="form-control" name="lineTotal" id="field_lineTotal"
-                           formControlName="lineTotal"/>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.taxRate" for="field_taxRate">Tax Rate</label>
-                    <input type="number" class="form-control" name="taxRate" id="field_taxRate"
-                           formControlName="taxRate"/>
                 </div>
 
                 <div class="form-group">
@@ -83,6 +77,50 @@
                         This field is required.
                         </small>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.thumbnailUrl" for="field_thumbnailUrl">Thumbnail Url</label>
+                    <input type="text" class="form-control" name="thumbnailUrl" id="field_thumbnailUrl"
+                           formControlName="thumbnailUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.lineRating" for="field_lineRating">Line Rating</label>
+                    <input type="number" class="form-control" name="lineRating" id="field_lineRating"
+                           formControlName="lineRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.lineReview" for="field_lineReview">Line Review</label>
+                    <textarea class="form-control" name="lineReview" id="field_lineReview"
+                              formControlName="lineReview"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.customerReviewedOn" for="field_customerReviewedOn">Customer Reviewed On</label>
+                    <div class="d-flex">
+                        <input id="field_customerReviewedOn" type="datetime-local" class="form-control" name="customerReviewedOn" formControlName="customerReviewedOn" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.supplierResponse" for="field_supplierResponse">Supplier Response</label>
+                    <textarea class="form-control" name="supplierResponse" id="field_supplierResponse"
+                              formControlName="supplierResponse"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.supplierResponseOn" for="field_supplierResponseOn">Supplier Response On</label>
+                    <div class="d-flex">
+                        <input id="field_supplierResponseOn" type="datetime-local" class="form-control" name="supplierResponseOn" formControlName="supplierResponseOn" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.likeCount" for="field_likeCount">Like Count</label>
+                    <input type="number" class="form-control" name="likeCount" id="field_likeCount"
+                           formControlName="likeCount"/>
                 </div>
 
                 <div class="form-group">
@@ -115,22 +153,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.reviewLine" for="field_reviewLine">Review Line</label>
-                    <select class="form-control" id="field_reviewLine" name="reviewLine" formControlName="reviewLineId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="reviewLinesOption.id" *ngFor="let reviewLinesOption of reviewlines; trackBy: trackById">{{ reviewLinesOption.id }}</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.supplier" for="field_supplier">Supplier</label>
-                    <select class="form-control" id="field_supplier" name="supplier" formControlName="supplierId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="suppliersOption.id" *ngFor="let suppliersOption of suppliers; trackBy: trackById">{{ suppliersOption.name }}</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.stockItem" for="field_stockItem">Stock Item</label>
                     <select class="form-control" id="field_stockItem" name="stockItem" formControlName="stockItemId">
                         <option [ngValue]="null"></option>
@@ -147,10 +169,26 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.order" for="field_order">Order</label>
-                    <select class="form-control" id="field_order" name="order" formControlName="orderId">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.reviewImage" for="field_reviewImage">Review Image</label>
+                    <select class="form-control" id="field_reviewImage" name="reviewImage" formControlName="reviewImageId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="ordersOption.id" *ngFor="let ordersOption of orders; trackBy: trackById">{{ ordersOption.id }}</option>
+                        <option [ngValue]="photosOption.id" *ngFor="let photosOption of photos; trackBy: trackById">{{ photosOption.thumbnailUrl }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.supplier" for="field_supplier">Supplier</label>
+                    <select class="form-control" id="field_supplier" name="supplier" formControlName="supplierId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="suppliersOption.id" *ngFor="let suppliersOption of suppliers; trackBy: trackById">{{ suppliersOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.orderPackage" for="field_orderPackage">Order Package</label>
+                    <select class="form-control" id="field_orderPackage" name="orderPackage" formControlName="orderPackageId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderPackagesOption.id" *ngFor="let orderPackagesOption of orderpackages; trackBy: trackById">{{ orderPackagesOption.id }}</option>
                     </select>
                 </div>
             </div>

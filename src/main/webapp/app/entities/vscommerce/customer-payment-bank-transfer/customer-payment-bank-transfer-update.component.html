@@ -1,0 +1,128 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-customer-payment-bank-transfer-heading" jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.home.createOrEditLabel">Create or edit a Customer Payment Bank Transfer</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.receiptImageUrl" for="field_receiptImageUrl">Receipt Image Url</label>
+                    <input type="text" class="form-control" name="receiptImageUrl" id="field_receiptImageUrl"
+                           formControlName="receiptImageUrl"/>
+                    <div *ngIf="editForm.get('receiptImageUrl')!.invalid && (editForm.get('receiptImageUrl')!.dirty || editForm.get('receiptImageUrl')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('receiptImageUrl')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.nameInBankAccount" for="field_nameInBankAccount">Name In Bank Account</label>
+                    <input type="text" class="form-control" name="nameInBankAccount" id="field_nameInBankAccount"
+                           formControlName="nameInBankAccount"/>
+                    <div *ngIf="editForm.get('nameInBankAccount')!.invalid && (editForm.get('nameInBankAccount')!.dirty || editForm.get('nameInBankAccount')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nameInBankAccount')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.dateOfTransfer" for="field_dateOfTransfer">Date Of Transfer</label>
+                    <div class="d-flex">
+                        <input id="field_dateOfTransfer" type="datetime-local" class="form-control" name="dateOfTransfer" formControlName="dateOfTransfer" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateOfTransfer')!.invalid && (editForm.get('dateOfTransfer')!.dirty || editForm.get('dateOfTransfer')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateOfTransfer')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateOfTransfer')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.amountTransferred" for="field_amountTransferred">Amount Transferred</label>
+                    <input type="number" class="form-control" name="amountTransferred" id="field_amountTransferred"
+                           formControlName="amountTransferred"/>
+                    <div *ngIf="editForm.get('amountTransferred')!.invalid && (editForm.get('amountTransferred')!.dirty || editForm.get('amountTransferred')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('amountTransferred')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('amountTransferred')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.lastEdityBy" for="field_lastEdityBy">Last Edity By</label>
+                    <input type="text" class="form-control" name="lastEdityBy" id="field_lastEdityBy"
+                           formControlName="lastEdityBy"/>
+                    <div *ngIf="editForm.get('lastEdityBy')!.invalid && (editForm.get('lastEdityBy')!.dirty || editForm.get('lastEdityBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEdityBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.lastEditedWhen" for="field_lastEditedWhen">Last Edited When</label>
+                    <div class="d-flex">
+                        <input id="field_lastEditedWhen" type="datetime-local" class="form-control" name="lastEditedWhen" formControlName="lastEditedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastEditedWhen')!.invalid && (editForm.get('lastEditedWhen')!.dirty || editForm.get('lastEditedWhen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedWhen')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastEditedWhen')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.customerPayment" for="field_customerPayment">Customer Payment</label>
+                    <select class="form-control" id="field_customerPayment" name="customerPayment" formControlName="customerPaymentId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerPaymentOption.id" *ngFor="let customerPaymentOption of customerpayments; trackBy: trackById">{{ customerPaymentOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.currency" for="field_currency">Currency</label>
+                    <select class="form-control" id="field_currency" name="currency" formControlName="currencyId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="currencyOption.id" *ngFor="let currencyOption of currencies; trackBy: trackById">{{ currencyOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

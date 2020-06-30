@@ -8,6 +8,7 @@ export interface IStockItemTransactions {
   lastEditedWhen?: Moment;
   stockItemName?: string;
   stockItemId?: number;
+  customerName?: string;
   customerId?: number;
   invoiceId?: number;
   supplierName?: string;
@@ -26,6 +27,7 @@ export class StockItemTransactions implements IStockItemTransactions {
     public lastEditedWhen?: Moment,
     public stockItemName?: string,
     public stockItemId?: number,
+    public customerName?: string,
     public customerId?: number,
     public invoiceId?: number,
     public supplierName?: string,

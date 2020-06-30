@@ -16,6 +16,8 @@ export interface ICustomerPayment {
   currencyRateId?: number;
   customerPaymentCreditCardId?: number;
   customerPaymentVoucherId?: number;
+  customerPaymentBankTransferId?: number;
+  customerPaymentPaypalId?: number;
 }
 
 export class CustomerPayment implements ICustomerPayment {
@@ -34,6 +36,8 @@ export class CustomerPayment implements ICustomerPayment {
     public currencyId?: number,
     public currencyRateId?: number,
     public customerPaymentCreditCardId?: number,
-    public customerPaymentVoucherId?: number
+    public customerPaymentVoucherId?: number,
+    public customerPaymentBankTransferId?: number,
+    public customerPaymentPaypalId?: number
   ) {}
 }

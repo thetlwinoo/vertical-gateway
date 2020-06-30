@@ -27,6 +27,9 @@ export class ProductCategoryUpdateComponent implements OnInit {
     shortLabel: [],
     sortOrder: [],
     iconFont: [],
+    justForYouInd: [],
+    showInNavInd: [],
+    activeInd: [],
     parentId: [],
     iconId: [],
   });
@@ -55,6 +58,9 @@ export class ProductCategoryUpdateComponent implements OnInit {
       shortLabel: productCategory.shortLabel,
       sortOrder: productCategory.sortOrder,
       iconFont: productCategory.iconFont,
+      justForYouInd: productCategory.justForYouInd,
+      showInNavInd: productCategory.showInNavInd,
+      activeInd: productCategory.activeInd,
       parentId: productCategory.parentId,
       iconId: productCategory.iconId,
     });
@@ -82,6 +88,9 @@ export class ProductCategoryUpdateComponent implements OnInit {
       shortLabel: this.editForm.get(['shortLabel'])!.value,
       sortOrder: this.editForm.get(['sortOrder'])!.value,
       iconFont: this.editForm.get(['iconFont'])!.value,
+      justForYouInd: this.editForm.get(['justForYouInd'])!.value,
+      showInNavInd: this.editForm.get(['showInNavInd'])!.value,
+      activeInd: this.editForm.get(['activeInd'])!.value,
       parentId: this.editForm.get(['parentId'])!.value,
       iconId: this.editForm.get(['iconId'])!.value,
     };

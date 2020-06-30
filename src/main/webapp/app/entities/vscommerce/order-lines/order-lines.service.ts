@@ -52,6 +52,10 @@ export class OrderLinesService {
     const copy: IOrderLines = Object.assign({}, orderLines, {
       pickingCompletedWhen:
         orderLines.pickingCompletedWhen && orderLines.pickingCompletedWhen.isValid() ? orderLines.pickingCompletedWhen.toJSON() : undefined,
+      customerReviewedOn:
+        orderLines.customerReviewedOn && orderLines.customerReviewedOn.isValid() ? orderLines.customerReviewedOn.toJSON() : undefined,
+      supplierResponseOn:
+        orderLines.supplierResponseOn && orderLines.supplierResponseOn.isValid() ? orderLines.supplierResponseOn.toJSON() : undefined,
       lastEditedWhen: orderLines.lastEditedWhen && orderLines.lastEditedWhen.isValid() ? orderLines.lastEditedWhen.toJSON() : undefined,
     });
     return copy;
@@ -60,6 +64,8 @@ export class OrderLinesService {
   protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
     if (res.body) {
       res.body.pickingCompletedWhen = res.body.pickingCompletedWhen ? moment(res.body.pickingCompletedWhen) : undefined;
+      res.body.customerReviewedOn = res.body.customerReviewedOn ? moment(res.body.customerReviewedOn) : undefined;
+      res.body.supplierResponseOn = res.body.supplierResponseOn ? moment(res.body.supplierResponseOn) : undefined;
       res.body.lastEditedWhen = res.body.lastEditedWhen ? moment(res.body.lastEditedWhen) : undefined;
     }
     return res;
@@ -69,6 +75,8 @@ export class OrderLinesService {
     if (res.body) {
       res.body.forEach((orderLines: IOrderLines) => {
         orderLines.pickingCompletedWhen = orderLines.pickingCompletedWhen ? moment(orderLines.pickingCompletedWhen) : undefined;
+        orderLines.customerReviewedOn = orderLines.customerReviewedOn ? moment(orderLines.customerReviewedOn) : undefined;
+        orderLines.supplierResponseOn = orderLines.supplierResponseOn ? moment(orderLines.supplierResponseOn) : undefined;
         orderLines.lastEditedWhen = orderLines.lastEditedWhen ? moment(orderLines.lastEditedWhen) : undefined;
       });
     }

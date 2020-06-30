@@ -27,6 +27,9 @@
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductCategory.shortLabel">Short Label</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductCategory.sortOrder">Sort Order</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductCategory.iconFont">Icon Font</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductCategory.justForYouInd">Just For You Ind</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductCategory.showInNavInd">Show In Nav Ind</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductCategory.activeInd">Active Ind</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductCategory.parent">Parent</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductCategory.icon">Icon</span></th>
                     <th scope="col"></th>
@@ -39,6 +42,9 @@
                     <td>{{ productCategory.shortLabel }}</td>
                     <td>{{ productCategory.sortOrder }}</td>
                     <td>{{ productCategory.iconFont }}</td>
+                    <td>{{ productCategory.justForYouInd }}</td>
+                    <td>{{ productCategory.showInNavInd }}</td>
+                    <td>{{ productCategory.activeInd }}</td>
                     <td>
                         <div *ngIf="productCategory.parentId">
                             <a [routerLink]="['/product-category', productCategory.parentId , 'view']" >{{ productCategory.parentName }}</a>

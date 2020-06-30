@@ -48,6 +48,12 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.taxRate" for="field_taxRate">Tax Rate</label>
+                    <input type="number" class="form-control" name="taxRate" id="field_taxRate"
+                           formControlName="taxRate"/>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.unitPrice" for="field_unitPrice">Unit Price</label>
                     <input type="number" class="form-control" name="unitPrice" id="field_unitPrice"
                            formControlName="unitPrice"/>
@@ -70,6 +76,12 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.typicalWeightPerUnit" for="field_typicalWeightPerUnit">Typical Weight Per Unit</label>
+                    <input type="number" class="form-control" name="typicalWeightPerUnit" id="field_typicalWeightPerUnit"
+                           formControlName="typicalWeightPerUnit"/>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.quantityOnHand" for="field_quantityOnHand">Quantity On Hand</label>
                     <input type="number" class="form-control" name="quantityOnHand" id="field_quantityOnHand"
                            formControlName="quantityOnHand"/>
@@ -81,6 +93,76 @@
                         <small class="form-text text-danger"
                             [hidden]="!editForm.get('quantityOnHand')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.shelf" for="field_shelf">Shelf</label>
+                    <input type="text" class="form-control" name="shelf" id="field_shelf"
+                           formControlName="shelf"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.bin" for="field_bin">Bin</label>
+                    <input type="text" class="form-control" name="bin" id="field_bin"
+                           formControlName="bin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.lastStockTakeQuantity" for="field_lastStockTakeQuantity">Last Stock Take Quantity</label>
+                    <input type="number" class="form-control" name="lastStockTakeQuantity" id="field_lastStockTakeQuantity"
+                           formControlName="lastStockTakeQuantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.lastCostPrice" for="field_lastCostPrice">Last Cost Price</label>
+                    <input type="number" class="form-control" name="lastCostPrice" id="field_lastCostPrice"
+                           formControlName="lastCostPrice"/>
+                    <div *ngIf="editForm.get('lastCostPrice')!.invalid && (editForm.get('lastCostPrice')!.dirty || editForm.get('lastCostPrice')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastCostPrice')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastCostPrice')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.reorderLevel" for="field_reorderLevel">Reorder Level</label>
+                    <input type="number" class="form-control" name="reorderLevel" id="field_reorderLevel"
+                           formControlName="reorderLevel"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.targetStockLevel" for="field_targetStockLevel">Target Stock Level</label>
+                    <input type="number" class="form-control" name="targetStockLevel" id="field_targetStockLevel"
+                           formControlName="targetStockLevel"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.leadTimeDays" for="field_leadTimeDays">Lead Time Days</label>
+                    <input type="number" class="form-control" name="leadTimeDays" id="field_leadTimeDays"
+                           formControlName="leadTimeDays"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.quantityPerOuter" for="field_quantityPerOuter">Quantity Per Outer</label>
+                    <input type="number" class="form-control" name="quantityPerOuter" id="field_quantityPerOuter"
+                           formControlName="quantityPerOuter"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.isChillerStock" for="field_isChillerStock">Is Chiller Stock</label>
+                    <input type="checkbox" class="form-control" name="isChillerStock" id="field_isChillerStock"
+                           formControlName="isChillerStock"/>
+                    <div *ngIf="editForm.get('isChillerStock')!.invalid && (editForm.get('isChillerStock')!.dirty || editForm.get('isChillerStock')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('isChillerStock')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
                         </small>
                     </div>
                 </div>
@@ -184,9 +266,21 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.tags" for="field_tags">Tags</label>
+                    <input type="text" class="form-control" name="tags" id="field_tags"
+                           formControlName="tags"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.searchDetails" for="field_searchDetails">Search Details</label>
+                    <input type="text" class="form-control" name="searchDetails" id="field_searchDetails"
+                           formControlName="searchDetails"/>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.customFields" for="field_customFields">Custom Fields</label>
-                    <input type="text" class="form-control" name="customFields" id="field_customFields"
-                           formControlName="customFields"/>
+                    <textarea class="form-control" name="customFields" id="field_customFields"
+                              formControlName="customFields"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -199,6 +293,36 @@
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.activeInd" for="field_activeInd">Active Ind</label>
                     <input type="checkbox" class="form-control" name="activeInd" id="field_activeInd"
                            formControlName="activeInd"/>
+                    <div *ngIf="editForm.get('activeInd')!.invalid && (editForm.get('activeInd')!.dirty || editForm.get('activeInd')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('activeInd')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.liveInd" for="field_liveInd">Live Ind</label>
+                    <input type="checkbox" class="form-control" name="liveInd" id="field_liveInd"
+                           formControlName="liveInd"/>
+                    <div *ngIf="editForm.get('liveInd')!.invalid && (editForm.get('liveInd')!.dirty || editForm.get('liveInd')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('liveInd')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.cashOnDeliveryInd" for="field_cashOnDeliveryInd">Cash On Delivery Ind</label>
+                    <input type="checkbox" class="form-control" name="cashOnDeliveryInd" id="field_cashOnDeliveryInd"
+                           formControlName="cashOnDeliveryInd"/>
+                    <div *ngIf="editForm.get('cashOnDeliveryInd')!.invalid && (editForm.get('cashOnDeliveryInd')!.dirty || editForm.get('cashOnDeliveryInd')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cashOnDeliveryInd')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -228,14 +352,6 @@
                             This field should be a date and time.
                         </small>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.reviewLine" for="field_reviewLine">Review Line</label>
-                    <select class="form-control" id="field_reviewLine" name="reviewLine" formControlName="reviewLineId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="reviewLinesOption.id" *ngFor="let reviewLinesOption of reviewlines; trackBy: trackById">{{ reviewLinesOption.id }}</option>
-                    </select>
                 </div>
 
                 <div class="form-group">
@@ -331,6 +447,13 @@
                     <select class="form-control" id="field_barcodeType" name="barcodeType" formControlName="barcodeTypeId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="barcodeTypesOption.id" *ngFor="let barcodeTypesOption of barcodetypes; trackBy: trackById">{{ barcodeTypesOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="gatewayApp.vscommerceStockItems.photoList" for="field_photoLists">Photo List</label>
+                    <select class="form-control" id="field_photoLists" multiple name="photoLists" formControlName="photoLists">
+                        <option [ngValue]="getSelected(editForm.get('photoLists')!.value, photosOption)" *ngFor="let photosOption of photos; trackBy: trackById">{{ photosOption.id }}</option>
                     </select>
                 </div>
 

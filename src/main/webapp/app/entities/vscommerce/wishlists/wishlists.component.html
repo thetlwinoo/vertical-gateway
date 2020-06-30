@@ -32,7 +32,7 @@
                     <td><a [routerLink]="['/wishlists', wishlists.id, 'view']">{{ wishlists.id }}</a></td>
                     <td>
                         <div *ngIf="wishlists.wishlistUserId">
-                            <a [routerLink]="['/people', wishlists.wishlistUserId , 'view']" >{{ wishlists.wishlistUserId }}</a>
+                            <a [routerLink]="['/people', wishlists.wishlistUserId , 'view']" >{{ wishlists.wishlistUserFullName }}</a>
                         </div>
                     </td>
                     <td class="text-right">

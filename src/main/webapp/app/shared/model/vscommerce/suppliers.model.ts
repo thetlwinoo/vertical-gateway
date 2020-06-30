@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { IDeliveryMethods } from 'app/shared/model/vscommerce/delivery-methods.model';
 
 export interface ISuppliers {
   id?: number;
@@ -18,18 +19,16 @@ export interface ISuppliers {
   creditRating?: number;
   activeFlag?: boolean;
   thumbnailUrl?: string;
+  pickupSameAsHeadOffice?: boolean;
   validFrom?: Moment;
   validTo?: Moment;
   peopleFullName?: string;
   peopleId?: number;
   supplierCategoryName?: string;
   supplierCategoryId?: number;
-  deliveryMethodName?: string;
-  deliveryMethodId?: number;
-  deliveryCityName?: string;
-  deliveryCityId?: number;
-  postalCityName?: string;
-  postalCityId?: number;
+  pickupAddressId?: number;
+  headOfficeAddressId?: number;
+  deliveryMethods?: IDeliveryMethods[];
 }
 
 export class Suppliers implements ISuppliers {
@@ -51,19 +50,18 @@ export class Suppliers implements ISuppliers {
     public creditRating?: number,
     public activeFlag?: boolean,
     public thumbnailUrl?: string,
+    public pickupSameAsHeadOffice?: boolean,
     public validFrom?: Moment,
     public validTo?: Moment,
     public peopleFullName?: string,
     public peopleId?: number,
     public supplierCategoryName?: string,
     public supplierCategoryId?: number,
-    public deliveryMethodName?: string,
-    public deliveryMethodId?: number,
-    public deliveryCityName?: string,
-    public deliveryCityId?: number,
-    public postalCityName?: string,
-    public postalCityId?: number
+    public pickupAddressId?: number,
+    public headOfficeAddressId?: number,
+    public deliveryMethods?: IDeliveryMethods[]
   ) {
     this.activeFlag = this.activeFlag || false;
+    this.pickupSameAsHeadOffice = this.pickupSameAsHeadOffice || false;
   }
 }

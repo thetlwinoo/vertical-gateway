@@ -36,6 +36,9 @@
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceSupplierTransactions.supplier">Supplier</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceSupplierTransactions.transactionType">Transaction Type</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceSupplierTransactions.purchaseOrder">Purchase Order</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceSupplierTransactions.order">Order</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceSupplierTransactions.invoice">Invoice</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceSupplierTransactions.status">Status</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -65,6 +68,21 @@
                     <td>
                         <div *ngIf="supplierTransactions.purchaseOrderId">
                             <a [routerLink]="['/purchase-orders', supplierTransactions.purchaseOrderId , 'view']" >{{ supplierTransactions.purchaseOrderId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="supplierTransactions.orderId">
+                            <a [routerLink]="['/orders', supplierTransactions.orderId , 'view']" >{{ supplierTransactions.orderId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="supplierTransactions.invoiceId">
+                            <a [routerLink]="['/invoices', supplierTransactions.invoiceId , 'view']" >{{ supplierTransactions.invoiceId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="supplierTransactions.statusId">
+                            <a [routerLink]="['/supplier-transaction-status', supplierTransactions.statusId , 'view']" >{{ supplierTransactions.statusName }}</a>
                         </div>
                     </td>
                     <td class="text-right">

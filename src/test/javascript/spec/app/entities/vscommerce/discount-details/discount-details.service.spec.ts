@@ -24,7 +24,7 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new DiscountDetails(0, 0, false, false, false, 'AAAAAAA', 0, 0, 0, currentDate);
+      elemDefault = new DiscountDetails(0, 'AAAAAAA', 0, false, false, false, 0, 0, 0, 0, 0, 0, 0, currentDate);
     });
 
     describe('Service methods', () => {
@@ -69,14 +69,18 @@ describe('Service Tests', () => {
       it('should update a DiscountDetails', () => {
         const returnedFromService = Object.assign(
           {
+            name: 'BBBBBB',
             amount: 1,
             isPercentage: true,
             isAllowCombinationDiscount: true,
             isFinalBillDiscount: true,
-            name: 'BBBBBB',
             startCount: 1,
             endCount: 1,
             multiplyCount: 1,
+            minAmount: 1,
+            maxAmount: 1,
+            minVolumeWeight: 1,
+            maxVolumeWeight: 1,
             modifiedDate: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
@@ -99,14 +103,18 @@ describe('Service Tests', () => {
       it('should return a list of DiscountDetails', () => {
         const returnedFromService = Object.assign(
           {
+            name: 'BBBBBB',
             amount: 1,
             isPercentage: true,
             isAllowCombinationDiscount: true,
             isFinalBillDiscount: true,
-            name: 'BBBBBB',
             startCount: 1,
             endCount: 1,
             multiplyCount: 1,
+            minAmount: 1,
+            maxAmount: 1,
+            minVolumeWeight: 1,
+            maxVolumeWeight: 1,
             modifiedDate: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault

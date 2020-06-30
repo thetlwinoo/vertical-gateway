@@ -24,27 +24,26 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="orderDate"><span jhiTranslate="gatewayApp.vscommerceOrders.orderDate">Order Date</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="dueDate"><span jhiTranslate="gatewayApp.vscommerceOrders.dueDate">Due Date</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="expectedDeliveryDate"><span jhiTranslate="gatewayApp.vscommerceOrders.expectedDeliveryDate">Expected Delivery Date</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="paymentStatus"><span jhiTranslate="gatewayApp.vscommerceOrders.paymentStatus">Payment Status</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="accountNumber"><span jhiTranslate="gatewayApp.vscommerceOrders.accountNumber">Account Number</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="subTotal"><span jhiTranslate="gatewayApp.vscommerceOrders.subTotal">Sub Total</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="taxAmount"><span jhiTranslate="gatewayApp.vscommerceOrders.taxAmount">Tax Amount</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="frieight"><span jhiTranslate="gatewayApp.vscommerceOrders.frieight">Frieight</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totalTaxAmount"><span jhiTranslate="gatewayApp.vscommerceOrders.totalTaxAmount">Total Tax Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totalShippingFee"><span jhiTranslate="gatewayApp.vscommerceOrders.totalShippingFee">Total Shipping Fee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totalShippingFeeDiscount"><span jhiTranslate="gatewayApp.vscommerceOrders.totalShippingFeeDiscount">Total Shipping Fee Discount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totalVoucherDiscount"><span jhiTranslate="gatewayApp.vscommerceOrders.totalVoucherDiscount">Total Voucher Discount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totalPromtionDiscount"><span jhiTranslate="gatewayApp.vscommerceOrders.totalPromtionDiscount">Total Promtion Discount</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="totalDue"><span jhiTranslate="gatewayApp.vscommerceOrders.totalDue">Total Due</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="comments"><span jhiTranslate="gatewayApp.vscommerceOrders.comments">Comments</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="deliveryInstructions"><span jhiTranslate="gatewayApp.vscommerceOrders.deliveryInstructions">Delivery Instructions</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="internalComments"><span jhiTranslate="gatewayApp.vscommerceOrders.internalComments">Internal Comments</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="pickingCompletedWhen"><span jhiTranslate="gatewayApp.vscommerceOrders.pickingCompletedWhen">Picking Completed When</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentStatus"><span jhiTranslate="gatewayApp.vscommerceOrders.paymentStatus">Payment Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customerPurchaseOrderNumber"><span jhiTranslate="gatewayApp.vscommerceOrders.customerPurchaseOrderNumber">Customer Purchase Order Number</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="status"><span jhiTranslate="gatewayApp.vscommerceOrders.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderDetails"><span jhiTranslate="gatewayApp.vscommerceOrders.orderDetails">Order Details</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isUnderSupplyBackOrdered"><span jhiTranslate="gatewayApp.vscommerceOrders.isUnderSupplyBackOrdered">Is Under Supply Back Ordered</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="lastEditedBy"><span jhiTranslate="gatewayApp.vscommerceOrders.lastEditedBy">Last Edited By</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="lastEditedWhen"><span jhiTranslate="gatewayApp.vscommerceOrders.lastEditedWhen">Last Edited When</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="reviewId"><span jhiTranslate="gatewayApp.vscommerceOrders.review">Review</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="customerId"><span jhiTranslate="gatewayApp.vscommerceOrders.customer">Customer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customerName"><span jhiTranslate="gatewayApp.vscommerceOrders.customer">Customer</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="shipToAddressId"><span jhiTranslate="gatewayApp.vscommerceOrders.shipToAddress">Ship To Address</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="billToAddressId"><span jhiTranslate="gatewayApp.vscommerceOrders.billToAddress">Bill To Address</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="shipMethodName"><span jhiTranslate="gatewayApp.vscommerceOrders.shipMethod">Ship Method</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="currencyRateId"><span jhiTranslate="gatewayApp.vscommerceOrders.currencyRate">Currency Rate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentMethodName"><span jhiTranslate="gatewayApp.vscommerceOrders.paymentMethod">Payment Method</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="salePersonFullName"><span jhiTranslate="gatewayApp.vscommerceOrders.salePerson">Sale Person</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="specialDealsId"><span jhiTranslate="gatewayApp.vscommerceOrders.specialDeals">Special Deals</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
@@ -53,29 +52,23 @@
                 <tr *ngFor="let orders of orders ;trackBy: trackId">
                     <td><a [routerLink]="['/orders', orders.id, 'view']">{{ orders.id }}</a></td>
                     <td>{{ orders.orderDate | date:'medium' }}</td>
-                    <td>{{ orders.dueDate | date:'medium' }}</td>
-                    <td>{{ orders.expectedDeliveryDate | date:'medium' }}</td>
-                    <td jhiTranslate="{{ 'gatewayApp.PaymentStatus.' + orders.paymentStatus }}">{{ orders.paymentStatus }}</td>
-                    <td>{{ orders.accountNumber }}</td>
                     <td>{{ orders.subTotal }}</td>
-                    <td>{{ orders.taxAmount }}</td>
-                    <td>{{ orders.frieight }}</td>
+                    <td>{{ orders.totalTaxAmount }}</td>
+                    <td>{{ orders.totalShippingFee }}</td>
+                    <td>{{ orders.totalShippingFeeDiscount }}</td>
+                    <td>{{ orders.totalVoucherDiscount }}</td>
+                    <td>{{ orders.totalPromtionDiscount }}</td>
                     <td>{{ orders.totalDue }}</td>
-                    <td>{{ orders.comments }}</td>
-                    <td>{{ orders.deliveryInstructions }}</td>
-                    <td>{{ orders.internalComments }}</td>
-                    <td>{{ orders.pickingCompletedWhen | date:'medium' }}</td>
+                    <td jhiTranslate="{{ 'gatewayApp.PaymentStatus.' + orders.paymentStatus }}">{{ orders.paymentStatus }}</td>
+                    <td>{{ orders.customerPurchaseOrderNumber }}</td>
                     <td jhiTranslate="{{ 'gatewayApp.OrderStatus.' + orders.status }}">{{ orders.status }}</td>
+                    <td>{{ orders.orderDetails }}</td>
+                    <td>{{ orders.isUnderSupplyBackOrdered }}</td>
                     <td>{{ orders.lastEditedBy }}</td>
                     <td>{{ orders.lastEditedWhen | date:'medium' }}</td>
                     <td>
-                        <div *ngIf="orders.reviewId">
-                            <a [routerLink]="['/reviews', orders.reviewId , 'view']" >{{ orders.reviewId }}</a>
-                        </div>
-                    </td>
-                    <td>
                         <div *ngIf="orders.customerId">
-                            <a [routerLink]="['/customers', orders.customerId , 'view']" >{{ orders.customerId }}</a>
+                            <a [routerLink]="['/customers', orders.customerId , 'view']" >{{ orders.customerName }}</a>
                         </div>
                     </td>
                     <td>
@@ -89,13 +82,18 @@
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="orders.shipMethodId">
-                            <a [routerLink]="['/ship-method', orders.shipMethodId , 'view']" >{{ orders.shipMethodName }}</a>
+                        <div *ngIf="orders.currencyRateId">
+                            <a [routerLink]="['/currency-rate', orders.currencyRateId , 'view']" >{{ orders.currencyRateId }}</a>
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="orders.currencyRateId">
-                            <a [routerLink]="['/currency-rate', orders.currencyRateId , 'view']" >{{ orders.currencyRateId }}</a>
+                        <div *ngIf="orders.paymentMethodId">
+                            <a [routerLink]="['/payment-methods', orders.paymentMethodId , 'view']" >{{ orders.paymentMethodName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orders.salePersonId">
+                            <a [routerLink]="['/people', orders.salePersonId , 'view']" >{{ orders.salePersonFullName }}</a>
                         </div>
                     </td>
                     <td>

@@ -24,7 +24,19 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new BankAccounts(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', currentDate, currentDate);
+      elemDefault = new BankAccounts(
+        0,
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        currentDate,
+        currentDate
+      );
     });
 
     describe('Service methods', () => {
@@ -76,6 +88,8 @@ describe('Service Tests', () => {
             branch: 'BBBBBB',
             code: 'BBBBBB',
             number: 'BBBBBB',
+            type: 'BBBBBB',
+            bank: 'BBBBBB',
             internationalCode: 'BBBBBB',
             lastEditedBy: 'BBBBBB',
             validForm: currentDate.format(DATE_TIME_FORMAT),
@@ -106,6 +120,8 @@ describe('Service Tests', () => {
             branch: 'BBBBBB',
             code: 'BBBBBB',
             number: 'BBBBBB',
+            type: 'BBBBBB',
+            bank: 'BBBBBB',
             internationalCode: 'BBBBBB',
             lastEditedBy: 'BBBBBB',
             validForm: currentDate.format(DATE_TIME_FORMAT),

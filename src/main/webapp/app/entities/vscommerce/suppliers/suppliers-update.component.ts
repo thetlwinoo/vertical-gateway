@@ -14,12 +14,12 @@ import { IPeople } from 'app/shared/model/vscommerce/people.model';
 import { PeopleService } from 'app/entities/vscommerce/people/people.service';
 import { ISupplierCategories } from 'app/shared/model/vscommerce/supplier-categories.model';
 import { SupplierCategoriesService } from 'app/entities/vscommerce/supplier-categories/supplier-categories.service';
+import { IAddresses } from 'app/shared/model/vscommerce/addresses.model';
+import { AddressesService } from 'app/entities/vscommerce/addresses/addresses.service';
 import { IDeliveryMethods } from 'app/shared/model/vscommerce/delivery-methods.model';
 import { DeliveryMethodsService } from 'app/entities/vscommerce/delivery-methods/delivery-methods.service';
-import { ICities } from 'app/shared/model/vscommerce/cities.model';
-import { CitiesService } from 'app/entities/vscommerce/cities/cities.service';
 
-type SelectableEntity = IPeople | ISupplierCategories | IDeliveryMethods | ICities;
+type SelectableEntity = IPeople | ISupplierCategories | IAddresses | IDeliveryMethods;
 
 @Component({
   selector: 'jhi-suppliers-update',
@@ -29,8 +29,8 @@ export class SuppliersUpdateComponent implements OnInit {
   isSaving = false;
   people: IPeople[] = [];
   suppliercategories: ISupplierCategories[] = [];
+  addresses: IAddresses[] = [];
   deliverymethods: IDeliveryMethods[] = [];
-  cities: ICities[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -50,21 +50,22 @@ export class SuppliersUpdateComponent implements OnInit {
     creditRating: [],
     activeFlag: [],
     thumbnailUrl: [],
+    pickupSameAsHeadOffice: [],
     validFrom: [null, [Validators.required]],
     validTo: [null, [Validators.required]],
     peopleId: [],
     supplierCategoryId: [],
-    deliveryMethodId: [],
-    deliveryCityId: [],
-    postalCityId: [],
+    pickupAddressId: [],
+    headOfficeAddressId: [],
+    deliveryMethods: [],
   });
 
   constructor(
     protected suppliersService: SuppliersService,
     protected peopleService: PeopleService,
     protected supplierCategoriesService: SupplierCategoriesService,
+    protected addressesService: AddressesService,
     protected deliveryMethodsService: DeliveryMethodsService,
-    protected citiesService: CitiesService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -105,9 +106,9 @@ export class SuppliersUpdateComponent implements OnInit {
         .query()
         .subscribe((res: HttpResponse<ISupplierCategories[]>) => (this.suppliercategories = res.body || []));
 
-      this.deliveryMethodsService.query().subscribe((res: HttpResponse<IDeliveryMethods[]>) => (this.deliverymethods = res.body || []));
+      this.addressesService.query().subscribe((res: HttpResponse<IAddresses[]>) => (this.addresses = res.body || []));
 
-      this.citiesService.query().subscribe((res: HttpResponse<ICities[]>) => (this.cities = res.body || []));
+      this.deliveryMethodsService.query().subscribe((res: HttpResponse<IDeliveryMethods[]>) => (this.deliverymethods = res.body || []));
     });
   }
 
@@ -130,13 +131,14 @@ export class SuppliersUpdateComponent implements OnInit {
       creditRating: suppliers.creditRating,
       activeFlag: suppliers.activeFlag,
       thumbnailUrl: suppliers.thumbnailUrl,
+      pickupSameAsHeadOffice: suppliers.pickupSameAsHeadOffice,
       validFrom: suppliers.validFrom ? suppliers.validFrom.format(DATE_TIME_FORMAT) : null,
       validTo: suppliers.validTo ? suppliers.validTo.format(DATE_TIME_FORMAT) : null,
       peopleId: suppliers.peopleId,
       supplierCategoryId: suppliers.supplierCategoryId,
-      deliveryMethodId: suppliers.deliveryMethodId,
-      deliveryCityId: suppliers.deliveryCityId,
-      postalCityId: suppliers.postalCityId,
+      pickupAddressId: suppliers.pickupAddressId,
+      headOfficeAddressId: suppliers.headOfficeAddressId,
+      deliveryMethods: suppliers.deliveryMethods,
     });
   }
 
@@ -174,13 +176,14 @@ export class SuppliersUpdateComponent implements OnInit {
       creditRating: this.editForm.get(['creditRating'])!.value,
       activeFlag: this.editForm.get(['activeFlag'])!.value,
       thumbnailUrl: this.editForm.get(['thumbnailUrl'])!.value,
+      pickupSameAsHeadOffice: this.editForm.get(['pickupSameAsHeadOffice'])!.value,
       validFrom: this.editForm.get(['validFrom'])!.value ? moment(this.editForm.get(['validFrom'])!.value, DATE_TIME_FORMAT) : undefined,
       validTo: this.editForm.get(['validTo'])!.value ? moment(this.editForm.get(['validTo'])!.value, DATE_TIME_FORMAT) : undefined,
       peopleId: this.editForm.get(['peopleId'])!.value,
       supplierCategoryId: this.editForm.get(['supplierCategoryId'])!.value,
-      deliveryMethodId: this.editForm.get(['deliveryMethodId'])!.value,
-      deliveryCityId: this.editForm.get(['deliveryCityId'])!.value,
-      postalCityId: this.editForm.get(['postalCityId'])!.value,
+      pickupAddressId: this.editForm.get(['pickupAddressId'])!.value,
+      headOfficeAddressId: this.editForm.get(['headOfficeAddressId'])!.value,
+      deliveryMethods: this.editForm.get(['deliveryMethods'])!.value,
     };
   }
 
@@ -202,5 +205,16 @@ export class SuppliersUpdateComponent implements OnInit {
 
   trackById(index: number, item: SelectableEntity): any {
     return item.id;
+  }
+
+  getSelected(selectedVals: IDeliveryMethods[], option: IDeliveryMethods): IDeliveryMethods {
+    if (selectedVals) {
+      for (let i = 0; i < selectedVals.length; i++) {
+        if (option.id === selectedVals[i].id) {
+          return selectedVals[i];
+        }
+      }
+    }
+    return option;
   }
 }

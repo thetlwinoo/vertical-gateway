@@ -31,7 +31,8 @@
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.price">Price</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.lastEditedBy">Last Edited By</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.lastEditedWhen">Last Edited When</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.zone">Zone</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.sourceZone">Source Zone</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.destinationZone">Destination Zone</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.deliveryMethod">Delivery Method</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -48,8 +49,13 @@
                     <td>{{ shippingFeeChart.lastEditedBy }}</td>
                     <td>{{ shippingFeeChart.lastEditedWhen | date:'medium' }}</td>
                     <td>
-                        <div *ngIf="shippingFeeChart.zoneId">
-                            <a [routerLink]="['/zone', shippingFeeChart.zoneId , 'view']" >{{ shippingFeeChart.zoneCode }}</a>
+                        <div *ngIf="shippingFeeChart.sourceZoneId">
+                            <a [routerLink]="['/zone', shippingFeeChart.sourceZoneId , 'view']" >{{ shippingFeeChart.sourceZoneCode }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="shippingFeeChart.destinationZoneId">
+                            <a [routerLink]="['/zone', shippingFeeChart.destinationZoneId , 'view']" >{{ shippingFeeChart.destinationZoneCode }}</a>
                         </div>
                     </td>
                     <td>

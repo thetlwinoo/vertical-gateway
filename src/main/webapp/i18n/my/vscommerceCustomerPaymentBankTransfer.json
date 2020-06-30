@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "vscommerceCustomerPaymentBankTransfer": {
+      "home": {
+        "title": "Customer Payment Bank Transfers",
+        "createLabel": "Customer Payment Bank Transfer အသစ်ထည့်မည်",
+        "createOrEditLabel": "Customer Payment Bank Transfer အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Customer Payment Bank Transfers found"
+      },
+      "delete": {
+        "question": "Customer Payment Bank Transfer {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Customer Payment Bank Transfer"
+      },
+      "receiptImageUrl": "Receipt Image Url",
+      "nameInBankAccount": "Name In Bank Account",
+      "dateOfTransfer": "Date Of Transfer",
+      "amountTransferred": "Amount Transferred",
+      "lastEdityBy": "Last Edity By",
+      "lastEditedWhen": "Last Edited When",
+      "customerPayment": "Customer Payment",
+      "currency": "Currency"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCustomerPaymentBankTransfer": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Customer Payment Bank Transfer အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Customer Payment Bank Transfer တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Customer Payment Bank Transfer တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

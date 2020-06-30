@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "vscommerceQuestions": {
+      "home": {
+        "title": "Questions",
+        "createLabel": "Questions အသစ်ထည့်မည်",
+        "createOrEditLabel": "Questions အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Questions found"
+      },
+      "delete": {
+        "question": "Questions {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Questions"
+      },
+      "customerQuestion": "Customer Question",
+      "customerQuestionOn": "Customer Question On",
+      "supplierAnswer": "Supplier Answer",
+      "supplierAnswerOn": "Supplier Answer On",
+      "activeInd": "Active Ind",
+      "supplier": "Supplier",
+      "person": "Person",
+      "product": "Product"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceQuestions": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Questions အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Questions တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Questions တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

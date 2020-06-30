@@ -1,6 +1,6 @@
 import { Moment } from 'moment';
-import { IPhotos } from 'app/shared/model/vscommerce/photos.model';
 import { ISpecialDeals } from 'app/shared/model/vscommerce/special-deals.model';
+import { IPhotos } from 'app/shared/model/vscommerce/photos.model';
 
 export interface IStockItems {
   id?: number;
@@ -9,9 +9,20 @@ export interface IStockItems {
   vendorSKU?: string;
   generatedSKU?: string;
   barcode?: string;
+  taxRate?: number;
   unitPrice?: number;
   recommendedRetailPrice?: number;
+  typicalWeightPerUnit?: number;
   quantityOnHand?: number;
+  shelf?: string;
+  bin?: string;
+  lastStockTakeQuantity?: number;
+  lastCostPrice?: number;
+  reorderLevel?: number;
+  targetStockLevel?: number;
+  leadTimeDays?: number;
+  quantityPerOuter?: number;
+  isChillerStock?: boolean;
   itemLength?: number;
   itemWidth?: number;
   itemHeight?: number;
@@ -28,13 +39,15 @@ export interface IStockItems {
   sellStartDate?: Moment;
   sellEndDate?: Moment;
   sellCount?: number;
-  customFields?: string;
+  tags?: string;
+  searchDetails?: string;
+  customFields?: any;
   thumbnailUrl?: string;
   activeInd?: boolean;
+  liveInd?: boolean;
+  cashOnDeliveryInd?: boolean;
   lastEditedBy?: string;
   lastEditedWhen?: Moment;
-  reviewLineId?: number;
-  photoLists?: IPhotos[];
   specialDealLists?: ISpecialDeals[];
   itemLengthUnitCode?: string;
   itemLengthUnitId?: number;
@@ -60,7 +73,7 @@ export interface IStockItems {
   currencyId?: number;
   barcodeTypeName?: string;
   barcodeTypeId?: number;
-  stockItemHoldingId?: number;
+  photoLists?: IPhotos[];
   productId?: number;
 }
 
@@ -72,9 +85,20 @@ export class StockItems implements IStockItems {
     public vendorSKU?: string,
     public generatedSKU?: string,
     public barcode?: string,
+    public taxRate?: number,
     public unitPrice?: number,
     public recommendedRetailPrice?: number,
+    public typicalWeightPerUnit?: number,
     public quantityOnHand?: number,
+    public shelf?: string,
+    public bin?: string,
+    public lastStockTakeQuantity?: number,
+    public lastCostPrice?: number,
+    public reorderLevel?: number,
+    public targetStockLevel?: number,
+    public leadTimeDays?: number,
+    public quantityPerOuter?: number,
+    public isChillerStock?: boolean,
     public itemLength?: number,
     public itemWidth?: number,
     public itemHeight?: number,
@@ -91,13 +115,15 @@ export class StockItems implements IStockItems {
     public sellStartDate?: Moment,
     public sellEndDate?: Moment,
     public sellCount?: number,
-    public customFields?: string,
+    public tags?: string,
+    public searchDetails?: string,
+    public customFields?: any,
     public thumbnailUrl?: string,
     public activeInd?: boolean,
+    public liveInd?: boolean,
+    public cashOnDeliveryInd?: boolean,
     public lastEditedBy?: string,
     public lastEditedWhen?: Moment,
-    public reviewLineId?: number,
-    public photoLists?: IPhotos[],
     public specialDealLists?: ISpecialDeals[],
     public itemLengthUnitCode?: string,
     public itemLengthUnitId?: number,
@@ -123,9 +149,12 @@ export class StockItems implements IStockItems {
     public currencyId?: number,
     public barcodeTypeName?: string,
     public barcodeTypeId?: number,
-    public stockItemHoldingId?: number,
+    public photoLists?: IPhotos[],
     public productId?: number
   ) {
+    this.isChillerStock = this.isChillerStock || false;
     this.activeInd = this.activeInd || false;
+    this.liveInd = this.liveInd || false;
+    this.cashOnDeliveryInd = this.cashOnDeliveryInd || false;
   }
 }

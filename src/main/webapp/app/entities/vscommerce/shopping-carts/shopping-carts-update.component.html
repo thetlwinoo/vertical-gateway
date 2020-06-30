@@ -18,15 +18,51 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShoppingCarts.totalCargoPrice" for="field_totalCargoPrice">Total Cargo Price</label>
-                    <input type="number" class="form-control" name="totalCargoPrice" id="field_totalCargoPrice"
-                           formControlName="totalCargoPrice"/>
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShoppingCarts.subTotalPrice" for="field_subTotalPrice">Sub Total Price</label>
+                    <input type="number" class="form-control" name="subTotalPrice" id="field_subTotalPrice"
+                           formControlName="subTotalPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShoppingCarts.totalShippingFee" for="field_totalShippingFee">Total Shipping Fee</label>
+                    <input type="number" class="form-control" name="totalShippingFee" id="field_totalShippingFee"
+                           formControlName="totalShippingFee"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShoppingCarts.totalShippingFeeDiscount" for="field_totalShippingFeeDiscount">Total Shipping Fee Discount</label>
+                    <input type="number" class="form-control" name="totalShippingFeeDiscount" id="field_totalShippingFeeDiscount"
+                           formControlName="totalShippingFeeDiscount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShoppingCarts.promotionTotal" for="field_promotionTotal">Promotion Total</label>
+                    <input type="number" class="form-control" name="promotionTotal" id="field_promotionTotal"
+                           formControlName="promotionTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShoppingCarts.voucherTotal" for="field_voucherTotal">Voucher Total</label>
+                    <input type="number" class="form-control" name="voucherTotal" id="field_voucherTotal"
+                           formControlName="voucherTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShoppingCarts.packageDetails" for="field_packageDetails">Package Details</label>
+                    <textarea class="form-control" name="packageDetails" id="field_packageDetails"
+                              formControlName="packageDetails"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShoppingCarts.cartString" for="field_cartString">Cart String</label>
                     <textarea class="form-control" name="cartString" id="field_cartString"
                               formControlName="cartString"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShoppingCarts.dealString" for="field_dealString">Deal String</label>
+                    <textarea class="form-control" name="dealString" id="field_dealString"
+                              formControlName="dealString"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -62,7 +98,7 @@
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShoppingCarts.cartUser" for="field_cartUser">Cart User</label>
                     <select class="form-control" id="field_cartUser" name="cartUser" formControlName="cartUserId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="peopleOption.id" *ngFor="let peopleOption of cartusers; trackBy: trackById">{{ peopleOption.id }}</option>
+                        <option [ngValue]="peopleOption.id" *ngFor="let peopleOption of cartusers; trackBy: trackById">{{ peopleOption.fullName }}</option>
                     </select>
                 </div>
 
@@ -70,7 +106,7 @@
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShoppingCarts.customer" for="field_customer">Customer</label>
                     <select class="form-control" id="field_customer" name="customer" formControlName="customerId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackById">{{ customersOption.id }}</option>
+                        <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackById">{{ customersOption.name }}</option>
                     </select>
                 </div>
 

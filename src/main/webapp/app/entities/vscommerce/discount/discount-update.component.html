@@ -30,20 +30,53 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscount.modifiedDate" for="field_modifiedDate">Modified Date</label>
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscount.validFrom" for="field_validFrom">Valid From</label>
                     <div class="d-flex">
-                        <input id="field_modifiedDate" type="datetime-local" class="form-control" name="modifiedDate" formControlName="modifiedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                        <input id="field_validFrom" type="datetime-local" class="form-control" name="validFrom" formControlName="validFrom" placeholder="YYYY-MM-DD HH:mm"/>
                     </div>
-                    <div *ngIf="editForm.get('modifiedDate')!.invalid && (editForm.get('modifiedDate')!.dirty || editForm.get('modifiedDate')!.touched)">
+                    <div *ngIf="editForm.get('validFrom')!.invalid && (editForm.get('validFrom')!.dirty || editForm.get('validFrom')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('modifiedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                               *ngIf="editForm.get('validFrom')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('modifiedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            [hidden]="!editForm.get('validFrom')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
                             This field should be a date and time.
                         </small>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscount.validTo" for="field_validTo">Valid To</label>
+                    <div class="d-flex">
+                        <input id="field_validTo" type="datetime-local" class="form-control" name="validTo" formControlName="validTo" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('validTo')!.invalid && (editForm.get('validTo')!.dirty || editForm.get('validTo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('validTo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('validTo')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscount.supplier" for="field_supplier">Supplier</label>
+                    <select class="form-control" id="field_supplier" name="supplier" formControlName="supplierId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="suppliersOption.id" *ngFor="let suppliersOption of suppliers; trackBy: trackById">{{ suppliersOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscount.discountType" for="field_discountType">Discount Type</label>
+                    <select class="form-control" id="field_discountType" name="discountType" formControlName="discountTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="discountTypesOption.id" *ngFor="let discountTypesOption of discounttypes; trackBy: trackById">{{ discountTypesOption.name }}</option>
+                    </select>
                 </div>
             </div>
 

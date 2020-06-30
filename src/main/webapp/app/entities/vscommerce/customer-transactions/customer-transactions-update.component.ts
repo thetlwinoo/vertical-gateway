@@ -4,14 +4,11 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 
 import { ICustomerTransactions, CustomerTransactions } from 'app/shared/model/vscommerce/customer-transactions.model';
 import { CustomerTransactionsService } from './customer-transactions.service';
-import { IOrders } from 'app/shared/model/vscommerce/orders.model';
-import { OrdersService } from 'app/entities/vscommerce/orders/orders.service';
 import { ICustomers } from 'app/shared/model/vscommerce/customers.model';
 import { CustomersService } from 'app/entities/vscommerce/customers/customers.service';
 import { IPaymentMethods } from 'app/shared/model/vscommerce/payment-methods.model';
@@ -20,8 +17,10 @@ import { ITransactionTypes } from 'app/shared/model/vscommerce/transaction-types
 import { TransactionTypesService } from 'app/entities/vscommerce/transaction-types/transaction-types.service';
 import { IInvoices } from 'app/shared/model/vscommerce/invoices.model';
 import { InvoicesService } from 'app/entities/vscommerce/invoices/invoices.service';
+import { IOrders } from 'app/shared/model/vscommerce/orders.model';
+import { OrdersService } from 'app/entities/vscommerce/orders/orders.service';
 
-type SelectableEntity = IOrders | ICustomers | IPaymentMethods | ITransactionTypes | IInvoices;
+type SelectableEntity = ICustomers | IPaymentMethods | ITransactionTypes | IInvoices | IOrders;
 
 @Component({
   selector: 'jhi-customer-transactions-update',
@@ -29,11 +28,11 @@ type SelectableEntity = IOrders | ICustomers | IPaymentMethods | ITransactionTyp
 })
 export class CustomerTransactionsUpdateComponent implements OnInit {
   isSaving = false;
-  orders: IOrders[] = [];
   customers: ICustomers[] = [];
   paymentmethods: IPaymentMethods[] = [];
   transactiontypes: ITransactionTypes[] = [];
   invoices: IInvoices[] = [];
+  orders: IOrders[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -46,20 +45,20 @@ export class CustomerTransactionsUpdateComponent implements OnInit {
     isFinalized: [],
     lastEditedBy: [null, [Validators.required]],
     lastEditedWhen: [null, [Validators.required]],
-    orderId: [],
     customerId: [],
     paymentMethodId: [],
     transactionTypeId: [],
     invoiceId: [],
+    orderId: [],
   });
 
   constructor(
     protected customerTransactionsService: CustomerTransactionsService,
-    protected ordersService: OrdersService,
     protected customersService: CustomersService,
     protected paymentMethodsService: PaymentMethodsService,
     protected transactionTypesService: TransactionTypesService,
     protected invoicesService: InvoicesService,
+    protected ordersService: OrdersService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -75,28 +74,6 @@ export class CustomerTransactionsUpdateComponent implements OnInit {
 
       this.updateForm(customerTransactions);
 
-      this.ordersService
-        .query({ 'customerTransactionId.specified': 'false' })
-        .pipe(
-          map((res: HttpResponse<IOrders[]>) => {
-            return res.body || [];
-          })
-        )
-        .subscribe((resBody: IOrders[]) => {
-          if (!customerTransactions.orderId) {
-            this.orders = resBody;
-          } else {
-            this.ordersService
-              .find(customerTransactions.orderId)
-              .pipe(
-                map((subRes: HttpResponse<IOrders>) => {
-                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
-                })
-              )
-              .subscribe((concatRes: IOrders[]) => (this.orders = concatRes));
-          }
-        });
-
       this.customersService.query().subscribe((res: HttpResponse<ICustomers[]>) => (this.customers = res.body || []));
 
       this.paymentMethodsService.query().subscribe((res: HttpResponse<IPaymentMethods[]>) => (this.paymentmethods = res.body || []));
@@ -104,6 +81,8 @@ export class CustomerTransactionsUpdateComponent implements OnInit {
       this.transactionTypesService.query().subscribe((res: HttpResponse<ITransactionTypes[]>) => (this.transactiontypes = res.body || []));
 
       this.invoicesService.query().subscribe((res: HttpResponse<IInvoices[]>) => (this.invoices = res.body || []));
+
+      this.ordersService.query().subscribe((res: HttpResponse<IOrders[]>) => (this.orders = res.body || []));
     });
   }
 
@@ -119,11 +98,11 @@ export class CustomerTransactionsUpdateComponent implements OnInit {
       isFinalized: customerTransactions.isFinalized,
       lastEditedBy: customerTransactions.lastEditedBy,
       lastEditedWhen: customerTransactions.lastEditedWhen ? customerTransactions.lastEditedWhen.format(DATE_TIME_FORMAT) : null,
-      orderId: customerTransactions.orderId,
       customerId: customerTransactions.customerId,
       paymentMethodId: customerTransactions.paymentMethodId,
       transactionTypeId: customerTransactions.transactionTypeId,
       invoiceId: customerTransactions.invoiceId,
+      orderId: customerTransactions.orderId,
     });
   }
 
@@ -160,11 +139,11 @@ export class CustomerTransactionsUpdateComponent implements OnInit {
       lastEditedWhen: this.editForm.get(['lastEditedWhen'])!.value
         ? moment(this.editForm.get(['lastEditedWhen'])!.value, DATE_TIME_FORMAT)
         : undefined,
-      orderId: this.editForm.get(['orderId'])!.value,
       customerId: this.editForm.get(['customerId'])!.value,
       paymentMethodId: this.editForm.get(['paymentMethodId'])!.value,
       transactionTypeId: this.editForm.get(['transactionTypeId'])!.value,
       invoiceId: this.editForm.get(['invoiceId'])!.value,
+      orderId: this.editForm.get(['orderId'])!.value,
     };
   }
 

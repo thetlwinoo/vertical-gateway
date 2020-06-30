@@ -130,6 +130,12 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceSuppliers.pickupSameAsHeadOffice" for="field_pickupSameAsHeadOffice">Pickup Same As Head Office</label>
+                    <input type="checkbox" class="form-control" name="pickupSameAsHeadOffice" id="field_pickupSameAsHeadOffice"
+                           formControlName="pickupSameAsHeadOffice"/>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceSuppliers.validFrom" for="field_validFrom">Valid From</label>
                     <div class="d-flex">
                         <input id="field_validFrom" type="datetime-local" class="form-control" name="validFrom" formControlName="validFrom" placeholder="YYYY-MM-DD HH:mm"/>
@@ -180,26 +186,25 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceSuppliers.deliveryMethod" for="field_deliveryMethod">Delivery Method</label>
-                    <select class="form-control" id="field_deliveryMethod" name="deliveryMethod" formControlName="deliveryMethodId">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceSuppliers.pickupAddress" for="field_pickupAddress">Pickup Address</label>
+                    <select class="form-control" id="field_pickupAddress" name="pickupAddress" formControlName="pickupAddressId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="deliveryMethodsOption.id" *ngFor="let deliveryMethodsOption of deliverymethods; trackBy: trackById">{{ deliveryMethodsOption.name }}</option>
+                        <option [ngValue]="addressesOption.id" *ngFor="let addressesOption of addresses; trackBy: trackById">{{ addressesOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceSuppliers.deliveryCity" for="field_deliveryCity">Delivery City</label>
-                    <select class="form-control" id="field_deliveryCity" name="deliveryCity" formControlName="deliveryCityId">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceSuppliers.headOfficeAddress" for="field_headOfficeAddress">Head Office Address</label>
+                    <select class="form-control" id="field_headOfficeAddress" name="headOfficeAddress" formControlName="headOfficeAddressId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="citiesOption.id" *ngFor="let citiesOption of cities; trackBy: trackById">{{ citiesOption.name }}</option>
+                        <option [ngValue]="addressesOption.id" *ngFor="let addressesOption of addresses; trackBy: trackById">{{ addressesOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceSuppliers.postalCity" for="field_postalCity">Postal City</label>
-                    <select class="form-control" id="field_postalCity" name="postalCity" formControlName="postalCityId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="citiesOption.id" *ngFor="let citiesOption of cities; trackBy: trackById">{{ citiesOption.name }}</option>
+                    <label jhiTranslate="gatewayApp.vscommerceSuppliers.deliveryMethod" for="field_deliveryMethods">Delivery Method</label>
+                    <select class="form-control" id="field_deliveryMethods" multiple name="deliveryMethods" formControlName="deliveryMethods">
+                        <option [ngValue]="getSelected(editForm.get('deliveryMethods')!.value, deliveryMethodsOption)" *ngFor="let deliveryMethodsOption of deliverymethods; trackBy: trackById">{{ deliveryMethodsOption.name }}</option>
                     </select>
                 </div>
             </div>

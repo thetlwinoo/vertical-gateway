@@ -29,13 +29,14 @@
       "creditRating": "Credit Rating",
       "activeFlag": "Active Flag",
       "thumbnailUrl": "Thumbnail Url",
+      "pickupSameAsHeadOffice": "Pickup Same As Head Office",
       "validFrom": "Valid From",
       "validTo": "Valid To",
       "people": "People",
       "supplierCategory": "Supplier Category",
-      "deliveryMethod": "Delivery Method",
-      "deliveryCity": "Delivery City",
-      "postalCity": "Postal City"
+      "pickupAddress": "Pickup Address",
+      "headOfficeAddress": "Head Office Address",
+      "deliveryMethod": "Delivery Method"
     }
   },
   "vscommerceApp": {

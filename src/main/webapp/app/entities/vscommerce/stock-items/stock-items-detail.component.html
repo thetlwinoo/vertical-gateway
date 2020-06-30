@@ -28,6 +28,10 @@
                 <dd>
                     <span>{{ stockItems.barcode }}</span>
                 </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.taxRate">Tax Rate</span></dt>
+                <dd>
+                    <span>{{ stockItems.taxRate }}</span>
+                </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.unitPrice">Unit Price</span></dt>
                 <dd>
                     <span>{{ stockItems.unitPrice }}</span>
@@ -36,9 +40,49 @@
                 <dd>
                     <span>{{ stockItems.recommendedRetailPrice }}</span>
                 </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.typicalWeightPerUnit">Typical Weight Per Unit</span></dt>
+                <dd>
+                    <span>{{ stockItems.typicalWeightPerUnit }}</span>
+                </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.quantityOnHand">Quantity On Hand</span></dt>
                 <dd>
                     <span>{{ stockItems.quantityOnHand }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.shelf">Shelf</span></dt>
+                <dd>
+                    <span>{{ stockItems.shelf }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.bin">Bin</span></dt>
+                <dd>
+                    <span>{{ stockItems.bin }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.lastStockTakeQuantity">Last Stock Take Quantity</span></dt>
+                <dd>
+                    <span>{{ stockItems.lastStockTakeQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.lastCostPrice">Last Cost Price</span></dt>
+                <dd>
+                    <span>{{ stockItems.lastCostPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.reorderLevel">Reorder Level</span></dt>
+                <dd>
+                    <span>{{ stockItems.reorderLevel }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.targetStockLevel">Target Stock Level</span></dt>
+                <dd>
+                    <span>{{ stockItems.targetStockLevel }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.leadTimeDays">Lead Time Days</span></dt>
+                <dd>
+                    <span>{{ stockItems.leadTimeDays }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.quantityPerOuter">Quantity Per Outer</span></dt>
+                <dd>
+                    <span>{{ stockItems.quantityPerOuter }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.isChillerStock">Is Chiller Stock</span></dt>
+                <dd>
+                    <span>{{ stockItems.isChillerStock }}</span>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.itemLength">Item Length</span></dt>
                 <dd>
@@ -104,6 +148,14 @@
                 <dd>
                     <span>{{ stockItems.sellCount }}</span>
                 </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.tags">Tags</span></dt>
+                <dd>
+                    <span>{{ stockItems.tags }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.searchDetails">Search Details</span></dt>
+                <dd>
+                    <span>{{ stockItems.searchDetails }}</span>
+                </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.customFields">Custom Fields</span></dt>
                 <dd>
                     <span>{{ stockItems.customFields }}</span>
@@ -116,6 +168,14 @@
                 <dd>
                     <span>{{ stockItems.activeInd }}</span>
                 </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.liveInd">Live Ind</span></dt>
+                <dd>
+                    <span>{{ stockItems.liveInd }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.cashOnDeliveryInd">Cash On Delivery Ind</span></dt>
+                <dd>
+                    <span>{{ stockItems.cashOnDeliveryInd }}</span>
+                </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.lastEditedBy">Last Edited By</span></dt>
                 <dd>
                     <span>{{ stockItems.lastEditedBy }}</span>
@@ -123,12 +183,6 @@
                 <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.lastEditedWhen">Last Edited When</span></dt>
                 <dd>
                     <span>{{ stockItems.lastEditedWhen }}</span>
-                </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.reviewLine">Review Line</span></dt>
-                <dd>
-                    <div *ngIf="stockItems.reviewLineId">
-                        <a [routerLink]="['/review-lines', stockItems.reviewLineId, 'view']">{{ stockItems.reviewLineId }}</a>
-                    </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.itemLengthUnit">Item Length Unit</span></dt>
                 <dd>
@@ -201,6 +255,12 @@
                     <div *ngIf="stockItems.barcodeTypeId">
                         <a [routerLink]="['/barcode-types', stockItems.barcodeTypeId, 'view']">{{ stockItems.barcodeTypeName }}</a>
                     </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.photoList">Photo List</span></dt>
+                <dd>
+                    <span *ngFor="let photoList of stockItems.photoLists; let last = last">
+                        <a [routerLink]="['/photos', photoList?.id, 'view']">{{ photoList.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceStockItems.product">Product</span></dt>
                 <dd>

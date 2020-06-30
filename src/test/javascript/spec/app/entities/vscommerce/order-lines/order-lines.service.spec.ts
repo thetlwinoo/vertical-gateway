@@ -25,7 +25,26 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new OrderLines(0, 0, 'AAAAAAA', 0, 0, 0, 0, 0, currentDate, OrderLineStatus.AVAILABLE, 'AAAAAAA', currentDate);
+      elemDefault = new OrderLines(
+        0,
+        'AAAAAAA',
+        0,
+        0,
+        0,
+        0,
+        0,
+        currentDate,
+        OrderLineStatus.AVAILABLE,
+        'AAAAAAA',
+        0,
+        'AAAAAAA',
+        currentDate,
+        'AAAAAAA',
+        currentDate,
+        0,
+        'AAAAAAA',
+        currentDate
+      );
     });
 
     describe('Service methods', () => {
@@ -33,6 +52,8 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
+            customerReviewedOn: currentDate.format(DATE_TIME_FORMAT),
+            supplierResponseOn: currentDate.format(DATE_TIME_FORMAT),
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
@@ -50,6 +71,8 @@ describe('Service Tests', () => {
           {
             id: 0,
             pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
+            customerReviewedOn: currentDate.format(DATE_TIME_FORMAT),
+            supplierResponseOn: currentDate.format(DATE_TIME_FORMAT),
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
@@ -58,6 +81,8 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             pickingCompletedWhen: currentDate,
+            customerReviewedOn: currentDate,
+            supplierResponseOn: currentDate,
             lastEditedWhen: currentDate,
           },
           returnedFromService
@@ -73,15 +98,21 @@ describe('Service Tests', () => {
       it('should update a OrderLines', () => {
         const returnedFromService = Object.assign(
           {
-            quantity: 1,
             description: 'BBBBBB',
+            quantity: 1,
+            taxRate: 1,
             unitPrice: 1,
             unitPriceDiscount: 1,
-            lineTotal: 1,
-            taxRate: 1,
             pickedQuantity: 1,
             pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
             status: 'BBBBBB',
+            thumbnailUrl: 'BBBBBB',
+            lineRating: 1,
+            lineReview: 'BBBBBB',
+            customerReviewedOn: currentDate.format(DATE_TIME_FORMAT),
+            supplierResponse: 'BBBBBB',
+            supplierResponseOn: currentDate.format(DATE_TIME_FORMAT),
+            likeCount: 1,
             lastEditedBy: 'BBBBBB',
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },
@@ -91,6 +122,8 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             pickingCompletedWhen: currentDate,
+            customerReviewedOn: currentDate,
+            supplierResponseOn: currentDate,
             lastEditedWhen: currentDate,
           },
           returnedFromService
@@ -106,15 +139,21 @@ describe('Service Tests', () => {
       it('should return a list of OrderLines', () => {
         const returnedFromService = Object.assign(
           {
-            quantity: 1,
             description: 'BBBBBB',
+            quantity: 1,
+            taxRate: 1,
             unitPrice: 1,
             unitPriceDiscount: 1,
-            lineTotal: 1,
-            taxRate: 1,
             pickedQuantity: 1,
             pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
             status: 'BBBBBB',
+            thumbnailUrl: 'BBBBBB',
+            lineRating: 1,
+            lineReview: 'BBBBBB',
+            customerReviewedOn: currentDate.format(DATE_TIME_FORMAT),
+            supplierResponse: 'BBBBBB',
+            supplierResponseOn: currentDate.format(DATE_TIME_FORMAT),
+            likeCount: 1,
             lastEditedBy: 'BBBBBB',
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },
@@ -124,6 +163,8 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             pickingCompletedWhen: currentDate,
+            customerReviewedOn: currentDate,
+            supplierResponseOn: currentDate,
             lastEditedWhen: currentDate,
           },
           returnedFromService

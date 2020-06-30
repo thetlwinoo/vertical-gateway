@@ -17,6 +17,9 @@
       "shortLabel": "Short Label",
       "sortOrder": "Sort Order",
       "iconFont": "Icon Font",
+      "justForYouInd": "Just For You Ind",
+      "showInNavInd": "Show In Nav Ind",
+      "activeInd": "Active Ind",
       "parent": "Parent",
       "icon": "Icon"
     }

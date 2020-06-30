@@ -51,11 +51,6 @@ export class OrdersService {
   protected convertDateFromClient(orders: IOrders): IOrders {
     const copy: IOrders = Object.assign({}, orders, {
       orderDate: orders.orderDate && orders.orderDate.isValid() ? orders.orderDate.toJSON() : undefined,
-      dueDate: orders.dueDate && orders.dueDate.isValid() ? orders.dueDate.toJSON() : undefined,
-      expectedDeliveryDate:
-        orders.expectedDeliveryDate && orders.expectedDeliveryDate.isValid() ? orders.expectedDeliveryDate.toJSON() : undefined,
-      pickingCompletedWhen:
-        orders.pickingCompletedWhen && orders.pickingCompletedWhen.isValid() ? orders.pickingCompletedWhen.toJSON() : undefined,
       lastEditedWhen: orders.lastEditedWhen && orders.lastEditedWhen.isValid() ? orders.lastEditedWhen.toJSON() : undefined,
     });
     return copy;
@@ -64,9 +59,6 @@ export class OrdersService {
   protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
     if (res.body) {
       res.body.orderDate = res.body.orderDate ? moment(res.body.orderDate) : undefined;
-      res.body.dueDate = res.body.dueDate ? moment(res.body.dueDate) : undefined;
-      res.body.expectedDeliveryDate = res.body.expectedDeliveryDate ? moment(res.body.expectedDeliveryDate) : undefined;
-      res.body.pickingCompletedWhen = res.body.pickingCompletedWhen ? moment(res.body.pickingCompletedWhen) : undefined;
       res.body.lastEditedWhen = res.body.lastEditedWhen ? moment(res.body.lastEditedWhen) : undefined;
     }
     return res;
@@ -76,9 +68,6 @@ export class OrdersService {
     if (res.body) {
       res.body.forEach((orders: IOrders) => {
         orders.orderDate = orders.orderDate ? moment(orders.orderDate) : undefined;
-        orders.dueDate = orders.dueDate ? moment(orders.dueDate) : undefined;
-        orders.expectedDeliveryDate = orders.expectedDeliveryDate ? moment(orders.expectedDeliveryDate) : undefined;
-        orders.pickingCompletedWhen = orders.pickingCompletedWhen ? moment(orders.pickingCompletedWhen) : undefined;
         orders.lastEditedWhen = orders.lastEditedWhen ? moment(orders.lastEditedWhen) : undefined;
       });
     }

@@ -32,7 +32,7 @@
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceAddresses.postalCode">Postal Code</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceAddresses.defaultInd">Default Ind</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceAddresses.activeInd">Active Ind</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceAddresses.stateProvince">State Province</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceAddresses.zone">Zone</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceAddresses.addressType">Address Type</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceAddresses.person">Person</span></th>
                     <th scope="col"></th>
@@ -51,8 +51,8 @@
                     <td>{{ addresses.defaultInd }}</td>
                     <td>{{ addresses.activeInd }}</td>
                     <td>
-                        <div *ngIf="addresses.stateProvinceId">
-                            <a [routerLink]="['/state-provinces', addresses.stateProvinceId , 'view']" >{{ addresses.stateProvinceName }}</a>
+                        <div *ngIf="addresses.zoneId">
+                            <a [routerLink]="['/zone', addresses.zoneId , 'view']" >{{ addresses.zoneCode }}</a>
                         </div>
                     </td>
                     <td>

@@ -33,7 +33,7 @@
                 <dt><span jhiTranslate="gatewayApp.vscommerceStockItemTransactions.customer">Customer</span></dt>
                 <dd>
                     <div *ngIf="stockItemTransactions.customerId">
-                        <a [routerLink]="['/customers', stockItemTransactions.customerId, 'view']">{{ stockItemTransactions.customerId }}</a>
+                        <a [routerLink]="['/customers', stockItemTransactions.customerId, 'view']">{{ stockItemTransactions.customerName }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceStockItemTransactions.invoice">Invoice</span></dt>

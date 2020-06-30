@@ -31,7 +31,6 @@ export class ReviewLinesUpdateComponent implements OnInit {
     id: [],
     stockItemRating: [],
     stockItemReview: [],
-    attachedUrl: [],
     lastEditedBy: [null, [Validators.required]],
     lastEditedWhen: [null, [Validators.required]],
     reviewImageId: [],
@@ -68,7 +67,6 @@ export class ReviewLinesUpdateComponent implements OnInit {
       id: reviewLines.id,
       stockItemRating: reviewLines.stockItemRating,
       stockItemReview: reviewLines.stockItemReview,
-      attachedUrl: reviewLines.attachedUrl,
       lastEditedBy: reviewLines.lastEditedBy,
       lastEditedWhen: reviewLines.lastEditedWhen ? reviewLines.lastEditedWhen.format(DATE_TIME_FORMAT) : null,
       reviewImageId: reviewLines.reviewImageId,
@@ -112,7 +110,6 @@ export class ReviewLinesUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       stockItemRating: this.editForm.get(['stockItemRating'])!.value,
       stockItemReview: this.editForm.get(['stockItemReview'])!.value,
-      attachedUrl: this.editForm.get(['attachedUrl'])!.value,
       lastEditedBy: this.editForm.get(['lastEditedBy'])!.value,
       lastEditedWhen: this.editForm.get(['lastEditedWhen'])!.value
         ? moment(this.editForm.get(['lastEditedWhen'])!.value, DATE_TIME_FORMAT)

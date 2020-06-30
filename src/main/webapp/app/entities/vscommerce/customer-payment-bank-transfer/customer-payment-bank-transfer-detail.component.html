@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customerPaymentBankTransfer">
+            <h2><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.detail.title">Customer Payment Bank Transfer</span> {{ customerPaymentBankTransfer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.receiptImageUrl">Receipt Image Url</span></dt>
+                <dd>
+                    <span>{{ customerPaymentBankTransfer.receiptImageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.nameInBankAccount">Name In Bank Account</span></dt>
+                <dd>
+                    <span>{{ customerPaymentBankTransfer.nameInBankAccount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.dateOfTransfer">Date Of Transfer</span></dt>
+                <dd>
+                    <span>{{ customerPaymentBankTransfer.dateOfTransfer }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.amountTransferred">Amount Transferred</span></dt>
+                <dd>
+                    <span>{{ customerPaymentBankTransfer.amountTransferred }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.lastEdityBy">Last Edity By</span></dt>
+                <dd>
+                    <span>{{ customerPaymentBankTransfer.lastEdityBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ customerPaymentBankTransfer.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.customerPayment">Customer Payment</span></dt>
+                <dd>
+                    <div *ngIf="customerPaymentBankTransfer.customerPaymentId">
+                        <a [routerLink]="['/customer-payment', customerPaymentBankTransfer.customerPaymentId, 'view']">{{ customerPaymentBankTransfer.customerPaymentId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentBankTransfer.currency">Currency</span></dt>
+                <dd>
+                    <div *ngIf="customerPaymentBankTransfer.currencyId">
+                        <a [routerLink]="['/currency', customerPaymentBankTransfer.currencyId, 'view']">{{ customerPaymentBankTransfer.currencyName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer-payment-bank-transfer', customerPaymentBankTransfer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

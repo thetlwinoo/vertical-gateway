@@ -1,35 +1,35 @@
 import { Moment } from 'moment';
-import { IOrderLines } from 'app/shared/model/vscommerce/order-lines.model';
+import { IOrderPackages } from 'app/shared/model/vscommerce/order-packages.model';
 import { PaymentStatus } from 'app/shared/model/enumerations/payment-status.model';
 import { OrderStatus } from 'app/shared/model/enumerations/order-status.model';
 
 export interface IOrders {
   id?: number;
   orderDate?: Moment;
-  dueDate?: Moment;
-  expectedDeliveryDate?: Moment;
-  paymentStatus?: PaymentStatus;
-  accountNumber?: string;
   subTotal?: number;
-  taxAmount?: number;
-  frieight?: number;
+  totalTaxAmount?: number;
+  totalShippingFee?: number;
+  totalShippingFeeDiscount?: number;
+  totalVoucherDiscount?: number;
+  totalPromtionDiscount?: number;
   totalDue?: number;
-  comments?: string;
-  deliveryInstructions?: string;
-  internalComments?: string;
-  pickingCompletedWhen?: Moment;
+  paymentStatus?: PaymentStatus;
+  customerPurchaseOrderNumber?: string;
   status?: OrderStatus;
+  orderDetails?: any;
+  isUnderSupplyBackOrdered?: boolean;
   lastEditedBy?: string;
   lastEditedWhen?: Moment;
-  reviewId?: number;
-  orderLineLists?: IOrderLines[];
+  orderPackageLists?: IOrderPackages[];
+  customerName?: string;
   customerId?: number;
   shipToAddressId?: number;
   billToAddressId?: number;
-  shipMethodName?: string;
-  shipMethodId?: number;
   currencyRateId?: number;
-  customerTransactionId?: number;
+  paymentMethodName?: string;
+  paymentMethodId?: number;
+  salePersonFullName?: string;
+  salePersonId?: number;
   orderTrackingId?: number;
   specialDealsId?: number;
 }
@@ -38,31 +38,33 @@ export class Orders implements IOrders {
   constructor(
     public id?: number,
     public orderDate?: Moment,
-    public dueDate?: Moment,
-    public expectedDeliveryDate?: Moment,
-    public paymentStatus?: PaymentStatus,
-    public accountNumber?: string,
     public subTotal?: number,
-    public taxAmount?: number,
-    public frieight?: number,
+    public totalTaxAmount?: number,
+    public totalShippingFee?: number,
+    public totalShippingFeeDiscount?: number,
+    public totalVoucherDiscount?: number,
+    public totalPromtionDiscount?: number,
     public totalDue?: number,
-    public comments?: string,
-    public deliveryInstructions?: string,
-    public internalComments?: string,
-    public pickingCompletedWhen?: Moment,
+    public paymentStatus?: PaymentStatus,
+    public customerPurchaseOrderNumber?: string,
     public status?: OrderStatus,
+    public orderDetails?: any,
+    public isUnderSupplyBackOrdered?: boolean,
     public lastEditedBy?: string,
     public lastEditedWhen?: Moment,
-    public reviewId?: number,
-    public orderLineLists?: IOrderLines[],
+    public orderPackageLists?: IOrderPackages[],
+    public customerName?: string,
     public customerId?: number,
     public shipToAddressId?: number,
     public billToAddressId?: number,
-    public shipMethodName?: string,
-    public shipMethodId?: number,
     public currencyRateId?: number,
-    public customerTransactionId?: number,
+    public paymentMethodName?: string,
+    public paymentMethodId?: number,
+    public salePersonFullName?: string,
+    public salePersonId?: number,
     public orderTrackingId?: number,
     public specialDealsId?: number
-  ) {}
+  ) {
+    this.isUnderSupplyBackOrdered = this.isUnderSupplyBackOrdered || false;
+  }
 }

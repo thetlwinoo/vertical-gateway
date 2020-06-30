@@ -10,8 +10,10 @@ export interface IShippingFeeChart {
   price?: number;
   lastEditedBy?: string;
   lastEditedWhen?: Moment;
-  zoneCode?: string;
-  zoneId?: number;
+  sourceZoneCode?: string;
+  sourceZoneId?: number;
+  destinationZoneCode?: string;
+  destinationZoneId?: number;
   deliveryMethodName?: string;
   deliveryMethodId?: number;
 }
@@ -27,8 +29,10 @@ export class ShippingFeeChart implements IShippingFeeChart {
     public price?: number,
     public lastEditedBy?: string,
     public lastEditedWhen?: Moment,
-    public zoneCode?: string,
-    public zoneId?: number,
+    public sourceZoneCode?: string,
+    public sourceZoneId?: number,
+    public destinationZoneCode?: string,
+    public destinationZoneId?: number,
     public deliveryMethodName?: string,
     public deliveryMethodId?: number
   ) {}

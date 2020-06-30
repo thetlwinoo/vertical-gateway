@@ -3,48 +3,62 @@ import { OrderLineStatus } from 'app/shared/model/enumerations/order-line-status
 
 export interface IOrderLines {
   id?: number;
-  quantity?: number;
   description?: string;
+  quantity?: number;
+  taxRate?: number;
   unitPrice?: number;
   unitPriceDiscount?: number;
-  lineTotal?: number;
-  taxRate?: number;
   pickedQuantity?: number;
   pickingCompletedWhen?: Moment;
   status?: OrderLineStatus;
+  thumbnailUrl?: string;
+  lineRating?: number;
+  lineReview?: any;
+  customerReviewedOn?: Moment;
+  supplierResponse?: any;
+  supplierResponseOn?: Moment;
+  likeCount?: number;
   lastEditedBy?: string;
   lastEditedWhen?: Moment;
-  reviewLineId?: number;
-  supplierName?: string;
-  supplierId?: number;
   stockItemName?: string;
   stockItemId?: number;
   packageTypeName?: string;
   packageTypeId?: number;
-  orderId?: number;
+  reviewImageThumbnailUrl?: string;
+  reviewImageId?: number;
+  supplierName?: string;
+  supplierId?: number;
+  orderPackageId?: number;
 }
 
 export class OrderLines implements IOrderLines {
   constructor(
     public id?: number,
-    public quantity?: number,
     public description?: string,
+    public quantity?: number,
+    public taxRate?: number,
     public unitPrice?: number,
     public unitPriceDiscount?: number,
-    public lineTotal?: number,
-    public taxRate?: number,
     public pickedQuantity?: number,
     public pickingCompletedWhen?: Moment,
     public status?: OrderLineStatus,
+    public thumbnailUrl?: string,
+    public lineRating?: number,
+    public lineReview?: any,
+    public customerReviewedOn?: Moment,
+    public supplierResponse?: any,
+    public supplierResponseOn?: Moment,
+    public likeCount?: number,
     public lastEditedBy?: string,
     public lastEditedWhen?: Moment,
-    public reviewLineId?: number,
-    public supplierName?: string,
-    public supplierId?: number,
     public stockItemName?: string,
     public stockItemId?: number,
     public packageTypeName?: string,
     public packageTypeId?: number,
-    public orderId?: number
+    public reviewImageThumbnailUrl?: string,
+    public reviewImageId?: number,
+    public supplierName?: string,
+    public supplierId?: number,
+    public orderPackageId?: number
   ) {}
 }

@@ -23,6 +23,7 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.name">Name</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.accountNumber">Account Number</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.accountOpenedDate">Account Opened Date</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.standardDiscountPercentage">Standard Discount Percentage</span></th>
@@ -31,18 +32,22 @@
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.paymentDays">Payment Days</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.deliveryRun">Delivery Run</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.runPosition">Run Position</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.thumbnailUrl">Thumbnail Url</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.billToAddressSameAsDeliveryAddress">Bill To Address Same As Delivery Address</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.lastEditedBy">Last Edited By</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.validFrom">Valid From</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.validTo">Valid To</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.people">People</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.deliveryMethod">Delivery Method</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.deliveryAddress">Delivery Address</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.billToAddress">Bill To Address</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let customers of customers ;trackBy: trackId">
                     <td><a [routerLink]="['/customers', customers.id, 'view']">{{ customers.id }}</a></td>
+                    <td>{{ customers.name }}</td>
                     <td>{{ customers.accountNumber }}</td>
                     <td>{{ customers.accountOpenedDate | date:'medium' }}</td>
                     <td>{{ customers.standardDiscountPercentage }}</td>
@@ -51,6 +56,8 @@
                     <td>{{ customers.paymentDays }}</td>
                     <td>{{ customers.deliveryRun }}</td>
                     <td>{{ customers.runPosition }}</td>
+                    <td>{{ customers.thumbnailUrl }}</td>
+                    <td>{{ customers.billToAddressSameAsDeliveryAddress }}</td>
                     <td>{{ customers.lastEditedBy }}</td>
                     <td>{{ customers.validFrom | date:'medium' }}</td>
                     <td>{{ customers.validTo | date:'medium' }}</td>
@@ -67,6 +74,11 @@
                     <td>
                         <div *ngIf="customers.deliveryAddressId">
                             <a [routerLink]="['/addresses', customers.deliveryAddressId , 'view']" >{{ customers.deliveryAddressId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="customers.billToAddressId">
+                            <a [routerLink]="['/addresses', customers.billToAddressId , 'view']" >{{ customers.billToAddressId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

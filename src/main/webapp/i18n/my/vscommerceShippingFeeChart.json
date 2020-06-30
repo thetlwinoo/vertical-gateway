@@ -21,7 +21,8 @@
       "price": "Price",
       "lastEditedBy": "Last Edited By",
       "lastEditedWhen": "Last Edited When",
-      "zone": "Zone",
+      "sourceZone": "Source Zone",
+      "destinationZone": "Destination Zone",
       "deliveryMethod": "Delivery Method"
     }
   },

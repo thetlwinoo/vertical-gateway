@@ -37,9 +37,52 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.customerPurchaseOrderNumber" for="field_customerPurchaseOrderNumber">Customer Purchase Order Number</label>
-                    <input type="text" class="form-control" name="customerPurchaseOrderNumber" id="field_customerPurchaseOrderNumber"
-                           formControlName="customerPurchaseOrderNumber"/>
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.packageShippingFee" for="field_packageShippingFee">Package Shipping Fee</label>
+                    <input type="number" class="form-control" name="packageShippingFee" id="field_packageShippingFee"
+                           formControlName="packageShippingFee"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.packageShippingFeeDiscount" for="field_packageShippingFeeDiscount">Package Shipping Fee Discount</label>
+                    <input type="number" class="form-control" name="packageShippingFeeDiscount" id="field_packageShippingFeeDiscount"
+                           formControlName="packageShippingFeeDiscount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.packagePrice" for="field_packagePrice">Package Price</label>
+                    <input type="number" class="form-control" name="packagePrice" id="field_packagePrice"
+                           formControlName="packagePrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.packageSubTotal" for="field_packageSubTotal">Package Sub Total</label>
+                    <input type="number" class="form-control" name="packageSubTotal" id="field_packageSubTotal"
+                           formControlName="packageSubTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.packageTaxAmount" for="field_packageTaxAmount">Package Tax Amount</label>
+                    <input type="number" class="form-control" name="packageTaxAmount" id="field_packageTaxAmount"
+                           formControlName="packageTaxAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.packageVoucherDiscount" for="field_packageVoucherDiscount">Package Voucher Discount</label>
+                    <input type="number" class="form-control" name="packageVoucherDiscount" id="field_packageVoucherDiscount"
+                           formControlName="packageVoucherDiscount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.packagePromotionDiscount" for="field_packagePromotionDiscount">Package Promotion Discount</label>
+                    <input type="number" class="form-control" name="packagePromotionDiscount" id="field_packagePromotionDiscount"
+                           formControlName="packagePromotionDiscount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.pickingCompletedWhen" for="field_pickingCompletedWhen">Picking Completed When</label>
+                    <div class="d-flex">
+                        <input id="field_pickingCompletedWhen" type="datetime-local" class="form-control" name="pickingCompletedWhen" formControlName="pickingCompletedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -125,6 +168,22 @@
                     <select class="form-control" id="field_supplier" name="supplier" formControlName="supplierId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="suppliersOption.id" *ngFor="let suppliersOption of suppliers; trackBy: trackById">{{ suppliersOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryMethod" for="field_deliveryMethod">Delivery Method</label>
+                    <select class="form-control" id="field_deliveryMethod" name="deliveryMethod" formControlName="deliveryMethodId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="deliveryMethodsOption.id" *ngFor="let deliveryMethodsOption of deliverymethods; trackBy: trackById">{{ deliveryMethodsOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.specialDeals" for="field_specialDeals">Special Deals</label>
+                    <select class="form-control" id="field_specialDeals" name="specialDeals" formControlName="specialDealsId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="specialDealsOption.id" *ngFor="let specialDealsOption of specialdeals; trackBy: trackById">{{ specialDealsOption.id }}</option>
                     </select>
                 </div>
 

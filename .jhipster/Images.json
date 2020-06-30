@@ -5,17 +5,13 @@
       "fieldName": "thumbnail",
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "image",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "original",
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "image",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "bannerTall",

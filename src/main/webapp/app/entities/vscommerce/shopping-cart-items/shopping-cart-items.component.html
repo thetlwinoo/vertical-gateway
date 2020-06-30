@@ -24,9 +24,11 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCartItems.quantity">Quantity</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCartItems.selectOrder">Select Order</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCartItems.lastEditedBy">Last Edited By</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCartItems.lastEditedWhen">Last Edited When</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCartItems.stockItem">Stock Item</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCartItems.deliveryMethod">Delivery Method</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShoppingCartItems.cart">Cart</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -35,11 +37,17 @@
                 <tr *ngFor="let shoppingCartItems of shoppingCartItems ;trackBy: trackId">
                     <td><a [routerLink]="['/shopping-cart-items', shoppingCartItems.id, 'view']">{{ shoppingCartItems.id }}</a></td>
                     <td>{{ shoppingCartItems.quantity }}</td>
+                    <td>{{ shoppingCartItems.selectOrder }}</td>
                     <td>{{ shoppingCartItems.lastEditedBy }}</td>
                     <td>{{ shoppingCartItems.lastEditedWhen | date:'medium' }}</td>
                     <td>
                         <div *ngIf="shoppingCartItems.stockItemId">
                             <a [routerLink]="['/stock-items', shoppingCartItems.stockItemId , 'view']" >{{ shoppingCartItems.stockItemName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="shoppingCartItems.deliveryMethodId">
+                            <a [routerLink]="['/delivery-methods', shoppingCartItems.deliveryMethodId , 'view']" >{{ shoppingCartItems.deliveryMethodName }}</a>
                         </div>
                     </td>
                     <td>

@@ -8,13 +8,17 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.description">Description</span></dt>
+                <dd>
+                    <span>{{ orderLines.description }}</span>
+                </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.quantity">Quantity</span></dt>
                 <dd>
                     <span>{{ orderLines.quantity }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.description">Description</span></dt>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.taxRate">Tax Rate</span></dt>
                 <dd>
-                    <span>{{ orderLines.description }}</span>
+                    <span>{{ orderLines.taxRate }}</span>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.unitPrice">Unit Price</span></dt>
                 <dd>
@@ -23,14 +27,6 @@
                 <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.unitPriceDiscount">Unit Price Discount</span></dt>
                 <dd>
                     <span>{{ orderLines.unitPriceDiscount }}</span>
-                </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.lineTotal">Line Total</span></dt>
-                <dd>
-                    <span>{{ orderLines.lineTotal }}</span>
-                </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.taxRate">Tax Rate</span></dt>
-                <dd>
-                    <span>{{ orderLines.taxRate }}</span>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.pickedQuantity">Picked Quantity</span></dt>
                 <dd>
@@ -44,6 +40,34 @@
                 <dd>
                     <span jhiTranslate="{{ 'gatewayApp.OrderLineStatus.' + orderLines.status }}">{{ orderLines.status }}</span>
                 </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.thumbnailUrl">Thumbnail Url</span></dt>
+                <dd>
+                    <span>{{ orderLines.thumbnailUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.lineRating">Line Rating</span></dt>
+                <dd>
+                    <span>{{ orderLines.lineRating }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.lineReview">Line Review</span></dt>
+                <dd>
+                    <span>{{ orderLines.lineReview }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.customerReviewedOn">Customer Reviewed On</span></dt>
+                <dd>
+                    <span>{{ orderLines.customerReviewedOn }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.supplierResponse">Supplier Response</span></dt>
+                <dd>
+                    <span>{{ orderLines.supplierResponse }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.supplierResponseOn">Supplier Response On</span></dt>
+                <dd>
+                    <span>{{ orderLines.supplierResponseOn }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.likeCount">Like Count</span></dt>
+                <dd>
+                    <span>{{ orderLines.likeCount }}</span>
+                </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.lastEditedBy">Last Edited By</span></dt>
                 <dd>
                     <span>{{ orderLines.lastEditedBy }}</span>
@@ -51,18 +75,6 @@
                 <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.lastEditedWhen">Last Edited When</span></dt>
                 <dd>
                     <span>{{ orderLines.lastEditedWhen }}</span>
-                </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.reviewLine">Review Line</span></dt>
-                <dd>
-                    <div *ngIf="orderLines.reviewLineId">
-                        <a [routerLink]="['/review-lines', orderLines.reviewLineId, 'view']">{{ orderLines.reviewLineId }}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.supplier">Supplier</span></dt>
-                <dd>
-                    <div *ngIf="orderLines.supplierId">
-                        <a [routerLink]="['/suppliers', orderLines.supplierId, 'view']">{{ orderLines.supplierName }}</a>
-                    </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.stockItem">Stock Item</span></dt>
                 <dd>
@@ -76,10 +88,22 @@
                         <a [routerLink]="['/package-types', orderLines.packageTypeId, 'view']">{{ orderLines.packageTypeName }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.order">Order</span></dt>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.reviewImage">Review Image</span></dt>
                 <dd>
-                    <div *ngIf="orderLines.orderId">
-                        <a [routerLink]="['/orders', orderLines.orderId, 'view']">{{ orderLines.orderId }}</a>
+                    <div *ngIf="orderLines.reviewImageId">
+                        <a [routerLink]="['/photos', orderLines.reviewImageId, 'view']">{{ orderLines.reviewImageThumbnailUrl }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="orderLines.supplierId">
+                        <a [routerLink]="['/suppliers', orderLines.supplierId, 'view']">{{ orderLines.supplierName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.orderPackage">Order Package</span></dt>
+                <dd>
+                    <div *ngIf="orderLines.orderPackageId">
+                        <a [routerLink]="['/order-packages', orderLines.orderPackageId, 'view']">{{ orderLines.orderPackageId }}</a>
                     </div>
                 </dd>
             </dl>

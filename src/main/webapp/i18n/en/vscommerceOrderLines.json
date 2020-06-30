@@ -13,22 +13,28 @@
       "detail": {
         "title": "Order Lines"
       },
-      "quantity": "Quantity",
       "description": "Description",
+      "quantity": "Quantity",
+      "taxRate": "Tax Rate",
       "unitPrice": "Unit Price",
       "unitPriceDiscount": "Unit Price Discount",
-      "lineTotal": "Line Total",
-      "taxRate": "Tax Rate",
       "pickedQuantity": "Picked Quantity",
       "pickingCompletedWhen": "Picking Completed When",
       "status": "Status",
+      "thumbnailUrl": "Thumbnail Url",
+      "lineRating": "Line Rating",
+      "lineReview": "Line Review",
+      "customerReviewedOn": "Customer Reviewed On",
+      "supplierResponse": "Supplier Response",
+      "supplierResponseOn": "Supplier Response On",
+      "likeCount": "Like Count",
       "lastEditedBy": "Last Edited By",
       "lastEditedWhen": "Last Edited When",
-      "reviewLine": "Review Line",
-      "supplier": "Supplier",
       "stockItem": "Stock Item",
       "packageType": "Package Type",
-      "order": "Order"
+      "reviewImage": "Review Image",
+      "supplier": "Supplier",
+      "orderPackage": "Order Package"
     }
   },
   "vscommerceApp": {

@@ -4,26 +4,27 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
+import { JhiDataUtils, JhiFileLoadError, JhiEventManager, JhiEventWithContent } from 'ng-jhipster';
 
 import { IOrders, Orders } from 'app/shared/model/vscommerce/orders.model';
 import { OrdersService } from './orders.service';
-import { IReviews } from 'app/shared/model/vscommerce/reviews.model';
-import { ReviewsService } from 'app/entities/vscommerce/reviews/reviews.service';
+import { AlertError } from 'app/shared/alert/alert-error.model';
 import { ICustomers } from 'app/shared/model/vscommerce/customers.model';
 import { CustomersService } from 'app/entities/vscommerce/customers/customers.service';
 import { IAddresses } from 'app/shared/model/vscommerce/addresses.model';
 import { AddressesService } from 'app/entities/vscommerce/addresses/addresses.service';
-import { IShipMethod } from 'app/shared/model/vscommerce/ship-method.model';
-import { ShipMethodService } from 'app/entities/vscommerce/ship-method/ship-method.service';
 import { ICurrencyRate } from 'app/shared/model/vscommerce/currency-rate.model';
 import { CurrencyRateService } from 'app/entities/vscommerce/currency-rate/currency-rate.service';
+import { IPaymentMethods } from 'app/shared/model/vscommerce/payment-methods.model';
+import { PaymentMethodsService } from 'app/entities/vscommerce/payment-methods/payment-methods.service';
+import { IPeople } from 'app/shared/model/vscommerce/people.model';
+import { PeopleService } from 'app/entities/vscommerce/people/people.service';
 import { ISpecialDeals } from 'app/shared/model/vscommerce/special-deals.model';
 import { SpecialDealsService } from 'app/entities/vscommerce/special-deals/special-deals.service';
 
-type SelectableEntity = IReviews | ICustomers | IAddresses | IShipMethod | ICurrencyRate | ISpecialDeals;
+type SelectableEntity = ICustomers | IAddresses | ICurrencyRate | IPaymentMethods | IPeople | ISpecialDeals;
 
 @Component({
   selector: 'jhi-orders-update',
@@ -31,47 +32,48 @@ type SelectableEntity = IReviews | ICustomers | IAddresses | IShipMethod | ICurr
 })
 export class OrdersUpdateComponent implements OnInit {
   isSaving = false;
-  reviews: IReviews[] = [];
   customers: ICustomers[] = [];
   addresses: IAddresses[] = [];
-  shipmethods: IShipMethod[] = [];
   currencyrates: ICurrencyRate[] = [];
+  paymentmethods: IPaymentMethods[] = [];
+  people: IPeople[] = [];
   specialdeals: ISpecialDeals[] = [];
 
   editForm = this.fb.group({
     id: [],
     orderDate: [null, [Validators.required]],
-    dueDate: [],
-    expectedDeliveryDate: [],
-    paymentStatus: [],
-    accountNumber: [],
     subTotal: [],
-    taxAmount: [],
-    frieight: [],
+    totalTaxAmount: [],
+    totalShippingFee: [],
+    totalShippingFeeDiscount: [],
+    totalVoucherDiscount: [],
+    totalPromtionDiscount: [],
     totalDue: [],
-    comments: [],
-    deliveryInstructions: [],
-    internalComments: [],
-    pickingCompletedWhen: [],
+    paymentStatus: [],
+    customerPurchaseOrderNumber: [],
     status: [null, [Validators.required]],
+    orderDetails: [],
+    isUnderSupplyBackOrdered: [],
     lastEditedBy: [null, [Validators.required]],
     lastEditedWhen: [null, [Validators.required]],
-    reviewId: [],
     customerId: [],
     shipToAddressId: [],
     billToAddressId: [],
-    shipMethodId: [],
     currencyRateId: [],
+    paymentMethodId: [],
+    salePersonId: [],
     specialDealsId: [],
   });
 
   constructor(
+    protected dataUtils: JhiDataUtils,
+    protected eventManager: JhiEventManager,
     protected ordersService: OrdersService,
-    protected reviewsService: ReviewsService,
     protected customersService: CustomersService,
     protected addressesService: AddressesService,
-    protected shipMethodService: ShipMethodService,
     protected currencyRateService: CurrencyRateService,
+    protected paymentMethodsService: PaymentMethodsService,
+    protected peopleService: PeopleService,
     protected specialDealsService: SpecialDealsService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -82,43 +84,20 @@ export class OrdersUpdateComponent implements OnInit {
       if (!orders.id) {
         const today = moment().startOf('day');
         orders.orderDate = today;
-        orders.dueDate = today;
-        orders.expectedDeliveryDate = today;
-        orders.pickingCompletedWhen = today;
         orders.lastEditedWhen = today;
       }
 
       this.updateForm(orders);
 
-      this.reviewsService
-        .query({ 'orderId.specified': 'false' })
-        .pipe(
-          map((res: HttpResponse<IReviews[]>) => {
-            return res.body || [];
-          })
-        )
-        .subscribe((resBody: IReviews[]) => {
-          if (!orders.reviewId) {
-            this.reviews = resBody;
-          } else {
-            this.reviewsService
-              .find(orders.reviewId)
-              .pipe(
-                map((subRes: HttpResponse<IReviews>) => {
-                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
-                })
-              )
-              .subscribe((concatRes: IReviews[]) => (this.reviews = concatRes));
-          }
-        });
-
       this.customersService.query().subscribe((res: HttpResponse<ICustomers[]>) => (this.customers = res.body || []));
 
       this.addressesService.query().subscribe((res: HttpResponse<IAddresses[]>) => (this.addresses = res.body || []));
 
-      this.shipMethodService.query().subscribe((res: HttpResponse<IShipMethod[]>) => (this.shipmethods = res.body || []));
-
       this.currencyRateService.query().subscribe((res: HttpResponse<ICurrencyRate[]>) => (this.currencyrates = res.body || []));
+
+      this.paymentMethodsService.query().subscribe((res: HttpResponse<IPaymentMethods[]>) => (this.paymentmethods = res.body || []));
+
+      this.peopleService.query().subscribe((res: HttpResponse<IPeople[]>) => (this.people = res.body || []));
 
       this.specialDealsService.query().subscribe((res: HttpResponse<ISpecialDeals[]>) => (this.specialdeals = res.body || []));
     });
@@ -128,28 +107,43 @@ export class OrdersUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: orders.id,
       orderDate: orders.orderDate ? orders.orderDate.format(DATE_TIME_FORMAT) : null,
-      dueDate: orders.dueDate ? orders.dueDate.format(DATE_TIME_FORMAT) : null,
-      expectedDeliveryDate: orders.expectedDeliveryDate ? orders.expectedDeliveryDate.format(DATE_TIME_FORMAT) : null,
-      paymentStatus: orders.paymentStatus,
-      accountNumber: orders.accountNumber,
       subTotal: orders.subTotal,
-      taxAmount: orders.taxAmount,
-      frieight: orders.frieight,
+      totalTaxAmount: orders.totalTaxAmount,
+      totalShippingFee: orders.totalShippingFee,
+      totalShippingFeeDiscount: orders.totalShippingFeeDiscount,
+      totalVoucherDiscount: orders.totalVoucherDiscount,
+      totalPromtionDiscount: orders.totalPromtionDiscount,
       totalDue: orders.totalDue,
-      comments: orders.comments,
-      deliveryInstructions: orders.deliveryInstructions,
-      internalComments: orders.internalComments,
-      pickingCompletedWhen: orders.pickingCompletedWhen ? orders.pickingCompletedWhen.format(DATE_TIME_FORMAT) : null,
+      paymentStatus: orders.paymentStatus,
+      customerPurchaseOrderNumber: orders.customerPurchaseOrderNumber,
       status: orders.status,
+      orderDetails: orders.orderDetails,
+      isUnderSupplyBackOrdered: orders.isUnderSupplyBackOrdered,
       lastEditedBy: orders.lastEditedBy,
       lastEditedWhen: orders.lastEditedWhen ? orders.lastEditedWhen.format(DATE_TIME_FORMAT) : null,
-      reviewId: orders.reviewId,
       customerId: orders.customerId,
       shipToAddressId: orders.shipToAddressId,
       billToAddressId: orders.billToAddressId,
-      shipMethodId: orders.shipMethodId,
       currencyRateId: orders.currencyRateId,
+      paymentMethodId: orders.paymentMethodId,
+      salePersonId: orders.salePersonId,
       specialDealsId: orders.specialDealsId,
+    });
+  }
+
+  byteSize(base64String: string): string {
+    return this.dataUtils.byteSize(base64String);
+  }
+
+  openFile(contentType: string, base64String: string): void {
+    this.dataUtils.openFile(contentType, base64String);
+  }
+
+  setFileData(event: Event, field: string, isImage: boolean): void {
+    this.dataUtils.loadFileToForm(event, this.editForm, field, isImage).subscribe(null, (err: JhiFileLoadError) => {
+      this.eventManager.broadcast(
+        new JhiEventWithContent<AlertError>('gatewayApp.error', { ...err, key: 'error.file.' + err.key })
+      );
     });
   }
 
@@ -172,33 +166,28 @@ export class OrdersUpdateComponent implements OnInit {
       ...new Orders(),
       id: this.editForm.get(['id'])!.value,
       orderDate: this.editForm.get(['orderDate'])!.value ? moment(this.editForm.get(['orderDate'])!.value, DATE_TIME_FORMAT) : undefined,
-      dueDate: this.editForm.get(['dueDate'])!.value ? moment(this.editForm.get(['dueDate'])!.value, DATE_TIME_FORMAT) : undefined,
-      expectedDeliveryDate: this.editForm.get(['expectedDeliveryDate'])!.value
-        ? moment(this.editForm.get(['expectedDeliveryDate'])!.value, DATE_TIME_FORMAT)
-        : undefined,
-      paymentStatus: this.editForm.get(['paymentStatus'])!.value,
-      accountNumber: this.editForm.get(['accountNumber'])!.value,
       subTotal: this.editForm.get(['subTotal'])!.value,
-      taxAmount: this.editForm.get(['taxAmount'])!.value,
-      frieight: this.editForm.get(['frieight'])!.value,
+      totalTaxAmount: this.editForm.get(['totalTaxAmount'])!.value,
+      totalShippingFee: this.editForm.get(['totalShippingFee'])!.value,
+      totalShippingFeeDiscount: this.editForm.get(['totalShippingFeeDiscount'])!.value,
+      totalVoucherDiscount: this.editForm.get(['totalVoucherDiscount'])!.value,
+      totalPromtionDiscount: this.editForm.get(['totalPromtionDiscount'])!.value,
       totalDue: this.editForm.get(['totalDue'])!.value,
-      comments: this.editForm.get(['comments'])!.value,
-      deliveryInstructions: this.editForm.get(['deliveryInstructions'])!.value,
-      internalComments: this.editForm.get(['internalComments'])!.value,
-      pickingCompletedWhen: this.editForm.get(['pickingCompletedWhen'])!.value
-        ? moment(this.editForm.get(['pickingCompletedWhen'])!.value, DATE_TIME_FORMAT)
-        : undefined,
+      paymentStatus: this.editForm.get(['paymentStatus'])!.value,
+      customerPurchaseOrderNumber: this.editForm.get(['customerPurchaseOrderNumber'])!.value,
       status: this.editForm.get(['status'])!.value,
+      orderDetails: this.editForm.get(['orderDetails'])!.value,
+      isUnderSupplyBackOrdered: this.editForm.get(['isUnderSupplyBackOrdered'])!.value,
       lastEditedBy: this.editForm.get(['lastEditedBy'])!.value,
       lastEditedWhen: this.editForm.get(['lastEditedWhen'])!.value
         ? moment(this.editForm.get(['lastEditedWhen'])!.value, DATE_TIME_FORMAT)
         : undefined,
-      reviewId: this.editForm.get(['reviewId'])!.value,
       customerId: this.editForm.get(['customerId'])!.value,
       shipToAddressId: this.editForm.get(['shipToAddressId'])!.value,
       billToAddressId: this.editForm.get(['billToAddressId'])!.value,
-      shipMethodId: this.editForm.get(['shipMethodId'])!.value,
       currencyRateId: this.editForm.get(['currencyRateId'])!.value,
+      paymentMethodId: this.editForm.get(['paymentMethodId'])!.value,
+      salePersonId: this.editForm.get(['salePersonId'])!.value,
       specialDealsId: this.editForm.get(['specialDealsId'])!.value,
     };
   }

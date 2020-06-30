@@ -12,13 +12,37 @@
                 <dd>
                     <span>{{ shoppingCarts.totalPrice }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.totalCargoPrice">Total Cargo Price</span></dt>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.subTotalPrice">Sub Total Price</span></dt>
                 <dd>
-                    <span>{{ shoppingCarts.totalCargoPrice }}</span>
+                    <span>{{ shoppingCarts.subTotalPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.totalShippingFee">Total Shipping Fee</span></dt>
+                <dd>
+                    <span>{{ shoppingCarts.totalShippingFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.totalShippingFeeDiscount">Total Shipping Fee Discount</span></dt>
+                <dd>
+                    <span>{{ shoppingCarts.totalShippingFeeDiscount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.promotionTotal">Promotion Total</span></dt>
+                <dd>
+                    <span>{{ shoppingCarts.promotionTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.voucherTotal">Voucher Total</span></dt>
+                <dd>
+                    <span>{{ shoppingCarts.voucherTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.packageDetails">Package Details</span></dt>
+                <dd>
+                    <span>{{ shoppingCarts.packageDetails }}</span>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.cartString">Cart String</span></dt>
                 <dd>
                     <span>{{ shoppingCarts.cartString }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.dealString">Deal String</span></dt>
+                <dd>
+                    <span>{{ shoppingCarts.dealString }}</span>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.lastEditedBy">Last Edited By</span></dt>
                 <dd>
@@ -31,13 +55,13 @@
                 <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.cartUser">Cart User</span></dt>
                 <dd>
                     <div *ngIf="shoppingCarts.cartUserId">
-                        <a [routerLink]="['/people', shoppingCarts.cartUserId, 'view']">{{ shoppingCarts.cartUserId }}</a>
+                        <a [routerLink]="['/people', shoppingCarts.cartUserId, 'view']">{{ shoppingCarts.cartUserFullName }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.customer">Customer</span></dt>
                 <dd>
                     <div *ngIf="shoppingCarts.customerId">
-                        <a [routerLink]="['/customers', shoppingCarts.customerId, 'view']">{{ shoppingCarts.customerId }}</a>
+                        <a [routerLink]="['/customers', shoppingCarts.customerId, 'view']">{{ shoppingCarts.customerName }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceShoppingCarts.specialDeals">Special Deals</span></dt>

@@ -11,12 +11,12 @@ import { IDiscountDetails, DiscountDetails } from 'app/shared/model/vscommerce/d
 import { DiscountDetailsService } from './discount-details.service';
 import { IDiscount } from 'app/shared/model/vscommerce/discount.model';
 import { DiscountService } from 'app/entities/vscommerce/discount/discount.service';
-import { IProducts } from 'app/shared/model/vscommerce/products.model';
-import { ProductsService } from 'app/entities/vscommerce/products/products.service';
+import { IStockItems } from 'app/shared/model/vscommerce/stock-items.model';
+import { StockItemsService } from 'app/entities/vscommerce/stock-items/stock-items.service';
 import { IProductCategory } from 'app/shared/model/vscommerce/product-category.model';
 import { ProductCategoryService } from 'app/entities/vscommerce/product-category/product-category.service';
 
-type SelectableEntity = IDiscount | IProducts | IProductCategory;
+type SelectableEntity = IDiscount | IStockItems | IProductCategory;
 
 @Component({
   selector: 'jhi-discount-details-update',
@@ -25,29 +25,33 @@ type SelectableEntity = IDiscount | IProducts | IProductCategory;
 export class DiscountDetailsUpdateComponent implements OnInit {
   isSaving = false;
   discounts: IDiscount[] = [];
-  products: IProducts[] = [];
+  stockitems: IStockItems[] = [];
   productcategories: IProductCategory[] = [];
 
   editForm = this.fb.group({
     id: [],
+    name: [null, [Validators.required]],
     amount: [null, [Validators.required]],
     isPercentage: [null, [Validators.required]],
     isAllowCombinationDiscount: [null, [Validators.required]],
     isFinalBillDiscount: [null, [Validators.required]],
-    name: [null, [Validators.required]],
-    startCount: [null, [Validators.required]],
+    startCount: [],
     endCount: [],
-    multiplyCount: [null, [Validators.required]],
+    multiplyCount: [],
+    minAmount: [],
+    maxAmount: [],
+    minVolumeWeight: [],
+    maxVolumeWeight: [],
     modifiedDate: [null, [Validators.required]],
     discountId: [],
-    productId: [],
+    stockItemId: [],
     productCategoryId: [],
   });
 
   constructor(
     protected discountDetailsService: DiscountDetailsService,
     protected discountService: DiscountService,
-    protected productsService: ProductsService,
+    protected stockItemsService: StockItemsService,
     protected productCategoryService: ProductCategoryService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -64,7 +68,7 @@ export class DiscountDetailsUpdateComponent implements OnInit {
 
       this.discountService.query().subscribe((res: HttpResponse<IDiscount[]>) => (this.discounts = res.body || []));
 
-      this.productsService.query().subscribe((res: HttpResponse<IProducts[]>) => (this.products = res.body || []));
+      this.stockItemsService.query().subscribe((res: HttpResponse<IStockItems[]>) => (this.stockitems = res.body || []));
 
       this.productCategoryService.query().subscribe((res: HttpResponse<IProductCategory[]>) => (this.productcategories = res.body || []));
     });
@@ -73,17 +77,21 @@ export class DiscountDetailsUpdateComponent implements OnInit {
   updateForm(discountDetails: IDiscountDetails): void {
     this.editForm.patchValue({
       id: discountDetails.id,
+      name: discountDetails.name,
       amount: discountDetails.amount,
       isPercentage: discountDetails.isPercentage,
       isAllowCombinationDiscount: discountDetails.isAllowCombinationDiscount,
       isFinalBillDiscount: discountDetails.isFinalBillDiscount,
-      name: discountDetails.name,
       startCount: discountDetails.startCount,
       endCount: discountDetails.endCount,
       multiplyCount: discountDetails.multiplyCount,
+      minAmount: discountDetails.minAmount,
+      maxAmount: discountDetails.maxAmount,
+      minVolumeWeight: discountDetails.minVolumeWeight,
+      maxVolumeWeight: discountDetails.maxVolumeWeight,
       modifiedDate: discountDetails.modifiedDate ? discountDetails.modifiedDate.format(DATE_TIME_FORMAT) : null,
       discountId: discountDetails.discountId,
-      productId: discountDetails.productId,
+      stockItemId: discountDetails.stockItemId,
       productCategoryId: discountDetails.productCategoryId,
     });
   }
@@ -106,19 +114,23 @@ export class DiscountDetailsUpdateComponent implements OnInit {
     return {
       ...new DiscountDetails(),
       id: this.editForm.get(['id'])!.value,
+      name: this.editForm.get(['name'])!.value,
       amount: this.editForm.get(['amount'])!.value,
       isPercentage: this.editForm.get(['isPercentage'])!.value,
       isAllowCombinationDiscount: this.editForm.get(['isAllowCombinationDiscount'])!.value,
       isFinalBillDiscount: this.editForm.get(['isFinalBillDiscount'])!.value,
-      name: this.editForm.get(['name'])!.value,
       startCount: this.editForm.get(['startCount'])!.value,
       endCount: this.editForm.get(['endCount'])!.value,
       multiplyCount: this.editForm.get(['multiplyCount'])!.value,
+      minAmount: this.editForm.get(['minAmount'])!.value,
+      maxAmount: this.editForm.get(['maxAmount'])!.value,
+      minVolumeWeight: this.editForm.get(['minVolumeWeight'])!.value,
+      maxVolumeWeight: this.editForm.get(['maxVolumeWeight'])!.value,
       modifiedDate: this.editForm.get(['modifiedDate'])!.value
         ? moment(this.editForm.get(['modifiedDate'])!.value, DATE_TIME_FORMAT)
         : undefined,
       discountId: this.editForm.get(['discountId'])!.value,
-      productId: this.editForm.get(['productId'])!.value,
+      stockItemId: this.editForm.get(['stockItemId'])!.value,
       productCategoryId: this.editForm.get(['productCategoryId'])!.value,
     };
   }

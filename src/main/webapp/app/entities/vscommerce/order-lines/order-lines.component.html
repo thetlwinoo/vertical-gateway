@@ -23,49 +23,51 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.quantity">Quantity</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.quantity">Quantity</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.taxRate">Tax Rate</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.unitPrice">Unit Price</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.unitPriceDiscount">Unit Price Discount</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.lineTotal">Line Total</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.taxRate">Tax Rate</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.pickedQuantity">Picked Quantity</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.pickingCompletedWhen">Picking Completed When</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.status">Status</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.thumbnailUrl">Thumbnail Url</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.lineRating">Line Rating</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.lineReview">Line Review</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.customerReviewedOn">Customer Reviewed On</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.supplierResponse">Supplier Response</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.supplierResponseOn">Supplier Response On</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.likeCount">Like Count</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.lastEditedBy">Last Edited By</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.lastEditedWhen">Last Edited When</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.reviewLine">Review Line</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.supplier">Supplier</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.stockItem">Stock Item</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.packageType">Package Type</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.order">Order</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.reviewImage">Review Image</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.supplier">Supplier</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.orderPackage">Order Package</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let orderLines of orderLines ;trackBy: trackId">
                     <td><a [routerLink]="['/order-lines', orderLines.id, 'view']">{{ orderLines.id }}</a></td>
-                    <td>{{ orderLines.quantity }}</td>
                     <td>{{ orderLines.description }}</td>
+                    <td>{{ orderLines.quantity }}</td>
+                    <td>{{ orderLines.taxRate }}</td>
                     <td>{{ orderLines.unitPrice }}</td>
                     <td>{{ orderLines.unitPriceDiscount }}</td>
-                    <td>{{ orderLines.lineTotal }}</td>
-                    <td>{{ orderLines.taxRate }}</td>
                     <td>{{ orderLines.pickedQuantity }}</td>
                     <td>{{ orderLines.pickingCompletedWhen | date:'medium' }}</td>
                     <td jhiTranslate="{{ 'gatewayApp.OrderLineStatus.' + orderLines.status }}">{{ orderLines.status }}</td>
+                    <td>{{ orderLines.thumbnailUrl }}</td>
+                    <td>{{ orderLines.lineRating }}</td>
+                    <td>{{ orderLines.lineReview }}</td>
+                    <td>{{ orderLines.customerReviewedOn | date:'medium' }}</td>
+                    <td>{{ orderLines.supplierResponse }}</td>
+                    <td>{{ orderLines.supplierResponseOn | date:'medium' }}</td>
+                    <td>{{ orderLines.likeCount }}</td>
                     <td>{{ orderLines.lastEditedBy }}</td>
                     <td>{{ orderLines.lastEditedWhen | date:'medium' }}</td>
-                    <td>
-                        <div *ngIf="orderLines.reviewLineId">
-                            <a [routerLink]="['/review-lines', orderLines.reviewLineId , 'view']" >{{ orderLines.reviewLineId }}</a>
-                        </div>
-                    </td>
-                    <td>
-                        <div *ngIf="orderLines.supplierId">
-                            <a [routerLink]="['/suppliers', orderLines.supplierId , 'view']" >{{ orderLines.supplierName }}</a>
-                        </div>
-                    </td>
                     <td>
                         <div *ngIf="orderLines.stockItemId">
                             <a [routerLink]="['/stock-items', orderLines.stockItemId , 'view']" >{{ orderLines.stockItemName }}</a>
@@ -77,8 +79,18 @@
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="orderLines.orderId">
-                            <a [routerLink]="['/orders', orderLines.orderId , 'view']" >{{ orderLines.orderId }}</a>
+                        <div *ngIf="orderLines.reviewImageId">
+                            <a [routerLink]="['/photos', orderLines.reviewImageId , 'view']" >{{ orderLines.reviewImageThumbnailUrl }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderLines.supplierId">
+                            <a [routerLink]="['/suppliers', orderLines.supplierId , 'view']" >{{ orderLines.supplierName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderLines.orderPackageId">
+                            <a [routerLink]="['/order-packages', orderLines.orderPackageId , 'view']" >{{ orderLines.orderPackageId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

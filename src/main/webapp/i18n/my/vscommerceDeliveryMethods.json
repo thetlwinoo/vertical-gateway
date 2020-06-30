@@ -14,8 +14,15 @@
         "title": "Delivery Methods"
       },
       "name": "Name",
+      "thirdPartyName": "Third Party Name",
+      "expectedMinArrivalDays": "Expected Min Arrival Days",
+      "expectedMaxArrivalDays": "Expected Max Arrival Days",
+      "activeInd": "Active Ind",
+      "defaultInd": "Default Ind",
+      "deliveryNote": "Delivery Note",
       "validFrom": "Valid From",
-      "validTo": "Valid To"
+      "validTo": "Valid To",
+      "supplier": "Supplier"
     }
   },
   "vscommerceApp": {

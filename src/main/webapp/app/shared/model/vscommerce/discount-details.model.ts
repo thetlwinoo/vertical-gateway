@@ -2,19 +2,23 @@ import { Moment } from 'moment';
 
 export interface IDiscountDetails {
   id?: number;
+  name?: string;
   amount?: number;
   isPercentage?: boolean;
   isAllowCombinationDiscount?: boolean;
   isFinalBillDiscount?: boolean;
-  name?: string;
   startCount?: number;
   endCount?: number;
   multiplyCount?: number;
+  minAmount?: number;
+  maxAmount?: number;
+  minVolumeWeight?: number;
+  maxVolumeWeight?: number;
   modifiedDate?: Moment;
   discountName?: string;
   discountId?: number;
-  productName?: string;
-  productId?: number;
+  stockItemName?: string;
+  stockItemId?: number;
   productCategoryName?: string;
   productCategoryId?: number;
 }
@@ -22,19 +26,23 @@ export interface IDiscountDetails {
 export class DiscountDetails implements IDiscountDetails {
   constructor(
     public id?: number,
+    public name?: string,
     public amount?: number,
     public isPercentage?: boolean,
     public isAllowCombinationDiscount?: boolean,
     public isFinalBillDiscount?: boolean,
-    public name?: string,
     public startCount?: number,
     public endCount?: number,
     public multiplyCount?: number,
+    public minAmount?: number,
+    public maxAmount?: number,
+    public minVolumeWeight?: number,
+    public maxVolumeWeight?: number,
     public modifiedDate?: Moment,
     public discountName?: string,
     public discountId?: number,
-    public productName?: string,
-    public productId?: number,
+    public stockItemName?: string,
+    public stockItemId?: number,
     public productCategoryName?: string,
     public productCategoryId?: number
   ) {

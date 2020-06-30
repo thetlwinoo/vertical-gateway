@@ -1,0 +1,117 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.cloudblobImages.home.title">Images</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-images" [routerLink]="['/images/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.cloudblobImages.home.createLabel">
+            Create a new Images
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="images?.length === 0">
+        <span jhiTranslate="gatewayApp.cloudblobImages.home.notFound">No images found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="images && images.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.cloudblobImages.thumbnail">Thumbnail</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.cloudblobImages.original">Original</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.cloudblobImages.bannerTall">Banner Tall</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.cloudblobImages.bannerWide">Banner Wide</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.cloudblobImages.circle">Circle</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.cloudblobImages.sharpened">Sharpened</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.cloudblobImages.square">Square</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.cloudblobImages.watermark">Watermark</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.cloudblobImages.refId">Ref Id</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let images of images ;trackBy: trackId">
+                    <td><a [routerLink]="['/images', images.id, 'view']">{{ images.id }}</a></td>
+                    <td>
+                        <a *ngIf="images.thumbnail" (click)="openFile(images.thumbnailContentType, images.thumbnail)">
+                            <img [src]="'data:' + images.thumbnailContentType + ';base64,' + images.thumbnail" style="max-height: 30px;" alt="images image"/>
+                        </a>
+                        <span *ngIf="images.thumbnail">{{ images.thumbnailContentType }}, {{ byteSize(images.thumbnail) }}</span>
+                    </td>
+                    <td>
+                        <a *ngIf="images.original" (click)="openFile(images.originalContentType, images.original)">
+                            <img [src]="'data:' + images.originalContentType + ';base64,' + images.original" style="max-height: 30px;" alt="images image"/>
+                        </a>
+                        <span *ngIf="images.original">{{ images.originalContentType }}, {{ byteSize(images.original) }}</span>
+                    </td>
+                    <td>
+                        <a *ngIf="images.bannerTall" (click)="openFile(images.bannerTallContentType, images.bannerTall)">
+                            <img [src]="'data:' + images.bannerTallContentType + ';base64,' + images.bannerTall" style="max-height: 30px;" alt="images image"/>
+                        </a>
+                        <span *ngIf="images.bannerTall">{{ images.bannerTallContentType }}, {{ byteSize(images.bannerTall) }}</span>
+                    </td>
+                    <td>
+                        <a *ngIf="images.bannerWide" (click)="openFile(images.bannerWideContentType, images.bannerWide)">
+                            <img [src]="'data:' + images.bannerWideContentType + ';base64,' + images.bannerWide" style="max-height: 30px;" alt="images image"/>
+                        </a>
+                        <span *ngIf="images.bannerWide">{{ images.bannerWideContentType }}, {{ byteSize(images.bannerWide) }}</span>
+                    </td>
+                    <td>
+                        <a *ngIf="images.circle" (click)="openFile(images.circleContentType, images.circle)">
+                            <img [src]="'data:' + images.circleContentType + ';base64,' + images.circle" style="max-height: 30px;" alt="images image"/>
+                        </a>
+                        <span *ngIf="images.circle">{{ images.circleContentType }}, {{ byteSize(images.circle) }}</span>
+                    </td>
+                    <td>
+                        <a *ngIf="images.sharpened" (click)="openFile(images.sharpenedContentType, images.sharpened)">
+                            <img [src]="'data:' + images.sharpenedContentType + ';base64,' + images.sharpened" style="max-height: 30px;" alt="images image"/>
+                        </a>
+                        <span *ngIf="images.sharpened">{{ images.sharpenedContentType }}, {{ byteSize(images.sharpened) }}</span>
+                    </td>
+                    <td>
+                        <a *ngIf="images.square" (click)="openFile(images.squareContentType, images.square)">
+                            <img [src]="'data:' + images.squareContentType + ';base64,' + images.square" style="max-height: 30px;" alt="images image"/>
+                        </a>
+                        <span *ngIf="images.square">{{ images.squareContentType }}, {{ byteSize(images.square) }}</span>
+                    </td>
+                    <td>
+                        <a *ngIf="images.watermark" (click)="openFile(images.watermarkContentType, images.watermark)">
+                            <img [src]="'data:' + images.watermarkContentType + ';base64,' + images.watermark" style="max-height: 30px;" alt="images image"/>
+                        </a>
+                        <span *ngIf="images.watermark">{{ images.watermarkContentType }}, {{ byteSize(images.watermark) }}</span>
+                    </td>
+                    <td>{{ images.refId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/images', images.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/images', images.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(images)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -8,6 +8,10 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.name">Name</span></dt>
+                <dd>
+                    <span>{{ discountDetails.name }}</span>
+                </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.amount">Amount</span></dt>
                 <dd>
                     <span>{{ discountDetails.amount }}</span>
@@ -24,10 +28,6 @@
                 <dd>
                     <span>{{ discountDetails.isFinalBillDiscount }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.name">Name</span></dt>
-                <dd>
-                    <span>{{ discountDetails.name }}</span>
-                </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.startCount">Start Count</span></dt>
                 <dd>
                     <span>{{ discountDetails.startCount }}</span>
@@ -40,6 +40,22 @@
                 <dd>
                     <span>{{ discountDetails.multiplyCount }}</span>
                 </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.minAmount">Min Amount</span></dt>
+                <dd>
+                    <span>{{ discountDetails.minAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.maxAmount">Max Amount</span></dt>
+                <dd>
+                    <span>{{ discountDetails.maxAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.minVolumeWeight">Min Volume Weight</span></dt>
+                <dd>
+                    <span>{{ discountDetails.minVolumeWeight }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.maxVolumeWeight">Max Volume Weight</span></dt>
+                <dd>
+                    <span>{{ discountDetails.maxVolumeWeight }}</span>
+                </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.modifiedDate">Modified Date</span></dt>
                 <dd>
                     <span>{{ discountDetails.modifiedDate }}</span>
@@ -50,10 +66,10 @@
                         <a [routerLink]="['/discount', discountDetails.discountId, 'view']">{{ discountDetails.discountName }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.product">Product</span></dt>
+                <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.stockItem">Stock Item</span></dt>
                 <dd>
-                    <div *ngIf="discountDetails.productId">
-                        <a [routerLink]="['/products', discountDetails.productId, 'view']">{{ discountDetails.productName }}</a>
+                    <div *ngIf="discountDetails.stockItemId">
+                        <a [routerLink]="['/stock-items', discountDetails.stockItemId, 'view']">{{ discountDetails.stockItemName }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceDiscountDetails.productCategory">Product Category</span></dt>

@@ -27,7 +27,14 @@
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.comments">Comments</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryInstructions">Delivery Instructions</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.internalComments">Internal Comments</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.customerPurchaseOrderNumber">Customer Purchase Order Number</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packageShippingFee">Package Shipping Fee</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packageShippingFeeDiscount">Package Shipping Fee Discount</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packagePrice">Package Price</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packageSubTotal">Package Sub Total</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packageTaxAmount">Package Tax Amount</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packageVoucherDiscount">Package Voucher Discount</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packagePromotionDiscount">Package Promotion Discount</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.pickingCompletedWhen">Picking Completed When</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.customerReviewedOn">Customer Reviewed On</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.sellerRating">Seller Rating</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.sellerReview">Seller Review</span></th>
@@ -39,6 +46,8 @@
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.lastEditedBy">Last Edited By</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.lastEditedWhen">Last Edited When</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.supplier">Supplier</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryMethod">Delivery Method</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.specialDeals">Special Deals</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.order">Order</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -50,7 +59,14 @@
                     <td>{{ orderPackages.comments }}</td>
                     <td>{{ orderPackages.deliveryInstructions }}</td>
                     <td>{{ orderPackages.internalComments }}</td>
-                    <td>{{ orderPackages.customerPurchaseOrderNumber }}</td>
+                    <td>{{ orderPackages.packageShippingFee }}</td>
+                    <td>{{ orderPackages.packageShippingFeeDiscount }}</td>
+                    <td>{{ orderPackages.packagePrice }}</td>
+                    <td>{{ orderPackages.packageSubTotal }}</td>
+                    <td>{{ orderPackages.packageTaxAmount }}</td>
+                    <td>{{ orderPackages.packageVoucherDiscount }}</td>
+                    <td>{{ orderPackages.packagePromotionDiscount }}</td>
+                    <td>{{ orderPackages.pickingCompletedWhen | date:'medium' }}</td>
                     <td>{{ orderPackages.customerReviewedOn | date:'medium' }}</td>
                     <td>{{ orderPackages.sellerRating }}</td>
                     <td>{{ orderPackages.sellerReview }}</td>
@@ -64,6 +80,16 @@
                     <td>
                         <div *ngIf="orderPackages.supplierId">
                             <a [routerLink]="['/suppliers', orderPackages.supplierId , 'view']" >{{ orderPackages.supplierName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderPackages.deliveryMethodId">
+                            <a [routerLink]="['/delivery-methods', orderPackages.deliveryMethodId , 'view']" >{{ orderPackages.deliveryMethodName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderPackages.specialDealsId">
+                            <a [routerLink]="['/special-deals', orderPackages.specialDealsId , 'view']" >{{ orderPackages.specialDealsId }}</a>
                         </div>
                     </td>
                     <td>

@@ -24,6 +24,14 @@
                 <dd>
                     <span>{{ bankAccounts.number }}</span>
                 </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.type">Type</span></dt>
+                <dd>
+                    <span>{{ bankAccounts.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.bank">Bank</span></dt>
+                <dd>
+                    <span>{{ bankAccounts.bank }}</span>
+                </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.internationalCode">International Code</span></dt>
                 <dd>
                     <span>{{ bankAccounts.internationalCode }}</span>
@@ -39,6 +47,12 @@
                 <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.validTo">Valid To</span></dt>
                 <dd>
                     <span>{{ bankAccounts.validTo }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.logo">Logo</span></dt>
+                <dd>
+                    <div *ngIf="bankAccounts.logoId">
+                        <a [routerLink]="['/photos', bankAccounts.logoId, 'view']">{{ bankAccounts.logoThumbnailUrl }}</a>
+                    </div>
                 </dd>
             </dl>
 

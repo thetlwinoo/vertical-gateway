@@ -29,50 +29,39 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.dueDate" for="field_dueDate">Due Date</label>
-                    <div class="d-flex">
-                        <input id="field_dueDate" type="datetime-local" class="form-control" name="dueDate" formControlName="dueDate" placeholder="YYYY-MM-DD HH:mm"/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.expectedDeliveryDate" for="field_expectedDeliveryDate">Expected Delivery Date</label>
-                    <div class="d-flex">
-                        <input id="field_expectedDeliveryDate" type="datetime-local" class="form-control" name="expectedDeliveryDate" formControlName="expectedDeliveryDate" placeholder="YYYY-MM-DD HH:mm"/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.paymentStatus" for="field_paymentStatus">Payment Status</label>
-                    <select class="form-control" name="paymentStatus" formControlName="paymentStatus" id="field_paymentStatus">
-                        <option value="PENDING">{{ 'gatewayApp.PaymentStatus.PENDING' | translate }}</option>
-                        <option value="PAID">{{ 'gatewayApp.PaymentStatus.PAID' | translate }}</option>
-                        <option value="CANCELLED">{{ 'gatewayApp.PaymentStatus.CANCELLED' | translate }}</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.accountNumber" for="field_accountNumber">Account Number</label>
-                    <input type="text" class="form-control" name="accountNumber" id="field_accountNumber"
-                           formControlName="accountNumber"/>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.subTotal" for="field_subTotal">Sub Total</label>
                     <input type="number" class="form-control" name="subTotal" id="field_subTotal"
                            formControlName="subTotal"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.taxAmount" for="field_taxAmount">Tax Amount</label>
-                    <input type="number" class="form-control" name="taxAmount" id="field_taxAmount"
-                           formControlName="taxAmount"/>
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.totalTaxAmount" for="field_totalTaxAmount">Total Tax Amount</label>
+                    <input type="number" class="form-control" name="totalTaxAmount" id="field_totalTaxAmount"
+                           formControlName="totalTaxAmount"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.frieight" for="field_frieight">Frieight</label>
-                    <input type="number" class="form-control" name="frieight" id="field_frieight"
-                           formControlName="frieight"/>
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.totalShippingFee" for="field_totalShippingFee">Total Shipping Fee</label>
+                    <input type="number" class="form-control" name="totalShippingFee" id="field_totalShippingFee"
+                           formControlName="totalShippingFee"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.totalShippingFeeDiscount" for="field_totalShippingFeeDiscount">Total Shipping Fee Discount</label>
+                    <input type="number" class="form-control" name="totalShippingFeeDiscount" id="field_totalShippingFeeDiscount"
+                           formControlName="totalShippingFeeDiscount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.totalVoucherDiscount" for="field_totalVoucherDiscount">Total Voucher Discount</label>
+                    <input type="number" class="form-control" name="totalVoucherDiscount" id="field_totalVoucherDiscount"
+                           formControlName="totalVoucherDiscount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.totalPromtionDiscount" for="field_totalPromtionDiscount">Total Promtion Discount</label>
+                    <input type="number" class="form-control" name="totalPromtionDiscount" id="field_totalPromtionDiscount"
+                           formControlName="totalPromtionDiscount"/>
                 </div>
 
                 <div class="form-group">
@@ -82,36 +71,34 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.comments" for="field_comments">Comments</label>
-                    <input type="text" class="form-control" name="comments" id="field_comments"
-                           formControlName="comments"/>
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.paymentStatus" for="field_paymentStatus">Payment Status</label>
+                    <select class="form-control" name="paymentStatus" formControlName="paymentStatus" id="field_paymentStatus">
+                        <option value="CASH_ON_DELIVERY">{{ 'gatewayApp.PaymentStatus.CASH_ON_DELIVERY' | translate }}</option>
+                        <option value="PENDING">{{ 'gatewayApp.PaymentStatus.PENDING' | translate }}</option>
+                        <option value="PAID">{{ 'gatewayApp.PaymentStatus.PAID' | translate }}</option>
+                        <option value="CANCELLED">{{ 'gatewayApp.PaymentStatus.CANCELLED' | translate }}</option>
+                        <option value="UNSUCCESSFUL">{{ 'gatewayApp.PaymentStatus.UNSUCCESSFUL' | translate }}</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.deliveryInstructions" for="field_deliveryInstructions">Delivery Instructions</label>
-                    <input type="text" class="form-control" name="deliveryInstructions" id="field_deliveryInstructions"
-                           formControlName="deliveryInstructions"/>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.internalComments" for="field_internalComments">Internal Comments</label>
-                    <input type="text" class="form-control" name="internalComments" id="field_internalComments"
-                           formControlName="internalComments"/>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.pickingCompletedWhen" for="field_pickingCompletedWhen">Picking Completed When</label>
-                    <div class="d-flex">
-                        <input id="field_pickingCompletedWhen" type="datetime-local" class="form-control" name="pickingCompletedWhen" formControlName="pickingCompletedWhen" placeholder="YYYY-MM-DD HH:mm"/>
-                    </div>
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.customerPurchaseOrderNumber" for="field_customerPurchaseOrderNumber">Customer Purchase Order Number</label>
+                    <input type="text" class="form-control" name="customerPurchaseOrderNumber" id="field_customerPurchaseOrderNumber"
+                           formControlName="customerPurchaseOrderNumber"/>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.status" for="field_status">Status</label>
                     <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="NEW_ORDER">{{ 'gatewayApp.OrderStatus.NEW_ORDER' | translate }}</option>
                         <option value="COMPLETED">{{ 'gatewayApp.OrderStatus.COMPLETED' | translate }}</option>
                         <option value="PENDING">{{ 'gatewayApp.OrderStatus.PENDING' | translate }}</option>
                         <option value="CANCELLED">{{ 'gatewayApp.OrderStatus.CANCELLED' | translate }}</option>
+                        <option value="READY_TO_SHIP">{{ 'gatewayApp.OrderStatus.READY_TO_SHIP' | translate }}</option>
+                        <option value="SHIPPED">{{ 'gatewayApp.OrderStatus.SHIPPED' | translate }}</option>
+                        <option value="DELIVERED">{{ 'gatewayApp.OrderStatus.DELIVERED' | translate }}</option>
+                        <option value="RETURNED">{{ 'gatewayApp.OrderStatus.RETURNED' | translate }}</option>
+                        <option value="REFUNDED">{{ 'gatewayApp.OrderStatus.REFUNDED' | translate }}</option>
                     </select>
                     <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
                         <small class="form-text text-danger"
@@ -119,6 +106,18 @@
                         This field is required.
                         </small>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.orderDetails" for="field_orderDetails">Order Details</label>
+                    <textarea class="form-control" name="orderDetails" id="field_orderDetails"
+                              formControlName="orderDetails"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.isUnderSupplyBackOrdered" for="field_isUnderSupplyBackOrdered">Is Under Supply Back Ordered</label>
+                    <input type="checkbox" class="form-control" name="isUnderSupplyBackOrdered" id="field_isUnderSupplyBackOrdered"
+                           formControlName="isUnderSupplyBackOrdered"/>
                 </div>
 
                 <div class="form-group">
@@ -151,18 +150,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.review" for="field_review">Review</label>
-                    <select class="form-control" id="field_review" name="review" formControlName="reviewId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="reviewsOption.id" *ngFor="let reviewsOption of reviews; trackBy: trackById">{{ reviewsOption.id }}</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.customer" for="field_customer">Customer</label>
                     <select class="form-control" id="field_customer" name="customer" formControlName="customerId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackById">{{ customersOption.id }}</option>
+                        <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackById">{{ customersOption.name }}</option>
                     </select>
                 </div>
 
@@ -183,18 +174,26 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.shipMethod" for="field_shipMethod">Ship Method</label>
-                    <select class="form-control" id="field_shipMethod" name="shipMethod" formControlName="shipMethodId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="shipMethodOption.id" *ngFor="let shipMethodOption of shipmethods; trackBy: trackById">{{ shipMethodOption.name }}</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.currencyRate" for="field_currencyRate">Currency Rate</label>
                     <select class="form-control" id="field_currencyRate" name="currencyRate" formControlName="currencyRateId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="currencyRateOption.id" *ngFor="let currencyRateOption of currencyrates; trackBy: trackById">{{ currencyRateOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.paymentMethod" for="field_paymentMethod">Payment Method</label>
+                    <select class="form-control" id="field_paymentMethod" name="paymentMethod" formControlName="paymentMethodId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paymentMethodsOption.id" *ngFor="let paymentMethodsOption of paymentmethods; trackBy: trackById">{{ paymentMethodsOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrders.salePerson" for="field_salePerson">Sale Person</label>
+                    <select class="form-control" id="field_salePerson" name="salePerson" formControlName="salePersonId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="peopleOption.id" *ngFor="let peopleOption of people; trackBy: trackById">{{ peopleOption.fullName }}</option>
                     </select>
                 </div>
 

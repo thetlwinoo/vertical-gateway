@@ -22,7 +22,7 @@
       "postalCode": "Postal Code",
       "defaultInd": "Default Ind",
       "activeInd": "Active Ind",
-      "stateProvince": "State Province",
+      "zone": "Zone",
       "addressType": "Address Type",
       "person": "Person"
     }

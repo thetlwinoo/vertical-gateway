@@ -35,7 +35,8 @@ export class ShippingFeeChartUpdateComponent implements OnInit {
     price: [null, [Validators.required]],
     lastEditedBy: [null, [Validators.required]],
     lastEditedWhen: [null, [Validators.required]],
-    zoneId: [],
+    sourceZoneId: [],
+    destinationZoneId: [],
     deliveryMethodId: [],
   });
 
@@ -73,7 +74,8 @@ export class ShippingFeeChartUpdateComponent implements OnInit {
       price: shippingFeeChart.price,
       lastEditedBy: shippingFeeChart.lastEditedBy,
       lastEditedWhen: shippingFeeChart.lastEditedWhen ? shippingFeeChart.lastEditedWhen.format(DATE_TIME_FORMAT) : null,
-      zoneId: shippingFeeChart.zoneId,
+      sourceZoneId: shippingFeeChart.sourceZoneId,
+      destinationZoneId: shippingFeeChart.destinationZoneId,
       deliveryMethodId: shippingFeeChart.deliveryMethodId,
     });
   }
@@ -106,7 +108,8 @@ export class ShippingFeeChartUpdateComponent implements OnInit {
       lastEditedWhen: this.editForm.get(['lastEditedWhen'])!.value
         ? moment(this.editForm.get(['lastEditedWhen'])!.value, DATE_TIME_FORMAT)
         : undefined,
-      zoneId: this.editForm.get(['zoneId'])!.value,
+      sourceZoneId: this.editForm.get(['sourceZoneId'])!.value,
+      destinationZoneId: this.editForm.get(['destinationZoneId'])!.value,
       deliveryMethodId: this.editForm.get(['deliveryMethodId'])!.value,
     };
   }

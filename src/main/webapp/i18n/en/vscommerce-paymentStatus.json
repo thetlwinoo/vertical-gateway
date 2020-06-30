@@ -2,9 +2,11 @@
   "gatewayApp": {
     "PaymentStatus": {
       "null": "",
+      "CASH_ON_DELIVERY": "CASH_ON_DELIVERY",
       "PENDING": "PENDING",
       "PAID": "PAID",
-      "CANCELLED": "CANCELLED"
+      "CANCELLED": "CANCELLED",
+      "UNSUCCESSFUL": "UNSUCCESSFUL"
     }
   }
 }

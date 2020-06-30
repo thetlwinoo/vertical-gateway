@@ -22,11 +22,11 @@
       "isFinalized": "Is Finalized",
       "lastEditedBy": "Last Edited By",
       "lastEditedWhen": "Last Edited When",
-      "order": "Order",
       "customer": "Customer",
       "paymentMethod": "Payment Method",
       "transactionType": "Transaction Type",
       "invoice": "Invoice",
+      "order": "Order",
       "customerPayment": "Customer Payment"
     }
   },

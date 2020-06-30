@@ -31,6 +31,7 @@ export class CustomersUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
+    name: [],
     accountNumber: [null, [Validators.required]],
     accountOpenedDate: [null, [Validators.required]],
     standardDiscountPercentage: [null, [Validators.required]],
@@ -39,12 +40,15 @@ export class CustomersUpdateComponent implements OnInit {
     paymentDays: [null, [Validators.required]],
     deliveryRun: [],
     runPosition: [],
+    thumbnailUrl: [],
+    billToAddressSameAsDeliveryAddress: [],
     lastEditedBy: [null, [Validators.required]],
     validFrom: [null, [Validators.required]],
     validTo: [null, [Validators.required]],
     peopleId: [],
     deliveryMethodId: [],
     deliveryAddressId: [],
+    billToAddressId: [],
   });
 
   constructor(
@@ -98,6 +102,7 @@ export class CustomersUpdateComponent implements OnInit {
   updateForm(customers: ICustomers): void {
     this.editForm.patchValue({
       id: customers.id,
+      name: customers.name,
       accountNumber: customers.accountNumber,
       accountOpenedDate: customers.accountOpenedDate ? customers.accountOpenedDate.format(DATE_TIME_FORMAT) : null,
       standardDiscountPercentage: customers.standardDiscountPercentage,
@@ -106,12 +111,15 @@ export class CustomersUpdateComponent implements OnInit {
       paymentDays: customers.paymentDays,
       deliveryRun: customers.deliveryRun,
       runPosition: customers.runPosition,
+      thumbnailUrl: customers.thumbnailUrl,
+      billToAddressSameAsDeliveryAddress: customers.billToAddressSameAsDeliveryAddress,
       lastEditedBy: customers.lastEditedBy,
       validFrom: customers.validFrom ? customers.validFrom.format(DATE_TIME_FORMAT) : null,
       validTo: customers.validTo ? customers.validTo.format(DATE_TIME_FORMAT) : null,
       peopleId: customers.peopleId,
       deliveryMethodId: customers.deliveryMethodId,
       deliveryAddressId: customers.deliveryAddressId,
+      billToAddressId: customers.billToAddressId,
     });
   }
 
@@ -133,6 +141,7 @@ export class CustomersUpdateComponent implements OnInit {
     return {
       ...new Customers(),
       id: this.editForm.get(['id'])!.value,
+      name: this.editForm.get(['name'])!.value,
       accountNumber: this.editForm.get(['accountNumber'])!.value,
       accountOpenedDate: this.editForm.get(['accountOpenedDate'])!.value
         ? moment(this.editForm.get(['accountOpenedDate'])!.value, DATE_TIME_FORMAT)
@@ -143,12 +152,15 @@ export class CustomersUpdateComponent implements OnInit {
       paymentDays: this.editForm.get(['paymentDays'])!.value,
       deliveryRun: this.editForm.get(['deliveryRun'])!.value,
       runPosition: this.editForm.get(['runPosition'])!.value,
+      thumbnailUrl: this.editForm.get(['thumbnailUrl'])!.value,
+      billToAddressSameAsDeliveryAddress: this.editForm.get(['billToAddressSameAsDeliveryAddress'])!.value,
       lastEditedBy: this.editForm.get(['lastEditedBy'])!.value,
       validFrom: this.editForm.get(['validFrom'])!.value ? moment(this.editForm.get(['validFrom'])!.value, DATE_TIME_FORMAT) : undefined,
       validTo: this.editForm.get(['validTo'])!.value ? moment(this.editForm.get(['validTo'])!.value, DATE_TIME_FORMAT) : undefined,
       peopleId: this.editForm.get(['peopleId'])!.value,
       deliveryMethodId: this.editForm.get(['deliveryMethodId'])!.value,
       deliveryAddressId: this.editForm.get(['deliveryAddressId'])!.value,
+      billToAddressId: this.editForm.get(['billToAddressId'])!.value,
     };
   }
 

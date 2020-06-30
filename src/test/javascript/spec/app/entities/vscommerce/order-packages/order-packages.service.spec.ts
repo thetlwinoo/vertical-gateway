@@ -30,7 +30,14 @@ describe('Service Tests', () => {
         'AAAAAAA',
         'AAAAAAA',
         'AAAAAAA',
-        'AAAAAAA',
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        currentDate,
         currentDate,
         0,
         'AAAAAAA',
@@ -49,6 +56,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             expectedDeliveryDate: currentDate.format(DATE_TIME_FORMAT),
+            pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
             customerReviewedOn: currentDate.format(DATE_TIME_FORMAT),
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },
@@ -67,6 +75,7 @@ describe('Service Tests', () => {
           {
             id: 0,
             expectedDeliveryDate: currentDate.format(DATE_TIME_FORMAT),
+            pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
             customerReviewedOn: currentDate.format(DATE_TIME_FORMAT),
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },
@@ -76,6 +85,7 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             expectedDeliveryDate: currentDate,
+            pickingCompletedWhen: currentDate,
             customerReviewedOn: currentDate,
             lastEditedWhen: currentDate,
           },
@@ -96,7 +106,14 @@ describe('Service Tests', () => {
             comments: 'BBBBBB',
             deliveryInstructions: 'BBBBBB',
             internalComments: 'BBBBBB',
-            customerPurchaseOrderNumber: 'BBBBBB',
+            packageShippingFee: 1,
+            packageShippingFeeDiscount: 1,
+            packagePrice: 1,
+            packageSubTotal: 1,
+            packageTaxAmount: 1,
+            packageVoucherDiscount: 1,
+            packagePromotionDiscount: 1,
+            pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
             customerReviewedOn: currentDate.format(DATE_TIME_FORMAT),
             sellerRating: 1,
             sellerReview: 'BBBBBB',
@@ -114,6 +131,7 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             expectedDeliveryDate: currentDate,
+            pickingCompletedWhen: currentDate,
             customerReviewedOn: currentDate,
             lastEditedWhen: currentDate,
           },
@@ -134,7 +152,14 @@ describe('Service Tests', () => {
             comments: 'BBBBBB',
             deliveryInstructions: 'BBBBBB',
             internalComments: 'BBBBBB',
-            customerPurchaseOrderNumber: 'BBBBBB',
+            packageShippingFee: 1,
+            packageShippingFeeDiscount: 1,
+            packagePrice: 1,
+            packageSubTotal: 1,
+            packageTaxAmount: 1,
+            packageVoucherDiscount: 1,
+            packagePromotionDiscount: 1,
+            pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
             customerReviewedOn: currentDate.format(DATE_TIME_FORMAT),
             sellerRating: 1,
             sellerReview: 'BBBBBB',
@@ -152,6 +177,7 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             expectedDeliveryDate: currentDate,
+            pickingCompletedWhen: currentDate,
             customerReviewedOn: currentDate,
             lastEditedWhen: currentDate,
           },

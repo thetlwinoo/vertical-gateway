@@ -12,6 +12,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscountDetails.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscountDetails.amount" for="field_amount">Amount</label>
                     <input type="number" class="form-control" name="amount" id="field_amount"
                            formControlName="amount"/>
@@ -64,31 +76,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscountDetails.name" for="field_name">Name</label>
-                    <input type="text" class="form-control" name="name" id="field_name"
-                           formControlName="name"/>
-                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscountDetails.startCount" for="field_startCount">Start Count</label>
                     <input type="number" class="form-control" name="startCount" id="field_startCount"
                            formControlName="startCount"/>
-                    <div *ngIf="editForm.get('startCount')!.invalid && (editForm.get('startCount')!.dirty || editForm.get('startCount')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('startCount')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('startCount')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
                 </div>
 
                 <div class="form-group">
@@ -101,16 +91,30 @@
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscountDetails.multiplyCount" for="field_multiplyCount">Multiply Count</label>
                     <input type="number" class="form-control" name="multiplyCount" id="field_multiplyCount"
                            formControlName="multiplyCount"/>
-                    <div *ngIf="editForm.get('multiplyCount')!.invalid && (editForm.get('multiplyCount')!.dirty || editForm.get('multiplyCount')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('multiplyCount')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('multiplyCount')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscountDetails.minAmount" for="field_minAmount">Min Amount</label>
+                    <input type="number" class="form-control" name="minAmount" id="field_minAmount"
+                           formControlName="minAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscountDetails.maxAmount" for="field_maxAmount">Max Amount</label>
+                    <input type="number" class="form-control" name="maxAmount" id="field_maxAmount"
+                           formControlName="maxAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscountDetails.minVolumeWeight" for="field_minVolumeWeight">Min Volume Weight</label>
+                    <input type="number" class="form-control" name="minVolumeWeight" id="field_minVolumeWeight"
+                           formControlName="minVolumeWeight"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscountDetails.maxVolumeWeight" for="field_maxVolumeWeight">Max Volume Weight</label>
+                    <input type="number" class="form-control" name="maxVolumeWeight" id="field_maxVolumeWeight"
+                           formControlName="maxVolumeWeight"/>
                 </div>
 
                 <div class="form-group">
@@ -139,10 +143,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscountDetails.product" for="field_product">Product</label>
-                    <select class="form-control" id="field_product" name="product" formControlName="productId">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDiscountDetails.stockItem" for="field_stockItem">Stock Item</label>
+                    <select class="form-control" id="field_stockItem" name="stockItem" formControlName="stockItemId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="productsOption.id" *ngFor="let productsOption of products; trackBy: trackById">{{ productsOption.name }}</option>
+                        <option [ngValue]="stockItemsOption.id" *ngFor="let stockItemsOption of stockitems; trackBy: trackById">{{ stockItemsOption.name }}</option>
                     </select>
                 </div>
 

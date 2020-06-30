@@ -1,0 +1,34 @@
+{
+  "gatewayApp": {
+    "vscommerceCustomerPaymentPaypal": {
+      "home": {
+        "title": "Customer Payment Paypals",
+        "createLabel": "Create a new Customer Payment Paypal",
+        "createOrEditLabel": "Create or edit a Customer Payment Paypal",
+        "notFound": "No Customer Payment Paypals found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Customer Payment Paypal {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer Payment Paypal"
+      },
+      "paypalAccount": "Paypal Account",
+      "amount": "Amount",
+      "responseCode": "Response Code",
+      "approvalCode": "Approval Code",
+      "responseData": "Response Data",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "customerPayment": "Customer Payment",
+      "currency": "Currency"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCustomerPaymentPaypal": {
+      "created": "A new Customer Payment Paypal is created with identifier {{ param }}",
+      "updated": "A Customer Payment Paypal is updated with identifier {{ param }}",
+      "deleted": "A Customer Payment Paypal is deleted with identifier {{ param }}"
+    }
+  }
+}

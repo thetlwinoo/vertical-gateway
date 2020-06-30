@@ -22,7 +22,9 @@ export class PaymentMethodsUpdateComponent implements OnInit {
     id: [],
     name: [],
     code: [],
+    disabled: [],
     activeInd: [],
+    sortOrder: [],
     iconFont: [],
     iconId: [],
   });
@@ -47,7 +49,9 @@ export class PaymentMethodsUpdateComponent implements OnInit {
       id: paymentMethods.id,
       name: paymentMethods.name,
       code: paymentMethods.code,
+      disabled: paymentMethods.disabled,
       activeInd: paymentMethods.activeInd,
+      sortOrder: paymentMethods.sortOrder,
       iconFont: paymentMethods.iconFont,
       iconId: paymentMethods.iconId,
     });
@@ -73,7 +77,9 @@ export class PaymentMethodsUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       name: this.editForm.get(['name'])!.value,
       code: this.editForm.get(['code'])!.value,
+      disabled: this.editForm.get(['disabled'])!.value,
       activeInd: this.editForm.get(['activeInd'])!.value,
+      sortOrder: this.editForm.get(['sortOrder'])!.value,
       iconFont: this.editForm.get(['iconFont'])!.value,
       iconId: this.editForm.get(['iconId'])!.value,
     };

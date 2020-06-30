@@ -11,10 +11,12 @@ import { IShoppingCartItems, ShoppingCartItems } from 'app/shared/model/vscommer
 import { ShoppingCartItemsService } from './shopping-cart-items.service';
 import { IStockItems } from 'app/shared/model/vscommerce/stock-items.model';
 import { StockItemsService } from 'app/entities/vscommerce/stock-items/stock-items.service';
+import { IDeliveryMethods } from 'app/shared/model/vscommerce/delivery-methods.model';
+import { DeliveryMethodsService } from 'app/entities/vscommerce/delivery-methods/delivery-methods.service';
 import { IShoppingCarts } from 'app/shared/model/vscommerce/shopping-carts.model';
 import { ShoppingCartsService } from 'app/entities/vscommerce/shopping-carts/shopping-carts.service';
 
-type SelectableEntity = IStockItems | IShoppingCarts;
+type SelectableEntity = IStockItems | IDeliveryMethods | IShoppingCarts;
 
 @Component({
   selector: 'jhi-shopping-cart-items-update',
@@ -23,20 +25,24 @@ type SelectableEntity = IStockItems | IShoppingCarts;
 export class ShoppingCartItemsUpdateComponent implements OnInit {
   isSaving = false;
   stockitems: IStockItems[] = [];
+  deliverymethods: IDeliveryMethods[] = [];
   shoppingcarts: IShoppingCarts[] = [];
 
   editForm = this.fb.group({
     id: [],
     quantity: [],
+    selectOrder: [],
     lastEditedBy: [null, [Validators.required]],
     lastEditedWhen: [null, [Validators.required]],
     stockItemId: [],
+    deliveryMethodId: [],
     cartId: [],
   });
 
   constructor(
     protected shoppingCartItemsService: ShoppingCartItemsService,
     protected stockItemsService: StockItemsService,
+    protected deliveryMethodsService: DeliveryMethodsService,
     protected shoppingCartsService: ShoppingCartsService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -53,6 +59,8 @@ export class ShoppingCartItemsUpdateComponent implements OnInit {
 
       this.stockItemsService.query().subscribe((res: HttpResponse<IStockItems[]>) => (this.stockitems = res.body || []));
 
+      this.deliveryMethodsService.query().subscribe((res: HttpResponse<IDeliveryMethods[]>) => (this.deliverymethods = res.body || []));
+
       this.shoppingCartsService.query().subscribe((res: HttpResponse<IShoppingCarts[]>) => (this.shoppingcarts = res.body || []));
     });
   }
@@ -61,9 +69,11 @@ export class ShoppingCartItemsUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: shoppingCartItems.id,
       quantity: shoppingCartItems.quantity,
+      selectOrder: shoppingCartItems.selectOrder,
       lastEditedBy: shoppingCartItems.lastEditedBy,
       lastEditedWhen: shoppingCartItems.lastEditedWhen ? shoppingCartItems.lastEditedWhen.format(DATE_TIME_FORMAT) : null,
       stockItemId: shoppingCartItems.stockItemId,
+      deliveryMethodId: shoppingCartItems.deliveryMethodId,
       cartId: shoppingCartItems.cartId,
     });
   }
@@ -87,11 +97,13 @@ export class ShoppingCartItemsUpdateComponent implements OnInit {
       ...new ShoppingCartItems(),
       id: this.editForm.get(['id'])!.value,
       quantity: this.editForm.get(['quantity'])!.value,
+      selectOrder: this.editForm.get(['selectOrder'])!.value,
       lastEditedBy: this.editForm.get(['lastEditedBy'])!.value,
       lastEditedWhen: this.editForm.get(['lastEditedWhen'])!.value
         ? moment(this.editForm.get(['lastEditedWhen'])!.value, DATE_TIME_FORMAT)
         : undefined,
       stockItemId: this.editForm.get(['stockItemId'])!.value,
+      deliveryMethodId: this.editForm.get(['deliveryMethodId'])!.value,
       cartId: this.editForm.get(['cartId'])!.value,
     };
   }

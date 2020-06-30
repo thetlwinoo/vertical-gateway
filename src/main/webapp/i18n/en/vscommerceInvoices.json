@@ -32,13 +32,14 @@
       "lastEditedWhen": "Last Edited When",
       "invoiceLineList": "Invoice Line List",
       "contactPerson": "Contact Person",
-      "salespersonPerson": "Salesperson Person",
+      "salesPerson": "Sales Person",
       "packedByPerson": "Packed By Person",
       "accountsPerson": "Accounts Person",
       "customer": "Customer",
       "billToCustomer": "Bill To Customer",
       "deliveryMethod": "Delivery Method",
       "order": "Order",
+      "orderPackage": "Order Package",
       "paymentMethod": "Payment Method"
     }
   },

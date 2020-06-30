@@ -17,6 +17,10 @@ export interface ISupplierTransactions {
   transactionTypeName?: string;
   transactionTypeId?: number;
   purchaseOrderId?: number;
+  orderId?: number;
+  invoiceId?: number;
+  statusName?: string;
+  statusId?: number;
 }
 
 export class SupplierTransactions implements ISupplierTransactions {
@@ -36,7 +40,11 @@ export class SupplierTransactions implements ISupplierTransactions {
     public supplierId?: number,
     public transactionTypeName?: string,
     public transactionTypeId?: number,
-    public purchaseOrderId?: number
+    public purchaseOrderId?: number,
+    public orderId?: number,
+    public invoiceId?: number,
+    public statusName?: string,
+    public statusId?: number
   ) {
     this.isFinalized = this.isFinalized || false;
   }

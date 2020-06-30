@@ -25,16 +25,17 @@
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="name"><span jhiTranslate="gatewayApp.vscommerceProducts.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="handle"><span jhiTranslate="gatewayApp.vscommerceProducts.handle">Handle</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="productNumber"><span jhiTranslate="gatewayApp.vscommerceProducts.productNumber">Product Number</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="searchDetails"><span jhiTranslate="gatewayApp.vscommerceProducts.searchDetails">Search Details</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productNumber"><span jhiTranslate="gatewayApp.vscommerceProducts.productNumber">Product Number</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="sellCount"><span jhiTranslate="gatewayApp.vscommerceProducts.sellCount">Sell Count</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="stockItemString"><span jhiTranslate="gatewayApp.vscommerceProducts.stockItemString">Stock Item String</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productDetails"><span jhiTranslate="gatewayApp.vscommerceProducts.productDetails">Product Details</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="totalWishlist"><span jhiTranslate="gatewayApp.vscommerceProducts.totalWishlist">Total Wishlist</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="totalStars"><span jhiTranslate="gatewayApp.vscommerceProducts.totalStars">Total Stars</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="discountedPercentage"><span jhiTranslate="gatewayApp.vscommerceProducts.discountedPercentage">Discounted Percentage</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="preferredInd"><span jhiTranslate="gatewayApp.vscommerceProducts.preferredInd">Preferred Ind</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="availableDeliveryInd"><span jhiTranslate="gatewayApp.vscommerceProducts.availableDeliveryInd">Available Delivery Ind</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="activeInd"><span jhiTranslate="gatewayApp.vscommerceProducts.activeInd">Active Ind</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="questionsAboutProductInd"><span jhiTranslate="gatewayApp.vscommerceProducts.questionsAboutProductInd">Questions About Product Ind</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="lastEditedBy"><span jhiTranslate="gatewayApp.vscommerceProducts.lastEditedBy">Last Edited By</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="lastEditedWhen"><span jhiTranslate="gatewayApp.vscommerceProducts.lastEditedWhen">Last Edited When</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="releaseDate"><span jhiTranslate="gatewayApp.vscommerceProducts.releaseDate">Release Date</span> <fa-icon icon="sort"></fa-icon></th>
@@ -51,16 +52,17 @@
                     <td><a [routerLink]="['/products', products.id, 'view']">{{ products.id }}</a></td>
                     <td>{{ products.name }}</td>
                     <td>{{ products.handle }}</td>
-                    <td>{{ products.productNumber }}</td>
                     <td>{{ products.searchDetails }}</td>
+                    <td>{{ products.productNumber }}</td>
                     <td>{{ products.sellCount }}</td>
-                    <td>{{ products.stockItemString }}</td>
+                    <td>{{ products.productDetails }}</td>
                     <td>{{ products.totalWishlist }}</td>
                     <td>{{ products.totalStars }}</td>
                     <td>{{ products.discountedPercentage }}</td>
                     <td>{{ products.preferredInd }}</td>
                     <td>{{ products.availableDeliveryInd }}</td>
                     <td>{{ products.activeInd }}</td>
+                    <td>{{ products.questionsAboutProductInd }}</td>
                     <td>{{ products.lastEditedBy }}</td>
                     <td>{{ products.lastEditedWhen | date:'medium' }}</td>
                     <td>{{ products.releaseDate | date:'medium' }}</td>

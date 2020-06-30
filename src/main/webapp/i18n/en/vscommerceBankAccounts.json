@@ -17,10 +17,13 @@
       "branch": "Branch",
       "code": "Code",
       "number": "Number",
+      "type": "Type",
+      "bank": "Bank",
       "internationalCode": "International Code",
       "lastEditedBy": "Last Edited By",
       "validForm": "Valid Form",
-      "validTo": "Valid To"
+      "validTo": "Valid To",
+      "logo": "Logo"
     }
   },
   "vscommerceApp": {

@@ -11,7 +11,7 @@
                 <dt><span jhiTranslate="gatewayApp.vscommerceWishlists.wishlistUser">Wishlist User</span></dt>
                 <dd>
                     <div *ngIf="wishlists.wishlistUserId">
-                        <a [routerLink]="['/people', wishlists.wishlistUserId, 'view']">{{ wishlists.wishlistUserId }}</a>
+                        <a [routerLink]="['/people', wishlists.wishlistUserId, 'view']">{{ wishlists.wishlistUserFullName }}</a>
                     </div>
                 </dd>
             </dl>

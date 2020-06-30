@@ -24,14 +24,15 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new Discount(0, 'AAAAAAA', 'AAAAAAA', currentDate);
+      elemDefault = new Discount(0, 'AAAAAAA', 'AAAAAAA', currentDate, currentDate);
     });
 
     describe('Service methods', () => {
       it('should find an element', () => {
         const returnedFromService = Object.assign(
           {
-            modifiedDate: currentDate.format(DATE_TIME_FORMAT),
+            validFrom: currentDate.format(DATE_TIME_FORMAT),
+            validTo: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
@@ -47,14 +48,16 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             id: 0,
-            modifiedDate: currentDate.format(DATE_TIME_FORMAT),
+            validFrom: currentDate.format(DATE_TIME_FORMAT),
+            validTo: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            modifiedDate: currentDate,
+            validFrom: currentDate,
+            validTo: currentDate,
           },
           returnedFromService
         );
@@ -71,14 +74,16 @@ describe('Service Tests', () => {
           {
             name: 'BBBBBB',
             description: 'BBBBBB',
-            modifiedDate: currentDate.format(DATE_TIME_FORMAT),
+            validFrom: currentDate.format(DATE_TIME_FORMAT),
+            validTo: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            modifiedDate: currentDate,
+            validFrom: currentDate,
+            validTo: currentDate,
           },
           returnedFromService
         );
@@ -95,14 +100,16 @@ describe('Service Tests', () => {
           {
             name: 'BBBBBB',
             description: 'BBBBBB',
-            modifiedDate: currentDate.format(DATE_TIME_FORMAT),
+            validFrom: currentDate.format(DATE_TIME_FORMAT),
+            validTo: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            modifiedDate: currentDate,
+            validFrom: currentDate,
+            validTo: currentDate,
           },
           returnedFromService
         );

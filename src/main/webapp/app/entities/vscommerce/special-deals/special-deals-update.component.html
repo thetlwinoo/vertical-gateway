@@ -130,7 +130,7 @@
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceSpecialDeals.customer" for="field_customer">Customer</label>
                     <select class="form-control" id="field_customer" name="customer" formControlName="customerId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackById">{{ customersOption.id }}</option>
+                        <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackById">{{ customersOption.name }}</option>
                     </select>
                 </div>
 

@@ -14,9 +14,11 @@
         "title": "Shopping Cart Items"
       },
       "quantity": "Quantity",
+      "selectOrder": "Select Order",
       "lastEditedBy": "Last Edited By",
       "lastEditedWhen": "Last Edited When",
       "stockItem": "Stock Item",
+      "deliveryMethod": "Delivery Method",
       "cart": "Cart"
     }
   },

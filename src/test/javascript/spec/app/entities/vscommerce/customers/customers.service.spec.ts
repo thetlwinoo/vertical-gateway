@@ -24,7 +24,23 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new Customers(0, 'AAAAAAA', currentDate, 0, false, false, 0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', currentDate, currentDate);
+      elemDefault = new Customers(
+        0,
+        'AAAAAAA',
+        'AAAAAAA',
+        currentDate,
+        0,
+        false,
+        false,
+        0,
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        false,
+        'AAAAAAA',
+        currentDate,
+        currentDate
+      );
     });
 
     describe('Service methods', () => {
@@ -75,6 +91,7 @@ describe('Service Tests', () => {
       it('should update a Customers', () => {
         const returnedFromService = Object.assign(
           {
+            name: 'BBBBBB',
             accountNumber: 'BBBBBB',
             accountOpenedDate: currentDate.format(DATE_TIME_FORMAT),
             standardDiscountPercentage: 1,
@@ -83,6 +100,8 @@ describe('Service Tests', () => {
             paymentDays: 1,
             deliveryRun: 'BBBBBB',
             runPosition: 'BBBBBB',
+            thumbnailUrl: 'BBBBBB',
+            billToAddressSameAsDeliveryAddress: true,
             lastEditedBy: 'BBBBBB',
             validFrom: currentDate.format(DATE_TIME_FORMAT),
             validTo: currentDate.format(DATE_TIME_FORMAT),
@@ -109,6 +128,7 @@ describe('Service Tests', () => {
       it('should return a list of Customers', () => {
         const returnedFromService = Object.assign(
           {
+            name: 'BBBBBB',
             accountNumber: 'BBBBBB',
             accountOpenedDate: currentDate.format(DATE_TIME_FORMAT),
             standardDiscountPercentage: 1,
@@ -117,6 +137,8 @@ describe('Service Tests', () => {
             paymentDays: 1,
             deliveryRun: 'BBBBBB',
             runPosition: 'BBBBBB',
+            thumbnailUrl: 'BBBBBB',
+            billToAddressSameAsDeliveryAddress: true,
             lastEditedBy: 'BBBBBB',
             validFrom: currentDate.format(DATE_TIME_FORMAT),
             validTo: currentDate.format(DATE_TIME_FORMAT),

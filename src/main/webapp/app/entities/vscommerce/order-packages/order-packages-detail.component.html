@@ -24,9 +24,37 @@
                 <dd>
                     <span>{{ orderPackages.internalComments }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.customerPurchaseOrderNumber">Customer Purchase Order Number</span></dt>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packageShippingFee">Package Shipping Fee</span></dt>
                 <dd>
-                    <span>{{ orderPackages.customerPurchaseOrderNumber }}</span>
+                    <span>{{ orderPackages.packageShippingFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packageShippingFeeDiscount">Package Shipping Fee Discount</span></dt>
+                <dd>
+                    <span>{{ orderPackages.packageShippingFeeDiscount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packagePrice">Package Price</span></dt>
+                <dd>
+                    <span>{{ orderPackages.packagePrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packageSubTotal">Package Sub Total</span></dt>
+                <dd>
+                    <span>{{ orderPackages.packageSubTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packageTaxAmount">Package Tax Amount</span></dt>
+                <dd>
+                    <span>{{ orderPackages.packageTaxAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packageVoucherDiscount">Package Voucher Discount</span></dt>
+                <dd>
+                    <span>{{ orderPackages.packageVoucherDiscount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.packagePromotionDiscount">Package Promotion Discount</span></dt>
+                <dd>
+                    <span>{{ orderPackages.packagePromotionDiscount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.pickingCompletedWhen">Picking Completed When</span></dt>
+                <dd>
+                    <span>{{ orderPackages.pickingCompletedWhen }}</span>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.customerReviewedOn">Customer Reviewed On</span></dt>
                 <dd>
@@ -72,6 +100,18 @@
                 <dd>
                     <div *ngIf="orderPackages.supplierId">
                         <a [routerLink]="['/suppliers', orderPackages.supplierId, 'view']">{{ orderPackages.supplierName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryMethod">Delivery Method</span></dt>
+                <dd>
+                    <div *ngIf="orderPackages.deliveryMethodId">
+                        <a [routerLink]="['/delivery-methods', orderPackages.deliveryMethodId, 'view']">{{ orderPackages.deliveryMethodName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.specialDeals">Special Deals</span></dt>
+                <dd>
+                    <div *ngIf="orderPackages.specialDealsId">
+                        <a [routerLink]="['/special-deals', orderPackages.specialDealsId, 'view']">{{ orderPackages.specialDealsId }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.order">Order</span></dt>

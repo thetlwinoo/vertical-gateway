@@ -29,19 +29,18 @@ describe('Service Tests', () => {
       elemDefault = new Orders(
         0,
         currentDate,
-        currentDate,
-        currentDate,
-        PaymentStatus.PENDING,
-        'AAAAAAA',
         0,
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        PaymentStatus.CASH_ON_DELIVERY,
         'AAAAAAA',
+        OrderStatus.NEW_ORDER,
         'AAAAAAA',
-        'AAAAAAA',
-        currentDate,
-        OrderStatus.COMPLETED,
+        false,
         'AAAAAAA',
         currentDate
       );
@@ -52,9 +51,6 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             orderDate: currentDate.format(DATE_TIME_FORMAT),
-            dueDate: currentDate.format(DATE_TIME_FORMAT),
-            expectedDeliveryDate: currentDate.format(DATE_TIME_FORMAT),
-            pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
@@ -72,9 +68,6 @@ describe('Service Tests', () => {
           {
             id: 0,
             orderDate: currentDate.format(DATE_TIME_FORMAT),
-            dueDate: currentDate.format(DATE_TIME_FORMAT),
-            expectedDeliveryDate: currentDate.format(DATE_TIME_FORMAT),
-            pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
@@ -83,9 +76,6 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             orderDate: currentDate,
-            dueDate: currentDate,
-            expectedDeliveryDate: currentDate,
-            pickingCompletedWhen: currentDate,
             lastEditedWhen: currentDate,
           },
           returnedFromService
@@ -102,19 +92,18 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             orderDate: currentDate.format(DATE_TIME_FORMAT),
-            dueDate: currentDate.format(DATE_TIME_FORMAT),
-            expectedDeliveryDate: currentDate.format(DATE_TIME_FORMAT),
-            paymentStatus: 'BBBBBB',
-            accountNumber: 'BBBBBB',
             subTotal: 1,
-            taxAmount: 1,
-            frieight: 1,
+            totalTaxAmount: 1,
+            totalShippingFee: 1,
+            totalShippingFeeDiscount: 1,
+            totalVoucherDiscount: 1,
+            totalPromtionDiscount: 1,
             totalDue: 1,
-            comments: 'BBBBBB',
-            deliveryInstructions: 'BBBBBB',
-            internalComments: 'BBBBBB',
-            pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
+            paymentStatus: 'BBBBBB',
+            customerPurchaseOrderNumber: 'BBBBBB',
             status: 'BBBBBB',
+            orderDetails: 'BBBBBB',
+            isUnderSupplyBackOrdered: true,
             lastEditedBy: 'BBBBBB',
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },
@@ -124,9 +113,6 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             orderDate: currentDate,
-            dueDate: currentDate,
-            expectedDeliveryDate: currentDate,
-            pickingCompletedWhen: currentDate,
             lastEditedWhen: currentDate,
           },
           returnedFromService
@@ -143,19 +129,18 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             orderDate: currentDate.format(DATE_TIME_FORMAT),
-            dueDate: currentDate.format(DATE_TIME_FORMAT),
-            expectedDeliveryDate: currentDate.format(DATE_TIME_FORMAT),
-            paymentStatus: 'BBBBBB',
-            accountNumber: 'BBBBBB',
             subTotal: 1,
-            taxAmount: 1,
-            frieight: 1,
+            totalTaxAmount: 1,
+            totalShippingFee: 1,
+            totalShippingFeeDiscount: 1,
+            totalVoucherDiscount: 1,
+            totalPromtionDiscount: 1,
             totalDue: 1,
-            comments: 'BBBBBB',
-            deliveryInstructions: 'BBBBBB',
-            internalComments: 'BBBBBB',
-            pickingCompletedWhen: currentDate.format(DATE_TIME_FORMAT),
+            paymentStatus: 'BBBBBB',
+            customerPurchaseOrderNumber: 'BBBBBB',
             status: 'BBBBBB',
+            orderDetails: 'BBBBBB',
+            isUnderSupplyBackOrdered: true,
             lastEditedBy: 'BBBBBB',
             lastEditedWhen: currentDate.format(DATE_TIME_FORMAT),
           },
@@ -165,9 +150,6 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             orderDate: currentDate,
-            dueDate: currentDate,
-            expectedDeliveryDate: currentDate,
-            pickingCompletedWhen: currentDate,
             lastEditedWhen: currentDate,
           },
           returnedFromService

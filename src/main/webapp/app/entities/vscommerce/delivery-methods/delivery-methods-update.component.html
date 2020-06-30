@@ -24,6 +24,42 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDeliveryMethods.thirdPartyName" for="field_thirdPartyName">Third Party Name</label>
+                    <input type="text" class="form-control" name="thirdPartyName" id="field_thirdPartyName"
+                           formControlName="thirdPartyName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDeliveryMethods.expectedMinArrivalDays" for="field_expectedMinArrivalDays">Expected Min Arrival Days</label>
+                    <input type="number" class="form-control" name="expectedMinArrivalDays" id="field_expectedMinArrivalDays"
+                           formControlName="expectedMinArrivalDays"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDeliveryMethods.expectedMaxArrivalDays" for="field_expectedMaxArrivalDays">Expected Max Arrival Days</label>
+                    <input type="number" class="form-control" name="expectedMaxArrivalDays" id="field_expectedMaxArrivalDays"
+                           formControlName="expectedMaxArrivalDays"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDeliveryMethods.activeInd" for="field_activeInd">Active Ind</label>
+                    <input type="checkbox" class="form-control" name="activeInd" id="field_activeInd"
+                           formControlName="activeInd"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDeliveryMethods.defaultInd" for="field_defaultInd">Default Ind</label>
+                    <input type="checkbox" class="form-control" name="defaultInd" id="field_defaultInd"
+                           formControlName="defaultInd"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDeliveryMethods.deliveryNote" for="field_deliveryNote">Delivery Note</label>
+                    <input type="text" class="form-control" name="deliveryNote" id="field_deliveryNote"
+                           formControlName="deliveryNote"/>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceDeliveryMethods.validFrom" for="field_validFrom">Valid From</label>
                     <div class="d-flex">
                         <input id="field_validFrom" type="datetime-local" class="form-control" name="validFrom" formControlName="validFrom" placeholder="YYYY-MM-DD HH:mm"/>

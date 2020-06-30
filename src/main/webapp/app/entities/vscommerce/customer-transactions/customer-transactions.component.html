@@ -32,11 +32,11 @@
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerTransactions.isFinalized">Is Finalized</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerTransactions.lastEditedBy">Last Edited By</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerTransactions.lastEditedWhen">Last Edited When</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerTransactions.order">Order</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerTransactions.customer">Customer</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerTransactions.paymentMethod">Payment Method</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerTransactions.transactionType">Transaction Type</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerTransactions.invoice">Invoice</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerTransactions.order">Order</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -53,13 +53,8 @@
                     <td>{{ customerTransactions.lastEditedBy }}</td>
                     <td>{{ customerTransactions.lastEditedWhen | date:'medium' }}</td>
                     <td>
-                        <div *ngIf="customerTransactions.orderId">
-                            <a [routerLink]="['/orders', customerTransactions.orderId , 'view']" >{{ customerTransactions.orderId }}</a>
-                        </div>
-                    </td>
-                    <td>
                         <div *ngIf="customerTransactions.customerId">
-                            <a [routerLink]="['/customers', customerTransactions.customerId , 'view']" >{{ customerTransactions.customerId }}</a>
+                            <a [routerLink]="['/customers', customerTransactions.customerId , 'view']" >{{ customerTransactions.customerName }}</a>
                         </div>
                     </td>
                     <td>
@@ -75,6 +70,11 @@
                     <td>
                         <div *ngIf="customerTransactions.invoiceId">
                             <a [routerLink]="['/invoices', customerTransactions.invoiceId , 'view']" >{{ customerTransactions.invoiceId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="customerTransactions.orderId">
+                            <a [routerLink]="['/orders', customerTransactions.orderId , 'view']" >{{ customerTransactions.orderId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

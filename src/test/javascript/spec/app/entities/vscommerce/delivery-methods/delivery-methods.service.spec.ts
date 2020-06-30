@@ -24,7 +24,7 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new DeliveryMethods(0, 'AAAAAAA', currentDate, currentDate);
+      elemDefault = new DeliveryMethods(0, 'AAAAAAA', 'AAAAAAA', 0, 0, false, false, 'AAAAAAA', currentDate, currentDate);
     });
 
     describe('Service methods', () => {
@@ -73,6 +73,12 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             name: 'BBBBBB',
+            thirdPartyName: 'BBBBBB',
+            expectedMinArrivalDays: 1,
+            expectedMaxArrivalDays: 1,
+            activeInd: true,
+            defaultInd: true,
+            deliveryNote: 'BBBBBB',
             validFrom: currentDate.format(DATE_TIME_FORMAT),
             validTo: currentDate.format(DATE_TIME_FORMAT),
           },
@@ -98,6 +104,12 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             name: 'BBBBBB',
+            thirdPartyName: 'BBBBBB',
+            expectedMinArrivalDays: 1,
+            expectedMaxArrivalDays: 1,
+            activeInd: true,
+            defaultInd: true,
+            deliveryNote: 'BBBBBB',
             validFrom: currentDate.format(DATE_TIME_FORMAT),
             validTo: currentDate.format(DATE_TIME_FORMAT),
           },

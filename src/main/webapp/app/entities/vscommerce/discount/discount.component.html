@@ -25,7 +25,10 @@
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscount.name">Name</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscount.description">Description</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscount.modifiedDate">Modified Date</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscount.validFrom">Valid From</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscount.validTo">Valid To</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscount.supplier">Supplier</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceDiscount.discountType">Discount Type</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -34,7 +37,18 @@
                     <td><a [routerLink]="['/discount', discount.id, 'view']">{{ discount.id }}</a></td>
                     <td>{{ discount.name }}</td>
                     <td>{{ discount.description }}</td>
-                    <td>{{ discount.modifiedDate | date:'medium' }}</td>
+                    <td>{{ discount.validFrom | date:'medium' }}</td>
+                    <td>{{ discount.validTo | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="discount.supplierId">
+                            <a [routerLink]="['/suppliers', discount.supplierId , 'view']" >{{ discount.supplierName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="discount.discountTypeId">
+                            <a [routerLink]="['/discount-types', discount.discountTypeId , 'view']" >{{ discount.discountTypeName }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

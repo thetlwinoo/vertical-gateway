@@ -15,7 +15,9 @@
       },
       "name": "Name",
       "code": "Code",
+      "disabled": "Disabled",
       "activeInd": "Active Ind",
+      "sortOrder": "Sort Order",
       "iconFont": "Icon Font",
       "icon": "Icon"
     }

@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "vscommerceQuestions": {
+      "home": {
+        "title": "Questions",
+        "createLabel": "Create a new Questions",
+        "createOrEditLabel": "Create or edit a Questions",
+        "notFound": "No Questions found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Questions {{ id }}?"
+      },
+      "detail": {
+        "title": "Questions"
+      },
+      "customerQuestion": "Customer Question",
+      "customerQuestionOn": "Customer Question On",
+      "supplierAnswer": "Supplier Answer",
+      "supplierAnswerOn": "Supplier Answer On",
+      "activeInd": "Active Ind",
+      "supplier": "Supplier",
+      "person": "Person",
+      "product": "Product"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceQuestions": {
+      "created": "A new Questions is created with identifier {{ param }}",
+      "updated": "A Questions is updated with identifier {{ param }}",
+      "deleted": "A Questions is deleted with identifier {{ param }}"
+    }
+  }
+}

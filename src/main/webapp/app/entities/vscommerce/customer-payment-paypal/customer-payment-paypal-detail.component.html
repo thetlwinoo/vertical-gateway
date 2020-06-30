@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customerPaymentPaypal">
+            <h2><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentPaypal.detail.title">Customer Payment Paypal</span> {{ customerPaymentPaypal.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentPaypal.paypalAccount">Paypal Account</span></dt>
+                <dd>
+                    <span>{{ customerPaymentPaypal.paypalAccount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentPaypal.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ customerPaymentPaypal.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentPaypal.responseCode">Response Code</span></dt>
+                <dd>
+                    <span>{{ customerPaymentPaypal.responseCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentPaypal.approvalCode">Approval Code</span></dt>
+                <dd>
+                    <span>{{ customerPaymentPaypal.approvalCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentPaypal.responseData">Response Data</span></dt>
+                <dd>
+                    <span>{{ customerPaymentPaypal.responseData }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentPaypal.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ customerPaymentPaypal.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentPaypal.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ customerPaymentPaypal.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentPaypal.customerPayment">Customer Payment</span></dt>
+                <dd>
+                    <div *ngIf="customerPaymentPaypal.customerPaymentId">
+                        <a [routerLink]="['/customer-payment', customerPaymentPaypal.customerPaymentId, 'view']">{{ customerPaymentPaypal.customerPaymentId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentPaypal.currency">Currency</span></dt>
+                <dd>
+                    <div *ngIf="customerPaymentPaypal.currencyId">
+                        <a [routerLink]="['/currency', customerPaymentPaypal.currencyId, 'view']">{{ customerPaymentPaypal.currencyName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer-payment-paypal', customerPaymentPaypal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -94,14 +94,6 @@
                         </small>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.stockItem" for="field_stockItem">Stock Item</label>
-                    <select class="form-control" id="field_stockItem" name="stockItem" formControlName="stockItemId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="stockItemsOption.id" *ngFor="let stockItemsOption of stockitems; trackBy: trackById">{{ stockItemsOption.id }}</option>
-                    </select>
-                </div>
             </div>
 
             <div>

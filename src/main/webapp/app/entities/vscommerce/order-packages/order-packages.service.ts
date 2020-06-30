@@ -54,6 +54,10 @@ export class OrderPackagesService {
         orderPackages.expectedDeliveryDate && orderPackages.expectedDeliveryDate.isValid()
           ? orderPackages.expectedDeliveryDate.toJSON()
           : undefined,
+      pickingCompletedWhen:
+        orderPackages.pickingCompletedWhen && orderPackages.pickingCompletedWhen.isValid()
+          ? orderPackages.pickingCompletedWhen.toJSON()
+          : undefined,
       customerReviewedOn:
         orderPackages.customerReviewedOn && orderPackages.customerReviewedOn.isValid()
           ? orderPackages.customerReviewedOn.toJSON()
@@ -67,6 +71,7 @@ export class OrderPackagesService {
   protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
     if (res.body) {
       res.body.expectedDeliveryDate = res.body.expectedDeliveryDate ? moment(res.body.expectedDeliveryDate) : undefined;
+      res.body.pickingCompletedWhen = res.body.pickingCompletedWhen ? moment(res.body.pickingCompletedWhen) : undefined;
       res.body.customerReviewedOn = res.body.customerReviewedOn ? moment(res.body.customerReviewedOn) : undefined;
       res.body.lastEditedWhen = res.body.lastEditedWhen ? moment(res.body.lastEditedWhen) : undefined;
     }
@@ -77,6 +82,7 @@ export class OrderPackagesService {
     if (res.body) {
       res.body.forEach((orderPackages: IOrderPackages) => {
         orderPackages.expectedDeliveryDate = orderPackages.expectedDeliveryDate ? moment(orderPackages.expectedDeliveryDate) : undefined;
+        orderPackages.pickingCompletedWhen = orderPackages.pickingCompletedWhen ? moment(orderPackages.pickingCompletedWhen) : undefined;
         orderPackages.customerReviewedOn = orderPackages.customerReviewedOn ? moment(orderPackages.customerReviewedOn) : undefined;
         orderPackages.lastEditedWhen = orderPackages.lastEditedWhen ? moment(orderPackages.lastEditedWhen) : undefined;
       });

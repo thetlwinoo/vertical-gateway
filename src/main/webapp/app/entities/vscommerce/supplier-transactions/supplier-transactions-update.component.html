@@ -163,6 +163,30 @@
                         <option [ngValue]="purchaseOrdersOption.id" *ngFor="let purchaseOrdersOption of purchaseorders; trackBy: trackById">{{ purchaseOrdersOption.id }}</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceSupplierTransactions.order" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" formControlName="orderId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ordersOption.id" *ngFor="let ordersOption of orders; trackBy: trackById">{{ ordersOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceSupplierTransactions.invoice" for="field_invoice">Invoice</label>
+                    <select class="form-control" id="field_invoice" name="invoice" formControlName="invoiceId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="invoicesOption.id" *ngFor="let invoicesOption of invoices; trackBy: trackById">{{ invoicesOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceSupplierTransactions.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="statusId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="supplierTransactionStatusOption.id" *ngFor="let supplierTransactionStatusOption of suppliertransactionstatuses; trackBy: trackById">{{ supplierTransactionStatusOption.name }}</option>
+                    </select>
+                </div>
             </div>
 
             <div>

@@ -16,9 +16,25 @@
                 <dd>
                     <span>{{ discount.description }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceDiscount.modifiedDate">Modified Date</span></dt>
+                <dt><span jhiTranslate="gatewayApp.vscommerceDiscount.validFrom">Valid From</span></dt>
                 <dd>
-                    <span>{{ discount.modifiedDate }}</span>
+                    <span>{{ discount.validFrom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceDiscount.validTo">Valid To</span></dt>
+                <dd>
+                    <span>{{ discount.validTo }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceDiscount.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="discount.supplierId">
+                        <a [routerLink]="['/suppliers', discount.supplierId, 'view']">{{ discount.supplierName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceDiscount.discountType">Discount Type</span></dt>
+                <dd>
+                    <div *ngIf="discount.discountTypeId">
+                        <a [routerLink]="['/discount-types', discount.discountTypeId, 'view']">{{ discount.discountTypeName }}</a>
+                    </div>
                 </dd>
             </dl>
 

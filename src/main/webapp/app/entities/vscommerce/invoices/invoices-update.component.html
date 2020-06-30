@@ -116,8 +116,8 @@
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceInvoices.returnedDeliveryData" for="field_returnedDeliveryData">Returned Delivery Data</label>
-                    <input type="text" class="form-control" name="returnedDeliveryData" id="field_returnedDeliveryData"
-                           formControlName="returnedDeliveryData"/>
+                    <textarea class="form-control" name="returnedDeliveryData" id="field_returnedDeliveryData"
+                              formControlName="returnedDeliveryData"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -186,8 +186,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceInvoices.salespersonPerson" for="field_salespersonPerson">Salesperson Person</label>
-                    <select class="form-control" id="field_salespersonPerson" name="salespersonPerson" formControlName="salespersonPersonId">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceInvoices.salesPerson" for="field_salesPerson">Sales Person</label>
+                    <select class="form-control" id="field_salesPerson" name="salesPerson" formControlName="salesPersonId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="peopleOption.id" *ngFor="let peopleOption of people; trackBy: trackById">{{ peopleOption.fullName }}</option>
                     </select>
@@ -213,7 +213,7 @@
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceInvoices.customer" for="field_customer">Customer</label>
                     <select class="form-control" id="field_customer" name="customer" formControlName="customerId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackById">{{ customersOption.id }}</option>
+                        <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackById">{{ customersOption.name }}</option>
                     </select>
                 </div>
 
@@ -221,7 +221,7 @@
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceInvoices.billToCustomer" for="field_billToCustomer">Bill To Customer</label>
                     <select class="form-control" id="field_billToCustomer" name="billToCustomer" formControlName="billToCustomerId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackById">{{ customersOption.id }}</option>
+                        <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackById">{{ customersOption.name }}</option>
                     </select>
                 </div>
 
@@ -238,6 +238,14 @@
                     <select class="form-control" id="field_order" name="order" formControlName="orderId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="ordersOption.id" *ngFor="let ordersOption of orders; trackBy: trackById">{{ ordersOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceInvoices.orderPackage" for="field_orderPackage">Order Package</label>
+                    <select class="form-control" id="field_orderPackage" name="orderPackage" formControlName="orderPackageId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderPackagesOption.id" *ngFor="let orderPackagesOption of orderpackages; trackBy: trackById">{{ orderPackagesOption.id }}</option>
                     </select>
                 </div>
 

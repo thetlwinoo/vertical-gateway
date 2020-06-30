@@ -25,7 +25,6 @@
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceReviewLines.stockItemRating">Stock Item Rating</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceReviewLines.stockItemReview">Stock Item Review</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceReviewLines.attachedUrl">Attached Url</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceReviewLines.lastEditedBy">Last Edited By</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceReviewLines.lastEditedWhen">Last Edited When</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceReviewLines.reviewImage">Review Image</span></th>
@@ -38,7 +37,6 @@
                     <td><a [routerLink]="['/review-lines', reviewLines.id, 'view']">{{ reviewLines.id }}</a></td>
                     <td>{{ reviewLines.stockItemRating }}</td>
                     <td>{{ reviewLines.stockItemReview }}</td>
-                    <td>{{ reviewLines.attachedUrl }}</td>
                     <td>{{ reviewLines.lastEditedBy }}</td>
                     <td>{{ reviewLines.lastEditedWhen | date:'medium' }}</td>
                     <td>

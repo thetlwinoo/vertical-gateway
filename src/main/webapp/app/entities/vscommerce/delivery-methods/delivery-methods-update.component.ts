@@ -20,6 +20,12 @@ export class DeliveryMethodsUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     name: [null, [Validators.required]],
+    thirdPartyName: [],
+    expectedMinArrivalDays: [],
+    expectedMaxArrivalDays: [],
+    activeInd: [],
+    defaultInd: [],
+    deliveryNote: [],
     validFrom: [null, [Validators.required]],
     validTo: [null, [Validators.required]],
   });
@@ -46,6 +52,12 @@ export class DeliveryMethodsUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: deliveryMethods.id,
       name: deliveryMethods.name,
+      thirdPartyName: deliveryMethods.thirdPartyName,
+      expectedMinArrivalDays: deliveryMethods.expectedMinArrivalDays,
+      expectedMaxArrivalDays: deliveryMethods.expectedMaxArrivalDays,
+      activeInd: deliveryMethods.activeInd,
+      defaultInd: deliveryMethods.defaultInd,
+      deliveryNote: deliveryMethods.deliveryNote,
       validFrom: deliveryMethods.validFrom ? deliveryMethods.validFrom.format(DATE_TIME_FORMAT) : null,
       validTo: deliveryMethods.validTo ? deliveryMethods.validTo.format(DATE_TIME_FORMAT) : null,
     });
@@ -70,6 +82,12 @@ export class DeliveryMethodsUpdateComponent implements OnInit {
       ...new DeliveryMethods(),
       id: this.editForm.get(['id'])!.value,
       name: this.editForm.get(['name'])!.value,
+      thirdPartyName: this.editForm.get(['thirdPartyName'])!.value,
+      expectedMinArrivalDays: this.editForm.get(['expectedMinArrivalDays'])!.value,
+      expectedMaxArrivalDays: this.editForm.get(['expectedMaxArrivalDays'])!.value,
+      activeInd: this.editForm.get(['activeInd'])!.value,
+      defaultInd: this.editForm.get(['defaultInd'])!.value,
+      deliveryNote: this.editForm.get(['deliveryNote'])!.value,
       validFrom: this.editForm.get(['validFrom'])!.value ? moment(this.editForm.get(['validFrom'])!.value, DATE_TIME_FORMAT) : undefined,
       validTo: this.editForm.get(['validTo'])!.value ? moment(this.editForm.get(['validTo'])!.value, DATE_TIME_FORMAT) : undefined,
     };

@@ -40,10 +40,16 @@
                 <dd>
                     <span>{{ shippingFeeChart.lastEditedWhen }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.zone">Zone</span></dt>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.sourceZone">Source Zone</span></dt>
                 <dd>
-                    <div *ngIf="shippingFeeChart.zoneId">
-                        <a [routerLink]="['/zone', shippingFeeChart.zoneId, 'view']">{{ shippingFeeChart.zoneCode }}</a>
+                    <div *ngIf="shippingFeeChart.sourceZoneId">
+                        <a [routerLink]="['/zone', shippingFeeChart.sourceZoneId, 'view']">{{ shippingFeeChart.sourceZoneCode }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.destinationZone">Destination Zone</span></dt>
+                <dd>
+                    <div *ngIf="shippingFeeChart.destinationZoneId">
+                        <a [routerLink]="['/zone', shippingFeeChart.destinationZoneId, 'view']">{{ shippingFeeChart.destinationZoneCode }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.deliveryMethod">Delivery Method</span></dt>

@@ -24,9 +24,21 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePaymentMethods.disabled" for="field_disabled">Disabled</label>
+                    <input type="checkbox" class="form-control" name="disabled" id="field_disabled"
+                           formControlName="disabled"/>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePaymentMethods.activeInd" for="field_activeInd">Active Ind</label>
                     <input type="checkbox" class="form-control" name="activeInd" id="field_activeInd"
                            formControlName="activeInd"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePaymentMethods.sortOrder" for="field_sortOrder">Sort Order</label>
+                    <input type="number" class="form-control" name="sortOrder" id="field_sortOrder"
+                           formControlName="sortOrder"/>
                 </div>
 
                 <div class="form-group">

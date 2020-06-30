@@ -66,6 +66,24 @@
                         <a [routerLink]="['/purchase-orders', supplierTransactions.purchaseOrderId, 'view']">{{ supplierTransactions.purchaseOrderId }}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceSupplierTransactions.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="supplierTransactions.orderId">
+                        <a [routerLink]="['/orders', supplierTransactions.orderId, 'view']">{{ supplierTransactions.orderId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceSupplierTransactions.invoice">Invoice</span></dt>
+                <dd>
+                    <div *ngIf="supplierTransactions.invoiceId">
+                        <a [routerLink]="['/invoices', supplierTransactions.invoiceId, 'view']">{{ supplierTransactions.invoiceId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceSupplierTransactions.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="supplierTransactions.statusId">
+                        <a [routerLink]="['/supplier-transaction-status', supplierTransactions.statusId, 'view']">{{ supplierTransactions.statusName }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

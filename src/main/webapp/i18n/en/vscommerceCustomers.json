@@ -13,6 +13,7 @@
       "detail": {
         "title": "Customers"
       },
+      "name": "Name",
       "accountNumber": "Account Number",
       "accountOpenedDate": "Account Opened Date",
       "standardDiscountPercentage": "Standard Discount Percentage",
@@ -21,12 +22,15 @@
       "paymentDays": "Payment Days",
       "deliveryRun": "Delivery Run",
       "runPosition": "Run Position",
+      "thumbnailUrl": "Thumbnail Url",
+      "billToAddressSameAsDeliveryAddress": "Bill To Address Same As Delivery Address",
       "lastEditedBy": "Last Edited By",
       "validFrom": "Valid From",
       "validTo": "Valid To",
       "people": "People",
       "deliveryMethod": "Delivery Method",
-      "deliveryAddress": "Delivery Address"
+      "deliveryAddress": "Delivery Address",
+      "billToAddress": "Bill To Address"
     }
   },
   "vscommerceApp": {

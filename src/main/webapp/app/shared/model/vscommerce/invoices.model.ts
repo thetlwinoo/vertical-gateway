@@ -15,7 +15,7 @@ export interface IInvoices {
   totalChillerItems?: number;
   deliveryRun?: string;
   runPosition?: string;
-  returnedDeliveryData?: string;
+  returnedDeliveryData?: any;
   confirmedDeliveryTime?: Moment;
   confirmedReceivedBy?: string;
   status?: InvoiceStatus;
@@ -24,17 +24,20 @@ export interface IInvoices {
   invoiceLineLists?: IInvoiceLines[];
   contactPersonFullName?: string;
   contactPersonId?: number;
-  salespersonPersonFullName?: string;
-  salespersonPersonId?: number;
+  salesPersonFullName?: string;
+  salesPersonId?: number;
   packedByPersonFullName?: string;
   packedByPersonId?: number;
   accountsPersonFullName?: string;
   accountsPersonId?: number;
+  customerName?: string;
   customerId?: number;
+  billToCustomerName?: string;
   billToCustomerId?: number;
   deliveryMethodName?: string;
   deliveryMethodId?: number;
   orderId?: number;
+  orderPackageId?: number;
   paymentMethodId?: number;
 }
 
@@ -52,7 +55,7 @@ export class Invoices implements IInvoices {
     public totalChillerItems?: number,
     public deliveryRun?: string,
     public runPosition?: string,
-    public returnedDeliveryData?: string,
+    public returnedDeliveryData?: any,
     public confirmedDeliveryTime?: Moment,
     public confirmedReceivedBy?: string,
     public status?: InvoiceStatus,
@@ -61,17 +64,20 @@ export class Invoices implements IInvoices {
     public invoiceLineLists?: IInvoiceLines[],
     public contactPersonFullName?: string,
     public contactPersonId?: number,
-    public salespersonPersonFullName?: string,
-    public salespersonPersonId?: number,
+    public salesPersonFullName?: string,
+    public salesPersonId?: number,
     public packedByPersonFullName?: string,
     public packedByPersonId?: number,
     public accountsPersonFullName?: string,
     public accountsPersonId?: number,
+    public customerName?: string,
     public customerId?: number,
+    public billToCustomerName?: string,
     public billToCustomerId?: number,
     public deliveryMethodName?: string,
     public deliveryMethodId?: number,
     public orderId?: number,
+    public orderPackageId?: number,
     public paymentMethodId?: number
   ) {
     this.isCreditNote = this.isCreditNote || false;

@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(ProductCategoryService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new ProductCategory(0, 'AAAAAAA', 'AAAAAAA', 0, 'AAAAAAA');
+      elemDefault = new ProductCategory(0, 'AAAAAAA', 'AAAAAAA', 0, 'AAAAAAA', false, false, false);
     });
 
     describe('Service methods', () => {
@@ -58,6 +58,9 @@ describe('Service Tests', () => {
             shortLabel: 'BBBBBB',
             sortOrder: 1,
             iconFont: 'BBBBBB',
+            justForYouInd: true,
+            showInNavInd: true,
+            activeInd: true,
           },
           elemDefault
         );
@@ -78,6 +81,9 @@ describe('Service Tests', () => {
             shortLabel: 'BBBBBB',
             sortOrder: 1,
             iconFont: 'BBBBBB',
+            justForYouInd: true,
+            showInNavInd: true,
+            activeInd: true,
           },
           elemDefault
         );

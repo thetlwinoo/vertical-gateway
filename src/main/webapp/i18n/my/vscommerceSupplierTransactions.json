@@ -25,7 +25,10 @@
       "lastEditedWhen": "Last Edited When",
       "supplier": "Supplier",
       "transactionType": "Transaction Type",
-      "purchaseOrder": "Purchase Order"
+      "purchaseOrder": "Purchase Order",
+      "order": "Order",
+      "invoice": "Invoice",
+      "status": "Status"
     }
   },
   "vscommerceApp": {

@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(PaymentMethodsService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new PaymentMethods(0, 'AAAAAAA', 'AAAAAAA', false, 'AAAAAAA');
+      elemDefault = new PaymentMethods(0, 'AAAAAAA', 'AAAAAAA', false, false, 0, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -56,7 +56,9 @@ describe('Service Tests', () => {
           {
             name: 'BBBBBB',
             code: 'BBBBBB',
+            disabled: true,
             activeInd: true,
+            sortOrder: 1,
             iconFont: 'BBBBBB',
           },
           elemDefault
@@ -76,7 +78,9 @@ describe('Service Tests', () => {
           {
             name: 'BBBBBB',
             code: 'BBBBBB',
+            disabled: true,
             activeInd: true,
+            sortOrder: 1,
             iconFont: 'BBBBBB',
           },
           elemDefault

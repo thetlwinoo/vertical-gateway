@@ -12,6 +12,12 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomers.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomers.accountNumber" for="field_accountNumber">Account Number</label>
                     <input type="text" class="form-control" name="accountNumber" id="field_accountNumber"
                            formControlName="accountNumber"/>
@@ -109,6 +115,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomers.thumbnailUrl" for="field_thumbnailUrl">Thumbnail Url</label>
+                    <input type="text" class="form-control" name="thumbnailUrl" id="field_thumbnailUrl"
+                           formControlName="thumbnailUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomers.billToAddressSameAsDeliveryAddress" for="field_billToAddressSameAsDeliveryAddress">Bill To Address Same As Delivery Address</label>
+                    <input type="checkbox" class="form-control" name="billToAddressSameAsDeliveryAddress" id="field_billToAddressSameAsDeliveryAddress"
+                           formControlName="billToAddressSameAsDeliveryAddress"/>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomers.lastEditedBy" for="field_lastEditedBy">Last Edited By</label>
                     <input type="text" class="form-control" name="lastEditedBy" id="field_lastEditedBy"
                            formControlName="lastEditedBy"/>
@@ -173,6 +191,14 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomers.deliveryAddress" for="field_deliveryAddress">Delivery Address</label>
                     <select class="form-control" id="field_deliveryAddress" name="deliveryAddress" formControlName="deliveryAddressId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="addressesOption.id" *ngFor="let addressesOption of addresses; trackBy: trackById">{{ addressesOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceCustomers.billToAddress" for="field_billToAddress">Bill To Address</label>
+                    <select class="form-control" id="field_billToAddress" name="billToAddress" formControlName="billToAddressId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="addressesOption.id" *ngFor="let addressesOption of addresses; trackBy: trackById">{{ addressesOption.id }}</option>
                     </select>

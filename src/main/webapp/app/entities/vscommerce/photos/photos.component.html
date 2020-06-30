@@ -34,7 +34,6 @@
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommercePhotos.watermarkUrl">Watermark Url</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommercePhotos.priority">Priority</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommercePhotos.defaultInd">Default Ind</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommercePhotos.stockItem">Stock Item</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -52,11 +51,6 @@
                     <td>{{ photos.watermarkUrl }}</td>
                     <td>{{ photos.priority }}</td>
                     <td>{{ photos.defaultInd }}</td>
-                    <td>
-                        <div *ngIf="photos.stockItemId">
-                            <a [routerLink]="['/stock-items', photos.stockItemId , 'view']" >{{ photos.stockItemId }}</a>
-                        </div>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.vscommerceQuestions.home.title">Questions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-questions" [routerLink]="['/questions/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.vscommerceQuestions.home.createLabel">
+            Create a new Questions
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="questions?.length === 0">
+        <span jhiTranslate="gatewayApp.vscommerceQuestions.home.notFound">No questions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="questions && questions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceQuestions.customerQuestion">Customer Question</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceQuestions.customerQuestionOn">Customer Question On</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceQuestions.supplierAnswer">Supplier Answer</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceQuestions.supplierAnswerOn">Supplier Answer On</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceQuestions.activeInd">Active Ind</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceQuestions.supplier">Supplier</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceQuestions.person">Person</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceQuestions.product">Product</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let questions of questions ;trackBy: trackId">
+                    <td><a [routerLink]="['/questions', questions.id, 'view']">{{ questions.id }}</a></td>
+                    <td>{{ questions.customerQuestion }}</td>
+                    <td>{{ questions.customerQuestionOn | date:'medium' }}</td>
+                    <td>{{ questions.supplierAnswer }}</td>
+                    <td>{{ questions.supplierAnswerOn | date:'medium' }}</td>
+                    <td>{{ questions.activeInd }}</td>
+                    <td>
+                        <div *ngIf="questions.supplierId">
+                            <a [routerLink]="['/suppliers', questions.supplierId , 'view']" >{{ questions.supplierName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="questions.personId">
+                            <a [routerLink]="['/people', questions.personId , 'view']" >{{ questions.personFullName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="questions.productId">
+                            <a [routerLink]="['/products', questions.productId , 'view']" >{{ questions.productName }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/questions', questions.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/questions', questions.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(questions)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

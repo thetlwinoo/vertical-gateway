@@ -1,3 +1,5 @@
+import { IStockItems } from 'app/shared/model/vscommerce/stock-items.model';
+
 export interface IPhotos {
   id?: number;
   blobId?: string;
@@ -11,7 +13,7 @@ export interface IPhotos {
   watermarkUrl?: string;
   priority?: number;
   defaultInd?: boolean;
-  stockItemId?: number;
+  stockItems?: IStockItems[];
 }
 
 export class Photos implements IPhotos {
@@ -28,7 +30,7 @@ export class Photos implements IPhotos {
     public watermarkUrl?: string,
     public priority?: number,
     public defaultInd?: boolean,
-    public stockItemId?: number
+    public stockItems?: IStockItems[]
   ) {
     this.defaultInd = this.defaultInd || false;
   }

@@ -25,7 +25,9 @@
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommercePaymentMethods.name">Name</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommercePaymentMethods.code">Code</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommercePaymentMethods.disabled">Disabled</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommercePaymentMethods.activeInd">Active Ind</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommercePaymentMethods.sortOrder">Sort Order</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommercePaymentMethods.iconFont">Icon Font</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.vscommercePaymentMethods.icon">Icon</span></th>
                     <th scope="col"></th>
@@ -36,7 +38,9 @@
                     <td><a [routerLink]="['/payment-methods', paymentMethods.id, 'view']">{{ paymentMethods.id }}</a></td>
                     <td>{{ paymentMethods.name }}</td>
                     <td>{{ paymentMethods.code }}</td>
+                    <td>{{ paymentMethods.disabled }}</td>
                     <td>{{ paymentMethods.activeInd }}</td>
+                    <td>{{ paymentMethods.sortOrder }}</td>
                     <td>{{ paymentMethods.iconFont }}</td>
                     <td>
                         <div *ngIf="paymentMethods.iconId">
