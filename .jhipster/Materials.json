@@ -1,0 +1,23 @@
+{
+  "name": "Materials",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200617164604",
+  "entityTableName": "materials",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

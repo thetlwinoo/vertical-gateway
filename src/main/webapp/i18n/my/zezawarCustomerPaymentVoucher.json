@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "zezawarCustomerPaymentVoucher": {
+      "home": {
+        "title": "Customer Payment Vouchers",
+        "createLabel": "Customer Payment Voucher အသစ်ထည့်မည်",
+        "createOrEditLabel": "Customer Payment Voucher အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Customer Payment Vouchers found"
+      },
+      "delete": {
+        "question": "Customer Payment Voucher {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Customer Payment Voucher"
+      },
+      "serialNo": "Serial No",
+      "amount": "Amount",
+      "lastEdityBy": "Last Edity By",
+      "lastEditedWhen": "Last Edited When",
+      "customerPayment": "Customer Payment",
+      "currency": "Currency"
+    }
+  },
+  "zezawarApp": {
+    "zezawarCustomerPaymentVoucher": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Customer Payment Voucher အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Customer Payment Voucher တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Customer Payment Voucher တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.home.title">Customer Payment Credit Cards</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer-payment-credit-card" [routerLink]="['/customer-payment-credit-card/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.home.createLabel">
+            Create a new Customer Payment Credit Card
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="customerPaymentCreditCards?.length === 0">
+        <span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.home.notFound">No customerPaymentCreditCards found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="customerPaymentCreditCards && customerPaymentCreditCards.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.creditCardNumber">Credit Card Number</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.creditCardExpiryMonth">Credit Card Expiry Month</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.creditCardExpiryYear">Credit Card Expiry Year</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.amount">Amount</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.batchId">Batch Id</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.responseCode">Response Code</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.approvalCode">Approval Code</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.responseData">Response Data</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.lastEditedBy">Last Edited By</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.lastEditedWhen">Last Edited When</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.customerPayment">Customer Payment</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.currency">Currency</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customerPaymentCreditCard of customerPaymentCreditCards ;trackBy: trackId">
+                    <td><a [routerLink]="['/customer-payment-credit-card', customerPaymentCreditCard.id, 'view']">{{ customerPaymentCreditCard.id }}</a></td>
+                    <td>{{ customerPaymentCreditCard.creditCardNumber }}</td>
+                    <td>{{ customerPaymentCreditCard.creditCardExpiryMonth }}</td>
+                    <td>{{ customerPaymentCreditCard.creditCardExpiryYear }}</td>
+                    <td>{{ customerPaymentCreditCard.amount }}</td>
+                    <td>{{ customerPaymentCreditCard.batchId }}</td>
+                    <td>{{ customerPaymentCreditCard.responseCode }}</td>
+                    <td>{{ customerPaymentCreditCard.approvalCode }}</td>
+                    <td>{{ customerPaymentCreditCard.responseData }}</td>
+                    <td>{{ customerPaymentCreditCard.lastEditedBy }}</td>
+                    <td>{{ customerPaymentCreditCard.lastEditedWhen | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="customerPaymentCreditCard.customerPaymentId">
+                            <a [routerLink]="['/customer-payment', customerPaymentCreditCard.customerPaymentId , 'view']" >{{ customerPaymentCreditCard.customerPaymentId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="customerPaymentCreditCard.currencyId">
+                            <a [routerLink]="['/currency', customerPaymentCreditCard.currencyId , 'view']" >{{ customerPaymentCreditCard.currencyName }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/customer-payment-credit-card', customerPaymentCreditCard.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/customer-payment-credit-card', customerPaymentCreditCard.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(customerPaymentCreditCard)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

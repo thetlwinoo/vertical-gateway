@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "vscommerceWishlistLines": {
+      "home": {
+        "title": "Wishlist Lines",
+        "createLabel": "Create a new Wishlist Lines",
+        "createOrEditLabel": "Create or edit a Wishlist Lines",
+        "notFound": "No Wishlist Lines found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Wishlist Lines {{ id }}?"
+      },
+      "detail": {
+        "title": "Wishlist Lines"
+      },
+      "stockItem": "Stock Item",
+      "wishlist": "Wishlist"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceWishlistLines": {
+      "created": "A new Wishlist Lines is created with identifier {{ param }}",
+      "updated": "A Wishlist Lines is updated with identifier {{ param }}",
+      "deleted": "A Wishlist Lines is deleted with identifier {{ param }}"
+    }
+  }
+}

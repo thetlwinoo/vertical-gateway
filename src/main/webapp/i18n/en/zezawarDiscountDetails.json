@@ -1,0 +1,37 @@
+{
+  "gatewayApp": {
+    "zezawarDiscountDetails": {
+      "home": {
+        "title": "Discount Details",
+        "createLabel": "Create a new Discount Details",
+        "createOrEditLabel": "Create or edit a Discount Details",
+        "notFound": "No Discount Details found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Discount Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Discount Details"
+      },
+      "amount": "Amount",
+      "isPercentage": "Is Percentage",
+      "isAllowCombinationDiscount": "Is Allow Combination Discount",
+      "isFinalBillDiscount": "Is Final Bill Discount",
+      "name": "Name",
+      "startCount": "Start Count",
+      "endCount": "End Count",
+      "multiplyCount": "Multiply Count",
+      "modifiedDate": "Modified Date",
+      "discount": "Discount",
+      "product": "Product",
+      "productCategory": "Product Category"
+    }
+  },
+  "zezawarApp": {
+    "zezawarDiscountDetails": {
+      "created": "A new Discount Details is created with identifier {{ param }}",
+      "updated": "A Discount Details is updated with identifier {{ param }}",
+      "deleted": "A Discount Details is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "vscommerceProductSetDetailPrice": {
+      "home": {
+        "title": "Product Set Detail Prices",
+        "createLabel": "Create a new Product Set Detail Price",
+        "createOrEditLabel": "Create or edit a Product Set Detail Price",
+        "notFound": "No Product Set Detail Prices found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Product Set Detail Price {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Set Detail Price"
+      },
+      "price": "Price",
+      "startCount": "Start Count",
+      "endCount": "End Count",
+      "multiplyCount": "Multiply Count",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "modifiedDate": "Modified Date",
+      "productSetDetail": "Product Set Detail"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceProductSetDetailPrice": {
+      "created": "A new Product Set Detail Price is created with identifier {{ param }}",
+      "updated": "A Product Set Detail Price is updated with identifier {{ param }}",
+      "deleted": "A Product Set Detail Price is deleted with identifier {{ param }}"
+    }
+  }
+}

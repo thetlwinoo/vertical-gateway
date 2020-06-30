@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "vscommerceCustomerPaymentCreditCardExtended": {
+      "home": {
+        "title": "Customer Payment Credit Card Extendeds",
+        "createLabel": "Customer Payment Credit Card Extended အသစ်ထည့်မည်",
+        "createOrEditLabel": "Customer Payment Credit Card Extended အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Customer Payment Credit Card Extendeds found"
+      },
+      "delete": {
+        "question": "Customer Payment Credit Card Extended {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Customer Payment Credit Card Extended"
+      },
+      "errorCode": "Error Code",
+      "errorMessage": "Error Message",
+      "lastEditedBy": "Last Edited By",
+      "lastEditeWhen": "Last Edite When"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCustomerPaymentCreditCardExtended": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Customer Payment Credit Card Extended အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Customer Payment Credit Card Extended တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Customer Payment Credit Card Extended တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

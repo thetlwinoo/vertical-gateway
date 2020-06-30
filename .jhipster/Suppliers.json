@@ -1,0 +1,137 @@
+{
+  "name": "Suppliers",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "supplierReference",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankAccountName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankAccountBranch",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankAccountCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankAccountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankInternationalCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentDays",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "internalComments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "faxNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "websiteURL",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "webServiceUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creditRating",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "activeFlag",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "thumbnailUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pickupSameAsHeadOffice",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "validFrom",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "validTo",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "people",
+      "otherEntityRelationshipName": "suppliers",
+      "relationshipName": "people",
+      "otherEntityField": "fullName",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "supplierCategories",
+      "otherEntityRelationshipName": "suppliers",
+      "relationshipName": "supplierCategory",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "addresses",
+      "otherEntityRelationshipName": "suppliers",
+      "relationshipName": "pickupAddress",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "addresses",
+      "otherEntityRelationshipName": "suppliers",
+      "relationshipName": "headOfficeAddress",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "deliveryMethods",
+      "otherEntityRelationshipName": "supplier",
+      "relationshipName": "deliveryMethod",
+      "otherEntityField": "name",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200617155304",
+  "entityTableName": "suppliers",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

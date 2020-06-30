@@ -1,0 +1,34 @@
+{
+  "gatewayApp": {
+    "zezawarProductSetDetails": {
+      "home": {
+        "title": "Product Set Details",
+        "createLabel": "Create a new Product Set Details",
+        "createOrEditLabel": "Create or edit a Product Set Details",
+        "notFound": "No Product Set Details found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Product Set Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Set Details"
+      },
+      "subGroupNo": "Sub Group No",
+      "subGroupMinCount": "Sub Group Min Count",
+      "subGroupMinTotal": "Sub Group Min Total",
+      "minCount": "Min Count",
+      "maxCount": "Max Count",
+      "isOptional": "Is Optional",
+      "productSet": "Product Set",
+      "product": "Product",
+      "productCategory": "Product Category"
+    }
+  },
+  "zezawarApp": {
+    "zezawarProductSetDetails": {
+      "created": "A new Product Set Details is created with identifier {{ param }}",
+      "updated": "A Product Set Details is updated with identifier {{ param }}",
+      "deleted": "A Product Set Details is deleted with identifier {{ param }}"
+    }
+  }
+}

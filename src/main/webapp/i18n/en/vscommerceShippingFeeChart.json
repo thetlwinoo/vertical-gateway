@@ -1,0 +1,35 @@
+{
+  "gatewayApp": {
+    "vscommerceShippingFeeChart": {
+      "home": {
+        "title": "Shipping Fee Charts",
+        "createLabel": "Create a new Shipping Fee Chart",
+        "createOrEditLabel": "Create or edit a Shipping Fee Chart",
+        "notFound": "No Shipping Fee Charts found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Shipping Fee Chart {{ id }}?"
+      },
+      "detail": {
+        "title": "Shipping Fee Chart"
+      },
+      "sizeOfPercel": "Size Of Percel",
+      "minVolumeWeight": "Min Volume Weight",
+      "maxVolumeWeight": "Max Volume Weight",
+      "minActualWeight": "Min Actual Weight",
+      "maxActualWeight": "Max Actual Weight",
+      "price": "Price",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "zone": "Zone",
+      "deliveryMethod": "Delivery Method"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceShippingFeeChart": {
+      "created": "A new Shipping Fee Chart is created with identifier {{ param }}",
+      "updated": "A Shipping Fee Chart is updated with identifier {{ param }}",
+      "deleted": "A Shipping Fee Chart is deleted with identifier {{ param }}"
+    }
+  }
+}

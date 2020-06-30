@@ -1,0 +1,116 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-receipts-heading" jhiTranslate="gatewayApp.vscommerceReceipts.home.createOrEditLabel">Create or edit a Receipts</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReceipts.receiptNo" for="field_receiptNo">Receipt No</label>
+                    <input type="text" class="form-control" name="receiptNo" id="field_receiptNo"
+                           formControlName="receiptNo"/>
+                    <div *ngIf="editForm.get('receiptNo')!.invalid && (editForm.get('receiptNo')!.dirty || editForm.get('receiptNo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('receiptNo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReceipts.issuedDate" for="field_issuedDate">Issued Date</label>
+                    <div class="d-flex">
+                        <input id="field_issuedDate" type="datetime-local" class="form-control" name="issuedDate" formControlName="issuedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('issuedDate')!.invalid && (editForm.get('issuedDate')!.dirty || editForm.get('issuedDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('issuedDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('issuedDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReceipts.printCount" for="field_printCount">Print Count</label>
+                    <input type="number" class="form-control" name="printCount" id="field_printCount"
+                           formControlName="printCount"/>
+                    <div *ngIf="editForm.get('printCount')!.invalid && (editForm.get('printCount')!.dirty || editForm.get('printCount')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('printCount')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('printCount')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReceipts.lastEditedBy" for="field_lastEditedBy">Last Edited By</label>
+                    <input type="text" class="form-control" name="lastEditedBy" id="field_lastEditedBy"
+                           formControlName="lastEditedBy"/>
+                    <div *ngIf="editForm.get('lastEditedBy')!.invalid && (editForm.get('lastEditedBy')!.dirty || editForm.get('lastEditedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReceipts.lastEditedWhen" for="field_lastEditedWhen">Last Edited When</label>
+                    <div class="d-flex">
+                        <input id="field_lastEditedWhen" type="datetime-local" class="form-control" name="lastEditedWhen" formControlName="lastEditedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastEditedWhen')!.invalid && (editForm.get('lastEditedWhen')!.dirty || editForm.get('lastEditedWhen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedWhen')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastEditedWhen')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReceipts.order" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" formControlName="orderId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ordersOption.id" *ngFor="let ordersOption of orders; trackBy: trackById">{{ ordersOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReceipts.invoice" for="field_invoice">Invoice</label>
+                    <select class="form-control" id="field_invoice" name="invoice" formControlName="invoiceId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="invoicesOption.id" *ngFor="let invoicesOption of invoices; trackBy: trackById">{{ invoicesOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{
+  "gatewayApp": {
+    "vscommerceCustomerPayment": {
+      "home": {
+        "title": "Customer Payments",
+        "createLabel": "Create a new Customer Payment",
+        "createOrEditLabel": "Create or edit a Customer Payment",
+        "notFound": "No Customer Payments found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Customer Payment {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer Payment"
+      },
+      "amountExcludingTax": "Amount Excluding Tax",
+      "taxAmount": "Tax Amount",
+      "transactionAmount": "Transaction Amount",
+      "outstandingAmount": "Outstanding Amount",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "customerTransaction": "Customer Transaction",
+      "paymentMethod": "Payment Method",
+      "currency": "Currency",
+      "currencyRate": "Currency Rate",
+      "customerPaymentCreditCard": "Customer Payment Credit Card",
+      "customerPaymentVoucher": "Customer Payment Voucher"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCustomerPayment": {
+      "created": "A new Customer Payment is created with identifier {{ param }}",
+      "updated": "A Customer Payment is updated with identifier {{ param }}",
+      "deleted": "A Customer Payment is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "vscommerceDiscountTypes": {
+      "home": {
+        "title": "Discount Types",
+        "createLabel": "Create a new Discount Types",
+        "createOrEditLabel": "Create or edit a Discount Types",
+        "notFound": "No Discount Types found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Discount Types {{ id }}?"
+      },
+      "detail": {
+        "title": "Discount Types"
+      },
+      "name": "Name",
+      "modifiedDate": "Modified Date"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceDiscountTypes": {
+      "created": "A new Discount Types is created with identifier {{ param }}",
+      "updated": "A Discount Types is updated with identifier {{ param }}",
+      "deleted": "A Discount Types is deleted with identifier {{ param }}"
+    }
+  }
+}

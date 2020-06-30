@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "vscommerceCreditCardType": {
+      "home": {
+        "title": "Credit Card Types",
+        "createLabel": "Credit Card Type အသစ်ထည့်မည်",
+        "createOrEditLabel": "Credit Card Type အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Credit Card Types found"
+      },
+      "delete": {
+        "question": "Credit Card Type {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Credit Card Type"
+      },
+      "name": "Name",
+      "modifiedDate": "Modified Date"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCreditCardType": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Credit Card Type အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Credit Card Type တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Credit Card Type တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

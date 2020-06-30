@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customers">
+            <h2><span jhiTranslate="gatewayApp.vscommerceCustomers.detail.title">Customers</span> {{ customers.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.accountNumber">Account Number</span></dt>
+                <dd>
+                    <span>{{ customers.accountNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.accountOpenedDate">Account Opened Date</span></dt>
+                <dd>
+                    <span>{{ customers.accountOpenedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.standardDiscountPercentage">Standard Discount Percentage</span></dt>
+                <dd>
+                    <span>{{ customers.standardDiscountPercentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.isStatementSent">Is Statement Sent</span></dt>
+                <dd>
+                    <span>{{ customers.isStatementSent }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.isOnCreditHold">Is On Credit Hold</span></dt>
+                <dd>
+                    <span>{{ customers.isOnCreditHold }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.paymentDays">Payment Days</span></dt>
+                <dd>
+                    <span>{{ customers.paymentDays }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.deliveryRun">Delivery Run</span></dt>
+                <dd>
+                    <span>{{ customers.deliveryRun }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.runPosition">Run Position</span></dt>
+                <dd>
+                    <span>{{ customers.runPosition }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ customers.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.validFrom">Valid From</span></dt>
+                <dd>
+                    <span>{{ customers.validFrom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.validTo">Valid To</span></dt>
+                <dd>
+                    <span>{{ customers.validTo }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.people">People</span></dt>
+                <dd>
+                    <div *ngIf="customers.peopleId">
+                        <a [routerLink]="['/people', customers.peopleId, 'view']">{{ customers.peopleFullName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.deliveryMethod">Delivery Method</span></dt>
+                <dd>
+                    <div *ngIf="customers.deliveryMethodId">
+                        <a [routerLink]="['/delivery-methods', customers.deliveryMethodId, 'view']">{{ customers.deliveryMethodName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomers.deliveryAddress">Delivery Address</span></dt>
+                <dd>
+                    <div *ngIf="customers.deliveryAddressId">
+                        <a [routerLink]="['/addresses', customers.deliveryAddressId, 'view']">{{ customers.deliveryAddressId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customers', customers.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

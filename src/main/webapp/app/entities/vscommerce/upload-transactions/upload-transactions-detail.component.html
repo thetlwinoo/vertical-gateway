@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="uploadTransactions">
+            <h2><span jhiTranslate="gatewayApp.vscommerceUploadTransactions.detail.title">Upload Transactions</span> {{ uploadTransactions.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceUploadTransactions.fileName">File Name</span></dt>
+                <dd>
+                    <span>{{ uploadTransactions.fileName }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceUploadTransactions.importedTemplate">Imported Template</span></dt>
+                <dd>
+                    <div *ngIf="uploadTransactions.importedTemplate">
+                        <a (click)="openFile(uploadTransactions.importedTemplateContentType, uploadTransactions.importedTemplate)" jhiTranslate="entity.action.open">open</a>
+                        {{ uploadTransactions.importedTemplateContentType }}, {{ byteSize(uploadTransactions.importedTemplate) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceUploadTransactions.importedFailedTemplate">Imported Failed Template</span></dt>
+                <dd>
+                    <div *ngIf="uploadTransactions.importedFailedTemplate">
+                        <a (click)="openFile(uploadTransactions.importedFailedTemplateContentType, uploadTransactions.importedFailedTemplate)" jhiTranslate="entity.action.open">open</a>
+                        {{ uploadTransactions.importedFailedTemplateContentType }}, {{ byteSize(uploadTransactions.importedFailedTemplate) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceUploadTransactions.status">Status</span></dt>
+                <dd>
+                    <span>{{ uploadTransactions.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceUploadTransactions.generatedCode">Generated Code</span></dt>
+                <dd>
+                    <span>{{ uploadTransactions.generatedCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceUploadTransactions.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ uploadTransactions.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceUploadTransactions.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ uploadTransactions.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceUploadTransactions.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="uploadTransactions.supplierId">
+                        <a [routerLink]="['/suppliers', uploadTransactions.supplierId, 'view']">{{ uploadTransactions.supplierName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceUploadTransactions.actionType">Action Type</span></dt>
+                <dd>
+                    <div *ngIf="uploadTransactions.actionTypeId">
+                        <a [routerLink]="['/upload-action-types', uploadTransactions.actionTypeId, 'view']">{{ uploadTransactions.actionTypeName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/upload-transactions', uploadTransactions.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "name": "WishlistLines",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "stockItems",
+      "otherEntityRelationshipName": "wishlistLines",
+      "relationshipName": "stockItem",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "wishlists",
+      "otherEntityRelationshipName": "wishlistLineList",
+      "relationshipName": "wishlist",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617165804",
+  "entityTableName": "wishlist_lines",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

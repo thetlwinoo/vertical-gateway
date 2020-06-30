@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "vscommerceTax": {
+      "home": {
+        "title": "Taxes",
+        "createLabel": "Tax အသစ်ထည့်မည်",
+        "createOrEditLabel": "Tax အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Taxes found"
+      },
+      "delete": {
+        "question": "Tax {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Tax"
+      },
+      "code": "Code",
+      "name": "Name",
+      "rate": "Rate",
+      "modifiedDate": "Modified Date",
+      "taxClass": "Tax Class"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceTax": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Tax အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Tax တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Tax တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

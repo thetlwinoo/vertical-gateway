@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "vscommerceBankAccounts": {
+      "home": {
+        "title": "Bank Accounts",
+        "createLabel": "Create a new Bank Accounts",
+        "createOrEditLabel": "Create or edit a Bank Accounts",
+        "notFound": "No Bank Accounts found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Bank Accounts {{ id }}?"
+      },
+      "detail": {
+        "title": "Bank Accounts"
+      },
+      "name": "Name",
+      "branch": "Branch",
+      "code": "Code",
+      "number": "Number",
+      "internationalCode": "International Code",
+      "lastEditedBy": "Last Edited By",
+      "validForm": "Valid Form",
+      "validTo": "Valid To"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceBankAccounts": {
+      "created": "A new Bank Accounts is created with identifier {{ param }}",
+      "updated": "A Bank Accounts is updated with identifier {{ param }}",
+      "deleted": "A Bank Accounts is deleted with identifier {{ param }}"
+    }
+  }
+}

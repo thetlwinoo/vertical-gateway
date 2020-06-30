@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "vscommerceCards": {
+      "home": {
+        "title": "Cards",
+        "createLabel": "Create a new Cards",
+        "createOrEditLabel": "Create or edit a Cards",
+        "notFound": "No Cards found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Cards {{ id }}?"
+      },
+      "detail": {
+        "title": "Cards"
+      },
+      "number": "Number",
+      "modifiedDate": "Modified Date"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCards": {
+      "created": "A new Cards is created with identifier {{ param }}",
+      "updated": "A Cards is updated with identifier {{ param }}",
+      "deleted": "A Cards is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "gatewayApp": {
+    "zezawarPhotos": {
+      "home": {
+        "title": "Photos",
+        "createLabel": "Photos အသစ်ထည့်မည်",
+        "createOrEditLabel": "Photos အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Photos found"
+      },
+      "delete": {
+        "question": "Photos {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Photos"
+      },
+      "blobId": "Blob Id",
+      "thumbnailUrl": "Thumbnail Url",
+      "originalUrl": "Original Url",
+      "bannerTallUrl": "Banner Tall Url",
+      "bannerWideUrl": "Banner Wide Url",
+      "circleUrl": "Circle Url",
+      "sharpenedUrl": "Sharpened Url",
+      "squareUrl": "Square Url",
+      "watermarkUrl": "Watermark Url",
+      "priority": "Priority",
+      "defaultInd": "Default Ind",
+      "stockItem": "Stock Item"
+    }
+  },
+  "zezawarApp": {
+    "zezawarPhotos": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Photos အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Photos တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Photos တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

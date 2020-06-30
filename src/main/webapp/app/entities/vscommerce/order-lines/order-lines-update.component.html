@@ -1,0 +1,169 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-order-lines-heading" jhiTranslate="gatewayApp.vscommerceOrderLines.home.createOrEditLabel">Create or edit a Order Lines</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.quantity" for="field_quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                           formControlName="quantity"/>
+                    <div *ngIf="editForm.get('quantity')!.invalid && (editForm.get('quantity')!.dirty || editForm.get('quantity')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('quantity')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('quantity')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.unitPrice" for="field_unitPrice">Unit Price</label>
+                    <input type="number" class="form-control" name="unitPrice" id="field_unitPrice"
+                           formControlName="unitPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.unitPriceDiscount" for="field_unitPriceDiscount">Unit Price Discount</label>
+                    <input type="number" class="form-control" name="unitPriceDiscount" id="field_unitPriceDiscount"
+                           formControlName="unitPriceDiscount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.lineTotal" for="field_lineTotal">Line Total</label>
+                    <input type="number" class="form-control" name="lineTotal" id="field_lineTotal"
+                           formControlName="lineTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.taxRate" for="field_taxRate">Tax Rate</label>
+                    <input type="number" class="form-control" name="taxRate" id="field_taxRate"
+                           formControlName="taxRate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.pickedQuantity" for="field_pickedQuantity">Picked Quantity</label>
+                    <input type="number" class="form-control" name="pickedQuantity" id="field_pickedQuantity"
+                           formControlName="pickedQuantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.pickingCompletedWhen" for="field_pickingCompletedWhen">Picking Completed When</label>
+                    <div class="d-flex">
+                        <input id="field_pickingCompletedWhen" type="datetime-local" class="form-control" name="pickingCompletedWhen" formControlName="pickingCompletedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="AVAILABLE">{{ 'gatewayApp.OrderLineStatus.AVAILABLE' | translate }}</option>
+                        <option value="OUT_OF_STOCK">{{ 'gatewayApp.OrderLineStatus.OUT_OF_STOCK' | translate }}</option>
+                        <option value="BACK_ORDER">{{ 'gatewayApp.OrderLineStatus.BACK_ORDER' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.lastEditedBy" for="field_lastEditedBy">Last Edited By</label>
+                    <input type="text" class="form-control" name="lastEditedBy" id="field_lastEditedBy"
+                           formControlName="lastEditedBy"/>
+                    <div *ngIf="editForm.get('lastEditedBy')!.invalid && (editForm.get('lastEditedBy')!.dirty || editForm.get('lastEditedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.lastEditedWhen" for="field_lastEditedWhen">Last Edited When</label>
+                    <div class="d-flex">
+                        <input id="field_lastEditedWhen" type="datetime-local" class="form-control" name="lastEditedWhen" formControlName="lastEditedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastEditedWhen')!.invalid && (editForm.get('lastEditedWhen')!.dirty || editForm.get('lastEditedWhen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedWhen')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastEditedWhen')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.reviewLine" for="field_reviewLine">Review Line</label>
+                    <select class="form-control" id="field_reviewLine" name="reviewLine" formControlName="reviewLineId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reviewLinesOption.id" *ngFor="let reviewLinesOption of reviewlines; trackBy: trackById">{{ reviewLinesOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.supplier" for="field_supplier">Supplier</label>
+                    <select class="form-control" id="field_supplier" name="supplier" formControlName="supplierId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="suppliersOption.id" *ngFor="let suppliersOption of suppliers; trackBy: trackById">{{ suppliersOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.stockItem" for="field_stockItem">Stock Item</label>
+                    <select class="form-control" id="field_stockItem" name="stockItem" formControlName="stockItemId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="stockItemsOption.id" *ngFor="let stockItemsOption of stockitems; trackBy: trackById">{{ stockItemsOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.packageType" for="field_packageType">Package Type</label>
+                    <select class="form-control" id="field_packageType" name="packageType" formControlName="packageTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="packageTypesOption.id" *ngFor="let packageTypesOption of packagetypes; trackBy: trackById">{{ packageTypesOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderLines.order" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" formControlName="orderId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ordersOption.id" *ngFor="let ordersOption of orders; trackBy: trackById">{{ ordersOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

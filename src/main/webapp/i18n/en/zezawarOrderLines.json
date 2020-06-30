@@ -1,0 +1,41 @@
+{
+  "gatewayApp": {
+    "zezawarOrderLines": {
+      "home": {
+        "title": "Order Lines",
+        "createLabel": "Create a new Order Lines",
+        "createOrEditLabel": "Create or edit a Order Lines",
+        "notFound": "No Order Lines found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Order Lines {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Lines"
+      },
+      "quantity": "Quantity",
+      "description": "Description",
+      "unitPrice": "Unit Price",
+      "unitPriceDiscount": "Unit Price Discount",
+      "lineTotal": "Line Total",
+      "taxRate": "Tax Rate",
+      "pickedQuantity": "Picked Quantity",
+      "pickingCompletedWhen": "Picking Completed When",
+      "status": "Status",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "reviewLine": "Review Line",
+      "supplier": "Supplier",
+      "stockItem": "Stock Item",
+      "packageType": "Package Type",
+      "order": "Order"
+    }
+  },
+  "zezawarApp": {
+    "zezawarOrderLines": {
+      "created": "A new Order Lines is created with identifier {{ param }}",
+      "updated": "A Order Lines is updated with identifier {{ param }}",
+      "deleted": "A Order Lines is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "vscommerceTaxClass": {
+      "home": {
+        "title": "Tax Classes",
+        "createLabel": "Create a new Tax Class",
+        "createOrEditLabel": "Create or edit a Tax Class",
+        "notFound": "No Tax Classes found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Tax Class {{ id }}?"
+      },
+      "detail": {
+        "title": "Tax Class"
+      },
+      "code": "Code",
+      "name": "Name"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceTaxClass": {
+      "created": "A new Tax Class is created with identifier {{ param }}",
+      "updated": "A Tax Class is updated with identifier {{ param }}",
+      "deleted": "A Tax Class is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.vscommerceTrackingEvent.home.title">Tracking Events</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tracking-event" [routerLink]="['/tracking-event/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.vscommerceTrackingEvent.home.createLabel">
+            Create a new Tracking Event
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="trackingEvents?.length === 0">
+        <span jhiTranslate="gatewayApp.vscommerceTrackingEvent.home.notFound">No trackingEvents found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="trackingEvents && trackingEvents.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceTrackingEvent.name">Name</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let trackingEvent of trackingEvents ;trackBy: trackId">
+                    <td><a [routerLink]="['/tracking-event', trackingEvent.id, 'view']">{{ trackingEvent.id }}</a></td>
+                    <td>{{ trackingEvent.name }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tracking-event', trackingEvent.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tracking-event', trackingEvent.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(trackingEvent)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

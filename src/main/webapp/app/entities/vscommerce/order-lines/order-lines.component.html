@@ -1,0 +1,111 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.vscommerceOrderLines.home.title">Order Lines</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order-lines" [routerLink]="['/order-lines/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.vscommerceOrderLines.home.createLabel">
+            Create a new Order Lines
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="orderLines?.length === 0">
+        <span jhiTranslate="gatewayApp.vscommerceOrderLines.home.notFound">No orderLines found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="orderLines && orderLines.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.quantity">Quantity</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.unitPrice">Unit Price</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.unitPriceDiscount">Unit Price Discount</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.lineTotal">Line Total</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.taxRate">Tax Rate</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.pickedQuantity">Picked Quantity</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.pickingCompletedWhen">Picking Completed When</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.status">Status</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.lastEditedBy">Last Edited By</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.lastEditedWhen">Last Edited When</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.reviewLine">Review Line</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.supplier">Supplier</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.stockItem">Stock Item</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.packageType">Package Type</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderLines.order">Order</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let orderLines of orderLines ;trackBy: trackId">
+                    <td><a [routerLink]="['/order-lines', orderLines.id, 'view']">{{ orderLines.id }}</a></td>
+                    <td>{{ orderLines.quantity }}</td>
+                    <td>{{ orderLines.description }}</td>
+                    <td>{{ orderLines.unitPrice }}</td>
+                    <td>{{ orderLines.unitPriceDiscount }}</td>
+                    <td>{{ orderLines.lineTotal }}</td>
+                    <td>{{ orderLines.taxRate }}</td>
+                    <td>{{ orderLines.pickedQuantity }}</td>
+                    <td>{{ orderLines.pickingCompletedWhen | date:'medium' }}</td>
+                    <td jhiTranslate="{{ 'gatewayApp.OrderLineStatus.' + orderLines.status }}">{{ orderLines.status }}</td>
+                    <td>{{ orderLines.lastEditedBy }}</td>
+                    <td>{{ orderLines.lastEditedWhen | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="orderLines.reviewLineId">
+                            <a [routerLink]="['/review-lines', orderLines.reviewLineId , 'view']" >{{ orderLines.reviewLineId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderLines.supplierId">
+                            <a [routerLink]="['/suppliers', orderLines.supplierId , 'view']" >{{ orderLines.supplierName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderLines.stockItemId">
+                            <a [routerLink]="['/stock-items', orderLines.stockItemId , 'view']" >{{ orderLines.stockItemName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderLines.packageTypeId">
+                            <a [routerLink]="['/package-types', orderLines.packageTypeId , 'view']" >{{ orderLines.packageTypeName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderLines.orderId">
+                            <a [routerLink]="['/orders', orderLines.orderId , 'view']" >{{ orderLines.orderId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/order-lines', orderLines.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/order-lines', orderLines.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(orderLines)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

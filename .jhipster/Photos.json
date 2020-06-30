@@ -1,0 +1,73 @@
+{
+  "name": "Photos",
+  "fields": [
+    {
+      "fieldName": "blobId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "thumbnailUrl",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "originalUrl",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "bannerTallUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bannerWideUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "circleUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sharpenedUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "squareUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "watermarkUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "priority",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "defaultInd",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "stockItems",
+      "otherEntityRelationshipName": "photoList",
+      "relationshipName": "stockItem",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617165204",
+  "entityTableName": "photos",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

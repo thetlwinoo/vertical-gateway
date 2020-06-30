@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "vscommerceProductListPriceHistory": {
+      "home": {
+        "title": "Product List Price Histories",
+        "createLabel": "Product List Price History အသစ်ထည့်မည်",
+        "createOrEditLabel": "Product List Price History အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Product List Price Histories found"
+      },
+      "delete": {
+        "question": "Product List Price History {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Product List Price History"
+      },
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "listPrice": "List Price",
+      "modifiedDate": "Modified Date",
+      "product": "Product"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceProductListPriceHistory": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Product List Price History အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Product List Price History တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Product List Price History တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="compareLines">
+            <h2><span jhiTranslate="gatewayApp.vscommerceCompareLines.detail.title">Compare Lines</span> {{ compareLines.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceCompareLines.stockItem">Stock Item</span></dt>
+                <dd>
+                    <div *ngIf="compareLines.stockItemId">
+                        <a [routerLink]="['/stock-items', compareLines.stockItemId, 'view']">{{ compareLines.stockItemName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCompareLines.compare">Compare</span></dt>
+                <dd>
+                    <div *ngIf="compareLines.compareId">
+                        <a [routerLink]="['/compares', compareLines.compareId, 'view']">{{ compareLines.compareId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/compare-lines', compareLines.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

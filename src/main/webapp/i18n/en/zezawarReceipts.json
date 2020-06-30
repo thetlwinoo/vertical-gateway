@@ -1,0 +1,32 @@
+{
+  "gatewayApp": {
+    "zezawarReceipts": {
+      "home": {
+        "title": "Receipts",
+        "createLabel": "Create a new Receipts",
+        "createOrEditLabel": "Create or edit a Receipts",
+        "notFound": "No Receipts found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Receipts {{ id }}?"
+      },
+      "detail": {
+        "title": "Receipts"
+      },
+      "receiptNo": "Receipt No",
+      "issuedDate": "Issued Date",
+      "printCount": "Print Count",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "order": "Order",
+      "invoice": "Invoice"
+    }
+  },
+  "zezawarApp": {
+    "zezawarReceipts": {
+      "created": "A new Receipts is created with identifier {{ param }}",
+      "updated": "A Receipts is updated with identifier {{ param }}",
+      "deleted": "A Receipts is deleted with identifier {{ param }}"
+    }
+  }
+}

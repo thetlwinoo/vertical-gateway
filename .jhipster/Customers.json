@@ -1,0 +1,113 @@
+{
+  "name": "Customers",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "accountOpenedDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "standardDiscountPercentage",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isStatementSent",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isOnCreditHold",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "paymentDays",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "deliveryRun",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "runPosition",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "thumbnailUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "billToAddressSameAsDeliveryAddress",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastEditedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "validFrom",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "validTo",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "people",
+      "otherEntityRelationshipName": "customers",
+      "relationshipName": "people",
+      "otherEntityField": "fullName",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "deliveryMethods",
+      "otherEntityRelationshipName": "customers",
+      "relationshipName": "deliveryMethod",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "addresses",
+      "otherEntityRelationshipName": "customers",
+      "relationshipName": "deliveryAddress",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "addresses",
+      "otherEntityRelationshipName": "customers",
+      "relationshipName": "billToAddress",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617160104",
+  "entityTableName": "customers",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

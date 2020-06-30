@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "vscommerceProductListPriceHistory": {
+      "home": {
+        "title": "Product List Price Histories",
+        "createLabel": "Create a new Product List Price History",
+        "createOrEditLabel": "Create or edit a Product List Price History",
+        "notFound": "No Product List Price Histories found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Product List Price History {{ id }}?"
+      },
+      "detail": {
+        "title": "Product List Price History"
+      },
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "listPrice": "List Price",
+      "modifiedDate": "Modified Date",
+      "product": "Product"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceProductListPriceHistory": {
+      "created": "A new Product List Price History is created with identifier {{ param }}",
+      "updated": "A Product List Price History is updated with identifier {{ param }}",
+      "deleted": "A Product List Price History is deleted with identifier {{ param }}"
+    }
+  }
+}

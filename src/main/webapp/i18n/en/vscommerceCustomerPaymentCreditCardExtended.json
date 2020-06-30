@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "vscommerceCustomerPaymentCreditCardExtended": {
+      "home": {
+        "title": "Customer Payment Credit Card Extendeds",
+        "createLabel": "Create a new Customer Payment Credit Card Extended",
+        "createOrEditLabel": "Create or edit a Customer Payment Credit Card Extended",
+        "notFound": "No Customer Payment Credit Card Extendeds found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Customer Payment Credit Card Extended {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer Payment Credit Card Extended"
+      },
+      "errorCode": "Error Code",
+      "errorMessage": "Error Message",
+      "lastEditedBy": "Last Edited By",
+      "lastEditeWhen": "Last Edite When"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCustomerPaymentCreditCardExtended": {
+      "created": "A new Customer Payment Credit Card Extended is created with identifier {{ param }}",
+      "updated": "A Customer Payment Credit Card Extended is updated with identifier {{ param }}",
+      "deleted": "A Customer Payment Credit Card Extended is deleted with identifier {{ param }}"
+    }
+  }
+}

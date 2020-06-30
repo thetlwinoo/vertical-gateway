@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "vscommerceTaxClass": {
+      "home": {
+        "title": "Tax Classes",
+        "createLabel": "Tax Class အသစ်ထည့်မည်",
+        "createOrEditLabel": "Tax Class အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Tax Classes found"
+      },
+      "delete": {
+        "question": "Tax Class {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Tax Class"
+      },
+      "code": "Code",
+      "name": "Name"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceTaxClass": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Tax Class အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Tax Class တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Tax Class တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

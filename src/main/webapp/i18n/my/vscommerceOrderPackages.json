@@ -1,0 +1,43 @@
+{
+  "gatewayApp": {
+    "vscommerceOrderPackages": {
+      "home": {
+        "title": "Order Packages",
+        "createLabel": "Order Packages အသစ်ထည့်မည်",
+        "createOrEditLabel": "Order Packages အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Order Packages found"
+      },
+      "delete": {
+        "question": "Order Packages {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Order Packages"
+      },
+      "expectedDeliveryDate": "Expected Delivery Date",
+      "comments": "Comments",
+      "deliveryInstructions": "Delivery Instructions",
+      "internalComments": "Internal Comments",
+      "customerPurchaseOrderNumber": "Customer Purchase Order Number",
+      "customerReviewedOn": "Customer Reviewed On",
+      "sellerRating": "Seller Rating",
+      "sellerReview": "Seller Review",
+      "deliveryRating": "Delivery Rating",
+      "deliveryReview": "Delivery Review",
+      "reviewAsAnonymous": "Review As Anonymous",
+      "completedReview": "Completed Review",
+      "orderPackageDetails": "Order Package Details",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "orderLineList": "Order Line List",
+      "supplier": "Supplier",
+      "order": "Order"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceOrderPackages": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Order Packages အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Order Packages တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Order Packages တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

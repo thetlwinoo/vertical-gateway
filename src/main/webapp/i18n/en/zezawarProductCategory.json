@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "zezawarProductCategory": {
+      "home": {
+        "title": "Product Categories",
+        "createLabel": "Create a new Product Category",
+        "createOrEditLabel": "Create or edit a Product Category",
+        "notFound": "No Product Categories found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Product Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Category"
+      },
+      "name": "Name",
+      "shortLabel": "Short Label",
+      "sortOrder": "Sort Order",
+      "iconFont": "Icon Font",
+      "parent": "Parent",
+      "icon": "Icon"
+    }
+  },
+  "zezawarApp": {
+    "zezawarProductCategory": {
+      "created": "A new Product Category is created with identifier {{ param }}",
+      "updated": "A Product Category is updated with identifier {{ param }}",
+      "deleted": "A Product Category is deleted with identifier {{ param }}"
+    }
+  }
+}

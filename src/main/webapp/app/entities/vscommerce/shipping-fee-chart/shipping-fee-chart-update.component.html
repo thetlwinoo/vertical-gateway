@@ -1,0 +1,163 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-shipping-fee-chart-heading" jhiTranslate="gatewayApp.vscommerceShippingFeeChart.home.createOrEditLabel">Create or edit a Shipping Fee Chart</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShippingFeeChart.sizeOfPercel" for="field_sizeOfPercel">Size Of Percel</label>
+                    <input type="text" class="form-control" name="sizeOfPercel" id="field_sizeOfPercel"
+                           formControlName="sizeOfPercel"/>
+                    <div *ngIf="editForm.get('sizeOfPercel')!.invalid && (editForm.get('sizeOfPercel')!.dirty || editForm.get('sizeOfPercel')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sizeOfPercel')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShippingFeeChart.minVolumeWeight" for="field_minVolumeWeight">Min Volume Weight</label>
+                    <input type="number" class="form-control" name="minVolumeWeight" id="field_minVolumeWeight"
+                           formControlName="minVolumeWeight"/>
+                    <div *ngIf="editForm.get('minVolumeWeight')!.invalid && (editForm.get('minVolumeWeight')!.dirty || editForm.get('minVolumeWeight')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('minVolumeWeight')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('minVolumeWeight')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShippingFeeChart.maxVolumeWeight" for="field_maxVolumeWeight">Max Volume Weight</label>
+                    <input type="number" class="form-control" name="maxVolumeWeight" id="field_maxVolumeWeight"
+                           formControlName="maxVolumeWeight"/>
+                    <div *ngIf="editForm.get('maxVolumeWeight')!.invalid && (editForm.get('maxVolumeWeight')!.dirty || editForm.get('maxVolumeWeight')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('maxVolumeWeight')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('maxVolumeWeight')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShippingFeeChart.minActualWeight" for="field_minActualWeight">Min Actual Weight</label>
+                    <input type="number" class="form-control" name="minActualWeight" id="field_minActualWeight"
+                           formControlName="minActualWeight"/>
+                    <div *ngIf="editForm.get('minActualWeight')!.invalid && (editForm.get('minActualWeight')!.dirty || editForm.get('minActualWeight')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('minActualWeight')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('minActualWeight')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShippingFeeChart.maxActualWeight" for="field_maxActualWeight">Max Actual Weight</label>
+                    <input type="number" class="form-control" name="maxActualWeight" id="field_maxActualWeight"
+                           formControlName="maxActualWeight"/>
+                    <div *ngIf="editForm.get('maxActualWeight')!.invalid && (editForm.get('maxActualWeight')!.dirty || editForm.get('maxActualWeight')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('maxActualWeight')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('maxActualWeight')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShippingFeeChart.price" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                           formControlName="price"/>
+                    <div *ngIf="editForm.get('price')!.invalid && (editForm.get('price')!.dirty || editForm.get('price')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('price')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('price')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShippingFeeChart.lastEditedBy" for="field_lastEditedBy">Last Edited By</label>
+                    <input type="text" class="form-control" name="lastEditedBy" id="field_lastEditedBy"
+                           formControlName="lastEditedBy"/>
+                    <div *ngIf="editForm.get('lastEditedBy')!.invalid && (editForm.get('lastEditedBy')!.dirty || editForm.get('lastEditedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShippingFeeChart.lastEditedWhen" for="field_lastEditedWhen">Last Edited When</label>
+                    <div class="d-flex">
+                        <input id="field_lastEditedWhen" type="datetime-local" class="form-control" name="lastEditedWhen" formControlName="lastEditedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastEditedWhen')!.invalid && (editForm.get('lastEditedWhen')!.dirty || editForm.get('lastEditedWhen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedWhen')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastEditedWhen')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShippingFeeChart.zone" for="field_zone">Zone</label>
+                    <select class="form-control" id="field_zone" name="zone" formControlName="zoneId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="zoneOption.id" *ngFor="let zoneOption of zones; trackBy: trackById">{{ zoneOption.code }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceShippingFeeChart.deliveryMethod" for="field_deliveryMethod">Delivery Method</label>
+                    <select class="form-control" id="field_deliveryMethod" name="deliveryMethod" formControlName="deliveryMethodId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="deliveryMethodsOption.id" *ngFor="let deliveryMethodsOption of deliverymethods; trackBy: trackById">{{ deliveryMethodsOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

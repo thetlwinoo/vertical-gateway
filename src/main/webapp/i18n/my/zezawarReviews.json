@@ -1,0 +1,38 @@
+{
+  "gatewayApp": {
+    "zezawarReviews": {
+      "home": {
+        "title": "Reviews",
+        "createLabel": "Reviews အသစ်ထည့်မည်",
+        "createOrEditLabel": "Reviews အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Reviews found"
+      },
+      "delete": {
+        "question": "Reviews {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Reviews"
+      },
+      "customerName": "Customer Name",
+      "emailAddress": "Email Address",
+      "reviewDate": "Review Date",
+      "sellerRating": "Seller Rating",
+      "sellerReview": "Seller Review",
+      "deliveryRating": "Delivery Rating",
+      "deliveryReview": "Delivery Review",
+      "reviewAsAnonymous": "Review As Anonymous",
+      "completedReview": "Completed Review",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "reviewLineList": "Review Line List",
+      "order": "Order"
+    }
+  },
+  "zezawarApp": {
+    "zezawarReviews": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Reviews အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Reviews တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Reviews တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

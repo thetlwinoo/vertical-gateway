@@ -1,0 +1,49 @@
+{
+  "name": "OrderTracking",
+  "fields": [
+    {
+      "fieldName": "carrierTrackingNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "eventDetails",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "eventDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "orders",
+      "otherEntityRelationshipName": "orderTracking",
+      "relationshipName": "order",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "trackingEvent",
+      "otherEntityRelationshipName": "orderTracking",
+      "relationshipName": "trackingEvent",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20200617162104",
+  "entityTableName": "order_tracking",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

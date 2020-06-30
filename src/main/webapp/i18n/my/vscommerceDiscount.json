@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "vscommerceDiscount": {
+      "home": {
+        "title": "Discounts",
+        "createLabel": "Discount အသစ်ထည့်မည်",
+        "createOrEditLabel": "Discount အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Discounts found"
+      },
+      "delete": {
+        "question": "Discount {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Discount"
+      },
+      "name": "Name",
+      "description": "Description",
+      "modifiedDate": "Modified Date"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceDiscount": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Discount အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Discount တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Discount တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

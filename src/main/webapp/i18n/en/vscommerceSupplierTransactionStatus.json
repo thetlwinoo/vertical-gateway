@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "vscommerceSupplierTransactionStatus": {
+      "home": {
+        "title": "Supplier Transaction Statuses",
+        "createLabel": "Create a new Supplier Transaction Status",
+        "createOrEditLabel": "Create or edit a Supplier Transaction Status",
+        "notFound": "No Supplier Transaction Statuses found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Supplier Transaction Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Supplier Transaction Status"
+      },
+      "name": "Name",
+      "label": "Label",
+      "shortLabel": "Short Label",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceSupplierTransactionStatus": {
+      "created": "A new Supplier Transaction Status is created with identifier {{ param }}",
+      "updated": "A Supplier Transaction Status is updated with identifier {{ param }}",
+      "deleted": "A Supplier Transaction Status is deleted with identifier {{ param }}"
+    }
+  }
+}

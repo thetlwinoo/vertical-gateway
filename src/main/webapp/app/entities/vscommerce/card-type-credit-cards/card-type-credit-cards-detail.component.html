@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cardTypeCreditCards">
+            <h2><span jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.detail.title">Card Type Credit Cards</span> {{ cardTypeCreditCards.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.name">Name</span></dt>
+                <dd>
+                    <span>{{ cardTypeCreditCards.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.startNumber">Start Number</span></dt>
+                <dd>
+                    <span>{{ cardTypeCreditCards.startNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.endNumber">End Number</span></dt>
+                <dd>
+                    <span>{{ cardTypeCreditCards.endNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.modifiedDate">Modified Date</span></dt>
+                <dd>
+                    <span>{{ cardTypeCreditCards.modifiedDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/card-type-credit-cards', cardTypeCreditCards.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

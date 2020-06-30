@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.home.title">Shipping Fee Charts</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-shipping-fee-chart" [routerLink]="['/shipping-fee-chart/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.vscommerceShippingFeeChart.home.createLabel">
+            Create a new Shipping Fee Chart
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="shippingFeeCharts?.length === 0">
+        <span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.home.notFound">No shippingFeeCharts found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="shippingFeeCharts && shippingFeeCharts.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.sizeOfPercel">Size Of Percel</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.minVolumeWeight">Min Volume Weight</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.maxVolumeWeight">Max Volume Weight</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.minActualWeight">Min Actual Weight</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.maxActualWeight">Max Actual Weight</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.price">Price</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.lastEditedBy">Last Edited By</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.lastEditedWhen">Last Edited When</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.zone">Zone</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.deliveryMethod">Delivery Method</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let shippingFeeChart of shippingFeeCharts ;trackBy: trackId">
+                    <td><a [routerLink]="['/shipping-fee-chart', shippingFeeChart.id, 'view']">{{ shippingFeeChart.id }}</a></td>
+                    <td>{{ shippingFeeChart.sizeOfPercel }}</td>
+                    <td>{{ shippingFeeChart.minVolumeWeight }}</td>
+                    <td>{{ shippingFeeChart.maxVolumeWeight }}</td>
+                    <td>{{ shippingFeeChart.minActualWeight }}</td>
+                    <td>{{ shippingFeeChart.maxActualWeight }}</td>
+                    <td>{{ shippingFeeChart.price }}</td>
+                    <td>{{ shippingFeeChart.lastEditedBy }}</td>
+                    <td>{{ shippingFeeChart.lastEditedWhen | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="shippingFeeChart.zoneId">
+                            <a [routerLink]="['/zone', shippingFeeChart.zoneId , 'view']" >{{ shippingFeeChart.zoneCode }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="shippingFeeChart.deliveryMethodId">
+                            <a [routerLink]="['/delivery-methods', shippingFeeChart.deliveryMethodId , 'view']" >{{ shippingFeeChart.deliveryMethodName }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/shipping-fee-chart', shippingFeeChart.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/shipping-fee-chart', shippingFeeChart.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(shippingFeeChart)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

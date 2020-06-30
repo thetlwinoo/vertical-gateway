@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invoiceLines">
+            <h2><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.detail.title">Invoice Lines</span> {{ invoiceLines.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.description">Description</span></dt>
+                <dd>
+                    <span>{{ invoiceLines.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ invoiceLines.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.unitPrice">Unit Price</span></dt>
+                <dd>
+                    <span>{{ invoiceLines.unitPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.taxRate">Tax Rate</span></dt>
+                <dd>
+                    <span>{{ invoiceLines.taxRate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.taxAmount">Tax Amount</span></dt>
+                <dd>
+                    <span>{{ invoiceLines.taxAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.lineProfit">Line Profit</span></dt>
+                <dd>
+                    <span>{{ invoiceLines.lineProfit }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.extendedPrice">Extended Price</span></dt>
+                <dd>
+                    <span>{{ invoiceLines.extendedPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ invoiceLines.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ invoiceLines.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.packageType">Package Type</span></dt>
+                <dd>
+                    <div *ngIf="invoiceLines.packageTypeId">
+                        <a [routerLink]="['/package-types', invoiceLines.packageTypeId, 'view']">{{ invoiceLines.packageTypeName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.stockItem">Stock Item</span></dt>
+                <dd>
+                    <div *ngIf="invoiceLines.stockItemId">
+                        <a [routerLink]="['/stock-items', invoiceLines.stockItemId, 'view']">{{ invoiceLines.stockItemName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceInvoiceLines.invoice">Invoice</span></dt>
+                <dd>
+                    <div *ngIf="invoiceLines.invoiceId">
+                        <a [routerLink]="['/invoices', invoiceLines.invoiceId, 'view']">{{ invoiceLines.invoiceId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invoice-lines', invoiceLines.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

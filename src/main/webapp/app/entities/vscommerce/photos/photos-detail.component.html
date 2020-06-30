@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="photos">
+            <h2><span jhiTranslate="gatewayApp.vscommercePhotos.detail.title">Photos</span> {{ photos.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.blobId">Blob Id</span></dt>
+                <dd>
+                    <span>{{ photos.blobId }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.thumbnailUrl">Thumbnail Url</span></dt>
+                <dd>
+                    <span>{{ photos.thumbnailUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.originalUrl">Original Url</span></dt>
+                <dd>
+                    <span>{{ photos.originalUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.bannerTallUrl">Banner Tall Url</span></dt>
+                <dd>
+                    <span>{{ photos.bannerTallUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.bannerWideUrl">Banner Wide Url</span></dt>
+                <dd>
+                    <span>{{ photos.bannerWideUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.circleUrl">Circle Url</span></dt>
+                <dd>
+                    <span>{{ photos.circleUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.sharpenedUrl">Sharpened Url</span></dt>
+                <dd>
+                    <span>{{ photos.sharpenedUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.squareUrl">Square Url</span></dt>
+                <dd>
+                    <span>{{ photos.squareUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.watermarkUrl">Watermark Url</span></dt>
+                <dd>
+                    <span>{{ photos.watermarkUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.priority">Priority</span></dt>
+                <dd>
+                    <span>{{ photos.priority }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.defaultInd">Default Ind</span></dt>
+                <dd>
+                    <span>{{ photos.defaultInd }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePhotos.stockItem">Stock Item</span></dt>
+                <dd>
+                    <div *ngIf="photos.stockItemId">
+                        <a [routerLink]="['/stock-items', photos.stockItemId, 'view']">{{ photos.stockItemId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/photos', photos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

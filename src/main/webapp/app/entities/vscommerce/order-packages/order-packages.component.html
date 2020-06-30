@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.vscommerceOrderPackages.home.title">Order Packages</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order-packages" [routerLink]="['/order-packages/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.vscommerceOrderPackages.home.createLabel">
+            Create a new Order Packages
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="orderPackages?.length === 0">
+        <span jhiTranslate="gatewayApp.vscommerceOrderPackages.home.notFound">No orderPackages found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="orderPackages && orderPackages.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.expectedDeliveryDate">Expected Delivery Date</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.comments">Comments</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryInstructions">Delivery Instructions</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.internalComments">Internal Comments</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.customerPurchaseOrderNumber">Customer Purchase Order Number</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.customerReviewedOn">Customer Reviewed On</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.sellerRating">Seller Rating</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.sellerReview">Seller Review</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryRating">Delivery Rating</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryReview">Delivery Review</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.reviewAsAnonymous">Review As Anonymous</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.completedReview">Completed Review</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.orderPackageDetails">Order Package Details</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.lastEditedBy">Last Edited By</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.lastEditedWhen">Last Edited When</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.supplier">Supplier</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceOrderPackages.order">Order</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let orderPackages of orderPackages ;trackBy: trackId">
+                    <td><a [routerLink]="['/order-packages', orderPackages.id, 'view']">{{ orderPackages.id }}</a></td>
+                    <td>{{ orderPackages.expectedDeliveryDate | date:'medium' }}</td>
+                    <td>{{ orderPackages.comments }}</td>
+                    <td>{{ orderPackages.deliveryInstructions }}</td>
+                    <td>{{ orderPackages.internalComments }}</td>
+                    <td>{{ orderPackages.customerPurchaseOrderNumber }}</td>
+                    <td>{{ orderPackages.customerReviewedOn | date:'medium' }}</td>
+                    <td>{{ orderPackages.sellerRating }}</td>
+                    <td>{{ orderPackages.sellerReview }}</td>
+                    <td>{{ orderPackages.deliveryRating }}</td>
+                    <td>{{ orderPackages.deliveryReview }}</td>
+                    <td>{{ orderPackages.reviewAsAnonymous }}</td>
+                    <td>{{ orderPackages.completedReview }}</td>
+                    <td>{{ orderPackages.orderPackageDetails }}</td>
+                    <td>{{ orderPackages.lastEditedBy }}</td>
+                    <td>{{ orderPackages.lastEditedWhen | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="orderPackages.supplierId">
+                            <a [routerLink]="['/suppliers', orderPackages.supplierId , 'view']" >{{ orderPackages.supplierName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderPackages.orderId">
+                            <a [routerLink]="['/orders', orderPackages.orderId , 'view']" >{{ orderPackages.orderId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/order-packages', orderPackages.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/order-packages', orderPackages.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(orderPackages)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

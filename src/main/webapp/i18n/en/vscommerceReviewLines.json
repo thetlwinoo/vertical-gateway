@@ -1,0 +1,34 @@
+{
+  "gatewayApp": {
+    "vscommerceReviewLines": {
+      "home": {
+        "title": "Review Lines",
+        "createLabel": "Create a new Review Lines",
+        "createOrEditLabel": "Create or edit a Review Lines",
+        "notFound": "No Review Lines found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Review Lines {{ id }}?"
+      },
+      "detail": {
+        "title": "Review Lines"
+      },
+      "stockItemRating": "Stock Item Rating",
+      "stockItemReview": "Stock Item Review",
+      "attachedUrl": "Attached Url",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "reviewImage": "Review Image",
+      "stockItem": "Stock Item",
+      "orderLine": "Order Line",
+      "review": "Review"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceReviewLines": {
+      "created": "A new Review Lines is created with identifier {{ param }}",
+      "updated": "A Review Lines is updated with identifier {{ param }}",
+      "deleted": "A Review Lines is deleted with identifier {{ param }}"
+    }
+  }
+}

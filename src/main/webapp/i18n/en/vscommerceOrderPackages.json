@@ -1,0 +1,43 @@
+{
+  "gatewayApp": {
+    "vscommerceOrderPackages": {
+      "home": {
+        "title": "Order Packages",
+        "createLabel": "Create a new Order Packages",
+        "createOrEditLabel": "Create or edit a Order Packages",
+        "notFound": "No Order Packages found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Order Packages {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Packages"
+      },
+      "expectedDeliveryDate": "Expected Delivery Date",
+      "comments": "Comments",
+      "deliveryInstructions": "Delivery Instructions",
+      "internalComments": "Internal Comments",
+      "customerPurchaseOrderNumber": "Customer Purchase Order Number",
+      "customerReviewedOn": "Customer Reviewed On",
+      "sellerRating": "Seller Rating",
+      "sellerReview": "Seller Review",
+      "deliveryRating": "Delivery Rating",
+      "deliveryReview": "Delivery Review",
+      "reviewAsAnonymous": "Review As Anonymous",
+      "completedReview": "Completed Review",
+      "orderPackageDetails": "Order Package Details",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "orderLineList": "Order Line List",
+      "supplier": "Supplier",
+      "order": "Order"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceOrderPackages": {
+      "created": "A new Order Packages is created with identifier {{ param }}",
+      "updated": "A Order Packages is updated with identifier {{ param }}",
+      "deleted": "A Order Packages is deleted with identifier {{ param }}"
+    }
+  }
+}

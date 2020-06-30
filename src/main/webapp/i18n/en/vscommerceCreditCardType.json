@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "vscommerceCreditCardType": {
+      "home": {
+        "title": "Credit Card Types",
+        "createLabel": "Create a new Credit Card Type",
+        "createOrEditLabel": "Create or edit a Credit Card Type",
+        "notFound": "No Credit Card Types found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Credit Card Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Credit Card Type"
+      },
+      "name": "Name",
+      "modifiedDate": "Modified Date"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCreditCardType": {
+      "created": "A new Credit Card Type is created with identifier {{ param }}",
+      "updated": "A Credit Card Type is updated with identifier {{ param }}",
+      "deleted": "A Credit Card Type is deleted with identifier {{ param }}"
+    }
+  }
+}

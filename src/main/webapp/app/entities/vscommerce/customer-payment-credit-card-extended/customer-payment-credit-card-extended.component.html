@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCardExtended.home.title">Customer Payment Credit Card Extendeds</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer-payment-credit-card-extended" [routerLink]="['/customer-payment-credit-card-extended/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCardExtended.home.createLabel">
+            Create a new Customer Payment Credit Card Extended
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="customerPaymentCreditCardExtendeds?.length === 0">
+        <span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCardExtended.home.notFound">No customerPaymentCreditCardExtendeds found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="customerPaymentCreditCardExtendeds && customerPaymentCreditCardExtendeds.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCardExtended.errorCode">Error Code</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCardExtended.errorMessage">Error Message</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCardExtended.lastEditedBy">Last Edited By</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCardExtended.lastEditeWhen">Last Edite When</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customerPaymentCreditCardExtended of customerPaymentCreditCardExtendeds ;trackBy: trackId">
+                    <td><a [routerLink]="['/customer-payment-credit-card-extended', customerPaymentCreditCardExtended.id, 'view']">{{ customerPaymentCreditCardExtended.id }}</a></td>
+                    <td>{{ customerPaymentCreditCardExtended.errorCode }}</td>
+                    <td>{{ customerPaymentCreditCardExtended.errorMessage }}</td>
+                    <td>{{ customerPaymentCreditCardExtended.lastEditedBy }}</td>
+                    <td>{{ customerPaymentCreditCardExtended.lastEditeWhen | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/customer-payment-credit-card-extended', customerPaymentCreditCardExtended.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/customer-payment-credit-card-extended', customerPaymentCreditCardExtended.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(customerPaymentCreditCardExtended)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

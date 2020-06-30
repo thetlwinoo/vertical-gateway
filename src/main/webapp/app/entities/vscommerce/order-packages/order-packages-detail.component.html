@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderPackages">
+            <h2><span jhiTranslate="gatewayApp.vscommerceOrderPackages.detail.title">Order Packages</span> {{ orderPackages.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.expectedDeliveryDate">Expected Delivery Date</span></dt>
+                <dd>
+                    <span>{{ orderPackages.expectedDeliveryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ orderPackages.comments }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryInstructions">Delivery Instructions</span></dt>
+                <dd>
+                    <span>{{ orderPackages.deliveryInstructions }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.internalComments">Internal Comments</span></dt>
+                <dd>
+                    <span>{{ orderPackages.internalComments }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.customerPurchaseOrderNumber">Customer Purchase Order Number</span></dt>
+                <dd>
+                    <span>{{ orderPackages.customerPurchaseOrderNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.customerReviewedOn">Customer Reviewed On</span></dt>
+                <dd>
+                    <span>{{ orderPackages.customerReviewedOn }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.sellerRating">Seller Rating</span></dt>
+                <dd>
+                    <span>{{ orderPackages.sellerRating }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.sellerReview">Seller Review</span></dt>
+                <dd>
+                    <span>{{ orderPackages.sellerReview }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryRating">Delivery Rating</span></dt>
+                <dd>
+                    <span>{{ orderPackages.deliveryRating }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryReview">Delivery Review</span></dt>
+                <dd>
+                    <span>{{ orderPackages.deliveryReview }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.reviewAsAnonymous">Review As Anonymous</span></dt>
+                <dd>
+                    <span>{{ orderPackages.reviewAsAnonymous }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.completedReview">Completed Review</span></dt>
+                <dd>
+                    <span>{{ orderPackages.completedReview }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.orderPackageDetails">Order Package Details</span></dt>
+                <dd>
+                    <span>{{ orderPackages.orderPackageDetails }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ orderPackages.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ orderPackages.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="orderPackages.supplierId">
+                        <a [routerLink]="['/suppliers', orderPackages.supplierId, 'view']">{{ orderPackages.supplierName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderPackages.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="orderPackages.orderId">
+                        <a [routerLink]="['/orders', orderPackages.orderId, 'view']">{{ orderPackages.orderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-packages', orderPackages.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

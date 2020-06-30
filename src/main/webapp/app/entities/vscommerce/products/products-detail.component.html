@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="products">
+            <h2><span jhiTranslate="gatewayApp.vscommerceProducts.detail.title">Products</span> {{ products.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.name">Name</span></dt>
+                <dd>
+                    <span>{{ products.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.handle">Handle</span></dt>
+                <dd>
+                    <span>{{ products.handle }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.productNumber">Product Number</span></dt>
+                <dd>
+                    <span>{{ products.productNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.searchDetails">Search Details</span></dt>
+                <dd>
+                    <span>{{ products.searchDetails }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.sellCount">Sell Count</span></dt>
+                <dd>
+                    <span>{{ products.sellCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.stockItemString">Stock Item String</span></dt>
+                <dd>
+                    <span>{{ products.stockItemString }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.totalWishlist">Total Wishlist</span></dt>
+                <dd>
+                    <span>{{ products.totalWishlist }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.totalStars">Total Stars</span></dt>
+                <dd>
+                    <span>{{ products.totalStars }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.discountedPercentage">Discounted Percentage</span></dt>
+                <dd>
+                    <span>{{ products.discountedPercentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.preferredInd">Preferred Ind</span></dt>
+                <dd>
+                    <span>{{ products.preferredInd }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.availableDeliveryInd">Available Delivery Ind</span></dt>
+                <dd>
+                    <span>{{ products.availableDeliveryInd }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.activeInd">Active Ind</span></dt>
+                <dd>
+                    <span>{{ products.activeInd }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ products.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ products.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.releaseDate">Release Date</span></dt>
+                <dd>
+                    <span>{{ products.releaseDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.availableDate">Available Date</span></dt>
+                <dd>
+                    <span>{{ products.availableDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.productDocument">Product Document</span></dt>
+                <dd>
+                    <div *ngIf="products.productDocumentId">
+                        <a [routerLink]="['/product-document', products.productDocumentId, 'view']">{{ products.productDocumentId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="products.supplierId">
+                        <a [routerLink]="['/suppliers', products.supplierId, 'view']">{{ products.supplierName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.productCategory">Product Category</span></dt>
+                <dd>
+                    <div *ngIf="products.productCategoryId">
+                        <a [routerLink]="['/product-category', products.productCategoryId, 'view']">{{ products.productCategoryName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProducts.productBrand">Product Brand</span></dt>
+                <dd>
+                    <div *ngIf="products.productBrandId">
+                        <a [routerLink]="['/product-brand', products.productBrandId, 'view']">{{ products.productBrandName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/products', products.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

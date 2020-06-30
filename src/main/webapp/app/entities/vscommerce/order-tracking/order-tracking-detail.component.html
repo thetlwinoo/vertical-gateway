@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderTracking">
+            <h2><span jhiTranslate="gatewayApp.vscommerceOrderTracking.detail.title">Order Tracking</span> {{ orderTracking.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderTracking.carrierTrackingNumber">Carrier Tracking Number</span></dt>
+                <dd>
+                    <span>{{ orderTracking.carrierTrackingNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderTracking.eventDetails">Event Details</span></dt>
+                <dd>
+                    <span>{{ orderTracking.eventDetails }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderTracking.eventDate">Event Date</span></dt>
+                <dd>
+                    <span>{{ orderTracking.eventDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderTracking.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="orderTracking.orderId">
+                        <a [routerLink]="['/orders', orderTracking.orderId, 'view']">{{ orderTracking.orderId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderTracking.trackingEvent">Tracking Event</span></dt>
+                <dd>
+                    <div *ngIf="orderTracking.trackingEventId">
+                        <a [routerLink]="['/tracking-event', orderTracking.trackingEventId, 'view']">{{ orderTracking.trackingEventName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-tracking', orderTracking.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

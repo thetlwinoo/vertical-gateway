@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "vscommerceCompareLines": {
+      "home": {
+        "title": "Compare Lines",
+        "createLabel": "Create a new Compare Lines",
+        "createOrEditLabel": "Create or edit a Compare Lines",
+        "notFound": "No Compare Lines found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Compare Lines {{ id }}?"
+      },
+      "detail": {
+        "title": "Compare Lines"
+      },
+      "stockItem": "Stock Item",
+      "compare": "Compare"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCompareLines": {
+      "created": "A new Compare Lines is created with identifier {{ param }}",
+      "updated": "A Compare Lines is updated with identifier {{ param }}",
+      "deleted": "A Compare Lines is deleted with identifier {{ param }}"
+    }
+  }
+}

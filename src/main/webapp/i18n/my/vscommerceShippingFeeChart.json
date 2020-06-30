@@ -1,0 +1,35 @@
+{
+  "gatewayApp": {
+    "vscommerceShippingFeeChart": {
+      "home": {
+        "title": "Shipping Fee Charts",
+        "createLabel": "Shipping Fee Chart အသစ်ထည့်မည်",
+        "createOrEditLabel": "Shipping Fee Chart အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Shipping Fee Charts found"
+      },
+      "delete": {
+        "question": "Shipping Fee Chart {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Shipping Fee Chart"
+      },
+      "sizeOfPercel": "Size Of Percel",
+      "minVolumeWeight": "Min Volume Weight",
+      "maxVolumeWeight": "Max Volume Weight",
+      "minActualWeight": "Min Actual Weight",
+      "maxActualWeight": "Max Actual Weight",
+      "price": "Price",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "zone": "Zone",
+      "deliveryMethod": "Delivery Method"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceShippingFeeChart": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Shipping Fee Chart အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Shipping Fee Chart တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Shipping Fee Chart တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

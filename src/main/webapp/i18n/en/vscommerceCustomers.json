@@ -1,0 +1,39 @@
+{
+  "gatewayApp": {
+    "vscommerceCustomers": {
+      "home": {
+        "title": "Customers",
+        "createLabel": "Create a new Customers",
+        "createOrEditLabel": "Create or edit a Customers",
+        "notFound": "No Customers found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Customers {{ id }}?"
+      },
+      "detail": {
+        "title": "Customers"
+      },
+      "accountNumber": "Account Number",
+      "accountOpenedDate": "Account Opened Date",
+      "standardDiscountPercentage": "Standard Discount Percentage",
+      "isStatementSent": "Is Statement Sent",
+      "isOnCreditHold": "Is On Credit Hold",
+      "paymentDays": "Payment Days",
+      "deliveryRun": "Delivery Run",
+      "runPosition": "Run Position",
+      "lastEditedBy": "Last Edited By",
+      "validFrom": "Valid From",
+      "validTo": "Valid To",
+      "people": "People",
+      "deliveryMethod": "Delivery Method",
+      "deliveryAddress": "Delivery Address"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCustomers": {
+      "created": "A new Customers is created with identifier {{ param }}",
+      "updated": "A Customers is updated with identifier {{ param }}",
+      "deleted": "A Customers is deleted with identifier {{ param }}"
+    }
+  }
+}

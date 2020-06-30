@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "zezawarCompareLines": {
+      "home": {
+        "title": "Compare Lines",
+        "createLabel": "Compare Lines အသစ်ထည့်မည်",
+        "createOrEditLabel": "Compare Lines အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Compare Lines found"
+      },
+      "delete": {
+        "question": "Compare Lines {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Compare Lines"
+      },
+      "stockItem": "Stock Item",
+      "compare": "Compare"
+    }
+  },
+  "zezawarApp": {
+    "zezawarCompareLines": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Compare Lines အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Compare Lines တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Compare Lines တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

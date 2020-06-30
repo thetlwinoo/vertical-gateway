@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productDocument">
+            <h2><span jhiTranslate="gatewayApp.vscommerceProductDocument.detail.title">Product Document</span> {{ productDocument.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.videoUrl">Video Url</span></dt>
+                <dd>
+                    <span>{{ productDocument.videoUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.highlights">Highlights</span></dt>
+                <dd>
+                    <span>{{ productDocument.highlights }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.longDescription">Long Description</span></dt>
+                <dd>
+                    <span>{{ productDocument.longDescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.shortDescription">Short Description</span></dt>
+                <dd>
+                    <span>{{ productDocument.shortDescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.whatInTheBox">What In The Box</span></dt>
+                <dd>
+                    <span>{{ productDocument.whatInTheBox }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.careInstructions">Care Instructions</span></dt>
+                <dd>
+                    <span>{{ productDocument.careInstructions }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.productType">Product Type</span></dt>
+                <dd>
+                    <span>{{ productDocument.productType }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.modelName">Model Name</span></dt>
+                <dd>
+                    <span>{{ productDocument.modelName }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.modelNumber">Model Number</span></dt>
+                <dd>
+                    <span>{{ productDocument.modelNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.fabricType">Fabric Type</span></dt>
+                <dd>
+                    <span>{{ productDocument.fabricType }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.specialFeatures">Special Features</span></dt>
+                <dd>
+                    <span>{{ productDocument.specialFeatures }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.productComplianceCertificate">Product Compliance Certificate</span></dt>
+                <dd>
+                    <span>{{ productDocument.productComplianceCertificate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.genuineAndLegal">Genuine And Legal</span></dt>
+                <dd>
+                    <span>{{ productDocument.genuineAndLegal }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.countryOfOrigin">Country Of Origin</span></dt>
+                <dd>
+                    <span>{{ productDocument.countryOfOrigin }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.usageAndSideEffects">Usage And Side Effects</span></dt>
+                <dd>
+                    <span>{{ productDocument.usageAndSideEffects }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.safetyWarnning">Safety Warnning</span></dt>
+                <dd>
+                    <span>{{ productDocument.safetyWarnning }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.warrantyPeriod">Warranty Period</span></dt>
+                <dd>
+                    <span>{{ productDocument.warrantyPeriod }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.warrantyPolicy">Warranty Policy</span></dt>
+                <dd>
+                    <span>{{ productDocument.warrantyPolicy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.dangerousGoods">Dangerous Goods</span></dt>
+                <dd>
+                    <span>{{ productDocument.dangerousGoods }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ productDocument.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ productDocument.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.warrantyType">Warranty Type</span></dt>
+                <dd>
+                    <div *ngIf="productDocument.warrantyTypeId">
+                        <a [routerLink]="['/warranty-types', productDocument.warrantyTypeId, 'view']">{{ productDocument.warrantyTypeName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductDocument.culture">Culture</span></dt>
+                <dd>
+                    <div *ngIf="productDocument.cultureId">
+                        <a [routerLink]="['/culture', productDocument.cultureId, 'view']">{{ productDocument.cultureName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-document', productDocument.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

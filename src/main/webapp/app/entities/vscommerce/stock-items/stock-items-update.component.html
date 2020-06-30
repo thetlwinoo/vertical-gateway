@@ -1,0 +1,357 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-stock-items-heading" jhiTranslate="gatewayApp.vscommerceStockItems.home.createOrEditLabel">Create or edit a Stock Items</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.vendorCode" for="field_vendorCode">Vendor Code</label>
+                    <input type="text" class="form-control" name="vendorCode" id="field_vendorCode"
+                           formControlName="vendorCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.vendorSKU" for="field_vendorSKU">Vendor SKU</label>
+                    <input type="text" class="form-control" name="vendorSKU" id="field_vendorSKU"
+                           formControlName="vendorSKU"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.generatedSKU" for="field_generatedSKU">Generated SKU</label>
+                    <input type="text" class="form-control" name="generatedSKU" id="field_generatedSKU"
+                           formControlName="generatedSKU"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.barcode" for="field_barcode">Barcode</label>
+                    <input type="text" class="form-control" name="barcode" id="field_barcode"
+                           formControlName="barcode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.unitPrice" for="field_unitPrice">Unit Price</label>
+                    <input type="number" class="form-control" name="unitPrice" id="field_unitPrice"
+                           formControlName="unitPrice"/>
+                    <div *ngIf="editForm.get('unitPrice')!.invalid && (editForm.get('unitPrice')!.dirty || editForm.get('unitPrice')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitPrice')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('unitPrice')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.recommendedRetailPrice" for="field_recommendedRetailPrice">Recommended Retail Price</label>
+                    <input type="number" class="form-control" name="recommendedRetailPrice" id="field_recommendedRetailPrice"
+                           formControlName="recommendedRetailPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.quantityOnHand" for="field_quantityOnHand">Quantity On Hand</label>
+                    <input type="number" class="form-control" name="quantityOnHand" id="field_quantityOnHand"
+                           formControlName="quantityOnHand"/>
+                    <div *ngIf="editForm.get('quantityOnHand')!.invalid && (editForm.get('quantityOnHand')!.dirty || editForm.get('quantityOnHand')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('quantityOnHand')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('quantityOnHand')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemLength" for="field_itemLength">Item Length</label>
+                    <input type="number" class="form-control" name="itemLength" id="field_itemLength"
+                           formControlName="itemLength"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemWidth" for="field_itemWidth">Item Width</label>
+                    <input type="number" class="form-control" name="itemWidth" id="field_itemWidth"
+                           formControlName="itemWidth"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemHeight" for="field_itemHeight">Item Height</label>
+                    <input type="number" class="form-control" name="itemHeight" id="field_itemHeight"
+                           formControlName="itemHeight"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemWeight" for="field_itemWeight">Item Weight</label>
+                    <input type="number" class="form-control" name="itemWeight" id="field_itemWeight"
+                           formControlName="itemWeight"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemPackageLength" for="field_itemPackageLength">Item Package Length</label>
+                    <input type="number" class="form-control" name="itemPackageLength" id="field_itemPackageLength"
+                           formControlName="itemPackageLength"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemPackageWidth" for="field_itemPackageWidth">Item Package Width</label>
+                    <input type="number" class="form-control" name="itemPackageWidth" id="field_itemPackageWidth"
+                           formControlName="itemPackageWidth"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemPackageHeight" for="field_itemPackageHeight">Item Package Height</label>
+                    <input type="number" class="form-control" name="itemPackageHeight" id="field_itemPackageHeight"
+                           formControlName="itemPackageHeight"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemPackageWeight" for="field_itemPackageWeight">Item Package Weight</label>
+                    <input type="number" class="form-control" name="itemPackageWeight" id="field_itemPackageWeight"
+                           formControlName="itemPackageWeight"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.noOfPieces" for="field_noOfPieces">No Of Pieces</label>
+                    <input type="number" class="form-control" name="noOfPieces" id="field_noOfPieces"
+                           formControlName="noOfPieces"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.noOfItems" for="field_noOfItems">No Of Items</label>
+                    <input type="number" class="form-control" name="noOfItems" id="field_noOfItems"
+                           formControlName="noOfItems"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.manufacture" for="field_manufacture">Manufacture</label>
+                    <input type="text" class="form-control" name="manufacture" id="field_manufacture"
+                           formControlName="manufacture"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.marketingComments" for="field_marketingComments">Marketing Comments</label>
+                    <input type="text" class="form-control" name="marketingComments" id="field_marketingComments"
+                           formControlName="marketingComments"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.internalComments" for="field_internalComments">Internal Comments</label>
+                    <input type="text" class="form-control" name="internalComments" id="field_internalComments"
+                           formControlName="internalComments"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.sellStartDate" for="field_sellStartDate">Sell Start Date</label>
+                    <div class="d-flex">
+                        <input id="field_sellStartDate" type="datetime-local" class="form-control" name="sellStartDate" formControlName="sellStartDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.sellEndDate" for="field_sellEndDate">Sell End Date</label>
+                    <div class="d-flex">
+                        <input id="field_sellEndDate" type="datetime-local" class="form-control" name="sellEndDate" formControlName="sellEndDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.sellCount" for="field_sellCount">Sell Count</label>
+                    <input type="number" class="form-control" name="sellCount" id="field_sellCount"
+                           formControlName="sellCount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.customFields" for="field_customFields">Custom Fields</label>
+                    <input type="text" class="form-control" name="customFields" id="field_customFields"
+                           formControlName="customFields"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.thumbnailUrl" for="field_thumbnailUrl">Thumbnail Url</label>
+                    <input type="text" class="form-control" name="thumbnailUrl" id="field_thumbnailUrl"
+                           formControlName="thumbnailUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.activeInd" for="field_activeInd">Active Ind</label>
+                    <input type="checkbox" class="form-control" name="activeInd" id="field_activeInd"
+                           formControlName="activeInd"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.lastEditedBy" for="field_lastEditedBy">Last Edited By</label>
+                    <input type="text" class="form-control" name="lastEditedBy" id="field_lastEditedBy"
+                           formControlName="lastEditedBy"/>
+                    <div *ngIf="editForm.get('lastEditedBy')!.invalid && (editForm.get('lastEditedBy')!.dirty || editForm.get('lastEditedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.lastEditedWhen" for="field_lastEditedWhen">Last Edited When</label>
+                    <div class="d-flex">
+                        <input id="field_lastEditedWhen" type="datetime-local" class="form-control" name="lastEditedWhen" formControlName="lastEditedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastEditedWhen')!.invalid && (editForm.get('lastEditedWhen')!.dirty || editForm.get('lastEditedWhen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedWhen')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastEditedWhen')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.reviewLine" for="field_reviewLine">Review Line</label>
+                    <select class="form-control" id="field_reviewLine" name="reviewLine" formControlName="reviewLineId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reviewLinesOption.id" *ngFor="let reviewLinesOption of reviewlines; trackBy: trackById">{{ reviewLinesOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemLengthUnit" for="field_itemLengthUnit">Item Length Unit</label>
+                    <select class="form-control" id="field_itemLengthUnit" name="itemLengthUnit" formControlName="itemLengthUnitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unitMeasureOption.id" *ngFor="let unitMeasureOption of unitmeasures; trackBy: trackById">{{ unitMeasureOption.code }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemWidthUnit" for="field_itemWidthUnit">Item Width Unit</label>
+                    <select class="form-control" id="field_itemWidthUnit" name="itemWidthUnit" formControlName="itemWidthUnitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unitMeasureOption.id" *ngFor="let unitMeasureOption of unitmeasures; trackBy: trackById">{{ unitMeasureOption.code }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemHeightUnit" for="field_itemHeightUnit">Item Height Unit</label>
+                    <select class="form-control" id="field_itemHeightUnit" name="itemHeightUnit" formControlName="itemHeightUnitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unitMeasureOption.id" *ngFor="let unitMeasureOption of unitmeasures; trackBy: trackById">{{ unitMeasureOption.code }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.packageLengthUnit" for="field_packageLengthUnit">Package Length Unit</label>
+                    <select class="form-control" id="field_packageLengthUnit" name="packageLengthUnit" formControlName="packageLengthUnitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unitMeasureOption.id" *ngFor="let unitMeasureOption of unitmeasures; trackBy: trackById">{{ unitMeasureOption.code }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.packageWidthUnit" for="field_packageWidthUnit">Package Width Unit</label>
+                    <select class="form-control" id="field_packageWidthUnit" name="packageWidthUnit" formControlName="packageWidthUnitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unitMeasureOption.id" *ngFor="let unitMeasureOption of unitmeasures; trackBy: trackById">{{ unitMeasureOption.code }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.packageHeightUnit" for="field_packageHeightUnit">Package Height Unit</label>
+                    <select class="form-control" id="field_packageHeightUnit" name="packageHeightUnit" formControlName="packageHeightUnitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unitMeasureOption.id" *ngFor="let unitMeasureOption of unitmeasures; trackBy: trackById">{{ unitMeasureOption.code }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.itemPackageWeightUnit" for="field_itemPackageWeightUnit">Item Package Weight Unit</label>
+                    <select class="form-control" id="field_itemPackageWeightUnit" name="itemPackageWeightUnit" formControlName="itemPackageWeightUnitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unitMeasureOption.id" *ngFor="let unitMeasureOption of unitmeasures; trackBy: trackById">{{ unitMeasureOption.code }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.productAttribute" for="field_productAttribute">Product Attribute</label>
+                    <select class="form-control" id="field_productAttribute" name="productAttribute" formControlName="productAttributeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productAttributeOption.id" *ngFor="let productAttributeOption of productattributes; trackBy: trackById">{{ productAttributeOption.value }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.productOption" for="field_productOption">Product Option</label>
+                    <select class="form-control" id="field_productOption" name="productOption" formControlName="productOptionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOptionOption.id" *ngFor="let productOptionOption of productoptions; trackBy: trackById">{{ productOptionOption.value }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.material" for="field_material">Material</label>
+                    <select class="form-control" id="field_material" name="material" formControlName="materialId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="materialsOption.id" *ngFor="let materialsOption of materials; trackBy: trackById">{{ materialsOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.currency" for="field_currency">Currency</label>
+                    <select class="form-control" id="field_currency" name="currency" formControlName="currencyId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="currencyOption.id" *ngFor="let currencyOption of currencies; trackBy: trackById">{{ currencyOption.code }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.barcodeType" for="field_barcodeType">Barcode Type</label>
+                    <select class="form-control" id="field_barcodeType" name="barcodeType" formControlName="barcodeTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="barcodeTypesOption.id" *ngFor="let barcodeTypesOption of barcodetypes; trackBy: trackById">{{ barcodeTypesOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceStockItems.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="productId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productsOption.id" *ngFor="let productsOption of products; trackBy: trackById">{{ productsOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

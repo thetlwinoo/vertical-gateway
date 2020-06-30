@@ -1,0 +1,116 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-reviews-heading" jhiTranslate="gatewayApp.vscommerceReviews.home.createOrEditLabel">Create or edit a Reviews</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReviews.customerName" for="field_customerName">Customer Name</label>
+                    <input type="text" class="form-control" name="customerName" id="field_customerName"
+                           formControlName="customerName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReviews.emailAddress" for="field_emailAddress">Email Address</label>
+                    <input type="text" class="form-control" name="emailAddress" id="field_emailAddress"
+                           formControlName="emailAddress"/>
+                    <div *ngIf="editForm.get('emailAddress')!.invalid && (editForm.get('emailAddress')!.dirty || editForm.get('emailAddress')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('emailAddress')?.errors?.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Email Address' }">
+                            This field should follow pattern for "Email Address".
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReviews.reviewDate" for="field_reviewDate">Review Date</label>
+                    <div class="d-flex">
+                        <input id="field_reviewDate" type="datetime-local" class="form-control" name="reviewDate" formControlName="reviewDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReviews.sellerRating" for="field_sellerRating">Seller Rating</label>
+                    <input type="number" class="form-control" name="sellerRating" id="field_sellerRating"
+                           formControlName="sellerRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReviews.sellerReview" for="field_sellerReview">Seller Review</label>
+                    <textarea class="form-control" name="sellerReview" id="field_sellerReview"
+                              formControlName="sellerReview"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReviews.deliveryRating" for="field_deliveryRating">Delivery Rating</label>
+                    <input type="number" class="form-control" name="deliveryRating" id="field_deliveryRating"
+                           formControlName="deliveryRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReviews.deliveryReview" for="field_deliveryReview">Delivery Review</label>
+                    <textarea class="form-control" name="deliveryReview" id="field_deliveryReview"
+                              formControlName="deliveryReview"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReviews.reviewAsAnonymous" for="field_reviewAsAnonymous">Review As Anonymous</label>
+                    <input type="checkbox" class="form-control" name="reviewAsAnonymous" id="field_reviewAsAnonymous"
+                           formControlName="reviewAsAnonymous"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReviews.completedReview" for="field_completedReview">Completed Review</label>
+                    <input type="checkbox" class="form-control" name="completedReview" id="field_completedReview"
+                           formControlName="completedReview"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReviews.lastEditedBy" for="field_lastEditedBy">Last Edited By</label>
+                    <input type="text" class="form-control" name="lastEditedBy" id="field_lastEditedBy"
+                           formControlName="lastEditedBy"/>
+                    <div *ngIf="editForm.get('lastEditedBy')!.invalid && (editForm.get('lastEditedBy')!.dirty || editForm.get('lastEditedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceReviews.lastEditedWhen" for="field_lastEditedWhen">Last Edited When</label>
+                    <div class="d-flex">
+                        <input id="field_lastEditedWhen" type="datetime-local" class="form-control" name="lastEditedWhen" formControlName="lastEditedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastEditedWhen')!.invalid && (editForm.get('lastEditedWhen')!.dirty || editForm.get('lastEditedWhen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedWhen')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastEditedWhen')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

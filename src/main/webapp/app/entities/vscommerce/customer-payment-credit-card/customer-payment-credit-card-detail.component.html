@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customerPaymentCreditCard">
+            <h2><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.detail.title">Customer Payment Credit Card</span> {{ customerPaymentCreditCard.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.creditCardNumber">Credit Card Number</span></dt>
+                <dd>
+                    <span>{{ customerPaymentCreditCard.creditCardNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.creditCardExpiryMonth">Credit Card Expiry Month</span></dt>
+                <dd>
+                    <span>{{ customerPaymentCreditCard.creditCardExpiryMonth }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.creditCardExpiryYear">Credit Card Expiry Year</span></dt>
+                <dd>
+                    <span>{{ customerPaymentCreditCard.creditCardExpiryYear }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ customerPaymentCreditCard.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.batchId">Batch Id</span></dt>
+                <dd>
+                    <span>{{ customerPaymentCreditCard.batchId }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.responseCode">Response Code</span></dt>
+                <dd>
+                    <span>{{ customerPaymentCreditCard.responseCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.approvalCode">Approval Code</span></dt>
+                <dd>
+                    <span>{{ customerPaymentCreditCard.approvalCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.responseData">Response Data</span></dt>
+                <dd>
+                    <span>{{ customerPaymentCreditCard.responseData }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ customerPaymentCreditCard.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ customerPaymentCreditCard.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.customerPayment">Customer Payment</span></dt>
+                <dd>
+                    <div *ngIf="customerPaymentCreditCard.customerPaymentId">
+                        <a [routerLink]="['/customer-payment', customerPaymentCreditCard.customerPaymentId, 'view']">{{ customerPaymentCreditCard.customerPaymentId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentCreditCard.currency">Currency</span></dt>
+                <dd>
+                    <div *ngIf="customerPaymentCreditCard.currencyId">
+                        <a [routerLink]="['/currency', customerPaymentCreditCard.currencyId, 'view']">{{ customerPaymentCreditCard.currencyName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer-payment-credit-card', customerPaymentCreditCard.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

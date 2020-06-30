@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productSetDetails">
+            <h2><span jhiTranslate="gatewayApp.vscommerceProductSetDetails.detail.title">Product Set Details</span> {{ productSetDetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetails.subGroupNo">Sub Group No</span></dt>
+                <dd>
+                    <span>{{ productSetDetails.subGroupNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetails.subGroupMinCount">Sub Group Min Count</span></dt>
+                <dd>
+                    <span>{{ productSetDetails.subGroupMinCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetails.subGroupMinTotal">Sub Group Min Total</span></dt>
+                <dd>
+                    <span>{{ productSetDetails.subGroupMinTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetails.minCount">Min Count</span></dt>
+                <dd>
+                    <span>{{ productSetDetails.minCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetails.maxCount">Max Count</span></dt>
+                <dd>
+                    <span>{{ productSetDetails.maxCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetails.isOptional">Is Optional</span></dt>
+                <dd>
+                    <span>{{ productSetDetails.isOptional }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetails.productSet">Product Set</span></dt>
+                <dd>
+                    <div *ngIf="productSetDetails.productSetId">
+                        <a [routerLink]="['/product-set', productSetDetails.productSetId, 'view']">{{ productSetDetails.productSetName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetails.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="productSetDetails.productId">
+                        <a [routerLink]="['/products', productSetDetails.productId, 'view']">{{ productSetDetails.productName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetails.productCategory">Product Category</span></dt>
+                <dd>
+                    <div *ngIf="productSetDetails.productCategoryId">
+                        <a [routerLink]="['/product-category', productSetDetails.productCategoryId, 'view']">{{ productSetDetails.productCategoryName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-set-details', productSetDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

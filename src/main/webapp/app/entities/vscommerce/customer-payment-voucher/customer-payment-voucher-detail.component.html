@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customerPaymentVoucher">
+            <h2><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentVoucher.detail.title">Customer Payment Voucher</span> {{ customerPaymentVoucher.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentVoucher.serialNo">Serial No</span></dt>
+                <dd>
+                    <span>{{ customerPaymentVoucher.serialNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentVoucher.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ customerPaymentVoucher.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentVoucher.lastEdityBy">Last Edity By</span></dt>
+                <dd>
+                    <span>{{ customerPaymentVoucher.lastEdityBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentVoucher.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ customerPaymentVoucher.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentVoucher.customerPayment">Customer Payment</span></dt>
+                <dd>
+                    <div *ngIf="customerPaymentVoucher.customerPaymentId">
+                        <a [routerLink]="['/customer-payment', customerPaymentVoucher.customerPaymentId, 'view']">{{ customerPaymentVoucher.customerPaymentId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPaymentVoucher.currency">Currency</span></dt>
+                <dd>
+                    <div *ngIf="customerPaymentVoucher.currencyId">
+                        <a [routerLink]="['/currency', customerPaymentVoucher.currencyId, 'view']">{{ customerPaymentVoucher.currencyName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer-payment-voucher', customerPaymentVoucher.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

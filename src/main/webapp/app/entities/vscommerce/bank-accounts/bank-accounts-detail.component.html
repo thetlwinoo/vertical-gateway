@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bankAccounts">
+            <h2><span jhiTranslate="gatewayApp.vscommerceBankAccounts.detail.title">Bank Accounts</span> {{ bankAccounts.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.name">Name</span></dt>
+                <dd>
+                    <span>{{ bankAccounts.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.branch">Branch</span></dt>
+                <dd>
+                    <span>{{ bankAccounts.branch }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.code">Code</span></dt>
+                <dd>
+                    <span>{{ bankAccounts.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.number">Number</span></dt>
+                <dd>
+                    <span>{{ bankAccounts.number }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.internationalCode">International Code</span></dt>
+                <dd>
+                    <span>{{ bankAccounts.internationalCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ bankAccounts.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.validForm">Valid Form</span></dt>
+                <dd>
+                    <span>{{ bankAccounts.validForm }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceBankAccounts.validTo">Valid To</span></dt>
+                <dd>
+                    <span>{{ bankAccounts.validTo }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bank-accounts', bankAccounts.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

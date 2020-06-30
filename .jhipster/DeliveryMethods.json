@@ -1,0 +1,66 @@
+{
+  "name": "DeliveryMethods",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "thirdPartyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expectedMinArrivalDays",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "expectedMaxArrivalDays",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "activeInd",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "defaultInd",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deliveryNote",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validFrom",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "validTo",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "suppliers",
+      "otherEntityRelationshipName": "deliveryMethod",
+      "relationshipName": "supplier",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200617155104",
+  "entityTableName": "delivery_methods",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

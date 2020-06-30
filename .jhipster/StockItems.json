@@ -1,0 +1,309 @@
+{
+  "name": "StockItems",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "vendorCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vendorSKU",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "generatedSKU",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "barcode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "taxRate",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "unitPrice",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "recommendedRetailPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "typicalWeightPerUnit",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "quantityOnHand",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "shelf",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastStockTakeQuantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lastCostPrice",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "reorderLevel",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "targetStockLevel",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "leadTimeDays",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "quantityPerOuter",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "isChillerStock",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "itemLength",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "itemWidth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "itemHeight",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "itemWeight",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "itemPackageLength",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "itemPackageWidth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "itemPackageHeight",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "itemPackageWeight",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "noOfPieces",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "noOfItems",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "manufacture",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "marketingComments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "internalComments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sellStartDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "sellEndDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "sellCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "tags",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "searchDetails",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customFields",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "thumbnailUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "activeInd",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "liveInd",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cashOnDeliveryInd",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastEditedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastEditedWhen",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "specialDeals",
+      "otherEntityRelationshipName": "stockItem",
+      "relationshipName": "specialDealList"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "photos",
+      "otherEntityRelationshipName": "stockItem",
+      "relationshipName": "photoList"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "unitMeasure",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "itemLengthUnit",
+      "otherEntityField": "code"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "unitMeasure",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "itemWidthUnit",
+      "otherEntityField": "code"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "unitMeasure",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "itemHeightUnit",
+      "otherEntityField": "code"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "unitMeasure",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "packageLengthUnit",
+      "otherEntityField": "code"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "unitMeasure",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "packageWidthUnit",
+      "otherEntityField": "code"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "unitMeasure",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "packageHeightUnit",
+      "otherEntityField": "code"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "unitMeasure",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "itemPackageWeightUnit",
+      "otherEntityField": "code"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productAttribute",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "productAttribute",
+      "otherEntityField": "value"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productOption",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "productOption",
+      "otherEntityField": "value"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "materials",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "material",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "currency",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "currency",
+      "otherEntityField": "code"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "barcodeTypes",
+      "otherEntityRelationshipName": "stockItems",
+      "relationshipName": "barcodeType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "products",
+      "otherEntityRelationshipName": "stockItemList",
+      "relationshipName": "product",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617163204",
+  "entityTableName": "stock_items",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

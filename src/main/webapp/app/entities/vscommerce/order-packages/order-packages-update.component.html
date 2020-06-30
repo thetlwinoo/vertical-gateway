@@ -1,0 +1,151 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-order-packages-heading" jhiTranslate="gatewayApp.vscommerceOrderPackages.home.createOrEditLabel">Create or edit a Order Packages</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.expectedDeliveryDate" for="field_expectedDeliveryDate">Expected Delivery Date</label>
+                    <div class="d-flex">
+                        <input id="field_expectedDeliveryDate" type="datetime-local" class="form-control" name="expectedDeliveryDate" formControlName="expectedDeliveryDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.comments" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                           formControlName="comments"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryInstructions" for="field_deliveryInstructions">Delivery Instructions</label>
+                    <input type="text" class="form-control" name="deliveryInstructions" id="field_deliveryInstructions"
+                           formControlName="deliveryInstructions"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.internalComments" for="field_internalComments">Internal Comments</label>
+                    <input type="text" class="form-control" name="internalComments" id="field_internalComments"
+                           formControlName="internalComments"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.customerPurchaseOrderNumber" for="field_customerPurchaseOrderNumber">Customer Purchase Order Number</label>
+                    <input type="text" class="form-control" name="customerPurchaseOrderNumber" id="field_customerPurchaseOrderNumber"
+                           formControlName="customerPurchaseOrderNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.customerReviewedOn" for="field_customerReviewedOn">Customer Reviewed On</label>
+                    <div class="d-flex">
+                        <input id="field_customerReviewedOn" type="datetime-local" class="form-control" name="customerReviewedOn" formControlName="customerReviewedOn" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.sellerRating" for="field_sellerRating">Seller Rating</label>
+                    <input type="number" class="form-control" name="sellerRating" id="field_sellerRating"
+                           formControlName="sellerRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.sellerReview" for="field_sellerReview">Seller Review</label>
+                    <textarea class="form-control" name="sellerReview" id="field_sellerReview"
+                              formControlName="sellerReview"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryRating" for="field_deliveryRating">Delivery Rating</label>
+                    <input type="number" class="form-control" name="deliveryRating" id="field_deliveryRating"
+                           formControlName="deliveryRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.deliveryReview" for="field_deliveryReview">Delivery Review</label>
+                    <textarea class="form-control" name="deliveryReview" id="field_deliveryReview"
+                              formControlName="deliveryReview"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.reviewAsAnonymous" for="field_reviewAsAnonymous">Review As Anonymous</label>
+                    <input type="checkbox" class="form-control" name="reviewAsAnonymous" id="field_reviewAsAnonymous"
+                           formControlName="reviewAsAnonymous"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.completedReview" for="field_completedReview">Completed Review</label>
+                    <input type="checkbox" class="form-control" name="completedReview" id="field_completedReview"
+                           formControlName="completedReview"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.orderPackageDetails" for="field_orderPackageDetails">Order Package Details</label>
+                    <textarea class="form-control" name="orderPackageDetails" id="field_orderPackageDetails"
+                              formControlName="orderPackageDetails"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.lastEditedBy" for="field_lastEditedBy">Last Edited By</label>
+                    <input type="text" class="form-control" name="lastEditedBy" id="field_lastEditedBy"
+                           formControlName="lastEditedBy"/>
+                    <div *ngIf="editForm.get('lastEditedBy')!.invalid && (editForm.get('lastEditedBy')!.dirty || editForm.get('lastEditedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.lastEditedWhen" for="field_lastEditedWhen">Last Edited When</label>
+                    <div class="d-flex">
+                        <input id="field_lastEditedWhen" type="datetime-local" class="form-control" name="lastEditedWhen" formControlName="lastEditedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastEditedWhen')!.invalid && (editForm.get('lastEditedWhen')!.dirty || editForm.get('lastEditedWhen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedWhen')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastEditedWhen')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.supplier" for="field_supplier">Supplier</label>
+                    <select class="form-control" id="field_supplier" name="supplier" formControlName="supplierId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="suppliersOption.id" *ngFor="let suppliersOption of suppliers; trackBy: trackById">{{ suppliersOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceOrderPackages.order" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" formControlName="orderId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ordersOption.id" *ngFor="let ordersOption of orders; trackBy: trackById">{{ ordersOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

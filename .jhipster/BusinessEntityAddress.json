@@ -1,0 +1,39 @@
+{
+  "name": "BusinessEntityAddress",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "addresses",
+      "otherEntityRelationshipName": "businessEntityAddress",
+      "relationshipName": "address",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "people",
+      "otherEntityRelationshipName": "businessEntityAddress",
+      "relationshipName": "person",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "addressTypes",
+      "otherEntityRelationshipName": "businessEntityAddress",
+      "relationshipName": "addressType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20200617153804",
+  "entityTableName": "business_entity_address",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

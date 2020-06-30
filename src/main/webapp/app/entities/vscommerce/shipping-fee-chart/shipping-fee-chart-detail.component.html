@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="shippingFeeChart">
+            <h2><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.detail.title">Shipping Fee Chart</span> {{ shippingFeeChart.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.sizeOfPercel">Size Of Percel</span></dt>
+                <dd>
+                    <span>{{ shippingFeeChart.sizeOfPercel }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.minVolumeWeight">Min Volume Weight</span></dt>
+                <dd>
+                    <span>{{ shippingFeeChart.minVolumeWeight }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.maxVolumeWeight">Max Volume Weight</span></dt>
+                <dd>
+                    <span>{{ shippingFeeChart.maxVolumeWeight }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.minActualWeight">Min Actual Weight</span></dt>
+                <dd>
+                    <span>{{ shippingFeeChart.minActualWeight }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.maxActualWeight">Max Actual Weight</span></dt>
+                <dd>
+                    <span>{{ shippingFeeChart.maxActualWeight }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.price">Price</span></dt>
+                <dd>
+                    <span>{{ shippingFeeChart.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ shippingFeeChart.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ shippingFeeChart.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.zone">Zone</span></dt>
+                <dd>
+                    <div *ngIf="shippingFeeChart.zoneId">
+                        <a [routerLink]="['/zone', shippingFeeChart.zoneId, 'view']">{{ shippingFeeChart.zoneCode }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceShippingFeeChart.deliveryMethod">Delivery Method</span></dt>
+                <dd>
+                    <div *ngIf="shippingFeeChart.deliveryMethodId">
+                        <a [routerLink]="['/delivery-methods', shippingFeeChart.deliveryMethodId, 'view']">{{ shippingFeeChart.deliveryMethodName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/shipping-fee-chart', shippingFeeChart.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

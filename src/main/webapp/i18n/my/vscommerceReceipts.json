@@ -1,0 +1,32 @@
+{
+  "gatewayApp": {
+    "vscommerceReceipts": {
+      "home": {
+        "title": "Receipts",
+        "createLabel": "Receipts အသစ်ထည့်မည်",
+        "createOrEditLabel": "Receipts အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Receipts found"
+      },
+      "delete": {
+        "question": "Receipts {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Receipts"
+      },
+      "receiptNo": "Receipt No",
+      "issuedDate": "Issued Date",
+      "printCount": "Print Count",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "order": "Order",
+      "invoice": "Invoice"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceReceipts": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Receipts အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Receipts တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Receipts တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

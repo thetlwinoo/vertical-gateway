@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "vscommerceCardTypes": {
+      "home": {
+        "title": "Card Types",
+        "createLabel": "Create a new Card Types",
+        "createOrEditLabel": "Create or edit a Card Types",
+        "notFound": "No Card Types found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Card Types {{ id }}?"
+      },
+      "detail": {
+        "title": "Card Types"
+      },
+      "name": "Name",
+      "issuerId": "Issuer Id",
+      "modifiedDate": "Modified Date"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCardTypes": {
+      "created": "A new Card Types is created with identifier {{ param }}",
+      "updated": "A Card Types is updated with identifier {{ param }}",
+      "deleted": "A Card Types is deleted with identifier {{ param }}"
+    }
+  }
+}

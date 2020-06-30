@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderLines">
+            <h2><span jhiTranslate="gatewayApp.vscommerceOrderLines.detail.title">Order Lines</span> {{ orderLines.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ orderLines.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.description">Description</span></dt>
+                <dd>
+                    <span>{{ orderLines.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.unitPrice">Unit Price</span></dt>
+                <dd>
+                    <span>{{ orderLines.unitPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.unitPriceDiscount">Unit Price Discount</span></dt>
+                <dd>
+                    <span>{{ orderLines.unitPriceDiscount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.lineTotal">Line Total</span></dt>
+                <dd>
+                    <span>{{ orderLines.lineTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.taxRate">Tax Rate</span></dt>
+                <dd>
+                    <span>{{ orderLines.taxRate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.pickedQuantity">Picked Quantity</span></dt>
+                <dd>
+                    <span>{{ orderLines.pickedQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.pickingCompletedWhen">Picking Completed When</span></dt>
+                <dd>
+                    <span>{{ orderLines.pickingCompletedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewayApp.OrderLineStatus.' + orderLines.status }}">{{ orderLines.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ orderLines.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ orderLines.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.reviewLine">Review Line</span></dt>
+                <dd>
+                    <div *ngIf="orderLines.reviewLineId">
+                        <a [routerLink]="['/review-lines', orderLines.reviewLineId, 'view']">{{ orderLines.reviewLineId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="orderLines.supplierId">
+                        <a [routerLink]="['/suppliers', orderLines.supplierId, 'view']">{{ orderLines.supplierName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.stockItem">Stock Item</span></dt>
+                <dd>
+                    <div *ngIf="orderLines.stockItemId">
+                        <a [routerLink]="['/stock-items', orderLines.stockItemId, 'view']">{{ orderLines.stockItemName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.packageType">Package Type</span></dt>
+                <dd>
+                    <div *ngIf="orderLines.packageTypeId">
+                        <a [routerLink]="['/package-types', orderLines.packageTypeId, 'view']">{{ orderLines.packageTypeName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceOrderLines.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="orderLines.orderId">
+                        <a [routerLink]="['/orders', orderLines.orderId, 'view']">{{ orderLines.orderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-lines', orderLines.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

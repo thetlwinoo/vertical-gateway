@@ -1,0 +1,32 @@
+{
+  "gatewayApp": {
+    "zezawarProductBrand": {
+      "home": {
+        "title": "Product Brands",
+        "createLabel": "Create a new Product Brand",
+        "createOrEditLabel": "Create or edit a Product Brand",
+        "notFound": "No Product Brands found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Product Brand {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Brand"
+      },
+      "name": "Name",
+      "shortLabel": "Short Label",
+      "sortOrder": "Sort Order",
+      "iconFont": "Icon Font",
+      "thumbnailUrl": "Thumbnail Url",
+      "supplier": "Supplier",
+      "icon": "Icon"
+    }
+  },
+  "zezawarApp": {
+    "zezawarProductBrand": {
+      "created": "A new Product Brand is created with identifier {{ param }}",
+      "updated": "A Product Brand is updated with identifier {{ param }}",
+      "deleted": "A Product Brand is deleted with identifier {{ param }}"
+    }
+  }
+}

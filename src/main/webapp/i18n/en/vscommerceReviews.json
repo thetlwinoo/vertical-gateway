@@ -1,0 +1,38 @@
+{
+  "gatewayApp": {
+    "vscommerceReviews": {
+      "home": {
+        "title": "Reviews",
+        "createLabel": "Create a new Reviews",
+        "createOrEditLabel": "Create or edit a Reviews",
+        "notFound": "No Reviews found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Reviews {{ id }}?"
+      },
+      "detail": {
+        "title": "Reviews"
+      },
+      "customerName": "Customer Name",
+      "emailAddress": "Email Address",
+      "reviewDate": "Review Date",
+      "sellerRating": "Seller Rating",
+      "sellerReview": "Seller Review",
+      "deliveryRating": "Delivery Rating",
+      "deliveryReview": "Delivery Review",
+      "reviewAsAnonymous": "Review As Anonymous",
+      "completedReview": "Completed Review",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "reviewLineList": "Review Line List",
+      "order": "Order"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceReviews": {
+      "created": "A new Reviews is created with identifier {{ param }}",
+      "updated": "A Reviews is updated with identifier {{ param }}",
+      "deleted": "A Reviews is deleted with identifier {{ param }}"
+    }
+  }
+}

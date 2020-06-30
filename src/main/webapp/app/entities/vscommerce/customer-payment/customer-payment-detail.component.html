@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customerPayment">
+            <h2><span jhiTranslate="gatewayApp.vscommerceCustomerPayment.detail.title">Customer Payment</span> {{ customerPayment.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPayment.amountExcludingTax">Amount Excluding Tax</span></dt>
+                <dd>
+                    <span>{{ customerPayment.amountExcludingTax }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPayment.taxAmount">Tax Amount</span></dt>
+                <dd>
+                    <span>{{ customerPayment.taxAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPayment.transactionAmount">Transaction Amount</span></dt>
+                <dd>
+                    <span>{{ customerPayment.transactionAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPayment.outstandingAmount">Outstanding Amount</span></dt>
+                <dd>
+                    <span>{{ customerPayment.outstandingAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPayment.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ customerPayment.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPayment.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ customerPayment.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPayment.customerTransaction">Customer Transaction</span></dt>
+                <dd>
+                    <div *ngIf="customerPayment.customerTransactionId">
+                        <a [routerLink]="['/customer-transactions', customerPayment.customerTransactionId, 'view']">{{ customerPayment.customerTransactionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPayment.paymentMethod">Payment Method</span></dt>
+                <dd>
+                    <div *ngIf="customerPayment.paymentMethodId">
+                        <a [routerLink]="['/payment-methods', customerPayment.paymentMethodId, 'view']">{{ customerPayment.paymentMethodName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPayment.currency">Currency</span></dt>
+                <dd>
+                    <div *ngIf="customerPayment.currencyId">
+                        <a [routerLink]="['/currency', customerPayment.currencyId, 'view']">{{ customerPayment.currencyName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceCustomerPayment.currencyRate">Currency Rate</span></dt>
+                <dd>
+                    <div *ngIf="customerPayment.currencyRateId">
+                        <a [routerLink]="['/currency-rate', customerPayment.currencyRateId, 'view']">{{ customerPayment.currencyRateId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer-payment', customerPayment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{
+  "gatewayApp": {
+    "zezawarPhotos": {
+      "home": {
+        "title": "Photos",
+        "createLabel": "Create a new Photos",
+        "createOrEditLabel": "Create or edit a Photos",
+        "notFound": "No Photos found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Photos {{ id }}?"
+      },
+      "detail": {
+        "title": "Photos"
+      },
+      "blobId": "Blob Id",
+      "thumbnailUrl": "Thumbnail Url",
+      "originalUrl": "Original Url",
+      "bannerTallUrl": "Banner Tall Url",
+      "bannerWideUrl": "Banner Wide Url",
+      "circleUrl": "Circle Url",
+      "sharpenedUrl": "Sharpened Url",
+      "squareUrl": "Square Url",
+      "watermarkUrl": "Watermark Url",
+      "priority": "Priority",
+      "defaultInd": "Default Ind",
+      "stockItem": "Stock Item"
+    }
+  },
+  "zezawarApp": {
+    "zezawarPhotos": {
+      "created": "A new Photos is created with identifier {{ param }}",
+      "updated": "A Photos is updated with identifier {{ param }}",
+      "deleted": "A Photos is deleted with identifier {{ param }}"
+    }
+  }
+}

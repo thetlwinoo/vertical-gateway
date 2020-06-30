@@ -1,0 +1,118 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-photos-heading" jhiTranslate="gatewayApp.vscommercePhotos.home.createOrEditLabel">Create or edit a Photos</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.blobId" for="field_blobId">Blob Id</label>
+                    <input type="text" class="form-control" name="blobId" id="field_blobId"
+                           formControlName="blobId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.thumbnailUrl" for="field_thumbnailUrl">Thumbnail Url</label>
+                    <input type="text" class="form-control" name="thumbnailUrl" id="field_thumbnailUrl"
+                           formControlName="thumbnailUrl"/>
+                    <div *ngIf="editForm.get('thumbnailUrl')!.invalid && (editForm.get('thumbnailUrl')!.dirty || editForm.get('thumbnailUrl')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('thumbnailUrl')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.originalUrl" for="field_originalUrl">Original Url</label>
+                    <input type="text" class="form-control" name="originalUrl" id="field_originalUrl"
+                           formControlName="originalUrl"/>
+                    <div *ngIf="editForm.get('originalUrl')!.invalid && (editForm.get('originalUrl')!.dirty || editForm.get('originalUrl')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('originalUrl')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.bannerTallUrl" for="field_bannerTallUrl">Banner Tall Url</label>
+                    <input type="text" class="form-control" name="bannerTallUrl" id="field_bannerTallUrl"
+                           formControlName="bannerTallUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.bannerWideUrl" for="field_bannerWideUrl">Banner Wide Url</label>
+                    <input type="text" class="form-control" name="bannerWideUrl" id="field_bannerWideUrl"
+                           formControlName="bannerWideUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.circleUrl" for="field_circleUrl">Circle Url</label>
+                    <input type="text" class="form-control" name="circleUrl" id="field_circleUrl"
+                           formControlName="circleUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.sharpenedUrl" for="field_sharpenedUrl">Sharpened Url</label>
+                    <input type="text" class="form-control" name="sharpenedUrl" id="field_sharpenedUrl"
+                           formControlName="sharpenedUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.squareUrl" for="field_squareUrl">Square Url</label>
+                    <input type="text" class="form-control" name="squareUrl" id="field_squareUrl"
+                           formControlName="squareUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.watermarkUrl" for="field_watermarkUrl">Watermark Url</label>
+                    <input type="text" class="form-control" name="watermarkUrl" id="field_watermarkUrl"
+                           formControlName="watermarkUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.priority" for="field_priority">Priority</label>
+                    <input type="number" class="form-control" name="priority" id="field_priority"
+                           formControlName="priority"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.defaultInd" for="field_defaultInd">Default Ind</label>
+                    <input type="checkbox" class="form-control" name="defaultInd" id="field_defaultInd"
+                           formControlName="defaultInd"/>
+                    <div *ngIf="editForm.get('defaultInd')!.invalid && (editForm.get('defaultInd')!.dirty || editForm.get('defaultInd')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('defaultInd')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommercePhotos.stockItem" for="field_stockItem">Stock Item</label>
+                    <select class="form-control" id="field_stockItem" name="stockItem" formControlName="stockItemId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="stockItemsOption.id" *ngFor="let stockItemsOption of stockitems; trackBy: trackById">{{ stockItemsOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

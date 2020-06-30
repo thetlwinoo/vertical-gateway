@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="receipts">
+            <h2><span jhiTranslate="gatewayApp.vscommerceReceipts.detail.title">Receipts</span> {{ receipts.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceReceipts.receiptNo">Receipt No</span></dt>
+                <dd>
+                    <span>{{ receipts.receiptNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceReceipts.issuedDate">Issued Date</span></dt>
+                <dd>
+                    <span>{{ receipts.issuedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceReceipts.printCount">Print Count</span></dt>
+                <dd>
+                    <span>{{ receipts.printCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceReceipts.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ receipts.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceReceipts.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ receipts.lastEditedWhen }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceReceipts.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="receipts.orderId">
+                        <a [routerLink]="['/orders', receipts.orderId, 'view']">{{ receipts.orderId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceReceipts.invoice">Invoice</span></dt>
+                <dd>
+                    <div *ngIf="receipts.invoiceId">
+                        <a [routerLink]="['/invoices', receipts.invoiceId, 'view']">{{ receipts.invoiceId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/receipts', receipts.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

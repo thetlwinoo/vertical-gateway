@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tax">
+            <h2><span jhiTranslate="gatewayApp.vscommerceTax.detail.title">Tax</span> {{ tax.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceTax.code">Code</span></dt>
+                <dd>
+                    <span>{{ tax.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceTax.name">Name</span></dt>
+                <dd>
+                    <span>{{ tax.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceTax.rate">Rate</span></dt>
+                <dd>
+                    <span>{{ tax.rate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceTax.modifiedDate">Modified Date</span></dt>
+                <dd>
+                    <span>{{ tax.modifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceTax.taxClass">Tax Class</span></dt>
+                <dd>
+                    <div *ngIf="tax.taxClassId">
+                        <a [routerLink]="['/tax-class', tax.taxClassId, 'view']">{{ tax.taxClassName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tax', tax.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

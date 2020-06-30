@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.vscommerceCustomers.home.title">Customers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customers" [routerLink]="['/customers/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.vscommerceCustomers.home.createLabel">
+            Create a new Customers
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="customers?.length === 0">
+        <span jhiTranslate="gatewayApp.vscommerceCustomers.home.notFound">No customers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="customers && customers.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.accountNumber">Account Number</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.accountOpenedDate">Account Opened Date</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.standardDiscountPercentage">Standard Discount Percentage</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.isStatementSent">Is Statement Sent</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.isOnCreditHold">Is On Credit Hold</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.paymentDays">Payment Days</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.deliveryRun">Delivery Run</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.runPosition">Run Position</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.lastEditedBy">Last Edited By</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.validFrom">Valid From</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.validTo">Valid To</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.people">People</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.deliveryMethod">Delivery Method</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCustomers.deliveryAddress">Delivery Address</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customers of customers ;trackBy: trackId">
+                    <td><a [routerLink]="['/customers', customers.id, 'view']">{{ customers.id }}</a></td>
+                    <td>{{ customers.accountNumber }}</td>
+                    <td>{{ customers.accountOpenedDate | date:'medium' }}</td>
+                    <td>{{ customers.standardDiscountPercentage }}</td>
+                    <td>{{ customers.isStatementSent }}</td>
+                    <td>{{ customers.isOnCreditHold }}</td>
+                    <td>{{ customers.paymentDays }}</td>
+                    <td>{{ customers.deliveryRun }}</td>
+                    <td>{{ customers.runPosition }}</td>
+                    <td>{{ customers.lastEditedBy }}</td>
+                    <td>{{ customers.validFrom | date:'medium' }}</td>
+                    <td>{{ customers.validTo | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="customers.peopleId">
+                            <a [routerLink]="['/people', customers.peopleId , 'view']" >{{ customers.peopleFullName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="customers.deliveryMethodId">
+                            <a [routerLink]="['/delivery-methods', customers.deliveryMethodId , 'view']" >{{ customers.deliveryMethodName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="customers.deliveryAddressId">
+                            <a [routerLink]="['/addresses', customers.deliveryAddressId , 'view']" >{{ customers.deliveryAddressId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/customers', customers.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/customers', customers.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(customers)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

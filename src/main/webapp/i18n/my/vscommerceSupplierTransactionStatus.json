@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "vscommerceSupplierTransactionStatus": {
+      "home": {
+        "title": "Supplier Transaction Statuses",
+        "createLabel": "Supplier Transaction Status အသစ်ထည့်မည်",
+        "createOrEditLabel": "Supplier Transaction Status အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Supplier Transaction Statuses found"
+      },
+      "delete": {
+        "question": "Supplier Transaction Status {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Supplier Transaction Status"
+      },
+      "name": "Name",
+      "label": "Label",
+      "shortLabel": "Short Label",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceSupplierTransactionStatus": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Supplier Transaction Status အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Supplier Transaction Status တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Supplier Transaction Status တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

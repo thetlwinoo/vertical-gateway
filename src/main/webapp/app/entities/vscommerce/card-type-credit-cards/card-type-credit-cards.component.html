@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.home.title">Card Type Credit Cards</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-card-type-credit-cards" [routerLink]="['/card-type-credit-cards/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.home.createLabel">
+            Create a new Card Type Credit Cards
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="cardTypeCreditCards?.length === 0">
+        <span jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.home.notFound">No cardTypeCreditCards found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="cardTypeCreditCards && cardTypeCreditCards.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.startNumber">Start Number</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.endNumber">End Number</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceCardTypeCreditCards.modifiedDate">Modified Date</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cardTypeCreditCards of cardTypeCreditCards ;trackBy: trackId">
+                    <td><a [routerLink]="['/card-type-credit-cards', cardTypeCreditCards.id, 'view']">{{ cardTypeCreditCards.id }}</a></td>
+                    <td>{{ cardTypeCreditCards.name }}</td>
+                    <td>{{ cardTypeCreditCards.startNumber }}</td>
+                    <td>{{ cardTypeCreditCards.endNumber }}</td>
+                    <td>{{ cardTypeCreditCards.modifiedDate | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/card-type-credit-cards', cardTypeCreditCards.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/card-type-credit-cards', cardTypeCreditCards.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(cardTypeCreditCards)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

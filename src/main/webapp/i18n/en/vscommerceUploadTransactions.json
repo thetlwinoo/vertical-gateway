@@ -1,0 +1,34 @@
+{
+  "gatewayApp": {
+    "vscommerceUploadTransactions": {
+      "home": {
+        "title": "Upload Transactions",
+        "createLabel": "Create a new Upload Transactions",
+        "createOrEditLabel": "Create or edit a Upload Transactions",
+        "notFound": "No Upload Transactions found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Upload Transactions {{ id }}?"
+      },
+      "detail": {
+        "title": "Upload Transactions"
+      },
+      "fileName": "File Name",
+      "importedTemplate": "Imported Template",
+      "importedFailedTemplate": "Imported Failed Template",
+      "status": "Status",
+      "generatedCode": "Generated Code",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "supplier": "Supplier",
+      "actionType": "Action Type"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceUploadTransactions": {
+      "created": "A new Upload Transactions is created with identifier {{ param }}",
+      "updated": "A Upload Transactions is updated with identifier {{ param }}",
+      "deleted": "A Upload Transactions is deleted with identifier {{ param }}"
+    }
+  }
+}

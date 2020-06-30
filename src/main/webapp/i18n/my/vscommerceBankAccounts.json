@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "vscommerceBankAccounts": {
+      "home": {
+        "title": "Bank Accounts",
+        "createLabel": "Bank Accounts အသစ်ထည့်မည်",
+        "createOrEditLabel": "Bank Accounts အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Bank Accounts found"
+      },
+      "delete": {
+        "question": "Bank Accounts {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Bank Accounts"
+      },
+      "name": "Name",
+      "branch": "Branch",
+      "code": "Code",
+      "number": "Number",
+      "internationalCode": "International Code",
+      "lastEditedBy": "Last Edited By",
+      "validForm": "Valid Form",
+      "validTo": "Valid To"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceBankAccounts": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Bank Accounts အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Bank Accounts တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Bank Accounts တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

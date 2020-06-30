@@ -1,0 +1,64 @@
+{
+  "name": "Questions",
+  "fields": [
+    {
+      "fieldName": "customerQuestion",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "customerQuestionOn",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "supplierAnswer",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "supplierAnswerOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "activeInd",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "suppliers",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "supplier",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "people",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "person",
+      "otherEntityField": "fullName"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "products",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "product",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20200617170104",
+  "entityTableName": "questions",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

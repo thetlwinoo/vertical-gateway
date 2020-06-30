@@ -1,0 +1,38 @@
+{
+  "name": "SystemParameters",
+  "fields": [
+    {
+      "fieldName": "applicationSettings",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "cities",
+      "otherEntityRelationshipName": "systemParameters",
+      "relationshipName": "deliveryCity",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "cities",
+      "otherEntityRelationshipName": "systemParameters",
+      "relationshipName": "postalCity",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20200617154804",
+  "entityTableName": "system_parameters",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

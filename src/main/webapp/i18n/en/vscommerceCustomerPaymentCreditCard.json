@@ -1,0 +1,37 @@
+{
+  "gatewayApp": {
+    "vscommerceCustomerPaymentCreditCard": {
+      "home": {
+        "title": "Customer Payment Credit Cards",
+        "createLabel": "Create a new Customer Payment Credit Card",
+        "createOrEditLabel": "Create or edit a Customer Payment Credit Card",
+        "notFound": "No Customer Payment Credit Cards found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Customer Payment Credit Card {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer Payment Credit Card"
+      },
+      "creditCardNumber": "Credit Card Number",
+      "creditCardExpiryMonth": "Credit Card Expiry Month",
+      "creditCardExpiryYear": "Credit Card Expiry Year",
+      "amount": "Amount",
+      "batchId": "Batch Id",
+      "responseCode": "Response Code",
+      "approvalCode": "Approval Code",
+      "responseData": "Response Data",
+      "lastEditedBy": "Last Edited By",
+      "lastEditedWhen": "Last Edited When",
+      "customerPayment": "Customer Payment",
+      "currency": "Currency"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceCustomerPaymentCreditCard": {
+      "created": "A new Customer Payment Credit Card is created with identifier {{ param }}",
+      "updated": "A Customer Payment Credit Card is updated with identifier {{ param }}",
+      "deleted": "A Customer Payment Credit Card is deleted with identifier {{ param }}"
+    }
+  }
+}

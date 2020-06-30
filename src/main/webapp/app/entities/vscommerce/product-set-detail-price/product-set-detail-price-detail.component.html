@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productSetDetailPrice">
+            <h2><span jhiTranslate="gatewayApp.vscommerceProductSetDetailPrice.detail.title">Product Set Detail Price</span> {{ productSetDetailPrice.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetailPrice.price">Price</span></dt>
+                <dd>
+                    <span>{{ productSetDetailPrice.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetailPrice.startCount">Start Count</span></dt>
+                <dd>
+                    <span>{{ productSetDetailPrice.startCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetailPrice.endCount">End Count</span></dt>
+                <dd>
+                    <span>{{ productSetDetailPrice.endCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetailPrice.multiplyCount">Multiply Count</span></dt>
+                <dd>
+                    <span>{{ productSetDetailPrice.multiplyCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetailPrice.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ productSetDetailPrice.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetailPrice.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ productSetDetailPrice.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetailPrice.modifiedDate">Modified Date</span></dt>
+                <dd>
+                    <span>{{ productSetDetailPrice.modifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductSetDetailPrice.productSetDetail">Product Set Detail</span></dt>
+                <dd>
+                    <div *ngIf="productSetDetailPrice.productSetDetailId">
+                        <a [routerLink]="['/product-set-details', productSetDetailPrice.productSetDetailId, 'view']">{{ productSetDetailPrice.productSetDetailId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-set-detail-price', productSetDetailPrice.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

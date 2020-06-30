@@ -1,0 +1,185 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-product-document-heading" jhiTranslate="gatewayApp.vscommerceProductDocument.home.createOrEditLabel">Create or edit a Product Document</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.videoUrl" for="field_videoUrl">Video Url</label>
+                    <input type="text" class="form-control" name="videoUrl" id="field_videoUrl"
+                           formControlName="videoUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.highlights" for="field_highlights">Highlights</label>
+                    <textarea class="form-control" name="highlights" id="field_highlights"
+                              formControlName="highlights"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.longDescription" for="field_longDescription">Long Description</label>
+                    <textarea class="form-control" name="longDescription" id="field_longDescription"
+                              formControlName="longDescription"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.shortDescription" for="field_shortDescription">Short Description</label>
+                    <textarea class="form-control" name="shortDescription" id="field_shortDescription"
+                              formControlName="shortDescription"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.whatInTheBox" for="field_whatInTheBox">What In The Box</label>
+                    <textarea class="form-control" name="whatInTheBox" id="field_whatInTheBox"
+                              formControlName="whatInTheBox"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.careInstructions" for="field_careInstructions">Care Instructions</label>
+                    <textarea class="form-control" name="careInstructions" id="field_careInstructions"
+                              formControlName="careInstructions"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.productType" for="field_productType">Product Type</label>
+                    <input type="text" class="form-control" name="productType" id="field_productType"
+                           formControlName="productType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.modelName" for="field_modelName">Model Name</label>
+                    <input type="text" class="form-control" name="modelName" id="field_modelName"
+                           formControlName="modelName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.modelNumber" for="field_modelNumber">Model Number</label>
+                    <input type="text" class="form-control" name="modelNumber" id="field_modelNumber"
+                           formControlName="modelNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.fabricType" for="field_fabricType">Fabric Type</label>
+                    <input type="text" class="form-control" name="fabricType" id="field_fabricType"
+                           formControlName="fabricType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.specialFeatures" for="field_specialFeatures">Special Features</label>
+                    <textarea class="form-control" name="specialFeatures" id="field_specialFeatures"
+                              formControlName="specialFeatures"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.productComplianceCertificate" for="field_productComplianceCertificate">Product Compliance Certificate</label>
+                    <input type="text" class="form-control" name="productComplianceCertificate" id="field_productComplianceCertificate"
+                           formControlName="productComplianceCertificate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.genuineAndLegal" for="field_genuineAndLegal">Genuine And Legal</label>
+                    <input type="checkbox" class="form-control" name="genuineAndLegal" id="field_genuineAndLegal"
+                           formControlName="genuineAndLegal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.countryOfOrigin" for="field_countryOfOrigin">Country Of Origin</label>
+                    <input type="text" class="form-control" name="countryOfOrigin" id="field_countryOfOrigin"
+                           formControlName="countryOfOrigin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.usageAndSideEffects" for="field_usageAndSideEffects">Usage And Side Effects</label>
+                    <textarea class="form-control" name="usageAndSideEffects" id="field_usageAndSideEffects"
+                              formControlName="usageAndSideEffects"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.safetyWarnning" for="field_safetyWarnning">Safety Warnning</label>
+                    <textarea class="form-control" name="safetyWarnning" id="field_safetyWarnning"
+                              formControlName="safetyWarnning"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.warrantyPeriod" for="field_warrantyPeriod">Warranty Period</label>
+                    <input type="text" class="form-control" name="warrantyPeriod" id="field_warrantyPeriod"
+                           formControlName="warrantyPeriod"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.warrantyPolicy" for="field_warrantyPolicy">Warranty Policy</label>
+                    <input type="text" class="form-control" name="warrantyPolicy" id="field_warrantyPolicy"
+                           formControlName="warrantyPolicy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.dangerousGoods" for="field_dangerousGoods">Dangerous Goods</label>
+                    <input type="text" class="form-control" name="dangerousGoods" id="field_dangerousGoods"
+                           formControlName="dangerousGoods"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.lastEditedBy" for="field_lastEditedBy">Last Edited By</label>
+                    <input type="text" class="form-control" name="lastEditedBy" id="field_lastEditedBy"
+                           formControlName="lastEditedBy"/>
+                    <div *ngIf="editForm.get('lastEditedBy')!.invalid && (editForm.get('lastEditedBy')!.dirty || editForm.get('lastEditedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.lastEditedWhen" for="field_lastEditedWhen">Last Edited When</label>
+                    <div class="d-flex">
+                        <input id="field_lastEditedWhen" type="datetime-local" class="form-control" name="lastEditedWhen" formControlName="lastEditedWhen" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('lastEditedWhen')!.invalid && (editForm.get('lastEditedWhen')!.dirty || editForm.get('lastEditedWhen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastEditedWhen')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lastEditedWhen')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.warrantyType" for="field_warrantyType">Warranty Type</label>
+                    <select class="form-control" id="field_warrantyType" name="warrantyType" formControlName="warrantyTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="warrantyTypesOption.id" *ngFor="let warrantyTypesOption of warrantytypes; trackBy: trackById">{{ warrantyTypesOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.vscommerceProductDocument.culture" for="field_culture">Culture</label>
+                    <select class="form-control" id="field_culture" name="culture" formControlName="cultureId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cultureOption.id" *ngFor="let cultureOption of cultures; trackBy: trackById">{{ cultureOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

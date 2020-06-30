@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "zezawarCustomerPaymentVoucher": {
+      "home": {
+        "title": "Customer Payment Vouchers",
+        "createLabel": "Create a new Customer Payment Voucher",
+        "createOrEditLabel": "Create or edit a Customer Payment Voucher",
+        "notFound": "No Customer Payment Vouchers found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Customer Payment Voucher {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer Payment Voucher"
+      },
+      "serialNo": "Serial No",
+      "amount": "Amount",
+      "lastEdityBy": "Last Edity By",
+      "lastEditedWhen": "Last Edited When",
+      "customerPayment": "Customer Payment",
+      "currency": "Currency"
+    }
+  },
+  "zezawarApp": {
+    "zezawarCustomerPaymentVoucher": {
+      "created": "A new Customer Payment Voucher is created with identifier {{ param }}",
+      "updated": "A Customer Payment Voucher is updated with identifier {{ param }}",
+      "deleted": "A Customer Payment Voucher is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "vscommerceZone": {
+      "home": {
+        "title": "Zones",
+        "createLabel": "Zone အသစ်ထည့်မည်",
+        "createOrEditLabel": "Zone အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Zones found"
+      },
+      "delete": {
+        "question": "Zone {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Zone"
+      },
+      "code": "Code",
+      "name": "Name",
+      "validFrom": "Valid From",
+      "validTo": "Valid To",
+      "city": "City"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceZone": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Zone အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Zone တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Zone တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

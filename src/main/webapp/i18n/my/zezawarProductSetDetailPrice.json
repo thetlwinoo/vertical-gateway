@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "zezawarProductSetDetailPrice": {
+      "home": {
+        "title": "Product Set Detail Prices",
+        "createLabel": "Product Set Detail Price အသစ်ထည့်မည်",
+        "createOrEditLabel": "Product Set Detail Price အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Product Set Detail Prices found"
+      },
+      "delete": {
+        "question": "Product Set Detail Price {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Product Set Detail Price"
+      },
+      "price": "Price",
+      "startCount": "Start Count",
+      "endCount": "End Count",
+      "multiplyCount": "Multiply Count",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "modifiedDate": "Modified Date",
+      "productSetDetail": "Product Set Detail"
+    }
+  },
+  "zezawarApp": {
+    "zezawarProductSetDetailPrice": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Product Set Detail Price အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Product Set Detail Price တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Product Set Detail Price တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

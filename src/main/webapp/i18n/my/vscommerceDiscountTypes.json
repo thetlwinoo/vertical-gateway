@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "vscommerceDiscountTypes": {
+      "home": {
+        "title": "Discount Types",
+        "createLabel": "Discount Types အသစ်ထည့်မည်",
+        "createOrEditLabel": "Discount Types အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း",
+        "notFound": "No Discount Types found"
+      },
+      "delete": {
+        "question": "Discount Types {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+      },
+      "detail": {
+        "title": "Discount Types"
+      },
+      "name": "Name",
+      "modifiedDate": "Modified Date"
+    }
+  },
+  "vscommerceApp": {
+    "vscommerceDiscountTypes": {
+      "created": "{{ param }} အိုင်ဒီဖြင့် Discount Types အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+      "updated": "{{ param }} အိုင်ဒီဖြင့် Discount Types တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+      "deleted": "{{ param }} အိုင်ဒီဖြင့် Discount Types တစ်ခုအား ဖျက်ပြီးပါပြီ။"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "zezawarOrderTracking": {
+      "home": {
+        "title": "Order Trackings",
+        "createLabel": "Create a new Order Tracking",
+        "createOrEditLabel": "Create or edit a Order Tracking",
+        "notFound": "No Order Trackings found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Order Tracking {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Tracking"
+      },
+      "carrierTrackingNumber": "Carrier Tracking Number",
+      "eventDetails": "Event Details",
+      "eventDate": "Event Date",
+      "order": "Order",
+      "trackingEvent": "Tracking Event"
+    }
+  },
+  "zezawarApp": {
+    "zezawarOrderTracking": {
+      "created": "A new Order Tracking is created with identifier {{ param }}",
+      "updated": "A Order Tracking is updated with identifier {{ param }}",
+      "deleted": "A Order Tracking is deleted with identifier {{ param }}"
+    }
+  }
+}

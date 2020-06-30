@@ -1,0 +1,98 @@
+{
+  "name": "DiscountDetails",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isPercentage",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isAllowCombinationDiscount",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isFinalBillDiscount",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "startCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "endCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "multiplyCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "minAmount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "maxAmount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "minVolumeWeight",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxVolumeWeight",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "discount",
+      "otherEntityRelationshipName": "discountDetails",
+      "relationshipName": "discount",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "stockItems",
+      "otherEntityRelationshipName": "discountDetails",
+      "relationshipName": "stockItem",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productCategory",
+      "otherEntityRelationshipName": "discountDetails",
+      "relationshipName": "productCategory",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20200617162604",
+  "entityTableName": "discount_details",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

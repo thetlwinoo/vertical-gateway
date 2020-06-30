@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productBrand">
+            <h2><span jhiTranslate="gatewayApp.vscommerceProductBrand.detail.title">Product Brand</span> {{ productBrand.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductBrand.name">Name</span></dt>
+                <dd>
+                    <span>{{ productBrand.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductBrand.shortLabel">Short Label</span></dt>
+                <dd>
+                    <span>{{ productBrand.shortLabel }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductBrand.sortOrder">Sort Order</span></dt>
+                <dd>
+                    <span>{{ productBrand.sortOrder }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductBrand.iconFont">Icon Font</span></dt>
+                <dd>
+                    <span>{{ productBrand.iconFont }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductBrand.thumbnailUrl">Thumbnail Url</span></dt>
+                <dd>
+                    <span>{{ productBrand.thumbnailUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductBrand.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="productBrand.supplierId">
+                        <a [routerLink]="['/suppliers', productBrand.supplierId, 'view']">{{ productBrand.supplierName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceProductBrand.icon">Icon</span></dt>
+                <dd>
+                    <div *ngIf="productBrand.iconId">
+                        <a [routerLink]="['/photos', productBrand.iconId, 'view']">{{ productBrand.iconThumbnailUrl }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-brand', productBrand.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

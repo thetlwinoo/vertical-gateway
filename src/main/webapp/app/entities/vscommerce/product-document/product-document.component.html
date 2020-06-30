@@ -1,0 +1,113 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.vscommerceProductDocument.home.title">Product Documents</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product-document" [routerLink]="['/product-document/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.vscommerceProductDocument.home.createLabel">
+            Create a new Product Document
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productDocuments?.length === 0">
+        <span jhiTranslate="gatewayApp.vscommerceProductDocument.home.notFound">No productDocuments found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productDocuments && productDocuments.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.videoUrl">Video Url</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.highlights">Highlights</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.longDescription">Long Description</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.shortDescription">Short Description</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.whatInTheBox">What In The Box</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.careInstructions">Care Instructions</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.productType">Product Type</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.modelName">Model Name</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.modelNumber">Model Number</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.fabricType">Fabric Type</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.specialFeatures">Special Features</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.productComplianceCertificate">Product Compliance Certificate</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.genuineAndLegal">Genuine And Legal</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.countryOfOrigin">Country Of Origin</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.usageAndSideEffects">Usage And Side Effects</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.safetyWarnning">Safety Warnning</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.warrantyPeriod">Warranty Period</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.warrantyPolicy">Warranty Policy</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.dangerousGoods">Dangerous Goods</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.lastEditedBy">Last Edited By</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.lastEditedWhen">Last Edited When</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.warrantyType">Warranty Type</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.vscommerceProductDocument.culture">Culture</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let productDocument of productDocuments ;trackBy: trackId">
+                    <td><a [routerLink]="['/product-document', productDocument.id, 'view']">{{ productDocument.id }}</a></td>
+                    <td>{{ productDocument.videoUrl }}</td>
+                    <td>{{ productDocument.highlights }}</td>
+                    <td>{{ productDocument.longDescription }}</td>
+                    <td>{{ productDocument.shortDescription }}</td>
+                    <td>{{ productDocument.whatInTheBox }}</td>
+                    <td>{{ productDocument.careInstructions }}</td>
+                    <td>{{ productDocument.productType }}</td>
+                    <td>{{ productDocument.modelName }}</td>
+                    <td>{{ productDocument.modelNumber }}</td>
+                    <td>{{ productDocument.fabricType }}</td>
+                    <td>{{ productDocument.specialFeatures }}</td>
+                    <td>{{ productDocument.productComplianceCertificate }}</td>
+                    <td>{{ productDocument.genuineAndLegal }}</td>
+                    <td>{{ productDocument.countryOfOrigin }}</td>
+                    <td>{{ productDocument.usageAndSideEffects }}</td>
+                    <td>{{ productDocument.safetyWarnning }}</td>
+                    <td>{{ productDocument.warrantyPeriod }}</td>
+                    <td>{{ productDocument.warrantyPolicy }}</td>
+                    <td>{{ productDocument.dangerousGoods }}</td>
+                    <td>{{ productDocument.lastEditedBy }}</td>
+                    <td>{{ productDocument.lastEditedWhen | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="productDocument.warrantyTypeId">
+                            <a [routerLink]="['/warranty-types', productDocument.warrantyTypeId , 'view']" >{{ productDocument.warrantyTypeName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="productDocument.cultureId">
+                            <a [routerLink]="['/culture', productDocument.cultureId , 'view']" >{{ productDocument.cultureName }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/product-document', productDocument.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/product-document', productDocument.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productDocument)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="people">
+            <h2><span jhiTranslate="gatewayApp.vscommercePeople.detail.title">People</span> {{ people.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.fullName">Full Name</span></dt>
+                <dd>
+                    <span>{{ people.fullName }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.preferredName">Preferred Name</span></dt>
+                <dd>
+                    <span>{{ people.preferredName }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.searchName">Search Name</span></dt>
+                <dd>
+                    <span>{{ people.searchName }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewayApp.Gender.' + people.gender }}">{{ people.gender }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.dateOfBirth">Date Of Birth</span></dt>
+                <dd>
+                    <span>{{ people.dateOfBirth }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.isPermittedToLogon">Is Permitted To Logon</span></dt>
+                <dd>
+                    <span>{{ people.isPermittedToLogon }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.logonName">Logon Name</span></dt>
+                <dd>
+                    <span>{{ people.logonName }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.isExternalLogonProvider">Is External Logon Provider</span></dt>
+                <dd>
+                    <span>{{ people.isExternalLogonProvider }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.isSystemUser">Is System User</span></dt>
+                <dd>
+                    <span>{{ people.isSystemUser }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.isEmployee">Is Employee</span></dt>
+                <dd>
+                    <span>{{ people.isEmployee }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.isSalesPerson">Is Sales Person</span></dt>
+                <dd>
+                    <span>{{ people.isSalesPerson }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.isGuestUser">Is Guest User</span></dt>
+                <dd>
+                    <span>{{ people.isGuestUser }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.emailPromotion">Email Promotion</span></dt>
+                <dd>
+                    <span>{{ people.emailPromotion }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.userPreferences">User Preferences</span></dt>
+                <dd>
+                    <span>{{ people.userPreferences }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{ people.phoneNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.emailAddress">Email Address</span></dt>
+                <dd>
+                    <span>{{ people.emailAddress }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.customFields">Custom Fields</span></dt>
+                <dd>
+                    <span>{{ people.customFields }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.otherLanguages">Other Languages</span></dt>
+                <dd>
+                    <span>{{ people.otherLanguages }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.userId">User Id</span></dt>
+                <dd>
+                    <span>{{ people.userId }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.validFrom">Valid From</span></dt>
+                <dd>
+                    <span>{{ people.validFrom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.validTo">Valid To</span></dt>
+                <dd>
+                    <span>{{ people.validTo }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommercePeople.profile">Profile</span></dt>
+                <dd>
+                    <div *ngIf="people.profileId">
+                        <a [routerLink]="['/photos', people.profileId, 'view']">{{ people.profileThumbnailUrl }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/people', people.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

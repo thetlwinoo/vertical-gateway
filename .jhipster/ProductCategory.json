@@ -1,0 +1,62 @@
+{
+  "name": "ProductCategory",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "shortLabel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sortOrder",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "iconFont",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "justForYouInd",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "showInNavInd",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "activeInd",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productCategory",
+      "otherEntityRelationshipName": "productCategory",
+      "relationshipName": "parent",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "photos",
+      "otherEntityRelationshipName": "productCategory",
+      "relationshipName": "icon",
+      "otherEntityField": "thumbnailUrl"
+    }
+  ],
+  "changelogDate": "20200617164804",
+  "entityTableName": "product_category",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "vscommerce",
+  "applications": "*",
+  "microserviceName": "vscommerce"
+}

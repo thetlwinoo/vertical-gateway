@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="logistics">
+            <h2><span jhiTranslate="gatewayApp.vscommerceLogistics.detail.title">Logistics</span> {{ logistics.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.vscommerceLogistics.name">Name</span></dt>
+                <dd>
+                    <span>{{ logistics.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceLogistics.activeInd">Active Ind</span></dt>
+                <dd>
+                    <span>{{ logistics.activeInd }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceLogistics.lastEditedBy">Last Edited By</span></dt>
+                <dd>
+                    <span>{{ logistics.lastEditedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.vscommerceLogistics.lastEditedWhen">Last Edited When</span></dt>
+                <dd>
+                    <span>{{ logistics.lastEditedWhen }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/logistics', logistics.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
